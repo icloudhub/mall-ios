@@ -1,0 +1,6 @@
+framework module Pods_LifeBoxTests {
+  umbrella header "Pods-LifeBoxTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,41 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'LifeBox' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+   use_frameworks!
+   
+   #加载框
+   pod 'MBProgressHUD', '~> 1.1.0'
+   
+   #网络请求
+   pod 'AFNetworking'
+   
+   #键盘控制库
+   pod 'IQKeyboardManager'
+   
+   #网络图片请求
+   pod 'SDWebImage'
+   
+   #网络监听
+   pod 'Reachability'
+   
+   #轮播
+   pod 'SDCycleScrollView'
+   
+   #适配
+   pod 'Masonry'
+
+  # Pods for LifeBox
+
+  target 'LifeBoxTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'LifeBoxUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
