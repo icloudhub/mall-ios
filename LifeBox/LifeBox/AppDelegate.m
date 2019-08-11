@@ -12,6 +12,9 @@
 #import "UIApplication+Initialize.h"
 #import "Reachability.h"
 
+#ifdef DEBUG
+#import "UIApplication+DORConfig.h"
+#endif
 @interface AppDelegate ()
 
 @end
@@ -20,6 +23,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [[UIApplication sharedApplication]configlog];
     // 启动图片延时: 1秒
     [NSThread sleepForTimeInterval:1];
     /*
@@ -57,6 +61,9 @@
 //        [UIApplication markWindownRootVC];
 //    }
     [UIApplication markWindownRootVC];
+    #ifdef DEBUG
+        [[UIApplication sharedApplication] configDor];
+    #endif
     return YES;
 }
 

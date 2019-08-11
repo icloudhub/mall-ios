@@ -12,11 +12,11 @@
 /*
  * 头文件引用
  */
-#import "GlobalDefine.h"
+
 #import "RTRootNavigationController.h"
-#import "Global_Variable.h"
 #import "GenException.h"
 #import "Masonry.h"
 #import "NetWorkRequest+Business.h"
+#import "Magic.h"
 
 #endif /* LifeBoxHeader_pch */

@@ -25,6 +25,17 @@ target 'LifeBox' do
    
    #适配
    pod 'Masonry'
+   
+   #日志
+   pod 'CocoaLumberjack'
+   
+   #哆啦A梦测试盒
+   pod 'DoraemonKit/Core', :configurations => ['Debug']
+   pod 'DoraemonKit/WithLogger',  :configurations => ['Debug']
+   pod 'DoraemonKit/WithGPS',  :configurations => ['Debug']
+   pod 'DoraemonKit/WithLoad',  :configurations => ['Debug']
+   pod 'DoraemonKit/WithWeex',  :configurations => ['Debug']
+   pod 'DoraemonKit/WithDatabase',  :configurations => ['Debug'] 
 
   # Pods for LifeBox
 
