@@ -86,13 +86,13 @@ static AFHTTPSessionManager *afManager = nil;
     else if (_requestType == GET) {
         [self getHttpRequestParams:params requestBegin:_beginBlock Finish:_finishBlock];
     }else{
-        DEBUGLog(@"⚠️网络请求方式缺失⚠️");
+        DDLogVerbose(@"⚠️网络请求方式缺失⚠️");
     }
 }
 
 #pragma mark - POST请求
 - (void)postHttpRequestPparams:(nullable NSDictionary *)params requestBegin:(BeginBlock)beginBlock Finish:(FinishBlock)finishBlock {
-    DEBUGLog(@"\n ******Post请求头:****** \n %@", afManager.requestSerializer.HTTPRequestHeaders);
+    DDLogVerbose(@"\n ******Post请求头:****** \n %@", afManager.requestSerializer.HTTPRequestHeaders);
     /*
      * 判断请求路径和IP是否为空不为空则开始请求
      */
@@ -105,12 +105,12 @@ static AFHTTPSessionManager *afManager = nil;
     }
     NSString *tempUrl = [NSString stringWithFormat:@"%@:%@/", serviceIp, port];
     if ((_requstLocation == nil || [_requstLocation isEqualToString:@""]) || (tempUrl == nil || [tempUrl isEqualToString:@""])) {
-        DEBUGLog(@"⚠️POST接口路径或IP不存在⚠️");
+        DDLogVerbose(@"⚠️POST接口路径或IP不存在⚠️");
     }else{
         if (beginBlock == nil || finishBlock == nil) {
-            DEBUGLog(@"⚠️POST回调不存在⚠️");
+            DDLogVerbose(@"⚠️POST回调不存在⚠️");
         }else{
-            DEBUGLog(@"\n ******POST接口请求****** \n✨请求路径: %@ \n✨请求接口名: %@ \n✨请求参数: %@ \n******请求END******\n", serviceIp, _requstLocation, params);
+            DDLogVerbose(@"\n ******POST接口请求****** \n✨请求路径: %@ \n✨请求接口名: %@ \n✨请求参数: %@ \n******请求END******\n", serviceIp, _requstLocation, params);
             /*
              * 开始请求
              */
@@ -127,20 +127,21 @@ static AFHTTPSessionManager *afManager = nil;
                     NSString *resmsg = responseObject[@"resmsg"];
                     if (code != 200) {
                         dispatch_main_async_safe(^{
-                            Warning(resmsg);
+//                            Warning(resmsg);
+                            [UIView ug_msg:resmsg];
                         });
                     }
                     /*
                      * 解析请求到数据
                      */
                     NSDictionary *dic = responseObject[@"data"];
-                    DEBUGLog(@"\n ******请求到的数据****** \n %@", dic);
+                    DDLogVerbose(@"\n ******请求到的数据****** \n %@", dic);
                     self.finishBlock(dic, code, self->_requstLocation, nil);
                 }else{
-                    DEBUGLog(@"❗️接口未返回数据❗️");
+                    DDLogVerbose(@"❗️接口未返回数据❗️");
                 }
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                DEBUGLog(@"\n❗️请求出错❗️\nErrorCode: %ld ErrorText:%@", (long)error.code, error.localizedDescription);
+                DDLogVerbose(@"\n❗️请求出错❗️\nErrorCode: %ld ErrorText:%@", (long)error.code, error.localizedDescription);
                 self.finishBlock(nil, 0, self->_requstLocation, error);
             }];
         }
@@ -149,7 +150,7 @@ static AFHTTPSessionManager *afManager = nil;
 
 #pragma mark - Get请求
 - (void)getHttpRequestParams:(nullable NSDictionary *)params requestBegin:(BeginBlock)beginBlock Finish:(FinishBlock)finishBlock {
-    DEBUGLog(@"\n ******Get请求头:****** \n %@", afManager.requestSerializer.HTTPRequestHeaders);
+    DDLogVerbose(@"\n ******Get请求头:****** \n %@", afManager.requestSerializer.HTTPRequestHeaders);
     /*
      * 判断请求路径和IP是否为空不为空则开始请求
      */
@@ -162,12 +163,12 @@ static AFHTTPSessionManager *afManager = nil;
     }
     NSString *tempUrl = [NSString stringWithFormat:@"%@:%@/", serviceIp, port];
     if ((_requstLocation == nil || [_requstLocation isEqualToString:@""]) || (tempUrl == nil || [tempUrl isEqualToString:@""])) {
-        DEBUGLog(@"⚠️GET接口路径或IP不存在⚠️");
+        DDLogVerbose(@"⚠️GET接口路径或IP不存在⚠️");
     }else{
         if (beginBlock == nil || finishBlock == nil) {
-            DEBUGLog(@"⚠️GET回调不存在⚠️");
+            DDLogVerbose(@"⚠️GET回调不存在⚠️");
         }else{
-            DEBUGLog(@"\n ******GET接口请求****** \n✨请求路径: %@ \n✨请求接口名: %@ \n✨请求参数: %@ \n******请求END******\n", serviceIp, _requstLocation, params);
+            DDLogVerbose(@"\n ******GET接口请求****** \n✨请求路径: %@ \n✨请求接口名: %@ \n✨请求参数: %@ \n******请求END******\n", serviceIp, _requstLocation, params);
             /*
              * 开始请求
              */
@@ -183,21 +184,19 @@ static AFHTTPSessionManager *afManager = nil;
                     NSInteger code = [responseObject[@"code"] integerValue];
                     NSString *resmsg = responseObject[@"message"];
                     if (code != 200) {
-                        dispatch_main_async_safe(^{
-                            Warning(resmsg);
-                        });
+                        [UIView ug_msg:resmsg];
                     }
                     /*
                      * 解析请求到数据
                      */
                     NSDictionary *dic = responseObject[@"data"];
-                    DEBUGLog(@"\n ******请求到的数据****** \n %@", dic);
+                    DDLogVerbose(@"\n ******请求到的数据****** \n %@", dic);
                     self.finishBlock(dic, code, self->_requstLocation, nil);
                 }else{
-                    DEBUGLog(@"❗️接口未返回数据❗️");
+                    DDLogVerbose(@"❗️接口未返回数据❗️");
                 }
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                DEBUGLog(@"\n❗️请求出错❗️\nErrorCode: %ld ErrorText:%@", (long)error.code, error.localizedDescription);
+                DDLogVerbose(@"\n❗️请求出错❗️\nErrorCode: %ld ErrorText:%@", (long)error.code, error.localizedDescription);
                 self.finishBlock(nil, 0, self->_requstLocation, error);
             }];
         }

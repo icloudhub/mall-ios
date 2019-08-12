@@ -9,23 +9,6 @@
 #ifndef GlobalDefine_h
 #define GlobalDefine_h
 
-#pragma mark - 日志输出
-/*
- * 日志输出
- */
-#ifdef DEBUG
-#define DEBUGLog(FORMAT, ...) NSLog((FORMAT), ##__VA_ARGS__);
-#else
-#define DEBUGLog(FORMAT, ...) nil
-#endif
-
-#pragma mark - 气泡弹框
-/*
- * 气泡弹框
- */
-#define Warning(msg) \
-GenException *ex = [GenException exceptionViewAllocWithTitle:msg warningType:WARNING showView:nil];\
-[ex showExceptionView];
 
 #pragma mark - 同步安全线程
 /*

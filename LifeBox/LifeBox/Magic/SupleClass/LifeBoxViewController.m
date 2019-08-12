@@ -22,7 +22,7 @@
      * 获取当前类名
      */
     NSString *className = NSStringFromClass([self class]);
-    DEBUGLog(@"\n🏷当前业务类名: %@🏷", className);
+    DDLogVerbose(@"\n🏷当前业务类名: %@🏷", className);
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

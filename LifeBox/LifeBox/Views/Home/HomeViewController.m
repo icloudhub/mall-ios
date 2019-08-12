@@ -12,7 +12,7 @@
 
 #pragma mark - 视图层
 - (void)viewDidLoad {
-    
+    [UIView ug_msg:@"window弹框测试"];
 }
 
 @end

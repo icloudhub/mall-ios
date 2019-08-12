@@ -9,15 +9,27 @@
 #import "UIApplication+DORConfig.h"
 #ifdef DEBUG
 #import <DoraemonKit/DoraemonManager.h>
-#endif
+#import <DoraemonKit/DoraemonUtil.h>
 
 @implementation UIApplication (DORConfig)
 
-#ifdef DEBUG
 -(void)configDor{
-
     [[DoraemonManager shareInstance] install];
-
+    [[DoraemonManager shareInstance] addPluginWithTitle:@"弹框" icon:@"doraemon_ui" desc:@"弹框" pluginName:@"DorAlert" atModule:@"功能测试"];
 }
-#endif
 @end
+
+#import "DorViewAlertVC.h"
+@implementation DorAlert
+
+- (void)pluginDidLoad{
+    
+    DorViewAlertVC *vc = [[DorViewAlertVC alloc] init];
+    [DoraemonUtil openPlugin:vc];
+    
+}
+
+@end
+
+
+#endif

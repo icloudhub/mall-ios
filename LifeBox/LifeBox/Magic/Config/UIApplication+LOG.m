@@ -8,11 +8,7 @@
 
 #import "UIApplication+LOG.h"
 
-#ifdef DEBUG
-static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
-#else
-static const DDLogLevel ddLogLevel = DDLogLevelWarning;
-#endif
+
 
 @implementation UIApplication (LOG)
 
@@ -23,6 +19,9 @@ static const DDLogLevel ddLogLevel = DDLogLevelWarning;
     fileLogger.rollingFrequency = 60 * 60 * 24; // 24 hour rolling
     fileLogger.logFileManager.maximumNumberOfLogFiles = 7;
     [DDLog addLogger:fileLogger withLevel:ddLogLevel];
+    
+    DDLogVerbose(@"日志初始化成功");
+    
     
 }
 @end

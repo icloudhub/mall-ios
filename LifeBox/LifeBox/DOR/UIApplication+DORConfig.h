@@ -7,13 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#ifdef DEBUG
+#import <DoraemonKit/DoraemonPluginProtocol.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UIApplication (DORConfig)
-#ifdef DEBUG
+
 -(void)configDor;
-#endif
+
+@end
+
+
+
+@interface DorAlert : NSObject<DoraemonPluginProtocol>
 @end
 
 NS_ASSUME_NONNULL_END
+#endif

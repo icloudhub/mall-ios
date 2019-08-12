@@ -14,9 +14,10 @@
  */
 
 #import "RTRootNavigationController.h"
-#import "GenException.h"
 #import "Masonry.h"
 #import "NetWorkRequest+Business.h"
 #import "Magic.h"
+#import "Category.h"
+
 
 #endif /* LifeBoxHeader_pch */
