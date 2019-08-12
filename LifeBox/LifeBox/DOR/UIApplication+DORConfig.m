@@ -14,11 +14,19 @@
 @implementation UIApplication (DORConfig)
 
 -(void)configDor{
+   
+
     [[DoraemonManager shareInstance] install];
+    //接口测试
     [[DoraemonManager shareInstance] addPluginWithTitle:@"弹框" icon:@"doraemon_ui" desc:@"弹框" pluginName:@"DorAlert" atModule:@"功能测试"];
+    //接口测试
+    [[DoraemonManager shareInstance] addPluginWithTitle:@"接口测试" icon:@"doraemon_ui" desc:@"接口测试" pluginName:@"DorSwagger" atModule:@"接口测试"];
+    [[DoraemonManager shareInstance] addPluginWithTitle:@"搜索接口测试" icon:@"doraemon_ui" desc:@"搜索接口测试" pluginName:@"DorSearchSwagger" atModule:@"接口测试"];
+
 }
 @end
 
+//弹框测试
 #import "DorViewAlertVC.h"
 @implementation DorAlert
 
@@ -26,10 +34,31 @@
     
     DorViewAlertVC *vc = [[DorViewAlertVC alloc] init];
     [DoraemonUtil openPlugin:vc];
-    
 }
 
 @end
+#import "DoraemonDefaultWebViewController.h"
+@implementation DorSwagger
+
+- (void)pluginDidLoad{
+  
+    DoraemonDefaultWebViewController *vc = [[DoraemonDefaultWebViewController alloc] init];
+    vc.h5Url = [NSString stringWithFormat:@"%@/swagger-ui.html",BASEURL];
+    [DoraemonUtil openPlugin:vc];
+}
+
+@end
+@implementation DorSearchSwagger
+
+- (void)pluginDidLoad{
+    
+    DoraemonDefaultWebViewController *vc = [[DoraemonDefaultWebViewController alloc] init];
+    vc.h5Url = [NSString stringWithFormat:@"%@/swagger-ui.html",SEARCHURL];
+    [DoraemonUtil openPlugin:vc];
+}
+
+@end
+
 
 
 #endif

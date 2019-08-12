@@ -10,12 +10,9 @@
 
 @implementation NetWorkRequest (Business)
 
-- (void)getHomeInfoHttpBeginBlock:(BeginBlock)beginBlock FinishBlock:(FinishBlock)finishBlock {
-    self.requestType = GET;
-    self.requstLocation = @"home/content";
-    self.beginBlock = beginBlock;
-    self.finishBlock = finishBlock;
-    [self requestHttpWithParams:nil];
+- (void)getHomeInfoendblock:(void(^)(NSDictionary *result, NSError *error))endblock{
+    NSString *url = [NSString stringWithFormat:@"%@/home/content",BASEURL];
+    [self get:url param:nil head:nil endblock:endblock];
 }
 
 @end

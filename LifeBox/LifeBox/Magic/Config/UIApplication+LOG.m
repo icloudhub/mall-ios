@@ -21,7 +21,10 @@
     [DDLog addLogger:fileLogger withLevel:ddLogLevel];
     
     DDLogVerbose(@"日志初始化成功");
-    
+    DDLogDebug(@"Debug");
+    DDLogInfo(@"Info");
+    DDLogWarn(@"Warn");
+    DDLogError(@"Error");
     
 }
 @end

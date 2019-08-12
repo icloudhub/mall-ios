@@ -23,5 +23,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface DorAlert : NSObject<DoraemonPluginProtocol>
 @end
 
+@interface DorSwagger : NSObject<DoraemonPluginProtocol>
+@end
+@interface DorSearchSwagger : NSObject<DoraemonPluginProtocol>
+@end
+
 NS_ASSUME_NONNULL_END
 #endif

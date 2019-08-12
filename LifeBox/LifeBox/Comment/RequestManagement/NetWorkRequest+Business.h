@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NetWorkRequest (Business)
 
-- (void)getHomeInfoHttpBeginBlock:(BeginBlock)beginBlock FinishBlock:(FinishBlock)finishBlock;
+- (void)getHomeInfoendblock:(void(^)(NSDictionary *result, NSError *error))endblock;
 
 @end
 

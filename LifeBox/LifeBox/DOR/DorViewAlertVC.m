@@ -59,6 +59,16 @@
             case 1:
                 [weakSelf.view ug_msg:@"测试：msg(UIView)"];
                 break;
+            case 2:{
+                [[[NetWorkRequest alloc]init] getHomeInfoendblock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
+                    if (error) {
+                        [UIView ug_msg:error.domain];
+                    }else{
+                        [UIView ug_msg:@"成功"];
+                    }
+                }];
+            }
+                break;
                 
             default:
                 break;
