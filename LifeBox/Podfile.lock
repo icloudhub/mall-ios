@@ -44,37 +44,25 @@ PODS:
     - DoraemonKit/Core
     - fishhook
     - PNChart
-  - DoraemonKit/WithWeex (1.2.1):
-    - BSBacktraceLogger
-    - DoraemonKit/Core
-    - fishhook
-    - PNChart
-    - WeexSDK
-    - WXDevtool
   - fishhook (0.2)
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
-  - GCDWebServer (3.5.3):
-    - GCDWebServer/Core (= 3.5.3)
-  - GCDWebServer/Core (3.5.3)
-  - IQKeyboardManager (6.2.0)
+  - GCDWebServer (3.5.2):
+    - GCDWebServer/Core (= 3.5.2)
+  - GCDWebServer/Core (3.5.2)
+  - IQKeyboardManager (6.4.0)
   - Masonry (1.1.0)
   - MBProgressHUD (1.1.0)
   - PNChart (0.8.9):
     - UICountingLabel (~> 1.2.0)
   - Reachability (3.2)
-  - SDCycleScrollView (1.75):
-    - SDWebImage (>= 4.0.0)
-  - SDWebImage (4.4.4):
-    - SDWebImage/Core (= 4.4.4)
-  - SDWebImage/Core (4.4.4)
-  - SocketRocket (0.5.1)
+  - SDCycleScrollView (1.80):
+    - SDWebImage (>= 5.0.0)
+  - SDWebImage (5.0.6):
+    - SDWebImage/Core (= 5.0.6)
+  - SDWebImage/Core (5.0.6)
   - UICountingLabel (1.2.0)
-  - WeexSDK (0.26.0)
-  - WXDevtool (0.24.0):
-    - SocketRocket
-    - WeexSDK
   - YYDebugDatabase (2.0.4):
     - FMDB
     - GCDWebServer
@@ -87,7 +75,6 @@ DEPENDENCIES:
   - DoraemonKit/WithGPS
   - DoraemonKit/WithLoad
   - DoraemonKit/WithLogger
-  - DoraemonKit/WithWeex
   - IQKeyboardManager
   - Masonry
   - MBProgressHUD (~> 1.1.0)
@@ -96,26 +83,22 @@ DEPENDENCIES:
   - SDWebImage
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - AFNetworking
-    - IQKeyboardManager
-    - Masonry
-    - MBProgressHUD
-    - Reachability
-    - SDCycleScrollView
-    - SDWebImage
-  trunk:
     - BSBacktraceLogger
     - CocoaLumberjack
     - DoraemonKit
     - fishhook
     - FMDB
     - GCDWebServer
+    - IQKeyboardManager
+    - Masonry
+    - MBProgressHUD
     - PNChart
-    - SocketRocket
+    - Reachability
+    - SDCycleScrollView
+    - SDWebImage
     - UICountingLabel
-    - WeexSDK
-    - WXDevtool
     - YYDebugDatabase
 
 SPEC CHECKSUMS:
@@ -125,20 +108,17 @@ SPEC CHECKSUMS:
   DoraemonKit: 2d0d3bf18a5181f750d5bfead5030403ba3fbb2e
   fishhook: ea19933abfe8f2f52c55fd8b6e2718467d3ebc89
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
-  GCDWebServer: c0ab22c73e1b84f358d1e2f74bf6afd1c60829f2
-  IQKeyboardManager: 6194101620b73af5e67900b8f89707a99de0b804
+  GCDWebServer: ead88cd14596dd4eae4f5830b8877c87c8728990
+  IQKeyboardManager: fcef267266379c003181fc3592f6bdb8bf4db839
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   PNChart: 84774d225c2126ded6c93d4dbe6ae98c3a73c2d2
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
-  SDCycleScrollView: 884b88f0266dd4708a0e1934975c69cb971707b1
-  SDWebImage: c00ec18ab25d10e5ffac109b0f78d1b4341c9691
-  SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
+  SDCycleScrollView: b3c9a5ed840c771c4938978174c7c9d9feefeb96
+  SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
   UICountingLabel: 1db4e7d023e1762171eb226d6dff47a7a84f27aa
-  WeexSDK: 55b67d1c411eb28ec1e356f763a335d0ddcc5324
-  WXDevtool: 95b70c73c06fc3299d65bd53ba4b3e0b0087f3cb
   YYDebugDatabase: f67e8bc0913ac3dfff19cded6e115d1854690a3f
 
-PODFILE CHECKSUM: a792242c1935125292aca66a81748971d6ef65f4
+PODFILE CHECKSUM: 88bd6b8611465b6a633646cb597b295c9fd95a92
 
-COCOAPODS: 1.8.0.beta.1
+COCOAPODS: 1.7.4

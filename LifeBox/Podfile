@@ -34,7 +34,7 @@ target 'LifeBox' do
    pod 'DoraemonKit/WithLogger',  :configurations => ['Debug']
    pod 'DoraemonKit/WithGPS',  :configurations => ['Debug']
    pod 'DoraemonKit/WithLoad',  :configurations => ['Debug']
-   pod 'DoraemonKit/WithWeex',  :configurations => ['Debug']
+  # pod 'DoraemonKit/WithWeex',  :configurations => ['Debug']
    pod 'DoraemonKit/WithDatabase',  :configurations => ['Debug'] 
 
   # Pods for LifeBox

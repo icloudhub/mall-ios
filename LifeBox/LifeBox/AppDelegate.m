@@ -43,7 +43,7 @@
     /*
      * 图片请求最大缓存
      */
-    [[SDWebImageManager sharedManager].imageCache setMaxMemoryCost:20480];
+//    [[SDWebImageManager sharedManager].imageCache setMaxMemoryCost:20480];
     /*
      * 开启网络状况的监听
      */
