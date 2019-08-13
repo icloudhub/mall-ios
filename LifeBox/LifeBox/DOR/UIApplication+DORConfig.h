@@ -27,6 +27,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 @interface DorSearchSwagger : NSObject<DoraemonPluginProtocol>
 @end
+@interface DorLoginViewController : NSObject<DoraemonPluginProtocol>
+@end
+
 
 NS_ASSUME_NONNULL_END
 #endif

@@ -16,6 +16,10 @@
 #import "RTRootNavigationController.h"
 #import "Masonry.h"
 #import "NetWorkRequest+Business.h"
+#import "YYModel.h"
+#import <BlocksKit/BlocksKit.h>
+#import <BlocksKit/BlocksKit+UIKit.h>
+
 #import "Magic.h"
 #import "Category.h"
 

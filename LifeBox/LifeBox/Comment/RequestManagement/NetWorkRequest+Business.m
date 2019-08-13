@@ -11,6 +11,7 @@
 @implementation NetWorkRequest (Business)
 
 - (void)getHomeInfoendblock:(void(^)(NSDictionary *result, NSError *error))endblock{
+    
     NSString *url = [NSString stringWithFormat:@"%@/home/content",BASEURL];
     [self get:url param:nil head:nil endblock:endblock];
 }

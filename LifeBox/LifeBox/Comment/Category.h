@@ -11,4 +11,6 @@
 
 #import "UIView+Alert.h"
 
+#import "UIColor+UG.h"
+
 #endif /* Category_h */

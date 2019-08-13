@@ -18,7 +18,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 
-
+typedef void(^NREndBlock)(NSDictionary *_Nullable dataDict,  NSError *_Nullable error);
 
 
 @interface NetWorkRequest : NSObject
@@ -28,9 +28,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (strong, nonatomic) NSString *requstLocation;
 
--(void)post:(NSString*)url param:(NSDictionary *)param head:(NSDictionary *)head endblock:(void(^)(NSDictionary *result, NSError *error))block;
+-(void)post:(NSString*)url param:(NSDictionary * _Nullable )param head:(NSDictionary *_Nullable )head endblock:(NREndBlock)endblock;
 
--(void)get:(NSString*)url param:(NSDictionary *)param head:(NSDictionary *)head endblock:(void(^)(NSDictionary *result, NSError *error))block;
+-(void)get:(NSString*)url param:(NSDictionary *_Nullable )param head:(NSDictionary *_Nullable )head endblock:(NREndBlock)endblock;
+
 @end
 
 NS_ASSUME_NONNULL_END

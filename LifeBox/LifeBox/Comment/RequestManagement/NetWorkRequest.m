@@ -31,7 +31,7 @@ static AFHTTPSessionManager *afManager = nil;
     }
     return self;
 }
--(void)post:(NSString*)url param:(NSDictionary *)param head:(NSDictionary *)head endblock:(void(^)(NSDictionary *result, NSError *error))endblock{
+-(void)post:(NSString*)url param:(NSDictionary *)param head:(NSDictionary *)head endblock:(NREndBlock)endblock{
     //网络判断
     
     //开始请求
@@ -74,7 +74,7 @@ static AFHTTPSessionManager *afManager = nil;
     
 }
 
--(void)get:(NSString*)url param:(NSDictionary *)param head:(NSDictionary *)head endblock:(void(^)(NSDictionary *result, NSError *error))endblock{
+-(void)get:(NSString*)url param:(NSDictionary *)param head:(NSDictionary *)head endblock:(NREndBlock)endblock{
     
     [afManager GET:url parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         /*

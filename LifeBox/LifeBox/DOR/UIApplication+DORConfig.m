@@ -17,8 +17,10 @@
    
 
     [[DoraemonManager shareInstance] install];
-    //接口测试
+    //功能测试
     [[DoraemonManager shareInstance] addPluginWithTitle:@"弹框" icon:@"doraemon_ui" desc:@"弹框" pluginName:@"DorAlert" atModule:@"功能测试"];
+     [[DoraemonManager shareInstance] addPluginWithTitle:@"登陆" icon:@"doraemon_ui" desc:@"登陆" pluginName:@"DorLoginViewController" atModule:@"功能测试"];
+    
     //接口测试
     [[DoraemonManager shareInstance] addPluginWithTitle:@"接口测试" icon:@"doraemon_ui" desc:@"接口测试" pluginName:@"DorSwagger" atModule:@"接口测试"];
     [[DoraemonManager shareInstance] addPluginWithTitle:@"搜索接口测试" icon:@"doraemon_ui" desc:@"搜索接口测试" pluginName:@"DorSearchSwagger" atModule:@"接口测试"];
@@ -59,6 +61,17 @@
 
 @end
 
+
+#import "LoginViewController.h"
+@implementation DorLoginViewController
+
+- (void)pluginDidLoad{
+    
+    LoginViewController *vc = [[LoginViewController alloc] init];
+    [DoraemonUtil openPlugin:vc];
+}
+
+@end
 
 
 #endif
