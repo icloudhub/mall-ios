@@ -25,6 +25,10 @@ NS_ASSUME_NONNULL_BEGIN
 ///http搜索请求端口
 @property (strong, nonatomic) NSString *searchPort;
 
+@property (readonly) NSString *userid;//用户id
+
+@property (readonly) NSString *token;//用户token
++ (instancetype)shared;
 #pragma mark - 方法 -
 #pragma mark - 获取服务IP地址
 - (NSString *)getSeverIp;
@@ -38,6 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - 获取搜索服务端口
 - (NSString *)getSearchPort;
 
+-(NSString*) uiseid;
 @end
 
 NS_ASSUME_NONNULL_END

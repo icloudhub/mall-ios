@@ -53,7 +53,7 @@ static Global_Variable *sharedInstance = nil;
 
 #pragma mark - 获取服务IP地址
 - (NSString *)getSeverIp{
-    self.serviceIP = @"http://120.77.202.156";  //测试环境
+    self.serviceIP = @"http://192.168.2.174";  //测试环境
     return _serviceIP;
 }
 
@@ -67,6 +67,20 @@ static Global_Variable *sharedInstance = nil;
 - (NSString *)getSearchPort {
     self.searchPort = @"15673";  //测试环境
     return _searchPort;
+}
+-(NSString *)userid{
+    NSDictionary *userinfo = [[NSUserDefaults standardUserDefaults]objectForKey:@"LoginUserInfo"];
+    if (![userinfo objectForKey:@"userinfo"]) {
+        return nil;
+    }
+    return [[userinfo objectForKey:@"userinfo"] objectForKey:@"id"];
+}
+-(NSString *)token{
+    NSDictionary *userinfo = [[NSUserDefaults standardUserDefaults]objectForKey:@"LoginUserInfo"];
+    if (![userinfo objectForKey:@"userinfo"]) {
+        return nil;
+    }
+    return [userinfo objectForKey:@"token"];
 }
 
 @end

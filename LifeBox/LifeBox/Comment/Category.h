@@ -12,5 +12,8 @@
 #import "UIView+Alert.h"
 
 #import "UIColor+UG.h"
+#import "UITextField+UG.h"
+#import "UIView+UG.h"
+#import "NSString+Encode.h"
 
 #endif /* Category_h */

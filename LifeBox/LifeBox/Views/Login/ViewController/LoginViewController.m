@@ -9,10 +9,12 @@
 #import "LoginViewController.h"
 #import "NetWorkRequest+Login.h"
 #import "Userinfo.h"
-
+#import "LoginPWView.h"
 @interface LoginViewController ()
 
 @property(strong, nonatomic) UIButton *loginBtn;
+
+@property(strong, nonatomic) LoginPWView * loginPWView;
 
 @end
 
@@ -24,20 +26,28 @@
 }
 
 -(void)configUI{
+    //登陆输入框
+    self.loginPWView = [LoginPWView new];
+    [self.view addSubview:_loginPWView];
+    
     //登陆按钮
     self.loginBtn = [UIButton new];
     [_loginBtn setBackgroundColor:UIColor.ug_random];
     [_loginBtn setTitle:@"登陆" forState:UIControlStateNormal];
     [self.view addSubview:_loginBtn];
     [_loginBtn bk_addEventHandler:^(id sender) {
-        [[NetWorkRequest new] passlogin:@"test" passwd:@"123456" block:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
+        NSString *username = _loginPWView.usernameView.inputTF.text;
+        NSString *password = _loginPWView.passwordView.inputTF.text;
+        
+        [[NetWorkRequest new] passlogin:username passwd:password block:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
             if (error) {
                 [self.view ug_msg:error.domain];
             }else{
-                NSString *tocker = dataDict[@"token"];
-                Userinfo *userinfo = [Userinfo yy_modelWithJSON:dataDict[@"userinfo"]];
-                DDLogVerbose(@"tocker:%@",tocker);
-                DDLogVerbose(@"userinfo:%@",userinfo);
+               
+                [self.view ug_msg:@"登陆成功"];
+                [[NSUserDefaults standardUserDefaults]setObject:dataDict forKey:@"LoginUserInfo"];
+                [self.view ug_msg:[Global_Variable shared].token];
+               
                 
             }
         }];
@@ -46,11 +56,18 @@
 -(void)viewLayoutMarginsDidChange{
     
     [super viewLayoutMarginsDidChange];
+
     [_loginBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_offset(10);
-        make.right.mas_offset(-10);
-        make.bottom.mas_offset(-50);
-        make.height.mas_offset(44);
+        make.left.mas_equalTo(S_Defmargin);
+        make.right.mas_equalTo(-S_Defmargin);
+        make.top.mas_equalTo(self.view.center.y);
+        make.height.mas_equalTo(44);
+    }];
+    [_loginPWView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(self.view).offset(S_Defmargin);
+        make.right.mas_equalTo(self.view).offset(-S_Defmargin);
+        make.height.mas_equalTo(135);
+        make.bottom.mas_equalTo(self.loginBtn.mas_top).offset(-S_Defmargin);
     }];
     
 }

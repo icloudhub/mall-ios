@@ -32,17 +32,33 @@ static AFHTTPSessionManager *afManager = nil;
     return self;
 }
 -(void)post:(NSString*)url param:(NSDictionary *)param head:(NSDictionary *)head endblock:(NREndBlock)endblock{
+    
+    if ([Global_Variable shared].token) {
+        [afManager.requestSerializer setValue:[Global_Variable shared].token forHTTPHeaderField:@"Authorization"];
+    }
+    NSString *cookie = [[NSUserDefaults standardUserDefaults] objectForKey:@"Set-Cookie"];
+    if (cookie != nil) {
+        [afManager.requestSerializer setValue:cookie forHTTPHeaderField:@"Cookie"];
+    }
     //网络判断
     
     //开始请求
     [afManager POST:url parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSHTTPURLResponse* response = (NSHTTPURLResponse* )task.response;
+        NSDictionary *allHeaderFieldsDic = response.allHeaderFields;
+        NSString *setCookie = allHeaderFieldsDic[@"Set-Cookie"];
+        if (setCookie != nil) {
+            NSString *cookie = [[setCookie componentsSeparatedByString:@";"] objectAtIndex:0];
+            [[NSUserDefaults standardUserDefaults]setObject:cookie forKey:@"Set-Cookie"];
+        }
         if (responseObject) {
             /*
              * 解析请求返回码
              */
             NSInteger code = [responseObject[@"code"] integerValue];
             if (code == 200) {
-                DDLogVerbose(@"url:%@ \nheader:%@ \nparame:%@ \nresult:%@", url, afManager.requestSerializer, param, responseObject);
+                DDLogVerbose(@"{POST}url:%@ \nheader:%@ \nparame:%@ \nresult:%@", url, afManager.requestSerializer, param, responseObject);
                 NSDictionary *dic = responseObject[@"data"];
                 if (endblock) {
                     endblock(dic,nil);
@@ -50,7 +66,7 @@ static AFHTTPSessionManager *afManager = nil;
             }else{
                 
                 NSError *error = [NSError errorWithDomain:responseObject[@"message"] code:[responseObject[@"code"] integerValue] userInfo:responseObject];
-                DDLogWarn(@"❗️url:%@ \nheader:%@ \nparame:%@ \nerror:%@", url, afManager.requestSerializer, param, responseObject);
+                DDLogWarn(@"❗️{POST}url:%@ \nheader:%@ \nparame:%@ \nerror:%@", url, afManager.requestSerializer, param, responseObject);
                 
                 if (endblock) {
                     endblock(nil,error);
@@ -59,14 +75,14 @@ static AFHTTPSessionManager *afManager = nil;
 
         }else{
           
-            DDLogWarn(@"❗️url:%@ \nheader:%@ \nparame:%@ \nerror:%@", url, afManager.requestSerializer, param, @"接口未返回数据");
+            DDLogWarn(@"❗️{POST}url:%@ \nheader:%@ \nparame:%@ \nerror:%@", url, afManager.requestSerializer, param, @"接口未返回数据");
             if (endblock) {
                 endblock(nil,[NSError errorWithDomain:@"接口未返回数据" code:-1 userInfo:nil]);
             }
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
        
-        DDLogWarn(@"❗️url:%@ \nheader:%@ \nparame:%@ \nerror:%@", url, afManager.requestSerializer, param, error);
+        DDLogWarn(@"❗️{POST}url:%@ \nheader:%@ \nparame:%@ \nerror:%@", url, afManager.requestSerializer, param, error);
         if (endblock) {
             endblock(nil,error);
         }
@@ -76,13 +92,28 @@ static AFHTTPSessionManager *afManager = nil;
 
 -(void)get:(NSString*)url param:(NSDictionary *)param head:(NSDictionary *)head endblock:(NREndBlock)endblock{
     
+    if ([Global_Variable shared].token) {
+        [afManager.requestSerializer setValue:[Global_Variable shared].token forHTTPHeaderField:@"Authorization"];
+    }
+    NSString *cookie = [[NSUserDefaults standardUserDefaults] objectForKey:@"Set-Cookie"];
+    if (cookie != nil) {
+        [afManager.requestSerializer setValue:cookie forHTTPHeaderField:@"Cookie"];
+    }
+    
     [afManager GET:url parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSHTTPURLResponse* response = (NSHTTPURLResponse* )task.response;
+        NSDictionary *allHeaderFieldsDic = response.allHeaderFields;
+        NSString *setCookie = allHeaderFieldsDic[@"Set-Cookie"];
+        if (setCookie != nil) {
+            NSString *cookie = [[setCookie componentsSeparatedByString:@";"] objectAtIndex:0];
+            [[NSUserDefaults standardUserDefaults]setObject:cookie forKey:@"Set-Cookie"];
+        }
         /*
          * 解析请求返回码
          */
         NSInteger code = [responseObject[@"code"] integerValue];
         if (code == 200) {
-            DDLogVerbose(@"url:%@ \nheader:%@ \nparame:%@ \nresult:%@", url, afManager.requestSerializer, param, responseObject);
+            DDLogVerbose(@"{GET}url:%@ \nheader:%@ \nparame:%@ \nresult:%@", url, [Global_Variable shared].token, param, responseObject);
             NSDictionary *dic = responseObject[@"data"];
             if (endblock) {
                 endblock(dic,nil);
@@ -90,14 +121,14 @@ static AFHTTPSessionManager *afManager = nil;
         }else{
             
             NSError *error = [NSError errorWithDomain:responseObject[@"message"] code:[responseObject[@"code"] integerValue] userInfo:responseObject];
-            DDLogWarn(@"❗️url:%@ \nheader:%@ \nparame:%@ \nerror:%@", url, afManager.requestSerializer, param, responseObject);
+            DDLogWarn(@"❗️{GET}url:%@ \nheader:%@ \nparame:%@ \nerror:%@", url, [Global_Variable shared].token, param, responseObject);
             
             if (endblock) {
                 endblock(nil,error);
             }
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        DDLogWarn(@"❗️url:%@ \nheader:%@ \nparame:%@ \nerror:%@", url, afManager.requestSerializer, param, error);
+        DDLogWarn(@"❗️{GET}url:%@ \nheader:%@ \nparame:%@ \nerror:%@", url, [Global_Variable shared].token, param, error);
         if (endblock) {
             endblock(nil,[NSError errorWithDomain:@"加载失败" code:error.code userInfo:nil]);
         }

@@ -13,5 +13,6 @@
 #import "LifeBoxViewController.h"
 #import "GlobalDefine.h"
 #import "Global_Variable.h"
+#import "Style.h"
 
 #endif /* Magic_h */
