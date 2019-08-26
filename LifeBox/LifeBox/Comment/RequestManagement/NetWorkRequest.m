@@ -31,6 +31,7 @@ static AFHTTPSessionManager *afManager = nil;
     }
     return self;
 }
+
 -(void)post:(NSString*)url param:(NSDictionary *)param head:(NSDictionary *)head endblock:(NREndBlock)endblock{
     
     if ([Global_Variable shared].token) {

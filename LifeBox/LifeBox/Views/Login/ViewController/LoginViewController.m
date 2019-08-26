@@ -36,8 +36,8 @@
     [_loginBtn setTitle:@"登陆" forState:UIControlStateNormal];
     [self.view addSubview:_loginBtn];
     [_loginBtn bk_addEventHandler:^(id sender) {
-        NSString *username = _loginPWView.usernameView.inputTF.text;
-        NSString *password = _loginPWView.passwordView.inputTF.text;
+        NSString *username = self->_loginPWView.usernameView.inputTF.text;
+        NSString *password = self->_loginPWView.passwordView.inputTF.text;
         
         [[NetWorkRequest new] passlogin:username passwd:password block:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
             if (error) {
