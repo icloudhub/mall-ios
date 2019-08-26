@@ -29,7 +29,6 @@ target 'LifeBox' do
    pod 'YYModel'
    pod 'BlocksKit'
    
-   
    #日志
    pod 'CocoaLumberjack'
    

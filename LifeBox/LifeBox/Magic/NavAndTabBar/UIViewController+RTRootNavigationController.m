@@ -59,7 +59,7 @@
      */
     UIButton *itemButtom = [UIButton  buttonWithType:UIButtonTypeCustom];
     [itemButtom setFrame:CGRectMake(0, 0, 30, 40)];
-    [itemButtom setImage:[UIImage imageNamed:@"left-arrow"] forState:UIControlStateNormal];
+    [itemButtom setImage:[UIImage imageNamed:@"ic_return"] forState:UIControlStateNormal];
     [itemButtom addTarget:self action:@selector(leftBarButtonItemClick) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *button = [[UIBarButtonItem alloc]
                                initWithCustomView:itemButtom];
@@ -86,12 +86,12 @@
 //    self.navigationItem.titleView = backView;
     self.title = titleStr;
     //设置navi的title颜色为黑色
-    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, [UIFont fontWithName:@"Helvetica-Bold" size:18], NSFontAttributeName, nil];
+    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor], NSForegroundColorAttributeName, [UIFont fontWithName:@"Helvetica-Bold" size:18], NSFontAttributeName, nil];
     [self.navigationController.navigationBar setTitleTextAttributes:attributes];
     /*
      * 导航栏背景
      */
-    UIImage *temBackImage = [UIImage imageNamed:@"navBackgroundColorImg"];
+    UIImage *temBackImage = [UIImage imageNamed:@"navBackImage"];
     UIImage *backgroundImage = [temBackImage resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0) resizingMode:UIImageResizingModeStretch];
     [self.navigationController.navigationBar setBackgroundImage:backgroundImage forBarMetrics:UIBarMetricsDefault];
     UIColor *backgroundColor = [UIColor whiteColor];

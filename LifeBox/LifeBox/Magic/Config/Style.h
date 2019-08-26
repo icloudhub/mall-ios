@@ -27,5 +27,11 @@
 
 //颜色
 #define S_COLine [UIColor ug_hexString:@"#eeeeee"] //线颜色
+///页面背景色
+#define S_COBackground RGBColor(245, 245, 245)
+///红色字体颜色
+#define S_CORedText RGBColor(232, 62, 49)
+///绿色背景
+#define S_COGreenBack RGBColor(111, 190, 139)
 
 #endif /* Style_h */
