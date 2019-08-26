@@ -64,6 +64,9 @@
 		84B2E0662307072600BC9197 /* UIView+UG.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2E0652307072500BC9197 /* UIView+UG.m */; };
 		84B2E06A23070B1600BC9197 /* LoginPWView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2E06923070B1600BC9197 /* LoginPWView.m */; };
 		84B2E06E230715F800BC9197 /* NetWorkRequest+Shoping.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2E06D230715F800BC9197 /* NetWorkRequest+Shoping.m */; };
+		84B2E0732307C8AF00BC9197 /* GoodsDefViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2E0722307C8AF00BC9197 /* GoodsDefViewController.m */; };
+		84B2E0772307C97300BC9197 /* NetWorkRequest+Goods.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2E0762307C97300BC9197 /* NetWorkRequest+Goods.m */; };
+		84B2E07B231260CC00BC9197 /* ProductModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2E07A231260CC00BC9197 /* ProductModel.m */; };
 		A2245433E31B0B126C5C0D61 /* Pods_LifeBoxTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42783EC83E66FDB25449EC1A /* Pods_LifeBoxTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -195,6 +198,12 @@
 		84B2E06923070B1600BC9197 /* LoginPWView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginPWView.m; sourceTree = "<group>"; };
 		84B2E06C230715F800BC9197 /* NetWorkRequest+Shoping.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NetWorkRequest+Shoping.h"; sourceTree = "<group>"; };
 		84B2E06D230715F800BC9197 /* NetWorkRequest+Shoping.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NetWorkRequest+Shoping.m"; sourceTree = "<group>"; };
+		84B2E0712307C8AF00BC9197 /* GoodsDefViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsDefViewController.h; sourceTree = "<group>"; };
+		84B2E0722307C8AF00BC9197 /* GoodsDefViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsDefViewController.m; sourceTree = "<group>"; };
+		84B2E0752307C97300BC9197 /* NetWorkRequest+Goods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NetWorkRequest+Goods.h"; sourceTree = "<group>"; };
+		84B2E0762307C97300BC9197 /* NetWorkRequest+Goods.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NetWorkRequest+Goods.m"; sourceTree = "<group>"; };
+		84B2E079231260CC00BC9197 /* ProductModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProductModel.h; sourceTree = "<group>"; };
+		84B2E07A231260CC00BC9197 /* ProductModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProductModel.m; sourceTree = "<group>"; };
 		8B45816D0134074CDFF8F87E /* Pods-LifeBoxUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeBoxUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LifeBoxUITests/Pods-LifeBoxUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CF018FD20FA4FDD9D71E8F8B /* Pods-LifeBoxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeBoxTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LifeBoxTests/Pods-LifeBoxTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -438,6 +447,7 @@
 		8461E18923013A6B00764748 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				84B2E06F2307C85600BC9197 /* Goods */,
 				84B2E0292302FF4100BC9197 /* Login */,
 				8461E18A23013A6B00764748 /* Home */,
 				8461E18D23013A6B00764748 /* Shopping */,
@@ -679,6 +689,43 @@
 				84B2E06D230715F800BC9197 /* NetWorkRequest+Shoping.m */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		84B2E06F2307C85600BC9197 /* Goods */ = {
+			isa = PBXGroup;
+			children = (
+				84B2E078231260A400BC9197 /* Model */,
+				84B2E0742307C96300BC9197 /* API */,
+				84B2E0702307C88300BC9197 /* VC */,
+			);
+			path = Goods;
+			sourceTree = "<group>";
+		};
+		84B2E0702307C88300BC9197 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				84B2E0712307C8AF00BC9197 /* GoodsDefViewController.h */,
+				84B2E0722307C8AF00BC9197 /* GoodsDefViewController.m */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		84B2E0742307C96300BC9197 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				84B2E0752307C97300BC9197 /* NetWorkRequest+Goods.h */,
+				84B2E0762307C97300BC9197 /* NetWorkRequest+Goods.m */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		84B2E078231260A400BC9197 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				84B2E079231260CC00BC9197 /* ProductModel.h */,
+				84B2E07A231260CC00BC9197 /* ProductModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -936,10 +983,12 @@
 				84B2E0612307067E00BC9197 /* UIButton+UG.m in Sources */,
 				84B2E03F2307051200BC9197 /* LogInInputView.m in Sources */,
 				84B2E02D2302FFB300BC9197 /* NetWorkRequest+Login.m in Sources */,
+				84B2E07B231260CC00BC9197 /* ProductModel.m in Sources */,
 				84B2E05F2307067E00BC9197 /* UILabel+UG.m in Sources */,
 				84B2E0662307072600BC9197 /* UIView+UG.m in Sources */,
 				8461E1B123013A6B00764748 /* AppDelegate.m in Sources */,
 				8461E1BA2301562800764748 /* UIView+Alert.m in Sources */,
+				84B2E0772307C97300BC9197 /* NetWorkRequest+Goods.m in Sources */,
 				84B2E05C2307067E00BC9197 /* UIControl+UG.m in Sources */,
 				8461E19723013A6B00764748 /* UIApplication+LOG.m in Sources */,
 				84B2E05B2307067E00BC9197 /* UITextView+UG.m in Sources */,
@@ -951,6 +1000,7 @@
 				84B2E0602307067E00BC9197 /* NSString+Encode.m in Sources */,
 				8461E1C92301586F00764748 /* BlockCollectionView.m in Sources */,
 				8461E1B223013A6B00764748 /* HomeViewController.m in Sources */,
+				84B2E0732307C8AF00BC9197 /* GoodsDefViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
