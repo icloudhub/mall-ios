@@ -20,6 +20,8 @@
 #pragma mark - 视图层
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[UITabBar appearance] setBackgroundColor:[UIColor whiteColor]];
+    [UITabBar appearance].translucent = NO;
     [self createTabBar];
 }
 

@@ -22,6 +22,7 @@
 #import "SafeAreaInsets.h"
 #import "Magic.h"
 #import "Category.h"
+#import "NSString+Convenient.h"
 
 
 #endif /* LifeBoxHeader_pch */

@@ -33,5 +33,7 @@
 #define S_CORedText RGBColor(232, 62, 49)
 ///绿色背景
 #define S_COGreenBack RGBColor(111, 190, 139)
+///绿色字体
+#define S_COGreenText RGBColor(100, 185, 130)
 
 #endif /* Style_h */
