@@ -20,6 +20,9 @@
     //功能测试
     [[DoraemonManager shareInstance] addPluginWithTitle:@"弹框" icon:@"doraemon_ui" desc:@"弹框" pluginName:@"DorAlert" atModule:@"功能测试"];
      [[DoraemonManager shareInstance] addPluginWithTitle:@"登陆" icon:@"doraemon_ui" desc:@"登陆" pluginName:@"DorLoginViewController" atModule:@"功能测试"];
+     [[DoraemonManager shareInstance] addPluginWithTitle:@"商品详情" icon:@"doraemon_ui" desc:@"商品详情" pluginName:@"DorGoodsDefViewController" atModule:@"功能测试"];
+    
+    
     
     //接口测试
     [[DoraemonManager shareInstance] addPluginWithTitle:@"接口测试" icon:@"doraemon_ui" desc:@"接口测试" pluginName:@"DorSwagger" atModule:@"接口测试"];
@@ -68,6 +71,17 @@
 - (void)pluginDidLoad{
     
     LoginViewController *vc = [[LoginViewController alloc] init];
+    [DoraemonUtil openPlugin:vc];
+}
+
+@end
+
+#import "GoodsDefViewController.h"
+@implementation DorGoodsDefViewController
+
+- (void)pluginDidLoad{
+    
+    GoodsDefViewController *vc = [[GoodsDefViewController alloc] init];
     [DoraemonUtil openPlugin:vc];
 }
 
