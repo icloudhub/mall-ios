@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(strong, nonatomic) NSString *name;
 @property(strong, nonatomic) NSString *detailMobileHtml;
+@property(strong, nonatomic) NSString *detailHtml;
 @property(strong, nonatomic) NSString *productid;
 
 @end

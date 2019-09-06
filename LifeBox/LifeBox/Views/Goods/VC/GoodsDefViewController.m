@@ -23,13 +23,18 @@
     [self loadData];
 }
 -(void)loadData{
-    [[NetWorkRequest new]productproductInfo:26 block:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
+    [[NetWorkRequest new]productproductInfo:_productid block:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
         if (error) {
             [self.view ug_msg:error.domain];
         }else{
             ProductModel *temdata = [ProductModel yy_modelWithJSON:dataDict];
             [self.view ug_msg:[NSString stringWithFormat:@"%@",dataDict]];
-            [_defWebview loadHTMLString:temdata.detailMobileHtml baseURL:nil];
+            if (temdata.detailMobileHtml.length>0 ) {
+                 [_defWebview loadHTMLString:temdata.detailMobileHtml baseURL:nil];
+            }else{
+                [_defWebview loadHTMLString:temdata.detailHtml baseURL:nil];
+            }
+            
             _defWebview.backgroundColor = UIColor.ug_random;
         }
     }];

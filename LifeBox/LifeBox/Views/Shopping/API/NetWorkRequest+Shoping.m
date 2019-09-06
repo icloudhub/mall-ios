@@ -12,7 +12,7 @@
 
 -(void)cartlistblock:(NREndBlock)endblock{
     
-    NSString *url = [NSString stringWithFormat:@"%@/cart/list",BASEURL];
+    NSString *url = [NSString stringWithFormat:@"%@/cart/list/product",BASEURL];
     [self get:url param:@{} head:nil endblock:endblock];
 }
 @end

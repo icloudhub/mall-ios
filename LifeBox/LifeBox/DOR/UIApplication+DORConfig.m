@@ -22,6 +22,8 @@
      [[DoraemonManager shareInstance] addPluginWithTitle:@"登陆" icon:@"doraemon_ui" desc:@"登陆" pluginName:@"DorLoginViewController" atModule:@"功能测试"];
      [[DoraemonManager shareInstance] addPluginWithTitle:@"商品详情" icon:@"doraemon_ui" desc:@"商品详情" pluginName:@"DorGoodsDefViewController" atModule:@"功能测试"];
     
+     [[DoraemonManager shareInstance] addPluginWithTitle:@"app配置" icon:@"doraemon_ui" desc:@"商品详情" pluginName:@"DorConfigController" atModule:@"功能测试"];
+    
     
     
     //接口测试
@@ -87,5 +89,17 @@
 
 @end
 
+
+#import "ConfigData.h"
+@implementation DorConfigController
+
+- (void)pluginDidLoad{
+    [[ConfigData shared] updateConfigGlobal:^(NSError * _Nonnull error) {
+        ;
+    }];
+//    [[DoraemonManager shareInstance] hiddenHomeWindow];
+}
+
+@end
 
 #endif
