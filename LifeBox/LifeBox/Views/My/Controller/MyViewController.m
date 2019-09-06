@@ -11,6 +11,9 @@
 #import "MyWalletCell.h"
 #import "MyToolCell.h"
 #import "ProfitViewController.h"
+#import "CouponsController.h"
+#import "CollectionController.h"
+#import "InvitationController.h"
 
 @interface MyViewController ()<UITableViewDelegate, UITableViewDataSource, OrderCellDelegate, WalletCellDelegate, TooltCellDelegate>
 
@@ -169,7 +172,10 @@ static NSString *toolCellID = @"ToolCellID";
     switch (selectIndex) {
         case 0:
         {
-            [UIView ug_msg:@"window弹框测试"];
+            //优惠券
+            CouponsController *couponsCtl = [[CouponsController alloc] init];
+            couponsCtl.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:couponsCtl animated:YES];
         }
             break;
         case 1:
@@ -181,11 +187,43 @@ static NSString *toolCellID = @"ToolCellID";
         }
             break;
         default:
+//            [UIView ug_msg:@"window弹框测试"];
             break;
     }
 }
 
 - (void)toolCellSelectWithTag:(NSInteger)selectIndex {
+    
+    switch (selectIndex) {
+        case 0:
+        {
+            //收藏
+            CollectionController *collectionCtl = [[CollectionController alloc] init];
+            collectionCtl.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:collectionCtl animated:YES];
+        }
+            break;
+        case 1:
+        {
+            
+        }
+            break;
+        case 2:
+        {
+            
+        }
+            break;
+        case 3:
+        {
+            //分享有奖
+            InvitationController *invitationCtl = [[InvitationController alloc] init];
+            invitationCtl.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:invitationCtl animated:YES];
+        }
+            break;
+        default:
+            break;
+    }
     DDLogVerbose(@"\n🏷当前工具模块点击: %ld🏷", (long)selectIndex);
 }
 

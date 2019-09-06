@@ -12,11 +12,17 @@
 #import "CardItem.h"
 #import <SDWebImage/SDWebImage.h>
 #import "GoodsDefViewController.h"
+#import "NoDataView.h"
+
 @interface ShoppingCartController ()<UITableViewDelegate, UITableViewDataSource, CellNumBtnDelegate> {
     ///数据展示
     UITableView *tableView;
 }
 @property(strong, nonatomic)NSArray *carItemlist;
+
+///无数据view
+@property (strong, nonatomic) NoDataView *noView;
+
 @end
 
 static NSString *cellID = @"ShoppingCarCellID";
@@ -130,7 +136,19 @@ static NSString *cellID = @"ShoppingCarCellID";
 
 #pragma mark - 编辑按钮点击
 - (void)editBtnClicked {
-    
+    _noView = [[NoDataView alloc] init];
+    _noView.imgName = @"ic_gouwuchekong";
+    _noView.titleStr = @"您的购物车空空如也～";
+    _noView.btnStr = @"去逛逛";
+    _noView.backgroundColor = [UIColor whiteColor];
+    __weak __typeof(self) weakSelf = self;
+    _noView.btnBlock = ^{
+        [weakSelf.noView removeFromSuperview];
+    };
+    [self.view addSubview:_noView];
+    [_noView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.right.bottom.mas_equalTo(0);
+    }];
 }
 
 #pragma mark - UITableView代理
@@ -187,4 +205,6 @@ static NSString *cellID = @"ShoppingCarCellID";
         }
     }];
 }
+
+
 @end

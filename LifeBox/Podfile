@@ -29,6 +29,9 @@ target 'LifeBox' do
    pod 'YYModel'
    pod 'BlocksKit'
    
+   #空数据界面
+   pod 'DZNEmptyDataSet'
+   
    #日志
    pod 'CocoaLumberjack'
    
