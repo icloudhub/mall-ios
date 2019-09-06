@@ -14,6 +14,7 @@
 #import "CouponsController.h"
 #import "CollectionController.h"
 #import "InvitationController.h"
+#import "MyOrderController.h"
 
 @interface MyViewController ()<UITableViewDelegate, UITableViewDataSource, OrderCellDelegate, WalletCellDelegate, TooltCellDelegate>
 
@@ -165,6 +166,34 @@ static NSString *toolCellID = @"ToolCellID";
 
 #pragma mark - 模块点击代理
 - (void)orderCellSelectWithTag:(NSInteger)selectIndex {
+    switch (selectIndex) {
+        case 0:
+        {
+            selectIndex = 1;
+        }
+            break;
+        case 1:
+        {
+            selectIndex = 2;
+        }
+            break;
+        case 2:
+        {
+            selectIndex = 3;
+        }
+            break;
+        case 3:
+        {
+            selectIndex = 5;
+        }
+            break;
+        default:
+            break;
+    }
+    MyOrderController *orderCtl = [[MyOrderController alloc] init];
+    orderCtl.hidesBottomBarWhenPushed = YES;
+    orderCtl.selectIndex = selectIndex;
+    [self.navigationController pushViewController:orderCtl animated:YES];
     DDLogVerbose(@"\n🏷当前订单模块点击: %ld🏷", (long)selectIndex);
 }
 

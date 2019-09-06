@@ -56,6 +56,25 @@ static NSString *cellID = @"InvitationCellID";
         make.top.left.right.mas_equalTo(0);
         make.height.mas_equalTo(Scale750(720));
     }];
+    /*
+     * 邀请Btn
+     */
+    UIButton *invitationBtn = [[UIButton alloc] init];
+    invitationBtn.titleLabel.font = [UIFont systemFontOfSize:Scale750(30)];
+    [invitationBtn setTitleColor:S_COGreenText forState:UIControlStateNormal];
+    [invitationBtn setTitle:@"立即邀请" forState:UIControlStateNormal];
+    invitationBtn.backgroundColor = [UIColor whiteColor];
+    invitationBtn.layer.cornerRadius = Scale750(35);
+    [topImg addSubview:invitationBtn];
+    [invitationBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.mas_equalTo(topImg.mas_centerX);
+        make.centerY.mas_equalTo(topImg.mas_centerY).mas_offset(Scale750(30));
+        make.width.mas_equalTo(Scale750(280));
+        make.height.mas_equalTo(Scale750(70));
+    }];
+    /*
+     * 标题
+     */
     UILabel *title = [[UILabel alloc] init];
     title.font = [UIFont systemFontOfSize:Scale750(30)];
     title.textColor = RGBColor(51, 51, 51);

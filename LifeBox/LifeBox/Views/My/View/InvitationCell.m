@@ -53,7 +53,33 @@
     [self addSubview:_nameLab];
     [_nameLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self->_headImg.mas_right).mas_offset(Scale750(30));
-        make.centerY.mas_equalTo(self.mas_centerY).mas_offset(-Scale750(15));
+        make.centerY.mas_equalTo(self.mas_centerY).mas_offset(-Scale750(12));
+        make.width.height.mas_greaterThanOrEqualTo(0);
+    }];
+    /*
+     * 时间
+     */
+    _timeLab = [[UILabel alloc] init];
+    _timeLab.font = [UIFont systemFontOfSize:Scale750(24)];
+    _timeLab.textColor = RGBColor(153, 153, 153);
+    _timeLab.text = @"2019-01-01 12:12:12";
+    [self addSubview:_timeLab];
+    [_timeLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(self->_nameLab);
+        make.centerY.mas_equalTo(self.mas_centerY).mas_offset(Scale750(20));
+        make.width.height.mas_greaterThanOrEqualTo(0);
+    }];
+    /*
+     * 反利金额
+     */
+    _moneyLab = [[UILabel alloc] init];
+    _moneyLab.font = [UIFont systemFontOfSize:Scale750(30)];
+    _moneyLab.textColor = RGBColor(102, 102, 102);
+    _moneyLab.text = @"12.00";
+    [self addSubview:_moneyLab];
+    [_moneyLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.mas_equalTo(-Scale750(30));
+        make.centerY.mas_equalTo(self.mas_centerY);
         make.width.height.mas_greaterThanOrEqualTo(0);
     }];
 }
