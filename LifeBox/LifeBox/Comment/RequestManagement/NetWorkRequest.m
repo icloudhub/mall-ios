@@ -41,6 +41,9 @@ static AFHTTPSessionManager *afManager = nil;
     if (cookie != nil) {
         [afManager.requestSerializer setValue:cookie forHTTPHeaderField:@"Cookie"];
     }
+    
+    [afManager.requestSerializer setValue:[self getclientAgent] forHTTPHeaderField:@"client_Agent"];
+    
     //网络判断
     
     //开始请求
@@ -100,7 +103,7 @@ static AFHTTPSessionManager *afManager = nil;
     if (cookie != nil) {
         [afManager.requestSerializer setValue:cookie forHTTPHeaderField:@"Cookie"];
     }
-    
+    [afManager.requestSerializer setValue:[self getclientAgent] forHTTPHeaderField:@"client_Agent"];
     [afManager GET:url parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSHTTPURLResponse* response = (NSHTTPURLResponse* )task.response;
         NSDictionary *allHeaderFieldsDic = response.allHeaderFields;
@@ -136,6 +139,10 @@ static AFHTTPSessionManager *afManager = nil;
     }];
 }
 
-
+-(NSString*)getclientAgent{
+    NSDictionary *dic = @{@"verstion":@"v1.0.1",@"platform":@"iOS"};
+    return @"{verstion:\"v1.0.1\",platform:\"iOS\"}";
+    
+}
 
 @end

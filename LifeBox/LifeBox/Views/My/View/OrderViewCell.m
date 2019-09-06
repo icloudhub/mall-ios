@@ -247,9 +247,6 @@
     /*
      * 适配
      */
-//    [bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.bottom.mas_equalTo(lineView1.mas_bottom).mas_offset(Scale750(100));
-//    }];
     [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.mas_top);
         make.left.mas_equalTo(self.mas_left);

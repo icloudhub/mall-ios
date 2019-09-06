@@ -8,12 +8,17 @@
 
 #import "ShoppingCartController.h"
 #import "ShoppingCarCell.h"
+#import "NetWorkRequest+Shoping.h"
+#import "CardItem.h"
+#import <SDWebImage/SDWebImage.h>
+#import "GoodsDefViewController.h"
 #import "NoDataView.h"
 
 @interface ShoppingCartController ()<UITableViewDelegate, UITableViewDataSource, CellNumBtnDelegate> {
     ///数据展示
     UITableView *tableView;
 }
+@property(strong, nonatomic)NSArray *carItemlist;
 
 ///无数据view
 @property (strong, nonatomic) NoDataView *noView;
@@ -43,6 +48,7 @@ static NSString *cellID = @"ShoppingCarCellID";
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithCustomView:editBtn];
     self.navigationItem.rightBarButtonItem = rightItem;
     [self createUI];
+    [self getcardata];
 }
 
 #pragma mark - 创建UI
@@ -150,16 +156,21 @@ static NSString *cellID = @"ShoppingCarCellID";
     ShoppingCarCell *goodsCell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (goodsCell == nil) {
         goodsCell = [[ShoppingCarCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+        goodsCell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
-    goodsCell.selectionStyle = UITableViewCellSelectionStyleNone;
+    CardItem *data = [_carItemlist objectAtIndex:indexPath.row];
     goodsCell.addBtn.tag = indexPath.row;
     goodsCell.reduceBtn.tag = indexPath.row;
     goodsCell.delegate = self;
+    [goodsCell.goodsImg sd_setImageWithURL:UG_URL(data.icon)];
+    goodsCell.goodsName.text = data.pmsProduct.name;
+    goodsCell.speciLab.text = data.spstr;
+    goodsCell.goodsMoney.text = [NSString stringWithFormat:@"¥%.2f",data.pmsSkuStock.price];
     return goodsCell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return _carItemlist.count;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -169,7 +180,12 @@ static NSString *cellID = @"ShoppingCarCellID";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return Scale750(270);
 }
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    GoodsDefViewController *goodsDefViewController = [GoodsDefViewController new];
+    CardItem *data = [_carItemlist objectAtIndex:indexPath.row];
+    goodsDefViewController.productid = data.productId;
+    [self.navigationController pushViewController:goodsDefViewController animated:YES];
+}
 #pragma mark - 数量选择代理
 - (void)addBtnClicked:(UIButton *)btn {
     DDLogVerbose(@"第%ld行Cell上，添加Btn被点击", (long)btn.tag);
@@ -179,6 +195,16 @@ static NSString *cellID = @"ShoppingCarCellID";
     DDLogVerbose(@"第%ld行Cell上，减少Btn被点击", (long)btn.tag);
 }
 
+-(void)getcardata{
+    [[[NetWorkRequest alloc]init] cartlistblock:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
+        if (error) {
+            [self.view ug_msg:error.domain];
+        }else{
+            self.carItemlist = [NSMutableArray yy_modelArrayWithClass:[CardItem class] json:dataDict];
+            [self->tableView reloadData];
+        }
+    }];
+}
 
 
 @end

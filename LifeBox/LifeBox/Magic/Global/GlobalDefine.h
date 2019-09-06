@@ -62,4 +62,9 @@ dispatch_async(dispatch_get_main_queue(), block);\
 #define SAFE_Bottom [SafeAreaInsets getSafeBottom]
 #define SAFE_Top [SafeAreaInsets getSafeTop]
 
+/*
+ * 常用方法
+ */
+#define UG_URL(str) [NSURL URLWithString:str]
+
 #endif /* GlobalDefine_h */

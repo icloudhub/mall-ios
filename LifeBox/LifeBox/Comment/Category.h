@@ -15,5 +15,6 @@
 #import "UITextField+UG.h"
 #import "UIView+UG.h"
 #import "NSString+Encode.h"
+#import "NSString+JSON.h"
 
 #endif /* Category_h */
