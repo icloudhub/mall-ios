@@ -13,12 +13,16 @@
 #import <SDWebImage/SDWebImage.h>
 #import "GoodsDefViewController.h"
 #import "NoDataView.h"
-
+#import "CarBottomView.h"
+#import "ConfimOrderVC.h"
 @interface ShoppingCartController ()<UITableViewDelegate, UITableViewDataSource, CellNumBtnDelegate> {
     ///数据展示
     UITableView *tableView;
 }
 @property(strong, nonatomic)NSArray *carItemlist;
+
+// 底部结算view
+@property(strong, nonatomic)CarBottomView *bottomView;
 
 ///无数据view
 @property (strong, nonatomic) NoDataView *noView;
@@ -48,7 +52,7 @@ static NSString *cellID = @"ShoppingCarCellID";
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithCustomView:editBtn];
     self.navigationItem.rightBarButtonItem = rightItem;
     [self createUI];
-    [self getcardata];
+    [self loadData];
 }
 
 #pragma mark - 创建UI
@@ -56,69 +60,13 @@ static NSString *cellID = @"ShoppingCarCellID";
     /*
      * 底部功能View
      */
-    UIView *bottomView = [[UIView alloc] init];
-    bottomView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:bottomView];
-    [bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.mas_equalTo(0);
-        make.bottom.mas_equalTo(0);
-        make.height.mas_equalTo(Scale750(90));
+    self.bottomView = [[CarBottomView alloc] init];
+    _bottomView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:_bottomView];
+    [_bottomView.settlementBtn ug_addEvents:UIControlEventTouchUpInside andBlock:^(id  _Nonnull sender) {
+        [self dobuy];
     }];
-    /*
-     * 全选Btn
-     */
-    UIButton *allBtn = [[UIButton alloc] init];
-    allBtn.layer.borderWidth = 1;
-    allBtn.layer.borderColor = [RGBColor(189, 189, 189) CGColor];
-    allBtn.layer.cornerRadius = Scale750(18);
-    [bottomView addSubview:allBtn];
-    [allBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(Scale750(30));
-        make.centerY.mas_equalTo(bottomView);
-        make.width.height.mas_equalTo(Scale750(36));
-    }];
-    /*
-     * 全选文字
-     */
-    UILabel *allLab = [[UILabel alloc] init];
-    allLab.font = [UIFont systemFontOfSize:Scale750(30)];
-    allLab.text = @"全选";
-    [bottomView addSubview:allLab];
-    [allLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(allBtn.mas_right).mas_offset(Scale750(10));
-        make.centerY.mas_equalTo(allBtn);
-        make.width.height.mas_greaterThanOrEqualTo(0);
-    }];
-    /*
-     * 结算Btn
-     */
-    UIButton *settlementBtn = [[UIButton alloc] init];
-    settlementBtn.backgroundColor = S_COGreenBack;
-    settlementBtn.layer.cornerRadius = Scale750(30);
-    settlementBtn.titleLabel.font = [UIFont systemFontOfSize:Scale750(30)];
-    [settlementBtn setTitle:@"结算(0)" forState:UIControlStateNormal];
-    [settlementBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [bottomView addSubview:settlementBtn];
-    [settlementBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.mas_equalTo(-Scale750(30));
-        make.centerY.mas_equalTo(bottomView);
-        make.width.mas_equalTo(Scale750(170));
-        make.height.mas_equalTo(Scale750(60));
-    }];
-    /*
-     * 合计lab
-     */
-    UILabel *combinedLab = [[UILabel alloc] init];
-    combinedLab.font = [UIFont systemFontOfSize:Scale750(30)];
-    combinedLab.textAlignment = NSTextAlignmentRight;
-    NSString *tempStr = @"合计: ¥0";
-    combinedLab.attributedText = [tempStr strChangFlagWithStr:@"¥0" Color:S_CORedText Font:Scale750(30)];
-    [bottomView addSubview:combinedLab];
-    [combinedLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.mas_equalTo(settlementBtn.mas_left).mas_offset(-Scale750(15));
-        make.centerY.mas_equalTo(bottomView);
-        make.width.height.mas_greaterThanOrEqualTo(0);
-    }];
+
     /*
      * 数据展示
      */
@@ -128,10 +76,7 @@ static NSString *cellID = @"ShoppingCarCellID";
     tableView.backgroundColor = S_COBackground;
     tableView.separatorStyle = UITableViewCellEditingStyleNone;
     [self.view addSubview:tableView];
-    [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.right.mas_equalTo(0);
-        make.bottom.mas_equalTo(bottomView.mas_top);
-    }];
+
 }
 
 #pragma mark - 编辑按钮点击
@@ -195,7 +140,7 @@ static NSString *cellID = @"ShoppingCarCellID";
     DDLogVerbose(@"第%ld行Cell上，减少Btn被点击", (long)btn.tag);
 }
 
--(void)getcardata{
+-(void)loadData{
     [[[NetWorkRequest alloc]init] cartlistblock:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
         if (error) {
             [self.view ug_msg:error.domain];
@@ -205,6 +150,35 @@ static NSString *cellID = @"ShoppingCarCellID";
         }
     }];
 }
+//结算
+-(void)dobuy{
+    NSMutableArray *cars = [[NSMutableArray alloc]initWithCapacity:0];
+    for ( CardItem *data in _carItemlist) {
+        [cars addObject:[NSString stringWithFormat:@"%zd",data.id]];
+    }
+    NSString *remark = [cars componentsJoinedByString:@","];
+    [[[NetWorkRequest alloc]init] confirmOrdertype:1 remark:remark block:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
+        if (error) {
+            [self.view ug_msg:error.domain];
+        }else{
+            ConfimOrderVC *vc = [ConfimOrderVC new];
+            vc.confimid = [dataDict[@"id"] integerValue];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+    }];
+}
 
+-(void)viewLayoutMarginsDidChange{
+    [super viewLayoutMarginsDidChange];
+    [_bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.mas_equalTo(0);
+        make.bottom.mas_equalTo(0);
+        make.height.mas_equalTo(Scale750(90));
+    }];
+    [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.right.mas_equalTo(0);
+        make.bottom.mas_equalTo(self.bottomView.mas_top);
+    }];
+}
 
 @end

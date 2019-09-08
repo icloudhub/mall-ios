@@ -18,6 +18,12 @@
 #define S_TFGeight 15 //默认边距
 #define S_Line 0.5 //默认边距
 
+/*
+ * 安全边界
+ */
+#define SAFE_Bottom [SafeAreaInsets getSafeBottom]
+#define SAFE_Top [SafeAreaInsets getSafeTop]
+
 
 // 字符长度
 #define S_UserName 16 //用户名
@@ -27,6 +33,7 @@
 
 //颜色
 #define S_COLine [UIColor ug_hexString:@"#eeeeee"] //线颜色
+
 ///页面背景色
 #define S_COBackground RGBColor(245, 245, 245)
 ///红色字体颜色

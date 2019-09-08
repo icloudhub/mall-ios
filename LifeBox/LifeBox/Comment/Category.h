@@ -16,5 +16,6 @@
 #import "UIView+UG.h"
 #import "NSString+Encode.h"
 #import "NSString+JSON.h"
+#import "UIControl+UG.h"
 
 #endif /* Category_h */

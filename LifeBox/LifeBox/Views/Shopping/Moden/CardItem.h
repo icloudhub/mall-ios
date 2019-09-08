@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CardItem : NSObject
 
-@property(assign, nonatomic) NSInteger carid;//购物车id
+@property(assign, nonatomic) NSInteger id;//购物车id
 @property(assign, nonatomic) NSInteger quantity;//购买数量
 @property(assign, nonatomic) NSInteger productId;//商品id
 @property(assign, nonatomic) NSInteger productSkuId;//商品sku id
