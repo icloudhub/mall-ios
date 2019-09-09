@@ -29,7 +29,7 @@
  */
 + (CGFloat)getSafeBottom {
     if (@available(iOS 11.0, *)) {
-        return [UIApplication sharedApplication].keyWindow.safeAreaInsets.top;
+        return [UIApplication sharedApplication].keyWindow.safeAreaInsets.bottom;
     } else {
         return 0.0;
     }

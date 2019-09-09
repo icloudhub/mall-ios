@@ -34,7 +34,7 @@
         make.top.mas_equalTo(Scale750(30));
         make.left.mas_equalTo(Scale750(20));
         make.right.mas_equalTo(-Scale750(20));
-        make.height.mas_greaterThanOrEqualTo(220);
+        make.height.mas_greaterThanOrEqualTo(100);
     }];
     /*
      * 订单号
@@ -48,6 +48,7 @@
         make.top.mas_equalTo(Scale750(15));
         make.left.mas_equalTo(Scale750(20));
         make.width.height.mas_greaterThanOrEqualTo(0);
+//        make.height.mas_equalTo(Scale750(30));
     }];
     /*
      * 时间
@@ -247,6 +248,9 @@
     /*
      * 适配
      */
+    [bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.mas_equalTo(lineView1.mas_bottom).mas_offset(Scale750(100));
+    }];
     [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.mas_top);
         make.left.mas_equalTo(self.mas_left);
