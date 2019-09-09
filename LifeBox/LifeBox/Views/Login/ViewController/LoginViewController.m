@@ -23,6 +23,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configUI];
+    _loginPWView.usernameView.inputTF.text = @"test";
+    _loginPWView.passwordView.inputTF.text = @"123456";
 }
 
 -(void)configUI{
