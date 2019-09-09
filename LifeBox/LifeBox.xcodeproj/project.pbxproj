@@ -62,7 +62,6 @@
 		0537918A231610A800DF4DA0 /* NSString+Convenient.m in Sources */ = {isa = PBXBuildFile; fileRef = 05379189231610A800DF4DA0 /* NSString+Convenient.m */; };
 		0537918D231623E200DF4DA0 /* ic_add_to@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0537918B231623E200DF4DA0 /* ic_add_to@3x.png */; };
 		0537918E231623E200DF4DA0 /* ic_add_to@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0537918C231623E200DF4DA0 /* ic_add_to@2x.png */; };
-		0537919B2316B6DD00DF4DA0 /* ShoppingCarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0537919A2316B6DD00DF4DA0 /* ShoppingCarCell.m */; };
 		053791A02318164F00DF4DA0 /* ic_plus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0537919C2318164F00DF4DA0 /* ic_plus@2x.png */; };
 		053791A12318164F00DF4DA0 /* ic_less@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0537919D2318164F00DF4DA0 /* ic_less@2x.png */; };
 		053791A22318164F00DF4DA0 /* ic_plus@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0537919E2318164F00DF4DA0 /* ic_plus@3x.png */; };
@@ -117,7 +116,6 @@
 		8461E1B023013A6B00764748 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8461E18723013A6B00764748 /* main.m */; };
 		8461E1B123013A6B00764748 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8461E18823013A6B00764748 /* AppDelegate.m */; };
 		8461E1B223013A6B00764748 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8461E18B23013A6B00764748 /* HomeViewController.m */; };
-		8461E1B323013A6B00764748 /* ShoppingCartController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8461E18F23013A6B00764748 /* ShoppingCartController.m */; };
 		8461E1B423013A6B00764748 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8461E19223013A6B00764748 /* MyViewController.m */; };
 		8461E1B523013A6B00764748 /* MyTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8461E19423013A6B00764748 /* MyTabBarController.m */; };
 		8461E1BA2301562800764748 /* UIView+Alert.m in Sources */ = {isa = PBXBuildFile; fileRef = 8461E1B92301562800764748 /* UIView+Alert.m */; };
@@ -126,7 +124,12 @@
 		8461E1CA2301586F00764748 /* BlockCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8461E1C32301586F00764748 /* BlockCollectionViewCell.m */; };
 		8461E1CB2301586F00764748 /* BlockTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8461E1C62301586F00764748 /* BlockTableView.m */; };
 		8461E1CE230159DB00764748 /* DorViewAlertVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8461E1CD230159DB00764748 /* DorViewAlertVC.m */; };
-		8478A25823226254005681CF /* CardItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8478A25723226254005681CF /* CardItem.m */; };
+		8478A26D2326384A005681CF /* CardItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8478A2612326384A005681CF /* CardItem.m */; };
+		8478A26E2326384A005681CF /* ShoppingCartController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8478A2642326384A005681CF /* ShoppingCartController.m */; };
+		8478A26F2326384A005681CF /* CarBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8478A2682326384A005681CF /* CarBottomView.m */; };
+		8478A2702326384A005681CF /* ShoppingCarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8478A2692326384A005681CF /* ShoppingCarCell.m */; };
+		8478A2712326384A005681CF /* NetWorkRequest+Shoping.m in Sources */ = {isa = PBXBuildFile; fileRef = 8478A26B2326384A005681CF /* NetWorkRequest+Shoping.m */; };
+		8478A2752326391D005681CF /* HomeProductdata.m in Sources */ = {isa = PBXBuildFile; fileRef = 8478A2742326391D005681CF /* HomeProductdata.m */; };
 		84B2E02D2302FFB300BC9197 /* NetWorkRequest+Login.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2E02C2302FFB300BC9197 /* NetWorkRequest+Login.m */; };
 		84B2E032230303C200BC9197 /* Userinfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2E031230303C200BC9197 /* Userinfo.m */; };
 		84B2E0382303055900BC9197 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2E0372303055900BC9197 /* LoginViewController.m */; };
@@ -143,12 +146,10 @@
 		84B2E0632307067E00BC9197 /* UITextField+UG.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2E05A2307067E00BC9197 /* UITextField+UG.m */; };
 		84B2E0662307072600BC9197 /* UIView+UG.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2E0652307072500BC9197 /* UIView+UG.m */; };
 		84B2E06A23070B1600BC9197 /* LoginPWView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2E06923070B1600BC9197 /* LoginPWView.m */; };
-		84B2E06E230715F800BC9197 /* NetWorkRequest+Shoping.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2E06D230715F800BC9197 /* NetWorkRequest+Shoping.m */; };
 		84B2E0732307C8AF00BC9197 /* GoodsDefViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2E0722307C8AF00BC9197 /* GoodsDefViewController.m */; };
 		84B2E0772307C97300BC9197 /* NetWorkRequest+Goods.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2E0762307C97300BC9197 /* NetWorkRequest+Goods.m */; };
 		84B2E07B231260CC00BC9197 /* ProductModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2E07A231260CC00BC9197 /* ProductModel.m */; };
 		84B954C823234FEC00A7E8D2 /* GoodsCommitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B954C723234FEC00A7E8D2 /* GoodsCommitView.m */; };
-		84B954CB23235A4F00A7E8D2 /* CarBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B954CA23235A4F00A7E8D2 /* CarBottomView.m */; };
 		84B954CF2323726500A7E8D2 /* ConfimOrderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B954CE2323726500A7E8D2 /* ConfimOrderVC.m */; };
 		84B954D42323731F00A7E8D2 /* NetWorkRequest+Orlder.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B954D32323731F00A7E8D2 /* NetWorkRequest+Orlder.m */; };
 		84B954D82324AD1200A7E8D2 /* ConfirAddressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B954D72324AD1200A7E8D2 /* ConfirAddressView.m */; };
@@ -244,8 +245,6 @@
 		05379189231610A800DF4DA0 /* NSString+Convenient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Convenient.m"; sourceTree = "<group>"; };
 		0537918B231623E200DF4DA0 /* ic_add_to@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_add_to@3x.png"; sourceTree = "<group>"; };
 		0537918C231623E200DF4DA0 /* ic_add_to@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_add_to@2x.png"; sourceTree = "<group>"; };
-		053791992316B6DD00DF4DA0 /* ShoppingCarCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShoppingCarCell.h; sourceTree = "<group>"; };
-		0537919A2316B6DD00DF4DA0 /* ShoppingCarCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShoppingCarCell.m; sourceTree = "<group>"; };
 		0537919C2318164F00DF4DA0 /* ic_plus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_plus@2x.png"; sourceTree = "<group>"; };
 		0537919D2318164F00DF4DA0 /* ic_less@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_less@2x.png"; sourceTree = "<group>"; };
 		0537919E2318164F00DF4DA0 /* ic_plus@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_plus@3x.png"; sourceTree = "<group>"; };
@@ -314,8 +313,8 @@
 		8461E16C23013A6B00764748 /* UIApplication+Initialize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+Initialize.h"; sourceTree = "<group>"; };
 		8461E16F23013A6B00764748 /* UIApplication+Initialize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+Initialize.m"; sourceTree = "<group>"; };
 		8461E17123013A6B00764748 /* NetWorkRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorkRequest.m; sourceTree = "<group>"; };
-		8461E17223013A6B00764748 /* NetWorkRequest+Business.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NetWorkRequest+Business.m"; sourceTree = "<group>"; };
-		8461E17323013A6B00764748 /* NetWorkRequest+Business.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NetWorkRequest+Business.h"; sourceTree = "<group>"; };
+		8461E17223013A6B00764748 /* NetWorkRequest+Business.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NetWorkRequest+Business.m"; path = "../../../Comment/RequestManagement/NetWorkRequest+Business.m"; sourceTree = "<group>"; };
+		8461E17323013A6B00764748 /* NetWorkRequest+Business.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NetWorkRequest+Business.h"; path = "../../../Comment/RequestManagement/NetWorkRequest+Business.h"; sourceTree = "<group>"; };
 		8461E17423013A6B00764748 /* NetWorkRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkRequest.h; sourceTree = "<group>"; };
 		8461E17623013A6B00764748 /* homeTabBarImg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homeTabBarImg@3x.png"; sourceTree = "<group>"; };
 		8461E17723013A6B00764748 /* workTabBarImg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workTabBarImg@2x.png"; sourceTree = "<group>"; };
@@ -336,8 +335,6 @@
 		8461E18823013A6B00764748 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		8461E18B23013A6B00764748 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		8461E18C23013A6B00764748 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
-		8461E18E23013A6B00764748 /* ShoppingCartController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingCartController.h; sourceTree = "<group>"; };
-		8461E18F23013A6B00764748 /* ShoppingCartController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingCartController.m; sourceTree = "<group>"; };
 		8461E19123013A6B00764748 /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
 		8461E19223013A6B00764748 /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
 		8461E19423013A6B00764748 /* MyTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTabBarController.m; sourceTree = "<group>"; };
@@ -356,8 +353,18 @@
 		8461E1C72301586F00764748 /* BlockTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockTableView.h; sourceTree = "<group>"; };
 		8461E1CC230159DA00764748 /* DorViewAlertVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DorViewAlertVC.h; sourceTree = "<group>"; };
 		8461E1CD230159DB00764748 /* DorViewAlertVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DorViewAlertVC.m; sourceTree = "<group>"; };
-		8478A25623226254005681CF /* CardItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardItem.h; sourceTree = "<group>"; };
-		8478A25723226254005681CF /* CardItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardItem.m; sourceTree = "<group>"; };
+		8478A2602326384A005681CF /* CardItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardItem.h; sourceTree = "<group>"; };
+		8478A2612326384A005681CF /* CardItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardItem.m; sourceTree = "<group>"; };
+		8478A2632326384A005681CF /* ShoppingCartController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingCartController.h; sourceTree = "<group>"; };
+		8478A2642326384A005681CF /* ShoppingCartController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingCartController.m; sourceTree = "<group>"; };
+		8478A2662326384A005681CF /* CarBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarBottomView.h; sourceTree = "<group>"; };
+		8478A2672326384A005681CF /* ShoppingCarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingCarCell.h; sourceTree = "<group>"; };
+		8478A2682326384A005681CF /* CarBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarBottomView.m; sourceTree = "<group>"; };
+		8478A2692326384A005681CF /* ShoppingCarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingCarCell.m; sourceTree = "<group>"; };
+		8478A26B2326384A005681CF /* NetWorkRequest+Shoping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NetWorkRequest+Shoping.m"; sourceTree = "<group>"; };
+		8478A26C2326384A005681CF /* NetWorkRequest+Shoping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NetWorkRequest+Shoping.h"; sourceTree = "<group>"; };
+		8478A2732326391D005681CF /* HomeProductdata.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeProductdata.h; sourceTree = "<group>"; };
+		8478A2742326391D005681CF /* HomeProductdata.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeProductdata.m; sourceTree = "<group>"; };
 		84B2E02B2302FFB300BC9197 /* NetWorkRequest+Login.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NetWorkRequest+Login.h"; sourceTree = "<group>"; };
 		84B2E02C2302FFB300BC9197 /* NetWorkRequest+Login.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NetWorkRequest+Login.m"; sourceTree = "<group>"; };
 		84B2E030230303C200BC9197 /* Userinfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Userinfo.h; sourceTree = "<group>"; };
@@ -391,8 +398,6 @@
 		84B2E0672307079B00BC9197 /* Style.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Style.h; sourceTree = "<group>"; };
 		84B2E06823070B1600BC9197 /* LoginPWView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginPWView.h; sourceTree = "<group>"; };
 		84B2E06923070B1600BC9197 /* LoginPWView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginPWView.m; sourceTree = "<group>"; };
-		84B2E06C230715F800BC9197 /* NetWorkRequest+Shoping.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NetWorkRequest+Shoping.h"; sourceTree = "<group>"; };
-		84B2E06D230715F800BC9197 /* NetWorkRequest+Shoping.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NetWorkRequest+Shoping.m"; sourceTree = "<group>"; };
 		84B2E0712307C8AF00BC9197 /* GoodsDefViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsDefViewController.h; sourceTree = "<group>"; };
 		84B2E0722307C8AF00BC9197 /* GoodsDefViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsDefViewController.m; sourceTree = "<group>"; };
 		84B2E0752307C97300BC9197 /* NetWorkRequest+Goods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NetWorkRequest+Goods.h"; sourceTree = "<group>"; };
@@ -401,8 +406,6 @@
 		84B2E07A231260CC00BC9197 /* ProductModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProductModel.m; sourceTree = "<group>"; };
 		84B954C623234FEC00A7E8D2 /* GoodsCommitView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsCommitView.h; sourceTree = "<group>"; };
 		84B954C723234FEC00A7E8D2 /* GoodsCommitView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsCommitView.m; sourceTree = "<group>"; };
-		84B954C923235A4F00A7E8D2 /* CarBottomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CarBottomView.h; sourceTree = "<group>"; };
-		84B954CA23235A4F00A7E8D2 /* CarBottomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CarBottomView.m; sourceTree = "<group>"; };
 		84B954CD2323726500A7E8D2 /* ConfimOrderVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfimOrderVC.h; sourceTree = "<group>"; };
 		84B954CE2323726500A7E8D2 /* ConfimOrderVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfimOrderVC.m; sourceTree = "<group>"; };
 		84B954D22323731F00A7E8D2 /* NetWorkRequest+Orlder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NetWorkRequest+Orlder.h"; sourceTree = "<group>"; };
@@ -468,6 +471,8 @@
 			children = (
 				05379181231579A400DF4DA0 /* HomeToolData.h */,
 				05379182231579A400DF4DA0 /* HomeToolData.m */,
+				8478A2732326391D005681CF /* HomeProductdata.h */,
+				8478A2742326391D005681CF /* HomeProductdata.m */,
 			);
 			path = Mode;
 			sourceTree = "<group>";
@@ -492,26 +497,6 @@
 				8461E18B23013A6B00764748 /* HomeViewController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		053791962316A82A00DF4DA0 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				8461E18E23013A6B00764748 /* ShoppingCartController.h */,
-				8461E18F23013A6B00764748 /* ShoppingCartController.m */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		053791982316A82A00DF4DA0 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				053791992316B6DD00DF4DA0 /* ShoppingCarCell.h */,
-				0537919A2316B6DD00DF4DA0 /* ShoppingCarCell.m */,
-				84B954C923235A4F00A7E8D2 /* CarBottomView.h */,
-				84B954CA23235A4F00A7E8D2 /* CarBottomView.m */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		053791AC231B94CD00DF4DA0 /* NoDataView */ = {
@@ -761,8 +746,6 @@
 			isa = PBXGroup;
 			children = (
 				8461E17123013A6B00764748 /* NetWorkRequest.m */,
-				8461E17223013A6B00764748 /* NetWorkRequest+Business.m */,
-				8461E17323013A6B00764748 /* NetWorkRequest+Business.h */,
 				8461E17423013A6B00764748 /* NetWorkRequest.h */,
 				842D2B5A2320B16B00C50605 /* NetWorkRequest+COM.h */,
 				842D2B5B2320B16B00C50605 /* NetWorkRequest+COM.m */,
@@ -848,11 +831,11 @@
 		8461E18923013A6B00764748 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8478A25E2326384A005681CF /* Shopping */,
 				84B954CC23235FB400A7E8D2 /* Orlder */,
 				84B2E06F2307C85600BC9197 /* Goods */,
 				84B2E0292302FF4100BC9197 /* Login */,
 				8461E18A23013A6B00764748 /* Home */,
-				8461E18D23013A6B00764748 /* Shopping */,
 				8461E19023013A6B00764748 /* My */,
 				8461E19323013A6B00764748 /* Main */,
 			);
@@ -862,22 +845,12 @@
 		8461E18A23013A6B00764748 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				8478A27223263872005681CF /* API */,
 				053791912316A59F00DF4DA0 /* Controller */,
 				0537918F2316A59E00DF4DA0 /* Mode */,
 				053791902316A59E00DF4DA0 /* View */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		8461E18D23013A6B00764748 /* Shopping */ = {
-			isa = PBXGroup;
-			children = (
-				8478A2522322621F005681CF /* Moden */,
-				053791962316A82A00DF4DA0 /* Controller */,
-				053791982316A82A00DF4DA0 /* View */,
-				84B2E06B230715E200BC9197 /* API */,
-			);
-			path = Shopping;
 			sourceTree = "<group>";
 		};
 		8461E19023013A6B00764748 /* My */ = {
@@ -948,13 +921,62 @@
 			path = BlockTableview;
 			sourceTree = "<group>";
 		};
-		8478A2522322621F005681CF /* Moden */ = {
+		8478A25E2326384A005681CF /* Shopping */ = {
 			isa = PBXGroup;
 			children = (
-				8478A25623226254005681CF /* CardItem.h */,
-				8478A25723226254005681CF /* CardItem.m */,
+				8478A25F2326384A005681CF /* Moden */,
+				8478A2622326384A005681CF /* Controller */,
+				8478A2652326384A005681CF /* View */,
+				8478A26A2326384A005681CF /* API */,
+			);
+			path = Shopping;
+			sourceTree = "<group>";
+		};
+		8478A25F2326384A005681CF /* Moden */ = {
+			isa = PBXGroup;
+			children = (
+				8478A2602326384A005681CF /* CardItem.h */,
+				8478A2612326384A005681CF /* CardItem.m */,
 			);
 			path = Moden;
+			sourceTree = "<group>";
+		};
+		8478A2622326384A005681CF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8478A2632326384A005681CF /* ShoppingCartController.h */,
+				8478A2642326384A005681CF /* ShoppingCartController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8478A2652326384A005681CF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8478A2662326384A005681CF /* CarBottomView.h */,
+				8478A2672326384A005681CF /* ShoppingCarCell.h */,
+				8478A2682326384A005681CF /* CarBottomView.m */,
+				8478A2692326384A005681CF /* ShoppingCarCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8478A26A2326384A005681CF /* API */ = {
+			isa = PBXGroup;
+			children = (
+				8478A26B2326384A005681CF /* NetWorkRequest+Shoping.m */,
+				8478A26C2326384A005681CF /* NetWorkRequest+Shoping.h */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		8478A27223263872005681CF /* API */ = {
+			isa = PBXGroup;
+			children = (
+				8461E17223013A6B00764748 /* NetWorkRequest+Business.m */,
+				8461E17323013A6B00764748 /* NetWorkRequest+Business.h */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		84B2E0292302FF4100BC9197 /* Login */ = {
@@ -1096,15 +1118,6 @@
 				84B2E05A2307067E00BC9197 /* UITextField+UG.m */,
 			);
 			path = UITextField;
-			sourceTree = "<group>";
-		};
-		84B2E06B230715E200BC9197 /* API */ = {
-			isa = PBXGroup;
-			children = (
-				84B2E06C230715F800BC9197 /* NetWorkRequest+Shoping.h */,
-				84B2E06D230715F800BC9197 /* NetWorkRequest+Shoping.m */,
-			);
-			path = API;
 			sourceTree = "<group>";
 		};
 		84B2E06F2307C85600BC9197 /* Goods */ = {
@@ -1489,6 +1502,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8478A26F2326384A005681CF /* CarBottomView.m in Sources */,
 				84B2E03C2303074800BC9197 /* UIColor+UG.m in Sources */,
 				8461E19923013A6B00764748 /* UIViewController+RTRootNavigationController.m in Sources */,
 				05BBBB7B230F98B500C01FC3 /* MyToolCell.m in Sources */,
@@ -1497,18 +1511,16 @@
 				84B954D42323731F00A7E8D2 /* NetWorkRequest+Orlder.m in Sources */,
 				84B2E0622307067E00BC9197 /* NSObject+BlockDelayedPerforming.m in Sources */,
 				84B2E06A23070B1600BC9197 /* LoginPWView.m in Sources */,
-				84B2E06E230715F800BC9197 /* NetWorkRequest+Shoping.m in Sources */,
 				8461E19A23013A6B00764748 /* RTRootNavigationController.m in Sources */,
 				8461E19C23013A6B00764748 /* UIApplication+DORConfig.m in Sources */,
 				8461E1B523013A6B00764748 /* MyTabBarController.m in Sources */,
 				05BBBB79230F98B500C01FC3 /* MyOrderCell.m in Sources */,
 				8461E1C82301586F00764748 /* BlockCollectionViewFlowLayout.m in Sources */,
 				05BBBB7C230F98B500C01FC3 /* PersonalCenterCell.m in Sources */,
-				8478A25823226254005681CF /* CardItem.m in Sources */,
+				8478A2712326384A005681CF /* NetWorkRequest+Shoping.m in Sources */,
 				8461E19F23013A6B00764748 /* NetWorkRequest.m in Sources */,
 				8461E19E23013A6B00764748 /* UIApplication+Initialize.m in Sources */,
 				053791512314198A00DF4DA0 /* NoticeView.m in Sources */,
-				84B954CB23235A4F00A7E8D2 /* CarBottomView.m in Sources */,
 				053791AF231B94CD00DF4DA0 /* NoDataView.m in Sources */,
 				84B954C823234FEC00A7E8D2 /* GoodsCommitView.m in Sources */,
 				05145138231EB7D900547E42 /* InvitationController.m in Sources */,
@@ -1517,10 +1529,11 @@
 				84B2E05E2307067E00BC9197 /* UIImage+UG.m in Sources */,
 				84B954CF2323726500A7E8D2 /* ConfimOrderVC.m in Sources */,
 				05145135231EB6A600547E42 /* CollectionCell.m in Sources */,
+				8478A2752326391D005681CF /* HomeProductdata.m in Sources */,
 				84B2E0632307067E00BC9197 /* UITextField+UG.m in Sources */,
+				8478A26E2326384A005681CF /* ShoppingCartController.m in Sources */,
 				84B2E0382303055900BC9197 /* LoginViewController.m in Sources */,
 				842D2B592320B0BD00C50605 /* ConfigData.m in Sources */,
-				8461E1B323013A6B00764748 /* ShoppingCartController.m in Sources */,
 				84B2E032230303C200BC9197 /* Userinfo.m in Sources */,
 				842D2B562320AD7A00C50605 /* NSString+JSON.m in Sources */,
 				0514512B231EAD0D00547E42 /* CouponsController.m in Sources */,
@@ -1545,6 +1558,7 @@
 				84B2E05C2307067E00BC9197 /* UIControl+UG.m in Sources */,
 				8461E19723013A6B00764748 /* UIApplication+LOG.m in Sources */,
 				05BBBB882312A08700C01FC3 /* ProfitViewCell.m in Sources */,
+				8478A26D2326384A005681CF /* CardItem.m in Sources */,
 				05145132231EB21B00547E42 /* CollectionController.m in Sources */,
 				0537918A231610A800DF4DA0 /* NSString+Convenient.m in Sources */,
 				056217F9231FF0A0007E27AF /* InvitationCell.m in Sources */,
@@ -1552,6 +1566,7 @@
 				8461E1B023013A6B00764748 /* main.m in Sources */,
 				8461E1CE230159DB00764748 /* DorViewAlertVC.m in Sources */,
 				84B954DB2324B0C800A7E8D2 /* ConfimBottomView.m in Sources */,
+				8478A2702326384A005681CF /* ShoppingCarCell.m in Sources */,
 				8461E19B23013A6B00764748 /* Global_Variable.m in Sources */,
 				8461E1CA2301586F00764748 /* BlockCollectionViewCell.m in Sources */,
 				05BBBB7A230F98B500C01FC3 /* MyWalletCell.m in Sources */,
@@ -1559,7 +1574,6 @@
 				84B2E0602307067E00BC9197 /* NSString+Encode.m in Sources */,
 				050E0493230DC3E500DA5BFD /* PersonIconData.m in Sources */,
 				8461E1C92301586F00764748 /* BlockCollectionView.m in Sources */,
-				0537919B2316B6DD00DF4DA0 /* ShoppingCarCell.m in Sources */,
 				8461E1B223013A6B00764748 /* HomeViewController.m in Sources */,
 				84B2E0732307C8AF00BC9197 /* GoodsDefViewController.m in Sources */,
 				05C954552322567A00517381 /* OrderViewCell.m in Sources */,

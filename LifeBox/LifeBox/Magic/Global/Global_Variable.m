@@ -53,7 +53,7 @@ static Global_Variable *sharedInstance = nil;
 
 #pragma mark - 获取服务IP地址
 - (NSString *)getSeverIp{
-    self.serviceIP = @"http://192.168.2.174";  //测试环境
+    self.serviceIP = @"http://192.168.2.43";  //测试环境
     return _serviceIP;
 }
 

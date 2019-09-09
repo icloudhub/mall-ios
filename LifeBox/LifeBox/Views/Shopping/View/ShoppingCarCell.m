@@ -68,7 +68,8 @@
     [_goodsName mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self->_goodsImg);
         make.left.mas_equalTo(self->_goodsImg.mas_right).mas_offset(Scale750(30));
-        make.width.height.mas_greaterThanOrEqualTo(0);
+        make.right.mas_equalTo(self).mas_offset(-S_Defmargin);
+//        make.width.height.mas_greaterThanOrEqualTo(0);
     }];
     /*
      * 商品描述
@@ -76,13 +77,14 @@
     _goodsTitle = [[UILabel alloc] init];
     _goodsTitle.textColor = RGBColor(189, 189, 189);
     _goodsTitle.font = [UIFont systemFontOfSize:Scale750(24)];
-    _goodsTitle.numberOfLines = 1;
+    _goodsTitle.numberOfLines = 2;
     _goodsTitle.text = @"果色艳丽，果肉鲜美";
     [bottomView addSubview:_goodsTitle];
     [_goodsTitle mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self->_goodsName);
         make.top.mas_equalTo(self->_goodsName.mas_bottom).mas_offset(Scale750(10));
-        make.width.height.mas_greaterThanOrEqualTo(0);
+        make.right.mas_equalTo(self).mas_offset(-S_Defmargin);
+//        make.width.height.mas_greaterThanOrEqualTo(0);
     }];
     /*
      * 规格
@@ -93,11 +95,7 @@
     _speciLab.numberOfLines = 1;
     _speciLab.text = @"规格: 400/盒";
     [bottomView addSubview:_speciLab];
-    [_speciLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(self->_goodsName);
-        make.top.mas_equalTo(self->_goodsTitle.mas_bottom).mas_offset(Scale750(30));
-        make.width.height.mas_greaterThanOrEqualTo(0);
-    }];
+ 
     /*
      * 货币符号
      */
@@ -123,7 +121,7 @@
     [_goodsMoney mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(symbolLab.mas_right).mas_offset(Scale750(5));
         make.bottom.mas_equalTo(symbolLab.mas_bottom).mas_offset(Scale750(3));
-        make.width.height.mas_greaterThanOrEqualTo(0);
+//        make.width.height.mas_greaterThanOrEqualTo(0);
     }];
     /*
      * 原价
@@ -213,5 +211,12 @@
     }
 }
 
-
+-(void)layoutSubviews{
+    [super layoutSubviews];
+    [_speciLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(self->_goodsName);
+        make.bottom.mas_equalTo(self.goodsMoney.mas_top);
+        make.width.height.mas_greaterThanOrEqualTo(0);
+    }];
+}
 @end

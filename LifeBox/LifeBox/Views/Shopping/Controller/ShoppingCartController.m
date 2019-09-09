@@ -110,7 +110,10 @@ static NSString *cellID = @"ShoppingCarCellID";
     [goodsCell.goodsImg sd_setImageWithURL:UG_URL(data.icon)];
     goodsCell.goodsName.text = data.pmsProduct.name;
     goodsCell.speciLab.text = data.spstr;
-    goodsCell.goodsMoney.text = [NSString stringWithFormat:@"¥%.2f",data.pmsSkuStock.price];
+    goodsCell.goodsTitle.text = data.pmsProduct.subTitle;
+    goodsCell.goodsMoney.text = [NSString stringWithFormat:@"%.2f",data.pmsSkuStock.price];
+    goodsCell.original.text = [NSString stringWithFormat:@"%.2f",data.pmsSkuStock.originalPrice];
+    goodsCell.numLab.text = [NSString stringWithFormat:@"%zd",data.quantity];
     return goodsCell;
 }
 

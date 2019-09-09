@@ -14,6 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)getHomeInfoendblock:(void(^)(NSDictionary *result, NSError *error))endblock;
 
+- (void)recommendProductListblock:(void(^)(NSDictionary *result, NSError *error))endblock;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

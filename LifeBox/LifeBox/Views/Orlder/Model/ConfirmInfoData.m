@@ -32,12 +32,5 @@
              };
 }
 
--(ConfirmInfoaddress *)defaddress{
-    for (ConfirmInfoaddress *data in _addressList) {
-        if (data.defaultStatus == 0) {
-            return data;
-        }
-    }
-    return _addressList.firstObject;
-}
+
 @end
