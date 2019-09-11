@@ -32,14 +32,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ConfirmInfoData : NSObject
 
-@property(strong, nonatomic) NSArray<ConfirmInfoaddress*> *addressList;//收获地址列表
+@property(strong, nonatomic) ConfirmInfoaddress* defualAddress;//收获地址列表
 
 @property(strong, nonatomic) NSArray *productList;//商品列表
 
 @property(strong, nonatomic) ConfirmInfoAmount *amountdata;//商品列表
 
-//get
-@property(strong,nonatomic) ConfirmInfoaddress* defaddress;//默认收货地址
 @end
 
 NS_ASSUME_NONNULL_END

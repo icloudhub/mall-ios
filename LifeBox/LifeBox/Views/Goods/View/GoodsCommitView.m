@@ -26,6 +26,8 @@
     [self addSubview:_addcarbtn];
     [_addcarbtn setTitle:@"加入购物车" forState:UIControlStateNormal];
     _addcarbtn.backgroundColor = UIColor.ug_random;
+    
+   
 }
 
 -(void)layoutSubviews{

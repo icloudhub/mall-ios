@@ -65,7 +65,7 @@
 
 #pragma mark - 空数据代理
 - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView {
-    return [UIImage imageNamed:@"ic_gouwuchekong"];
+    return [UIImage imageNamed:@"ic_no_coupons"];
 }
 
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {

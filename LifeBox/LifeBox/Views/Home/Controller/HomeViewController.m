@@ -12,7 +12,8 @@
 #import "HomeToolCell.h"
 #import "HomeToolData.h"
 #import "HomeGoodsCell.h"
-
+#import "HomeProductdata.h"
+#import "GoodsDefViewController.h"
 @interface HomeViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource> {
     ///按钮功能数据展示
     UICollectionView *collectionView;
@@ -24,7 +25,7 @@
 
 ///轮播View
 @property (strong, nonatomic) SDCycleScrollView *scrollView;
-
+@property (strong, nonatomic) NSArray * likeproducts;
 @end
 
 ///HomeGoodsCellID
@@ -36,6 +37,7 @@ static NSString *homeGoodsCellID = @"HomeGoodsCellID";
 - (void)viewDidLoad {
      self.view.backgroundColor = [UIColor whiteColor];
     [self createUI];
+    [self recommendProduct];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -226,7 +228,7 @@ static NSString *homeGoodsCellID = @"HomeGoodsCellID";
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
+
 }
 
 #pragma mark - UITableView代理
@@ -234,13 +236,23 @@ static NSString *homeGoodsCellID = @"HomeGoodsCellID";
     HomeGoodsCell *goodsCell = [tableView dequeueReusableCellWithIdentifier:homeGoodsCellID];
     if (goodsCell == nil) {
         goodsCell = [[HomeGoodsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:homeGoodsCellID];
+        goodsCell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
-    goodsCell.selectionStyle = UITableViewCellSelectionStyleNone;
+    HomeProductdata *data = [_likeproducts objectAtIndex:indexPath.row];
+    goodsCell.addBtn.tag = indexPath.row;
+//    [goodsCell.goodsImg sd_setImageWithURL:UG_URL(data.icon)];
+    goodsCell.goodsLab.text = data.name;
+//    goodsCell.speciLab.text = data.spstr;
+//    goodsCell.goodsTitle.text = data.pmsProduct.subTitle;
+//    goodsCell.goodsMoney.text = [NSString stringWithFormat:@"%.2f",data.pmsSkuStock.price];
+//    goodsCell.original.text = [NSString stringWithFormat:@"%.2f",data.pmsSkuStock.originalPrice];
+//    goodsCell.numLab.text = [NSString stringWithFormat:@"%zd",data.quantity];
+    
     return goodsCell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return _likeproducts.count;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -251,4 +263,21 @@ static NSString *homeGoodsCellID = @"HomeGoodsCellID";
     return Scale750(210);
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    GoodsDefViewController *goodsDefViewController = [GoodsDefViewController new];
+    HomeProductdata *data = [_likeproducts objectAtIndex:indexPath.row];
+    goodsDefViewController.productid = data.id;
+    [self.navigationController pushViewController:goodsDefViewController animated:YES];
+}
+
+-(void)recommendProduct{
+    [[[NetWorkRequest alloc]init] recommendProductListblock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
+        if (error) {
+            [self.view ug_msg:error.domain];
+        }else{
+            self.likeproducts = [NSArray yy_modelArrayWithClass:[HomeProductdata class] json:result];
+            [tableView reloadData];
+        }
+    }];
+}
 @end

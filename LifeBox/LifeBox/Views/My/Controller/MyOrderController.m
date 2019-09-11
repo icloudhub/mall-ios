@@ -8,6 +8,7 @@
 
 #import "MyOrderController.h"
 #import "OrderViewCell.h"
+#import "OrderDetailsController.h"
 
 @interface MyOrderController ()<UITableViewDelegate, UITableViewDataSource> {
     ///数据展示tableView
@@ -243,15 +244,16 @@ static NSString *cellID = @"OrderViewCellID";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 40;
+    return 10;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    return Scale750(90);
-//}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    OrderDetailsController *detailsCtl = [[OrderDetailsController alloc] init];
+    [self.navigationController pushViewController:detailsCtl animated:YES];
+}
 
 @end

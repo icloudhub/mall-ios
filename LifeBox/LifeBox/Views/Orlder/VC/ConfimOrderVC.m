@@ -42,12 +42,21 @@
     _confimBottomView.backgroundColor = UIColor.ug_random;
     [_confimBottomView.commitBtn ug_addEvents:UIControlEventTouchUpInside andBlock:^(id  _Nonnull sender) {
         [self.view ug_msg:@"去生成支付订单"];
+        
+        [[[NetWorkRequest alloc]init] generatePayOrder:_confimid  couponId:NULL memberReceiveAddressId:_confirmInfoData.defualAddress.id useIntegration:0 block:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
+            if (error) {
+                [self.view ug_msg:error.domain];
+            }else{
+                self.confirmInfoData = [ConfirmInfoData yy_modelWithJSON:dataDict];
+                [self updateUI];
+            }
+        }];
     }];
     
 }
 -(void)updateUI{
-    _addressView.addLab.text = [_confirmInfoData.defaddress yy_modelToJSONString];
-    _confimBottomView.amountLab.text = [_confirmInfoData.amountdata yy_modelToJSONString];
+    _addressView.addLab.text = [_confirmInfoData.defualAddress yy_modelToJSONString];
+    _confimBottomView.amountLab.text = [NSString stringWithFormat:@"支付:¥%@",_confirmInfoData.amountdata.payAmount];
 }
 -(void)loadData{
     [[[NetWorkRequest alloc]init] getConfirmOrderInfo:_confimid block:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
@@ -77,7 +86,7 @@
         make.bottom.mas_equalTo(self.view);
         make.left.mas_equalTo(self.view);
         make.right.mas_equalTo(self.view);
-        make.height.mas_equalTo(160);
+        make.height.mas_equalTo(44);
     }];
 }
 @end

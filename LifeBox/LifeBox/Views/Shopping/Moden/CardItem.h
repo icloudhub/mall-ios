@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(strong, nonatomic) NSString *name;//商品名
 @property(strong, nonatomic) NSString *pic;//图片 “,”分隔
 @property(strong, nonatomic) NSString *unit;//单位 件 个
+@property(strong, nonatomic) NSString *subTitle;
 
 @end
 
@@ -23,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(assign, nonatomic) NSInteger skuid;//sku id
 @property(assign, nonatomic) NSInteger stock;//库存
 @property(assign, nonatomic) CGFloat price;//sku id
+@property(assign, nonatomic) CGFloat originalPrice;
 @property(strong, nonatomic) NSString* pic;//规格值1
 @property(strong, nonatomic) NSString* sp1;//规格值1
 @property(strong, nonatomic) NSString* sp2;//规格值2

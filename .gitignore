@@ -40,6 +40,7 @@ xcuserdata/
 *.ipa
 *.dSYM.zip
 *.dSYM
+*.DS_Store
 
 # CocoaPods
 # We recommend against adding the Pods directory to your .gitignore. However
@@ -119,3 +120,4 @@ playground.xcworkspace
 
 
 # End of https://www.gitignore.io/api/swift,cocoapods,objective-c
+

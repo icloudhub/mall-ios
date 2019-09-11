@@ -15,6 +15,7 @@
 #import "CollectionController.h"
 #import "InvitationController.h"
 #import "MyOrderController.h"
+#import "SetViewController.h"
 
 @interface MyViewController ()<UITableViewDelegate, UITableViewDataSource, OrderCellDelegate, WalletCellDelegate, TooltCellDelegate>
 
@@ -90,6 +91,12 @@ static NSString *toolCellID = @"ToolCellID";
         make.right.mas_equalTo(-Scale750(50));
         make.width.height.mas_equalTo(Scale750(70));
     }];
+    [setBtn bk_addEventHandler:^(id sender) {
+        //设置
+        SetViewController *setCtl = [[SetViewController alloc] init];
+        setCtl.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:setCtl animated:YES];
+    } forControlEvents:UIControlEventTouchUpInside];
     /*
      * 头像
      */

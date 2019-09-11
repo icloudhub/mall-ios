@@ -16,4 +16,10 @@
     [self get:url param:nil head:nil endblock:endblock];
 }
 
+- (void)recommendProductListblock:(void(^)(NSDictionary *result, NSError *error))endblock{
+    NSString *url = [NSString stringWithFormat:@"%@/home/recommendProductList",BASEURL];
+    [self get:url param:nil head:nil endblock:endblock];
+    
+}
+
 @end
