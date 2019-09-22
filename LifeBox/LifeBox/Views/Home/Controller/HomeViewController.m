@@ -276,7 +276,7 @@ static NSString *homeGoodsCellID = @"HomeGoodsCellID";
             [self.view ug_msg:error.domain];
         }else{
             self.likeproducts = [NSArray yy_modelArrayWithClass:[HomeProductdata class] json:result];
-            [tableView reloadData];
+            [self->tableView reloadData];
         }
     }];
 }

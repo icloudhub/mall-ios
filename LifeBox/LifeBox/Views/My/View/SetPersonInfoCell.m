@@ -57,13 +57,6 @@
         make.left.right.mas_equalTo(0);
         make.height.mas_equalTo(1);
     }];
-    /*
-     * 适配
-     */
-    [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.right.mas_equalTo(0);
-        make.height.mas_equalTo(Scale750(120));
-    }];
 }
 
 @end

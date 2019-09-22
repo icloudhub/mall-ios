@@ -10,6 +10,7 @@
 #import "SetInfoCell.h"
 #import "SetPersonInfoCell.h"
 #import "FeedbackController.h"
+#import "AddressManagementController.h"
 
 @interface SetViewController ()<UITableViewDelegate, UITableViewDataSource> {
     ///数据展示
@@ -20,9 +21,7 @@
 
 @end
 
-static NSString *personCellID = @"SetPersonInfoCellID";
 static NSString *infoCellID = @"SetInfoCellID";
-
 
 @implementation SetViewController
 
@@ -51,7 +50,7 @@ static NSString *infoCellID = @"SetInfoCellID";
     [self.view addSubview:tableView];
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.right.left.mas_equalTo(0);
-        make.height.mas_equalTo(Scale750(400));
+        make.height.mas_equalTo(Scale750(550));
     }];
     /*
      * 退出Btn
@@ -76,58 +75,68 @@ static NSString *infoCellID = @"SetInfoCellID";
     /*
      * 封装数据
      */
-    titleArr = [NSArray arrayWithObjects:@"收货地址", @"问题反馈", @"关于生活宝", nil];
+    titleArr = [NSArray arrayWithObjects:@"个人资料", @"密码设置", @"地址管理", @"问题反馈", @"清楚缓存", @"关于", nil];
 }
 
 #pragma mark - UITableView代理
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 0) {
-        SetPersonInfoCell *personCell = [tableView dequeueReusableCellWithIdentifier:personCellID];
-        if (personCell == nil) {
-            personCell = [[SetPersonInfoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:personCellID];
-        }
-        personCell.backgroundColor = [UIColor whiteColor];
-        personCell.selectionStyle = UITableViewCellSelectionStyleNone;
-        return personCell;
-    }else{
-        SetInfoCell *infoCell = [tableView dequeueReusableCellWithIdentifier:infoCellID];
-        if (infoCell == nil) {
-            infoCell = [[SetInfoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:infoCellID];
-        }
-        infoCell.backgroundColor = [UIColor whiteColor];
-        infoCell.selectionStyle = UITableViewCellSelectionStyleNone;
-        NSString *tempStr = [titleArr objectAtIndex:indexPath.row - 1];
-        [infoCell reloadCellUIWith:tempStr];
-        return infoCell;
+    SetInfoCell *infoCell = [tableView dequeueReusableCellWithIdentifier:infoCellID];
+    if (infoCell == nil) {
+        infoCell = [[SetInfoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:infoCellID];
     }
-    return nil;
+    infoCell.backgroundColor = [UIColor whiteColor];
+    infoCell.selectionStyle = UITableViewCellSelectionStyleNone;
+    NSString *tempStr = [titleArr objectAtIndex:indexPath.row];
+    [infoCell reloadCellUIWith:tempStr];
+    return infoCell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 4;
+    return 6;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return Scale750(90);
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
+        case 0:
+        {
+            //个人资料
+        }
+            break;
         case 1:
         {
-            //收货地址
+            //密码设置
         }
             break;
         case 2:
         {
-            //问题反馈
-            FeedbackController *feedBackCtl = [[FeedbackController alloc] init];
-            [self.navigationController pushViewController:feedBackCtl animated:YES];
+            //地址管理
+            AddressManagementController *addressCtl = [[AddressManagementController alloc] init];
+            [self.navigationController pushViewController:addressCtl animated:YES];
         }
             break;
         case 3:
         {
-            //关于生活宝
+            //反馈
+            FeedbackController *feedBackCtl = [[FeedbackController alloc] init];
+            [self.navigationController pushViewController:feedBackCtl animated:YES];
+        }
+            break;
+        case 4:
+        {
+            //清除缓存
+        }
+            break;
+        case 5:
+        {
+            //关于
         }
             break;
         default:
