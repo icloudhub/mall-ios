@@ -26,7 +26,9 @@
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [[UIApplication sharedApplication]configlog];
+    [[UIApplication sharedApplication] configlog];
+    //设置状态栏颜色
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
     // 启动图片延时: 1秒
     [NSThread sleepForTimeInterval:1];
     /*

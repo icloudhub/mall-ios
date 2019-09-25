@@ -17,6 +17,11 @@
     if(!awindow){
         awindow = [[[UIApplication sharedApplication] windows] objectAtIndex:0];
     }
+    if (@available(iOS 13.0, *)) {
+        [awindow setOverrideUserInterfaceStyle:UIUserInterfaceStyleLight];
+    } else {
+        // Fallback on earlier versions
+    }
     RTRootNavigationController *mainVC = [[RTRootNavigationController alloc] initWithRootViewController:[[MyTabBarController alloc] init]];
     awindow.rootViewController = mainVC;
 }

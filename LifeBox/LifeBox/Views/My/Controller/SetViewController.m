@@ -142,7 +142,7 @@ static NSString *infoCellID = @"SetInfoCellID";
         {
             //清除缓存
 //            NSString *sdfasdf = [self getCacheSize];
-//            [self cleanCache];
+            [self cleanCache];
             [self.view showLoading];
             double delayInSeconds = 2.0;
                 dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
@@ -196,7 +196,7 @@ static NSString *infoCellID = @"SetInfoCellID";
             NSString * absolutPat = [path stringByAppendingPathComponent:fileName];
             [manager removeItemAtPath:absolutPat error:&error];
             if (error) {
-                NSLog(@"shbai");
+                DDLogVerbose(@"清除失败");
             }
         }
         //删除sdwebimage的缓存

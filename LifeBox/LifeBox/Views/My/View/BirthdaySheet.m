@@ -57,17 +57,15 @@
     /*
      * 时间选择器
      */
-    datePicker = [[UIDatePicker alloc] init];
-    datePicker.datePickerMode = UIDatePickerModeDate;
-    NSLocale *local = [NSLocale localeWithLocaleIdentifier:@"zh"];
-    datePicker.locale = local;
-    if (@available(iOS 13.0, *)) {
-        datePicker.maximumDate = NSDate.now;
-    } else {
-        // Fallback on earlier versions
+    if (datePicker == nil) {
+        datePicker = [[UIDatePicker alloc] init];
+        datePicker.datePickerMode = UIDatePickerModeDate;
+        datePicker.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"];
+
+        datePicker.maximumDate = [NSDate date];
+        datePicker.date = [NSDate date];
+        [self.bottomView addSubview:datePicker];
     }
-    [datePicker addTarget:self action:@selector(dateChange:) forControlEvents:UIControlEventValueChanged];
-    [self.bottomView addSubview:datePicker];
     [datePicker mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(cannelBtn.mas_bottom).mas_offset(Scale750(30));
         make.left.mas_equalTo(Scale750(60));

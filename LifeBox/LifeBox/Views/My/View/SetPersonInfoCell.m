@@ -22,6 +22,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         [self createUI];
+        self.backgroundColor = [UIColor whiteColor];
         /*
          * cell标题数据封装
          */

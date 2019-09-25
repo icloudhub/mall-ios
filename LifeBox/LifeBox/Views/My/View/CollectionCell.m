@@ -14,6 +14,7 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        self.backgroundColor = [UIColor whiteColor];
         [self createUI];
     }
     return self;
@@ -49,6 +50,7 @@
     _goodsLab = [[UILabel alloc] init];
     _goodsLab.font = [UIFont systemFontOfSize:Scale750(30)];
     _goodsLab.numberOfLines = 1;
+    _goodsLab.textColor = RGBColor(51, 51, 51);
     _goodsLab.text = @"农家土养乌鸡";
     [self addSubview:_goodsLab];
     [_goodsLab mas_makeConstraints:^(MASConstraintMaker *make) {

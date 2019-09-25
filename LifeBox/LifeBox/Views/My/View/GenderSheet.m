@@ -30,6 +30,7 @@
     titleLab = [[UILabel alloc] init];
     titleLab.font = [UIFont systemFontOfSize:Scale750(32)];
     titleLab.text = @"性别";
+    titleLab.textColor = RGBColor(51, 51, 51);
     [self.bottomView addSubview:titleLab];
     [titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(self.bottomView);
@@ -56,6 +57,7 @@
     UILabel *manLab = [[UILabel alloc] init];
     manLab.font = [UIFont systemFontOfSize:Scale750(32)];
     manLab.text = @"男";
+    manLab.textColor = RGBColor(51, 51, 51);
     [self.bottomView addSubview:manLab];
     [manLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(manBtn);
@@ -82,6 +84,7 @@
     UILabel *womanLab = [[UILabel alloc] init];
     womanLab.font = [UIFont systemFontOfSize:Scale750(32)];
     womanLab.text = @"女";
+    womanLab.textColor = RGBColor(51, 51, 51);
     [self.bottomView addSubview:womanLab];
     [womanLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(manLab);
