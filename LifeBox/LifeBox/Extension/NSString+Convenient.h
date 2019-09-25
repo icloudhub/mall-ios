@@ -18,6 +18,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (NSMutableAttributedString *)strChangFlagWithStr:(NSString *)passStr Color:(UIColor *)passColor Font:(CGFloat)passFont;
 
+#pragma mark - 将字符串中间几位替换为*
+/*
+ * 将字符串中间几位替换为*
+ */
+-(NSString *)stringByReplacingAsteriskWithRange:(NSRange)range;
+
 @end
 
 NS_ASSUME_NONNULL_END

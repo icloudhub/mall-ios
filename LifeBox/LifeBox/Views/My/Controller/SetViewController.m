@@ -11,6 +11,10 @@
 #import "SetPersonInfoCell.h"
 #import "FeedbackController.h"
 #import "AddressManagementController.h"
+#import "PersonInfoController.h"
+#import "SetPasswordController.h"
+#import "SDWebImageManager.h"
+#import <SDImageCache.h>
 
 @interface SetViewController ()<UITableViewDelegate, UITableViewDataSource> {
     ///数据展示
@@ -108,11 +112,16 @@ static NSString *infoCellID = @"SetInfoCellID";
         case 0:
         {
             //个人资料
+            PersonInfoController *infoCtl = [[PersonInfoController alloc] init];
+            [self.navigationController pushViewController:infoCtl animated:YES];
         }
             break;
         case 1:
         {
             //密码设置
+            SetPasswordController *pwCtl = [[SetPasswordController alloc] init];
+            pwCtl.typeStr = @"0";
+            [self.navigationController pushViewController:pwCtl animated:YES];
         }
             break;
         case 2:
@@ -132,6 +141,15 @@ static NSString *infoCellID = @"SetInfoCellID";
         case 4:
         {
             //清除缓存
+//            NSString *sdfasdf = [self getCacheSize];
+//            [self cleanCache];
+            [self.view showLoading];
+            double delayInSeconds = 2.0;
+                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+                dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                    [self.view hiddenLoading];
+                    [self.view ug_msg:@"清除完成"];
+                });
         }
             break;
         case 5:
@@ -141,6 +159,48 @@ static NSString *infoCellID = @"SetInfoCellID";
             break;
         default:
             break;
+    }
+}
+
+#pragma mark - 计算缓存
+-(NSString *)getCacheSize {
+    //得到缓存路径
+    NSString * path = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject;
+    NSFileManager * manager = [NSFileManager defaultManager];
+    CGFloat size = 0;
+    //首先判断是否存在缓存文件
+    if ([manager fileExistsAtPath:path]) {
+        NSArray * childFile = [manager subpathsAtPath:path];
+        for (NSString * fileName in childFile) {
+            //缓存文件绝对路径
+            NSString * absolutPath = [path stringByAppendingPathComponent:fileName];
+            size = size + [manager attributesOfItemAtPath:absolutPath error:nil].fileSize;
+        }
+        //计算sdwebimage的缓存和系统缓存总和
+        size = size + [[SDImageCache sharedImageCache] totalDiskSize];
+    }
+    return [NSString stringWithFormat:@"%.2f",size / 1024 / 1024];
+}
+
+///清楚缓存
+-(void)cleanCache {
+//    NSString *cacheStr = [self getCacheSize];
+    NSError *error = nil;//错误信息
+    NSString *path = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject;
+        NSFileManager * manager = [NSFileManager defaultManager];
+    //判断是否存在缓存文件
+    if ([manager fileExistsAtPath:path]) {
+        NSArray * childFile = [manager subpathsAtPath:path];
+        //逐个删除缓存文件
+        for (NSString *fileName in childFile) {
+            NSString * absolutPat = [path stringByAppendingPathComponent:fileName];
+            [manager removeItemAtPath:absolutPat error:&error];
+            if (error) {
+                NSLog(@"shbai");
+            }
+        }
+        //删除sdwebimage的缓存
+        [[SDImageCache sharedImageCache] clearMemory];
     }
 }
 

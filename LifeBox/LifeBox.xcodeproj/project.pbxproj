@@ -48,6 +48,21 @@
 		0531E9F32337B1C100775D79 /* AddressChooseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0531E9F22337B1C100775D79 /* AddressChooseCell.m */; };
 		0531E9F62337B29F00775D79 /* ic_selected_address@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0531E9F42337B29F00775D79 /* ic_selected_address@3x.png */; };
 		0531E9F72337B29F00775D79 /* ic_selected_address@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0531E9F52337B29F00775D79 /* ic_selected_address@2x.png */; };
+		0531E9FA2338645F00775D79 /* PersonInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0531E9F92338645F00775D79 /* PersonInfoController.m */; };
+		0531EA002338AAA000775D79 /* ChangeNickNameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0531E9FF2338AAA000775D79 /* ChangeNickNameController.m */; };
+		0531EA032338BB2B00775D79 /* SetPasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0531EA022338BB2B00775D79 /* SetPasswordController.m */; };
+		0531EA062339B0B400775D79 /* ChangePhoneController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0531EA052339B0B400775D79 /* ChangePhoneController.m */; };
+		0531EA092339FA7600775D79 /* AppDelegate+KeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 0531EA082339FA7500775D79 /* AppDelegate+KeyValue.m */; };
+		0531EA0C233A052500775D79 /* SetPhoneController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0531EA0B233A052500775D79 /* SetPhoneController.m */; };
+		0531EA0F233A07EB00775D79 /* ChangeNameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0531EA0E233A07EB00775D79 /* ChangeNameController.m */; };
+		0531EA12233A080700775D79 /* ChangeWeChatController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0531EA11233A080700775D79 /* ChangeWeChatController.m */; };
+		0531EA18233A138D00775D79 /* GenderSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0531EA17233A138D00775D79 /* GenderSheet.m */; };
+		0531EA1D233A17AF00775D79 /* ic_zhishiqi@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0531EA19233A17AF00775D79 /* ic_zhishiqi@3x.png */; };
+		0531EA1E233A17AF00775D79 /* ic_zhishiqi_select@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0531EA1A233A17AF00775D79 /* ic_zhishiqi_select@3x.png */; };
+		0531EA1F233A17AF00775D79 /* ic_zhishiqi_select@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0531EA1B233A17AF00775D79 /* ic_zhishiqi_select@2x.png */; };
+		0531EA20233A17AF00775D79 /* ic_zhishiqi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0531EA1C233A17AF00775D79 /* ic_zhishiqi@2x.png */; };
+		0531EA23233A5B6400775D79 /* BirthdaySheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0531EA22233A5B6400775D79 /* BirthdaySheet.m */; };
+		0531EA26233A6A8B00775D79 /* UIView+Loading.m in Sources */ = {isa = PBXBuildFile; fileRef = 0531EA24233A6A8B00775D79 /* UIView+Loading.m */; };
 		053791492314120500DF4DA0 /* ic_share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 053791472314120500DF4DA0 /* ic_share@2x.png */; };
 		0537914A2314120500DF4DA0 /* ic_share@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 053791482314120500DF4DA0 /* ic_share@3x.png */; };
 		0537914D2314149D00DF4DA0 /* ic_search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0537914B2314149D00DF4DA0 /* ic_search@2x.png */; };
@@ -273,6 +288,32 @@
 		0531E9F22337B1C100775D79 /* AddressChooseCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddressChooseCell.m; sourceTree = "<group>"; };
 		0531E9F42337B29F00775D79 /* ic_selected_address@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_selected_address@3x.png"; sourceTree = "<group>"; };
 		0531E9F52337B29F00775D79 /* ic_selected_address@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_selected_address@2x.png"; sourceTree = "<group>"; };
+		0531E9F82338645F00775D79 /* PersonInfoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonInfoController.h; sourceTree = "<group>"; };
+		0531E9F92338645F00775D79 /* PersonInfoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonInfoController.m; sourceTree = "<group>"; };
+		0531E9FE2338AAA000775D79 /* ChangeNickNameController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeNickNameController.h; sourceTree = "<group>"; };
+		0531E9FF2338AAA000775D79 /* ChangeNickNameController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeNickNameController.m; sourceTree = "<group>"; };
+		0531EA012338BB2B00775D79 /* SetPasswordController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetPasswordController.h; sourceTree = "<group>"; };
+		0531EA022338BB2B00775D79 /* SetPasswordController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetPasswordController.m; sourceTree = "<group>"; };
+		0531EA042339B0B400775D79 /* ChangePhoneController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangePhoneController.h; sourceTree = "<group>"; };
+		0531EA052339B0B400775D79 /* ChangePhoneController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangePhoneController.m; sourceTree = "<group>"; };
+		0531EA072339FA7500775D79 /* AppDelegate+KeyValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+KeyValue.h"; sourceTree = "<group>"; };
+		0531EA082339FA7500775D79 /* AppDelegate+KeyValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+KeyValue.m"; sourceTree = "<group>"; };
+		0531EA0A233A052500775D79 /* SetPhoneController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetPhoneController.h; sourceTree = "<group>"; };
+		0531EA0B233A052500775D79 /* SetPhoneController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetPhoneController.m; sourceTree = "<group>"; };
+		0531EA0D233A07EB00775D79 /* ChangeNameController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeNameController.h; sourceTree = "<group>"; };
+		0531EA0E233A07EB00775D79 /* ChangeNameController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeNameController.m; sourceTree = "<group>"; };
+		0531EA10233A080700775D79 /* ChangeWeChatController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeWeChatController.h; sourceTree = "<group>"; };
+		0531EA11233A080700775D79 /* ChangeWeChatController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeWeChatController.m; sourceTree = "<group>"; };
+		0531EA16233A138D00775D79 /* GenderSheet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GenderSheet.h; sourceTree = "<group>"; };
+		0531EA17233A138D00775D79 /* GenderSheet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GenderSheet.m; sourceTree = "<group>"; };
+		0531EA19233A17AF00775D79 /* ic_zhishiqi@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_zhishiqi@3x.png"; sourceTree = "<group>"; };
+		0531EA1A233A17AF00775D79 /* ic_zhishiqi_select@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_zhishiqi_select@3x.png"; sourceTree = "<group>"; };
+		0531EA1B233A17AF00775D79 /* ic_zhishiqi_select@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_zhishiqi_select@2x.png"; sourceTree = "<group>"; };
+		0531EA1C233A17AF00775D79 /* ic_zhishiqi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_zhishiqi@2x.png"; sourceTree = "<group>"; };
+		0531EA21233A5B6400775D79 /* BirthdaySheet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BirthdaySheet.h; sourceTree = "<group>"; };
+		0531EA22233A5B6400775D79 /* BirthdaySheet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BirthdaySheet.m; sourceTree = "<group>"; };
+		0531EA24233A6A8B00775D79 /* UIView+Loading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Loading.m"; sourceTree = "<group>"; };
+		0531EA25233A6A8B00775D79 /* UIView+Loading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Loading.h"; sourceTree = "<group>"; };
 		053791472314120500DF4DA0 /* ic_share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_share@2x.png"; sourceTree = "<group>"; };
 		053791482314120500DF4DA0 /* ic_share@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_share@3x.png"; sourceTree = "<group>"; };
 		0537914B2314149D00DF4DA0 /* ic_search@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_search@2x.png"; sourceTree = "<group>"; };
@@ -575,6 +616,8 @@
 		053791872316106E00DF4DA0 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				0531EA072339FA7500775D79 /* AppDelegate+KeyValue.h */,
+				0531EA082339FA7500775D79 /* AppDelegate+KeyValue.m */,
 				05379188231610A800DF4DA0 /* NSString+Convenient.h */,
 				05379189231610A800DF4DA0 /* NSString+Convenient.m */,
 			);
@@ -698,6 +741,10 @@
 				0513E23123335ABC0008709B /* AddressSheet.m */,
 				0531E9F12337B1C100775D79 /* AddressChooseCell.h */,
 				0531E9F22337B1C100775D79 /* AddressChooseCell.m */,
+				0531EA16233A138D00775D79 /* GenderSheet.h */,
+				0531EA17233A138D00775D79 /* GenderSheet.m */,
+				0531EA21233A5B6400775D79 /* BirthdaySheet.h */,
+				0531EA22233A5B6400775D79 /* BirthdaySheet.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -727,6 +774,20 @@
 				058C83CF232690BF007AA863 /* AddressEditController.m */,
 				058C83D123269147007AA863 /* AddressManagementController.h */,
 				058C83D223269147007AA863 /* AddressManagementController.m */,
+				0531E9F82338645F00775D79 /* PersonInfoController.h */,
+				0531E9F92338645F00775D79 /* PersonInfoController.m */,
+				0531E9FE2338AAA000775D79 /* ChangeNickNameController.h */,
+				0531E9FF2338AAA000775D79 /* ChangeNickNameController.m */,
+				0531EA012338BB2B00775D79 /* SetPasswordController.h */,
+				0531EA022338BB2B00775D79 /* SetPasswordController.m */,
+				0531EA042339B0B400775D79 /* ChangePhoneController.h */,
+				0531EA052339B0B400775D79 /* ChangePhoneController.m */,
+				0531EA0A233A052500775D79 /* SetPhoneController.h */,
+				0531EA0B233A052500775D79 /* SetPhoneController.m */,
+				0531EA0D233A07EB00775D79 /* ChangeNameController.h */,
+				0531EA0E233A07EB00775D79 /* ChangeNameController.m */,
+				0531EA10233A080700775D79 /* ChangeWeChatController.h */,
+				0531EA11233A080700775D79 /* ChangeWeChatController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -898,6 +959,10 @@
 		8461E17523013A6B00764748 /* ImageSource */ = {
 			isa = PBXGroup;
 			children = (
+				0531EA1B233A17AF00775D79 /* ic_zhishiqi_select@2x.png */,
+				0531EA1A233A17AF00775D79 /* ic_zhishiqi_select@3x.png */,
+				0531EA1C233A17AF00775D79 /* ic_zhishiqi@2x.png */,
+				0531EA19233A17AF00775D79 /* ic_zhishiqi@3x.png */,
 				0531E9F52337B29F00775D79 /* ic_selected_address@2x.png */,
 				0531E9F42337B29F00775D79 /* ic_selected_address@3x.png */,
 				0513E234233360220008709B /* ic_address_close@2x.png */,
@@ -1049,6 +1114,8 @@
 		8461E1B7230155FB00764748 /* UIVIew */ = {
 			isa = PBXGroup;
 			children = (
+				0531EA25233A6A8B00775D79 /* UIView+Loading.h */,
+				0531EA24233A6A8B00775D79 /* UIView+Loading.m */,
 				84B2E0642307072500BC9197 /* UIView+UG.h */,
 				84B2E0652307072500BC9197 /* UIView+UG.m */,
 				8461E1B82301562800764748 /* UIView+Alert.h */,
@@ -1514,10 +1581,12 @@
 				059F2CAA23239D070045BA65 /* ic_go_to_pay@2x.png in Resources */,
 				059F2CAE2323A2510045BA65 /* bg_background.png in Resources */,
 				8461E1A623013A6B00764748 /* homeTabBarImg@2x.png in Resources */,
+				0531EA1F233A17AF00775D79 /* ic_zhishiqi_select@2x.png in Resources */,
 				050E0489230DAB1400DA5BFD /* ic_pending_payment@3x.png in Resources */,
 				050E04B1230DC9FC00DA5BFD /* ic_invitation_gift@2x.png in Resources */,
 				8461E1AC23013A6B00764748 /* workTabBarSelected@3x.png in Resources */,
 				053791A22318164F00DF4DA0 /* ic_plus@3x.png in Resources */,
+				0531EA1E233A17AF00775D79 /* ic_zhishiqi_select@3x.png in Resources */,
 				0537914A2314120500DF4DA0 /* ic_share@3x.png in Resources */,
 				0537918E231623E200DF4DA0 /* ic_add_to@2x.png in Resources */,
 				059F2CCD2323FD5C0045BA65 /* ic_avatar@3x.png in Resources */,
@@ -1546,6 +1615,7 @@
 				050E04A7230DC86600DA5BFD /* ic_coupon@3x.png in Resources */,
 				8461E1AF23013A6B00764748 /* Main.storyboard in Resources */,
 				059F2CCE2323FD5C0045BA65 /* ic_avatar@2x.png in Resources */,
+				0531EA20233A17AF00775D79 /* ic_zhishiqi@2x.png in Resources */,
 				053791AA231B6DE600DF4DA0 /* ic_no_network@2x.png in Resources */,
 				8461E1AD23013A6B00764748 /* Assets.xcassets in Resources */,
 				8461E1A723013A6B00764748 /* homeTabBarSelected@2x.png in Resources */,
@@ -1561,6 +1631,7 @@
 				053791782314237100DF4DA0 /* ic_tourism@3x.png in Resources */,
 				050E04B6230DC9FC00DA5BFD /* ic_customer_service@3x.png in Resources */,
 				0513E235233360220008709B /* ic_address_close@3x.png in Resources */,
+				0531EA1D233A17AF00775D79 /* ic_zhishiqi@3x.png in Resources */,
 				056217F6231FEDB0007E27AF /* ic_chahua@3x.png in Resources */,
 				050E04A6230DC86600DA5BFD /* ic_reward_income@3x.png in Resources */,
 				059F2CC12323F6350045BA65 /* ic_no_coupons@3x.png in Resources */,
@@ -1709,15 +1780,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				8478A26F2326384A005681CF /* CarBottomView.m in Sources */,
+				0531EA032338BB2B00775D79 /* SetPasswordController.m in Sources */,
 				84B2E03C2303074800BC9197 /* UIColor+UG.m in Sources */,
 				8461E19923013A6B00764748 /* UIViewController+RTRootNavigationController.m in Sources */,
 				05BBBB7B230F98B500C01FC3 /* MyToolCell.m in Sources */,
 				0537918623158AE500DF4DA0 /* HomeGoodsCell.m in Sources */,
 				8461E1A023013A6B00764748 /* NetWorkRequest+Business.m in Sources */,
+				0531EA12233A080700775D79 /* ChangeWeChatController.m in Sources */,
 				84B954D42323731F00A7E8D2 /* NetWorkRequest+Orlder.m in Sources */,
 				84B2E0622307067E00BC9197 /* NSObject+BlockDelayedPerforming.m in Sources */,
 				84B2E06A23070B1600BC9197 /* LoginPWView.m in Sources */,
+				0531EA092339FA7600775D79 /* AppDelegate+KeyValue.m in Sources */,
 				059F2CCA2323FB260045BA65 /* SetInfoCell.m in Sources */,
+				0531EA26233A6A8B00775D79 /* UIView+Loading.m in Sources */,
+				0531EA062339B0B400775D79 /* ChangePhoneController.m in Sources */,
 				8461E19A23013A6B00764748 /* RTRootNavigationController.m in Sources */,
 				8461E19C23013A6B00764748 /* UIApplication+DORConfig.m in Sources */,
 				8461E1B523013A6B00764748 /* MyTabBarController.m in Sources */,
@@ -1753,8 +1829,10 @@
 				059F2CB32323B7F90045BA65 /* DetailsGoodsCell.m in Sources */,
 				8461E19823013A6B00764748 /* LifeBoxViewController.m in Sources */,
 				050E047A230D86D400DA5BFD /* SafeAreaInsets.m in Sources */,
+				0531EA002338AAA000775D79 /* ChangeNickNameController.m in Sources */,
 				8461E1B423013A6B00764748 /* MyViewController.m in Sources */,
 				059F2CC72323FA490045BA65 /* SetPersonInfoCell.m in Sources */,
+				0531EA23233A5B6400775D79 /* BirthdaySheet.m in Sources */,
 				84B954D82324AD1200A7E8D2 /* ConfirAddressView.m in Sources */,
 				84B2E0612307067E00BC9197 /* UIButton+UG.m in Sources */,
 				059F2C902322BCA40045BA65 /* OrderDetailsController.m in Sources */,
@@ -1765,6 +1843,7 @@
 				84B2E05F2307067E00BC9197 /* UILabel+UG.m in Sources */,
 				842D2B5C2320B16B00C50605 /* NetWorkRequest+COM.m in Sources */,
 				84B2E0662307072600BC9197 /* UIView+UG.m in Sources */,
+				0531EA0C233A052500775D79 /* SetPhoneController.m in Sources */,
 				059F2CB62323B8DC0045BA65 /* DetailsInfoCell.m in Sources */,
 				059F2CD12324070B0045BA65 /* FeedbackController.m in Sources */,
 				8461E1B123013A6B00764748 /* AppDelegate.m in Sources */,
@@ -1772,6 +1851,7 @@
 				84B2E0772307C97300BC9197 /* NetWorkRequest+Goods.m in Sources */,
 				84B954E22324E3BE00A7E8D2 /* ConfirmInfoData.m in Sources */,
 				84B2E05C2307067E00BC9197 /* UIControl+UG.m in Sources */,
+				0531E9FA2338645F00775D79 /* PersonInfoController.m in Sources */,
 				8461E19723013A6B00764748 /* UIApplication+LOG.m in Sources */,
 				0513E23223335ABC0008709B /* AddressSheet.m in Sources */,
 				05BBBB882312A08700C01FC3 /* ProfitViewCell.m in Sources */,
@@ -1783,6 +1863,7 @@
 				84B2E05B2307067E00BC9197 /* UITextView+UG.m in Sources */,
 				8461E1B023013A6B00764748 /* main.m in Sources */,
 				8461E1CE230159DB00764748 /* DorViewAlertVC.m in Sources */,
+				0531EA18233A138D00775D79 /* GenderSheet.m in Sources */,
 				84B954DB2324B0C800A7E8D2 /* ConfimBottomView.m in Sources */,
 				8478A2702326384A005681CF /* ShoppingCarCell.m in Sources */,
 				8461E19B23013A6B00764748 /* Global_Variable.m in Sources */,
@@ -1794,6 +1875,7 @@
 				059F2CBC2323F5120045BA65 /* SetViewController.m in Sources */,
 				8461E1C92301586F00764748 /* BlockCollectionView.m in Sources */,
 				059F2CB92323B8FD0045BA65 /* DetailsPriceCell.m in Sources */,
+				0531EA0F233A07EB00775D79 /* ChangeNameController.m in Sources */,
 				8461E1B223013A6B00764748 /* HomeViewController.m in Sources */,
 				84B2E0732307C8AF00BC9197 /* GoodsDefViewController.m in Sources */,
 				05C954552322567A00517381 /* OrderViewCell.m in Sources */,

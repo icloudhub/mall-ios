@@ -18,6 +18,15 @@ NS_ASSUME_NONNULL_BEGIN
 ///头像
 @property (strong, nonatomic) UIImageView *headImg;
 
+///内容
+@property (strong, nonatomic) UILabel *infoLab;
+
+///箭头
+@property (strong, nonatomic) UIImageView *arrowImg;
+
+#pragma mark - 刷新UI
+- (void)reloadCellUIWith:(NSIndexPath *)indexPath;
+
 @end
 
 NS_ASSUME_NONNULL_END
