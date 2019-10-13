@@ -7,7 +7,8 @@
 //
 
 #import "RegisterViewController.h"
-
+#import "LoginPWView.h"
+#import "NetWorkRequest+Login.h"
 @interface RegisterViewController ()
 @property(strong, nonatomic) UIButton *loginBtn;
 
