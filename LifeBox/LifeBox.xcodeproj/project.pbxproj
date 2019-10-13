@@ -187,6 +187,7 @@
 		84B954D82324AD1200A7E8D2 /* ConfirAddressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B954D72324AD1200A7E8D2 /* ConfirAddressView.m */; };
 		84B954DB2324B0C800A7E8D2 /* ConfimBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B954DA2324B0C800A7E8D2 /* ConfimBottomView.m */; };
 		84B954E22324E3BE00A7E8D2 /* ConfirmInfoData.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B954E12324E3BE00A7E8D2 /* ConfirmInfoData.m */; };
+		84B9C1F02329296A00C30F41 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B9C1EF2329296A00C30F41 /* RegisterViewController.m */; };
 		A2245433E31B0B126C5C0D61 /* Pods_LifeBoxTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42783EC83E66FDB25449EC1A /* Pods_LifeBoxTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -488,6 +489,8 @@
 		84B954DA2324B0C800A7E8D2 /* ConfimBottomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfimBottomView.m; sourceTree = "<group>"; };
 		84B954E02324E3BE00A7E8D2 /* ConfirmInfoData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfirmInfoData.h; sourceTree = "<group>"; };
 		84B954E12324E3BE00A7E8D2 /* ConfirmInfoData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfirmInfoData.m; sourceTree = "<group>"; };
+		84B9C1EE2329296A00C30F41 /* RegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		84B9C1EF2329296A00C30F41 /* RegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		8B45816D0134074CDFF8F87E /* Pods-LifeBoxUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeBoxUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LifeBoxUITests/Pods-LifeBoxUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CF018FD20FA4FDD9D71E8F8B /* Pods-LifeBoxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeBoxTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LifeBoxTests/Pods-LifeBoxTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1125,6 +1128,8 @@
 			children = (
 				84B2E0362303055900BC9197 /* LoginViewController.h */,
 				84B2E0372303055900BC9197 /* LoginViewController.m */,
+				84B9C1EE2329296A00C30F41 /* RegisterViewController.h */,
+				84B9C1EF2329296A00C30F41 /* RegisterViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1647,7 +1652,6 @@
 				84B954D42323731F00A7E8D2 /* NetWorkRequest+Orlder.m in Sources */,
 				84B2E0622307067E00BC9197 /* NSObject+BlockDelayedPerforming.m in Sources */,
 				84B2E06A23070B1600BC9197 /* LoginPWView.m in Sources */,
-				84B2E06E230715F800BC9197 /* NetWorkRequest+Shoping.m in Sources */,
 				059F2CCA2323FB260045BA65 /* SetInfoCell.m in Sources */,
 				8461E19A23013A6B00764748 /* RTRootNavigationController.m in Sources */,
 				8461E19C23013A6B00764748 /* UIApplication+DORConfig.m in Sources */,
@@ -1706,6 +1710,7 @@
 				0537918A231610A800DF4DA0 /* NSString+Convenient.m in Sources */,
 				056217F9231FF0A0007E27AF /* InvitationCell.m in Sources */,
 				84B2E05B2307067E00BC9197 /* UITextView+UG.m in Sources */,
+				84B9C1F02329296A00C30F41 /* RegisterViewController.m in Sources */,
 				8461E1B023013A6B00764748 /* main.m in Sources */,
 				8461E1CE230159DB00764748 /* DorViewAlertVC.m in Sources */,
 				84B954DB2324B0C800A7E8D2 /* ConfimBottomView.m in Sources */,
@@ -1718,7 +1723,6 @@
 				050E0493230DC3E500DA5BFD /* PersonIconData.m in Sources */,
 				059F2CBC2323F5120045BA65 /* SetViewController.m in Sources */,
 				8461E1C92301586F00764748 /* BlockCollectionView.m in Sources */,
-				0537919B2316B6DD00DF4DA0 /* ShoppingCarCell.m in Sources */,
 				059F2CB92323B8FD0045BA65 /* DetailsPriceCell.m in Sources */,
 				8461E1B223013A6B00764748 /* HomeViewController.m in Sources */,
 				84B2E0732307C8AF00BC9197 /* GoodsDefViewController.m in Sources */,
