@@ -10,6 +10,11 @@
 #import "SetInfoCell.h"
 #import "SetPersonInfoCell.h"
 #import "FeedbackController.h"
+#import "AddressManagementController.h"
+#import "PersonInfoController.h"
+#import "SetPasswordController.h"
+#import "SDWebImageManager.h"
+#import <SDImageCache.h>
 
 @interface SetViewController ()<UITableViewDelegate, UITableViewDataSource> {
     ///数据展示
@@ -20,9 +25,7 @@
 
 @end
 
-static NSString *personCellID = @"SetPersonInfoCellID";
 static NSString *infoCellID = @"SetInfoCellID";
-
 
 @implementation SetViewController
 
@@ -51,7 +54,7 @@ static NSString *infoCellID = @"SetInfoCellID";
     [self.view addSubview:tableView];
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.right.left.mas_equalTo(0);
-        make.height.mas_equalTo(Scale750(400));
+        make.height.mas_equalTo(Scale750(550));
     }];
     /*
      * 退出Btn
@@ -76,62 +79,128 @@ static NSString *infoCellID = @"SetInfoCellID";
     /*
      * 封装数据
      */
-    titleArr = [NSArray arrayWithObjects:@"收货地址", @"问题反馈", @"关于生活宝", nil];
+    titleArr = [NSArray arrayWithObjects:@"个人资料", @"密码设置", @"地址管理", @"问题反馈", @"清楚缓存", @"关于", nil];
 }
 
 #pragma mark - UITableView代理
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 0) {
-        SetPersonInfoCell *personCell = [tableView dequeueReusableCellWithIdentifier:personCellID];
-        if (personCell == nil) {
-            personCell = [[SetPersonInfoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:personCellID];
-        }
-        personCell.backgroundColor = [UIColor whiteColor];
-        personCell.selectionStyle = UITableViewCellSelectionStyleNone;
-        return personCell;
-    }else{
-        SetInfoCell *infoCell = [tableView dequeueReusableCellWithIdentifier:infoCellID];
-        if (infoCell == nil) {
-            infoCell = [[SetInfoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:infoCellID];
-        }
-        infoCell.backgroundColor = [UIColor whiteColor];
-        infoCell.selectionStyle = UITableViewCellSelectionStyleNone;
-        NSString *tempStr = [titleArr objectAtIndex:indexPath.row - 1];
-        [infoCell reloadCellUIWith:tempStr];
-        return infoCell;
+    SetInfoCell *infoCell = [tableView dequeueReusableCellWithIdentifier:infoCellID];
+    if (infoCell == nil) {
+        infoCell = [[SetInfoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:infoCellID];
     }
-    return nil;
+    infoCell.backgroundColor = [UIColor whiteColor];
+    infoCell.selectionStyle = UITableViewCellSelectionStyleNone;
+    NSString *tempStr = [titleArr objectAtIndex:indexPath.row];
+    [infoCell reloadCellUIWith:tempStr];
+    return infoCell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 4;
+    return 6;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return Scale750(90);
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
+        case 0:
+        {
+            //个人资料
+            PersonInfoController *infoCtl = [[PersonInfoController alloc] init];
+            [self.navigationController pushViewController:infoCtl animated:YES];
+        }
+            break;
         case 1:
         {
-            //收货地址
+            //密码设置
+            SetPasswordController *pwCtl = [[SetPasswordController alloc] init];
+            pwCtl.typeStr = @"0";
+            [self.navigationController pushViewController:pwCtl animated:YES];
         }
             break;
         case 2:
         {
-            //问题反馈
-            FeedbackController *feedBackCtl = [[FeedbackController alloc] init];
-            [self.navigationController pushViewController:feedBackCtl animated:YES];
+            //地址管理
+            AddressManagementController *addressCtl = [[AddressManagementController alloc] init];
+            [self.navigationController pushViewController:addressCtl animated:YES];
         }
             break;
         case 3:
         {
-            //关于生活宝
+            //反馈
+            FeedbackController *feedBackCtl = [[FeedbackController alloc] init];
+            [self.navigationController pushViewController:feedBackCtl animated:YES];
+        }
+            break;
+        case 4:
+        {
+            //清除缓存
+//            NSString *sdfasdf = [self getCacheSize];
+            [self cleanCache];
+            [self.view showLoading];
+            double delayInSeconds = 2.0;
+                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+                dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                    [self.view hiddenLoading];
+                    [self.view ug_msg:@"清除完成"];
+                });
+        }
+            break;
+        case 5:
+        {
+            //关于
         }
             break;
         default:
             break;
+    }
+}
+
+#pragma mark - 计算缓存
+-(NSString *)getCacheSize {
+    //得到缓存路径
+    NSString * path = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject;
+    NSFileManager * manager = [NSFileManager defaultManager];
+    CGFloat size = 0;
+    //首先判断是否存在缓存文件
+    if ([manager fileExistsAtPath:path]) {
+        NSArray * childFile = [manager subpathsAtPath:path];
+        for (NSString * fileName in childFile) {
+            //缓存文件绝对路径
+            NSString * absolutPath = [path stringByAppendingPathComponent:fileName];
+            size = size + [manager attributesOfItemAtPath:absolutPath error:nil].fileSize;
+        }
+        //计算sdwebimage的缓存和系统缓存总和
+        size = size + [[SDImageCache sharedImageCache] totalDiskSize];
+    }
+    return [NSString stringWithFormat:@"%.2f",size / 1024 / 1024];
+}
+
+///清楚缓存
+-(void)cleanCache {
+//    NSString *cacheStr = [self getCacheSize];
+    NSError *error = nil;//错误信息
+    NSString *path = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject;
+        NSFileManager * manager = [NSFileManager defaultManager];
+    //判断是否存在缓存文件
+    if ([manager fileExistsAtPath:path]) {
+        NSArray * childFile = [manager subpathsAtPath:path];
+        //逐个删除缓存文件
+        for (NSString *fileName in childFile) {
+            NSString * absolutPat = [path stringByAppendingPathComponent:fileName];
+            [manager removeItemAtPath:absolutPat error:&error];
+            if (error) {
+                DDLogVerbose(@"清除失败");
+            }
+        }
+        //删除sdwebimage的缓存
+        [[SDImageCache sharedImageCache] clearMemory];
     }
 }
 

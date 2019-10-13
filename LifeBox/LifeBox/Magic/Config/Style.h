@@ -42,5 +42,13 @@
 #define S_COGreenBack RGBColor(111, 190, 139)
 ///绿色字体
 #define S_COGreenText RGBColor(111, 190, 139)
+///绿色不可点击背景
+#define S_COGreenBackNoClick RGBColor(181, 213, 189)
+
+/*
+ * 通知的全局Key
+ */
+///时间倒计时
+#define APPTIMEINFORMATION     @"APPTIMEINFORMATION"
 
 #endif /* Style_h */

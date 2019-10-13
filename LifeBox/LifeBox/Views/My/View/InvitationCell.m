@@ -15,6 +15,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         [self createUI];
+        self.backgroundColor = [UIColor whiteColor];
     }
     return self;
 }

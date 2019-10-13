@@ -52,8 +52,6 @@
 
 //设置正常navi
 - (void)setWhiteNaviWithTitle:(NSString *)titleStr{
-    
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     /*
      * 导航栏返回Btn
      */

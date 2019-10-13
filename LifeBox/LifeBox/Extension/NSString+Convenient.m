@@ -27,4 +27,24 @@
     return attributeStr;
 }
 
+#pragma mark - 将字符串中间几位替换为*
+/*
+ * 将字符串中间几位替换为*
+ */
+-(NSString *)stringByReplacingAsteriskWithRange:(NSRange)range {
+                
+    
+    NSMutableString *temp = [[NSMutableString alloc]initWithCapacity:25];
+    for (NSUInteger i = range.location; i < range.location+range.length; i++) {
+        [temp appendString:@"*"];
+    }
+    if(self.length==0)
+    {
+        return nil;
+    }
+    NSMutableString *theNewStr=[[NSMutableString alloc] initWithString:self];
+    [theNewStr replaceCharactersInRange:range withString:temp];
+    return theNewStr;
+}
+
 @end

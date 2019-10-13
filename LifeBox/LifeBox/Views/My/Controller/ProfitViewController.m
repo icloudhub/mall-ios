@@ -163,6 +163,7 @@ static NSString *profitViewCellID = @"ProfitViewCellID";
      * 数据展示tableView
      */
     tableView = [[UITableView alloc] init];
+    tableView.backgroundColor = [UIColor whiteColor];
     tableView.delegate = self;
     tableView.dataSource = self;
     tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];

@@ -24,17 +24,17 @@
     NSString *className = NSStringFromClass([self class]);
     DDLogVerbose(@"\n🏷当前业务类名: %@🏷", className);
     //添加测试按钮
-    self.refreshBtn = [UIButton new];
-    [_refreshBtn setTitle:@"刷新" forState:UIControlStateNormal];
-    [_refreshBtn setBackgroundColor:UIColor.redColor];
-    [self.view addSubview:_refreshBtn];
-    [_refreshBtn ug_addEvents:UIControlEventTouchUpInside andBlock:^(id  _Nonnull sender) {
-        [self loadData];
-    }];
+//    self.refreshBtn = [UIButton new];
+//    [_refreshBtn setTitle:@"刷新" forState:UIControlStateNormal];
+//    [_refreshBtn setBackgroundColor:UIColor.redColor];
+//    [self.view addSubview:_refreshBtn];
+//    [_refreshBtn ug_addEvents:UIControlEventTouchUpInside andBlock:^(id  _Nonnull sender) {
+//        [self loadData];
+//    }];
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self loadData];
+//    [self loadData];
 }
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
@@ -50,6 +50,7 @@
 -(void)loadData{
     DDLogVerbose(@"父类刷新");
 }
+
 -(void)viewLayoutMarginsDidChange{
     [super viewLayoutMarginsDidChange];
     [_refreshBtn mas_makeConstraints:^(MASConstraintMaker *make) {
