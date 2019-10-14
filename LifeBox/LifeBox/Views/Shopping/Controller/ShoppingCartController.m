@@ -52,6 +52,10 @@ static NSString *cellID = @"ShoppingCarCellID";
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithCustomView:editBtn];
     self.navigationItem.rightBarButtonItem = rightItem;
     [self createUI];
+    
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     [self loadData];
 }
 
