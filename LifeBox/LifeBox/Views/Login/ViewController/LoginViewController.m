@@ -60,16 +60,16 @@
     [super viewLayoutMarginsDidChange];
 
     [_loginBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(S_Defmargin);
-        make.right.mas_equalTo(-S_Defmargin);
+        make.left.mas_equalTo(SPanding_DEF);
+        make.right.mas_equalTo(-SPanding_DEF);
         make.top.mas_equalTo(self.view.center.y);
         make.height.mas_equalTo(44);
     }];
     [_loginPWView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(self.view).offset(S_Defmargin);
-        make.right.mas_equalTo(self.view).offset(-S_Defmargin);
+        make.left.mas_equalTo(self.view).offset(SPanding_DEF);
+        make.right.mas_equalTo(self.view).offset(-SPanding_DEF);
         make.height.mas_equalTo(135);
-        make.bottom.mas_equalTo(self.loginBtn.mas_top).offset(-S_Defmargin);
+        make.bottom.mas_equalTo(self.loginBtn.mas_top).offset(-SPanding_DEF);
     }];
     
 }

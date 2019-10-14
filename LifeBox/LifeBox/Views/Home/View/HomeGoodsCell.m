@@ -54,7 +54,8 @@
     [_goodsLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self->_goodsImg.mas_right).mas_offset(Scale750(40));
         make.top.mas_equalTo(self->_goodsImg).mas_offset(Scale750(10));
-        make.width.height.mas_greaterThanOrEqualTo(0);
+        make.height.mas_greaterThanOrEqualTo(0);
+        make.right.mas_equalTo(self).mas_offset(-Scale750(40));
     }];
     /*
      * 商品描述

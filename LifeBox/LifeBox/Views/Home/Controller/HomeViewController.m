@@ -14,6 +14,7 @@
 #import "HomeGoodsCell.h"
 #import "HomeProductdata.h"
 #import "GoodsDefViewController.h"
+
 @interface HomeViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource> {
     ///按钮功能数据展示
     UICollectionView *collectionView;
@@ -240,7 +241,7 @@ static NSString *homeGoodsCellID = @"HomeGoodsCellID";
     }
     HomeProductdata *data = [_likeproducts objectAtIndex:indexPath.row];
     goodsCell.addBtn.tag = indexPath.row;
-//    [goodsCell.goodsImg sd_setImageWithURL:UG_URL(data.icon)];
+    [goodsCell.goodsImg sd_setImageWithURL:UG_URL(data.pic)];
     goodsCell.goodsLab.text = data.name;
 //    goodsCell.speciLab.text = data.spstr;
 //    goodsCell.goodsTitle.text = data.pmsProduct.subTitle;

@@ -33,7 +33,7 @@
 -(void)layoutSubviews{
     [super layoutSubviews];
     [_buybtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.mas_equalTo(self).mas_offset(-S_Defmargin);
+        make.right.mas_equalTo(self).mas_offset(-SPanding_DEF);
         make.top.bottom.mas_equalTo(self);
         make.width.mas_equalTo(120);
     }];
