@@ -29,7 +29,7 @@
 
 ///轮播View
 @property (strong, nonatomic) SDCycleScrollView *scrollView;
-@property (strong, nonatomic) NSArray * likeproducts;
+@property (strong, nonatomic) NSArray *likeproducts;
 @end
 
 ///HomeGoodsCellID
@@ -251,14 +251,13 @@ static NSString *homeGoodsCellID = @"HomeGoodsCellID";
     }
     HomeProductdata *data = [_likeproducts objectAtIndex:indexPath.row];
     goodsCell.addBtn.tag = indexPath.row;
-//    [goodsCell.goodsImg sd_setImageWithURL:UG_URL(data.icon)];
+    [goodsCell.goodsImg sd_setImageWithURL:UG_URL(data.pic)];
     goodsCell.goodsLab.text = data.name;
 //    goodsCell.speciLab.text = data.spstr;
 //    goodsCell.goodsTitle.text = data.pmsProduct.subTitle;
 //    goodsCell.goodsMoney.text = [NSString stringWithFormat:@"%.2f",data.pmsSkuStock.price];
 //    goodsCell.original.text = [NSString stringWithFormat:@"%.2f",data.pmsSkuStock.originalPrice];
 //    goodsCell.numLab.text = [NSString stringWithFormat:@"%zd",data.quantity];
-    
     return goodsCell;
 }
 

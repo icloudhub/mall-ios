@@ -175,6 +175,8 @@
 		05BBBB85230FA16400C01FC3 /* navBackImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 05BBBB84230FA16400C01FC3 /* navBackImage.png */; };
 		05BBBB882312A08700C01FC3 /* ProfitViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BBBB872312A08700C01FC3 /* ProfitViewCell.m */; };
 		05C954552322567A00517381 /* OrderViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C954542322567A00517381 /* OrderViewCell.m */; };
+		20D1FFB52354687F0084613C /* RegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D1FFB42354687F0084613C /* RegisterView.m */; };
+		20D1FFB8235468CE0084613C /* VerCodeInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D1FFB7235468CE0084613C /* VerCodeInputView.m */; };
 		44817E12D5A0B5C6851BE813 /* Pods_LifeBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71F3AEA030591677BD69ABCD /* Pods_LifeBox.framework */; };
 		759CA6986FF80A3AF593086D /* Pods_LifeBoxUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 820141ED82991FFDD6D1CFDB /* Pods_LifeBoxUITests.framework */; };
 		842D2B562320AD7A00C50605 /* NSString+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 842D2B552320AD7A00C50605 /* NSString+JSON.m */; };
@@ -245,6 +247,7 @@
 		84B954D82324AD1200A7E8D2 /* ConfirAddressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B954D72324AD1200A7E8D2 /* ConfirAddressView.m */; };
 		84B954DB2324B0C800A7E8D2 /* ConfimBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B954DA2324B0C800A7E8D2 /* ConfimBottomView.m */; };
 		84B954E22324E3BE00A7E8D2 /* ConfirmInfoData.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B954E12324E3BE00A7E8D2 /* ConfirmInfoData.m */; };
+		84B9C1F02329296A00C30F41 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B9C1EF2329296A00C30F41 /* RegisterViewController.m */; };
 		A2245433E31B0B126C5C0D61 /* Pods_LifeBoxTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42783EC83E66FDB25449EC1A /* Pods_LifeBoxTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -496,6 +499,10 @@
 		05C954532322567A00517381 /* OrderViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderViewCell.h; sourceTree = "<group>"; };
 		05C954542322567A00517381 /* OrderViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderViewCell.m; sourceTree = "<group>"; };
 		1C30ECA15C1E0199568E084A /* Pods-LifeBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeBox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LifeBox/Pods-LifeBox.debug.xcconfig"; sourceTree = "<group>"; };
+		20D1FFB32354687F0084613C /* RegisterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterView.h; sourceTree = "<group>"; };
+		20D1FFB42354687F0084613C /* RegisterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterView.m; sourceTree = "<group>"; };
+		20D1FFB6235468CE0084613C /* VerCodeInputView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VerCodeInputView.h; sourceTree = "<group>"; };
+		20D1FFB7235468CE0084613C /* VerCodeInputView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VerCodeInputView.m; sourceTree = "<group>"; };
 		42783EC83E66FDB25449EC1A /* Pods_LifeBoxTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LifeBoxTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AD101B6451A24A944A808A5 /* Pods-LifeBoxTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeBoxTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LifeBoxTests/Pods-LifeBoxTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4CA0226A52EDF4D7BD639A38 /* Pods-LifeBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeBox.release.xcconfig"; path = "Pods/Target Support Files/Pods-LifeBox/Pods-LifeBox.release.xcconfig"; sourceTree = "<group>"; };
@@ -628,6 +635,8 @@
 		84B954DA2324B0C800A7E8D2 /* ConfimBottomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfimBottomView.m; sourceTree = "<group>"; };
 		84B954E02324E3BE00A7E8D2 /* ConfirmInfoData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfirmInfoData.h; sourceTree = "<group>"; };
 		84B954E12324E3BE00A7E8D2 /* ConfirmInfoData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfirmInfoData.m; sourceTree = "<group>"; };
+		84B9C1EE2329296A00C30F41 /* RegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		84B9C1EF2329296A00C30F41 /* RegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		8B45816D0134074CDFF8F87E /* Pods-LifeBoxUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeBoxUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LifeBoxUITests/Pods-LifeBoxUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CF018FD20FA4FDD9D71E8F8B /* Pods-LifeBoxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeBoxTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LifeBoxTests/Pods-LifeBoxTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1341,6 +1350,8 @@
 			children = (
 				84B2E0362303055900BC9197 /* LoginViewController.h */,
 				84B2E0372303055900BC9197 /* LoginViewController.m */,
+				84B9C1EE2329296A00C30F41 /* RegisterViewController.h */,
+				84B9C1EF2329296A00C30F41 /* RegisterViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1350,8 +1361,12 @@
 			children = (
 				84B2E03D2307051200BC9197 /* LogInInputView.h */,
 				84B2E03E2307051200BC9197 /* LogInInputView.m */,
+				20D1FFB6235468CE0084613C /* VerCodeInputView.h */,
+				20D1FFB7235468CE0084613C /* VerCodeInputView.m */,
 				84B2E06823070B1600BC9197 /* LoginPWView.h */,
 				84B2E06923070B1600BC9197 /* LoginPWView.m */,
+				20D1FFB32354687F0084613C /* RegisterView.h */,
+				20D1FFB42354687F0084613C /* RegisterView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1929,6 +1944,7 @@
 				8461E19F23013A6B00764748 /* NetWorkRequest.m in Sources */,
 				058C83D0232690BF007AA863 /* AddressEditController.m in Sources */,
 				8461E19E23013A6B00764748 /* UIApplication+Initialize.m in Sources */,
+				20D1FFB8235468CE0084613C /* VerCodeInputView.m in Sources */,
 				053791512314198A00DF4DA0 /* NoticeView.m in Sources */,
 				053791AF231B94CD00DF4DA0 /* NoDataView.m in Sources */,
 				05145138231EB7D900547E42 /* InvitationController.m in Sources */,
@@ -1991,6 +2007,7 @@
 				0537918A231610A800DF4DA0 /* NSString+Convenient.m in Sources */,
 				056217F9231FF0A0007E27AF /* InvitationCell.m in Sources */,
 				84B2E05B2307067E00BC9197 /* UITextView+UG.m in Sources */,
+				84B9C1F02329296A00C30F41 /* RegisterViewController.m in Sources */,
 				8461E1B023013A6B00764748 /* main.m in Sources */,
 				8461E1CE230159DB00764748 /* DorViewAlertVC.m in Sources */,
 				0531EA18233A138D00775D79 /* GenderSheet.m in Sources */,
@@ -2009,6 +2026,7 @@
 				8461E1B223013A6B00764748 /* HomeViewController.m in Sources */,
 				84B2E0732307C8AF00BC9197 /* GoodsDefViewController.m in Sources */,
 				05C954552322567A00517381 /* OrderViewCell.m in Sources */,
+				20D1FFB52354687F0084613C /* RegisterView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

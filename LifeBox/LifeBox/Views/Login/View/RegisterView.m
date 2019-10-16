@@ -1,14 +1,14 @@
 //
-//  LoginPWView.m
+//  RegisterView.m
 //  LifeBox
 //
-//  Created by admin on 2019/8/17.
+//  Created by xiaoqy on 2019/10/14.
 //  Copyright © 2019 Lucky. All rights reserved.
 //
 
-#import "LoginPWView.h"
+#import "RegisterView.h"
 
-@implementation LoginPWView
+@implementation RegisterView
 
 -(instancetype)initWithFrame:(CGRect)frame{
     
@@ -28,6 +28,11 @@
     [self addSubview:_passwordView];
     _usernameView.inputTF.placeholder = @"用户名/手机号码";
     _passwordView.inputTF.placeholder = @"6-16位密码";
+    
+    self.verCodeInputView = [VerCodeInputView new];
+    [self addSubview:_verCodeInputView];
+    _verCodeInputView.inputTF.placeholder = @"6位验证码";
+    [_verCodeInputView.getVerBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
 }
 
 -(void)layoutSubviews{
@@ -37,16 +42,24 @@
         make.top.mas_equalTo(self).mas_offset(SPanding_DEF);
         make.left.mas_equalTo(self).mas_offset(SPanding_DEF);
         make.right.mas_equalTo(self).mas_offset(-SPanding_DEF);
-        make.bottom.mas_equalTo(self.mas_centerY).mas_offset(-SPanding_DEF/2);
+        make.height.mas_equalTo(44);
     }];
     [_passwordView mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.top.mas_equalTo(self.mas_centerY).mas_offset(SPanding_DEF/2);
-        make.bottom.mas_equalTo(self).mas_offset(-SPanding_DEF);
+        make.top.mas_equalTo(self.usernameView.mas_bottom).mas_offset(SPanding_DEF/2);
+        make.height.mas_equalTo(44);
         make.left.mas_equalTo(self).mas_offset(SPanding_DEF);
         make.right.mas_equalTo(self).mas_offset(-SPanding_DEF);
    
     }];
+    [_verCodeInputView mas_makeConstraints:^(MASConstraintMaker *make) {
+           
+           make.top.mas_equalTo(self.passwordView.mas_bottom).mas_offset(SPanding_DEF/2);
+           make.height.mas_equalTo(44);
+           make.left.mas_equalTo(self).mas_offset(SPanding_DEF);
+           make.right.mas_equalTo(self).mas_offset(-SPanding_DEF);
+      
+       }];
     
 }
 
