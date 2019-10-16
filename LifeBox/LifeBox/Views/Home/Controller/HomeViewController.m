@@ -13,7 +13,11 @@
 #import "HomeToolData.h"
 #import "HomeGoodsCell.h"
 #import "HomeProductdata.h"
+
+
 #import "GoodsDefViewController.h"
+#import "SureOrderController.h"
+
 @interface HomeViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource> {
     ///按钮功能数据展示
     UICollectionView *collectionView;
@@ -104,6 +108,13 @@ static NSString *homeGoodsCellID = @"HomeGoodsCellID";
         make.bottom.mas_equalTo(-Scale750(20));
         make.width.height.mas_equalTo(Scale750(50));
     }];
+    [shareBtn bk_addEventHandler:^(id sender) {
+        
+        
+        SureOrderController *ctl = [[SureOrderController alloc] init];
+        ctl.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:ctl animated:YES];
+    } forControlEvents:UIControlEventTouchUpInside];
     /*
      * 自定义搜索框
      */

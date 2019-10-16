@@ -95,7 +95,6 @@
     _speciLab.numberOfLines = 1;
     _speciLab.text = @"规格: 400/盒";
     [bottomView addSubview:_speciLab];
- 
     /*
      * 货币符号
      */
