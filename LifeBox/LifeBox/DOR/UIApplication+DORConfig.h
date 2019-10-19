@@ -29,6 +29,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 @interface DorLoginViewController : NSObject<DoraemonPluginProtocol>
 @end
+
+@interface DorRegisterViewController : NSObject<DoraemonPluginProtocol>
+@end
 @interface DorGoodsDefViewController : NSObject<DoraemonPluginProtocol>
 @end
 @interface DorConfigController : NSObject<DoraemonPluginProtocol>

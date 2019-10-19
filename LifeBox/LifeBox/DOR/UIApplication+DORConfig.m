@@ -18,13 +18,16 @@
 
     [[DoraemonManager shareInstance] install];
     //功能测试
-    [[DoraemonManager shareInstance] addPluginWithTitle:@"弹框" icon:@"doraemon_ui" desc:@"弹框" pluginName:@"DorAlert" atModule:@"功能测试"];
+    
      [[DoraemonManager shareInstance] addPluginWithTitle:@"登陆" icon:@"doraemon_ui" desc:@"登陆" pluginName:@"DorLoginViewController" atModule:@"功能测试"];
+    
+     [[DoraemonManager shareInstance] addPluginWithTitle:@"注册" icon:@"doraemon_ui" desc:@"注册" pluginName:@"DorRegisterViewController" atModule:@"功能测试"];
+    
      [[DoraemonManager shareInstance] addPluginWithTitle:@"商品详情" icon:@"doraemon_ui" desc:@"商品详情" pluginName:@"DorGoodsDefViewController" atModule:@"功能测试"];
     
      [[DoraemonManager shareInstance] addPluginWithTitle:@"app配置" icon:@"doraemon_ui" desc:@"商品详情" pluginName:@"DorConfigController" atModule:@"功能测试"];
     
-    
+    [[DoraemonManager shareInstance] addPluginWithTitle:@"弹框" icon:@"doraemon_ui" desc:@"弹框" pluginName:@"DorAlert" atModule:@"功能测试"];
     
     //接口测试
     [[DoraemonManager shareInstance] addPluginWithTitle:@"接口测试" icon:@"doraemon_ui" desc:@"接口测试" pluginName:@"DorSwagger" atModule:@"接口测试"];
@@ -77,6 +80,19 @@
 }
 
 @end
+
+#pragma mark 注册
+@implementation DorRegisterViewController
+
+- (void)pluginDidLoad{
+    
+    UIViewController *vc = [NSClassFromString(@"RegisterViewController") new];
+    [DoraemonUtil openPlugin:vc];
+}
+
+@end
+
+
 
 #import "GoodsDefViewController.h"
 @implementation DorGoodsDefViewController
