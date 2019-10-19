@@ -68,7 +68,7 @@
     [_goodsName mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self->_goodsImg);
         make.left.mas_equalTo(self->_goodsImg.mas_right).mas_offset(Scale750(30));
-        make.right.mas_equalTo(self).mas_offset(-S_Defmargin);
+        make.right.mas_equalTo(self).mas_offset(-SPanding_DEF);
 //        make.width.height.mas_greaterThanOrEqualTo(0);
     }];
     /*
@@ -83,7 +83,7 @@
     [_goodsTitle mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self->_goodsName);
         make.top.mas_equalTo(self->_goodsName.mas_bottom).mas_offset(Scale750(10));
-        make.right.mas_equalTo(self).mas_offset(-S_Defmargin);
+        make.right.mas_equalTo(self).mas_offset(-SPanding_DEF);
 //        make.width.height.mas_greaterThanOrEqualTo(0);
     }];
     /*
@@ -95,7 +95,6 @@
     _speciLab.numberOfLines = 1;
     _speciLab.text = @"规格: 400/盒";
     [bottomView addSubview:_speciLab];
- 
     /*
      * 货币符号
      */

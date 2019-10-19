@@ -26,6 +26,7 @@
 #import "UIScrollView+EmptyDataSet.h"
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #import "UIView+Loading.h"
+#import "UIImageView+WebCache.h"
 
 
 #endif /* LifeBoxHeader_pch */

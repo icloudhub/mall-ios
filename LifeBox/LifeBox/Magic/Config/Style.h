@@ -13,9 +13,12 @@
 // 圆角
 #define S_Radius 5 //默认圆角
 
-//边距 高度
-#define S_Defmargin 15 //默认边距
-#define S_TFGeight 15 //默认边距
+//间距
+#define SPanding_DEF 15 //默认间距
+#define SPanding_MID 10 //小间距
+#define SPanding_MIN 5 //小间距
+
+#define S_TFheight 15 //默认边距
 #define S_Line 0.5 //默认边距
 
 /*

@@ -13,7 +13,11 @@
 #import "HomeToolData.h"
 #import "HomeGoodsCell.h"
 #import "HomeProductdata.h"
+
+
 #import "GoodsDefViewController.h"
+#import "SureOrderController.h"
+
 @interface HomeViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource> {
     ///按钮功能数据展示
     UICollectionView *collectionView;
@@ -25,7 +29,7 @@
 
 ///轮播View
 @property (strong, nonatomic) SDCycleScrollView *scrollView;
-@property (strong, nonatomic) NSArray * likeproducts;
+@property (strong, nonatomic) NSArray *likeproducts;
 @end
 
 ///HomeGoodsCellID
@@ -104,6 +108,13 @@ static NSString *homeGoodsCellID = @"HomeGoodsCellID";
         make.bottom.mas_equalTo(-Scale750(20));
         make.width.height.mas_equalTo(Scale750(50));
     }];
+    [shareBtn bk_addEventHandler:^(id sender) {
+        
+        
+        SureOrderController *ctl = [[SureOrderController alloc] init];
+        ctl.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:ctl animated:YES];
+    } forControlEvents:UIControlEventTouchUpInside];
     /*
      * 自定义搜索框
      */
@@ -240,14 +251,13 @@ static NSString *homeGoodsCellID = @"HomeGoodsCellID";
     }
     HomeProductdata *data = [_likeproducts objectAtIndex:indexPath.row];
     goodsCell.addBtn.tag = indexPath.row;
-//    [goodsCell.goodsImg sd_setImageWithURL:UG_URL(data.icon)];
+    [goodsCell.goodsImg sd_setImageWithURL:UG_URL(data.pic)];
     goodsCell.goodsLab.text = data.name;
 //    goodsCell.speciLab.text = data.spstr;
 //    goodsCell.goodsTitle.text = data.pmsProduct.subTitle;
 //    goodsCell.goodsMoney.text = [NSString stringWithFormat:@"%.2f",data.pmsSkuStock.price];
 //    goodsCell.original.text = [NSString stringWithFormat:@"%.2f",data.pmsSkuStock.originalPrice];
 //    goodsCell.numLab.text = [NSString stringWithFormat:@"%zd",data.quantity];
-    
     return goodsCell;
 }
 

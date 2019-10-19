@@ -77,6 +77,14 @@ static Global_Variable *sharedInstance = nil;
     }
     return [[userinfo objectForKey:@"userinfo"] objectForKey:@"id"];
 }
+-(NSString *)nickname{
+    NSDictionary *userinfo = [[NSUserDefaults standardUserDefaults]objectForKey:@"LoginUserInfo"];
+    if (![userinfo objectForKey:@"userinfo"]) {
+        return nil;
+    }
+    return [[userinfo objectForKey:@"userinfo"] objectForKey:@"nickname"];
+}
+
 -(NSString *)token{
     NSDictionary *userinfo = [[NSUserDefaults standardUserDefaults]objectForKey:@"LoginUserInfo"];
     if (![userinfo objectForKey:@"userinfo"]) {

@@ -20,8 +20,7 @@
     //功能测试
     
      [[DoraemonManager shareInstance] addPluginWithTitle:@"登陆" icon:@"doraemon_ui" desc:@"登陆" pluginName:@"DorLoginViewController" atModule:@"功能测试"];
-    
-     [[DoraemonManager shareInstance] addPluginWithTitle:@"注册" icon:@"doraemon_ui" desc:@"注册" pluginName:@"DorRegisterViewController" atModule:@"功能测试"];
+    [[DoraemonManager shareInstance] addPluginWithTitle:@"注册" icon:@"doraemon_ui" desc:@"注册" pluginName:@"DorRegisterViewController" atModule:@"功能测试"];
     
      [[DoraemonManager shareInstance] addPluginWithTitle:@"商品详情" icon:@"doraemon_ui" desc:@"商品详情" pluginName:@"DorGoodsDefViewController" atModule:@"功能测试"];
     
@@ -52,8 +51,11 @@
 
 - (void)pluginDidLoad{
   
-    DoraemonDefaultWebViewController *vc = [[DoraemonDefaultWebViewController alloc] init];
-    vc.h5Url = [NSString stringWithFormat:@"%@/swagger-ui.html",BASEURL];
+    NSString *h5uel = [NSString stringWithFormat:@"%@/swagger-ui.html",BASEURL];
+    UIViewController *vc = [NSClassFromString(@"DoraemonDefaultWebViewController") new];
+    [vc setValue:h5uel forKey:@"h5Url"];
+//    UIViewController *vc = [NSClassFromString(@"DoraemonDefaultWebViewController") new];
+//    vc.h5Url =
     [DoraemonUtil openPlugin:vc];
 }
 
@@ -70,12 +72,22 @@
 @end
 
 
-#import "LoginViewController.h"
 @implementation DorLoginViewController
 
 - (void)pluginDidLoad{
+
+    UIViewController *vc = [NSClassFromString(@"LoginViewController") new];
+    [DoraemonUtil openPlugin:vc];
+}
+
+@end
+
+
+@implementation DorRegisterViewController
+
+- (void)pluginDidLoad{
     
-    LoginViewController *vc = [[LoginViewController alloc] init];
+    UIViewController *vc = [NSClassFromString(@"RegisterViewController") new];
     [DoraemonUtil openPlugin:vc];
 }
 

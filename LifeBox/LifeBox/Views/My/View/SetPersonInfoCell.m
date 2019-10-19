@@ -109,11 +109,13 @@
         _headImg.hidden = YES;
         _infoLab.hidden = NO;
     }
+//    _headImg sd_setImageWithURL:<#(nullable NSURL *)#> placeholderImage:<#(nullable UIImage *)#> [UIImage imageNamed:@"ic_avatar"];
     /*
      * 标题赋值
      */
     if (indexPath.section == 0) {
         _nickName.text = [oneArr objectAtIndex:indexPath.row];
+        _infoLab.text = [Global_Variable shared].nickname;
     }
     else if (indexPath.section == 1) {
         _nickName.text = [twoArr objectAtIndex:indexPath.row];

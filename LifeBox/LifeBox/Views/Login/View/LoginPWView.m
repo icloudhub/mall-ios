@@ -34,17 +34,17 @@
     
     [super layoutSubviews];
     [_usernameView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self).mas_offset(S_Defmargin);
-        make.left.mas_equalTo(self).mas_offset(S_Defmargin);
-        make.right.mas_equalTo(self).mas_offset(-S_Defmargin);
-        make.bottom.mas_equalTo(self.mas_centerY).mas_offset(-S_Defmargin/2);
+        make.top.mas_equalTo(self).mas_offset(SPanding_DEF);
+        make.left.mas_equalTo(self).mas_offset(SPanding_DEF);
+        make.right.mas_equalTo(self).mas_offset(-SPanding_DEF);
+        make.bottom.mas_equalTo(self.mas_centerY).mas_offset(-SPanding_DEF/2);
     }];
     [_passwordView mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.top.mas_equalTo(self.mas_centerY).mas_offset(S_Defmargin/2);
-        make.bottom.mas_equalTo(self).mas_offset(-S_Defmargin);
-        make.left.mas_equalTo(self).mas_offset(S_Defmargin);
-        make.right.mas_equalTo(self).mas_offset(-S_Defmargin);
+        make.top.mas_equalTo(self.mas_centerY).mas_offset(SPanding_DEF/2);
+        make.bottom.mas_equalTo(self).mas_offset(-SPanding_DEF);
+        make.left.mas_equalTo(self).mas_offset(SPanding_DEF);
+        make.right.mas_equalTo(self).mas_offset(-SPanding_DEF);
    
     }];
     
