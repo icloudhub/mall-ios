@@ -56,7 +56,7 @@
     [self CreateTopNavView];
     [self createGoodsView];
     [self createDetailsView];
-//    [self getHttpLoadData];
+    [self getHttpLoadData];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -200,6 +200,7 @@
     bannerView.showPageControl = NO;
     bannerView.delegate = self;
     NSArray *imgArr = [NSArray arrayWithObjects:@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566836643282&di=1e0aea2d46e6cf6df4f0ac78d11aaf83&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01a49659652b6ca8012193a38907d5.jpg", @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566836670731&di=370c93b0013a47af58a96f8b49410463&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F013dce57fb4a44a84a0e282b326790.jpg", nil];
+    
     bannerView.imageURLStringsGroup = imgArr;
     [_scrollView addSubview:bannerView];
     [bannerView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -483,7 +484,9 @@
 
 #pragma mark - 接口请求
 -(void)getHttpLoadData {
+    [self.defWebview ug_loading];
     [[NetWorkRequest new]productproductInfo:_productid block:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
+        [self.defWebview ug_hiddenLoading];
         if (error) {
             [self.view ug_msg:error.domain];
         }else{
@@ -494,6 +497,8 @@
             }else{
                 [self->_defWebview loadHTMLString:temdata.detailHtml baseURL:nil];
             }
+            
+            [self->bannerView setImageURLStringsGroup:[temdata.albumPics componentsSeparatedByString:@","]];
             self->_defWebview.backgroundColor = UIColor.ug_random;
         }
     }];

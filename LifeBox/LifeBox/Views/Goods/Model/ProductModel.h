@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(strong, nonatomic) NSString *detailMobileHtml;
 @property(strong, nonatomic) NSString *detailHtml;
 @property(strong, nonatomic) NSString *productid;
+@property(strong, nonatomic) NSString *albumPics;//画册图片用逗号分割
 
 @end
 

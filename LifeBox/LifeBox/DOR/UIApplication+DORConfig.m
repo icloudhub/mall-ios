@@ -83,15 +83,7 @@
 @end
 
 
-@implementation DorRegisterViewController
 
-- (void)pluginDidLoad{
-    
-    UIViewController *vc = [NSClassFromString(@"RegisterViewController") new];
-    [DoraemonUtil openPlugin:vc];
-}
-
-@end
 
 #pragma mark 注册
 @implementation DorRegisterViewController

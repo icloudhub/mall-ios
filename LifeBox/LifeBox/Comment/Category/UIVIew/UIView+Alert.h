@@ -22,6 +22,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 -(void)ug_msg:(NSString*)title;
 
+- (void)ug_loading;
++ (void)ug_loading;
+
+- (void)ug_hiddenLoading;
++ (void)ug_hiddenLoading;
+
 @end
 
 NS_ASSUME_NONNULL_END

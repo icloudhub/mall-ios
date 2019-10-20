@@ -38,4 +38,37 @@
     });
 }
 
+- (void)ug_loading {
+    dispatch_main_async_safe(^{
+        
+        MBProgressHUD *hud = [MBProgressHUD HUDForView:self];
+        ///防止重复创建引起界面闪烁
+        if (hud == nil) {
+            hud = [MBProgressHUD showHUDAddedTo:self animated:YES];
+            hud.mode = MBProgressHUDModeIndeterminate;
+            hud.label.text = @"Loading...";
+            hud.animationType = MBProgressHUDAnimationFade;
+            hud.removeFromSuperViewOnHide = YES;
+        }
+    });
+}
+
++ (void)ug_loading{
+    UIWindow *awindow = [UIApplication sharedApplication].keyWindow;
+    [awindow ug_loading];
+}
+
+
++ (void)ug_hiddenLoading{
+    UIWindow *awindow = [UIApplication sharedApplication].keyWindow;
+    [awindow ug_hiddenLoading];
+}
+
+
+- (void)ug_hiddenLoading {
+    dispatch_main_async_safe(^{
+        [MBProgressHUD hideHUDForView:self animated:YES];
+    });
+}
+
 @end
