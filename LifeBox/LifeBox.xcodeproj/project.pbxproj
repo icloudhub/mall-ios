@@ -189,7 +189,6 @@
 		8461E19C23013A6B00764748 /* UIApplication+DORConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 8461E16923013A6B00764748 /* UIApplication+DORConfig.m */; };
 		8461E19E23013A6B00764748 /* UIApplication+Initialize.m in Sources */ = {isa = PBXBuildFile; fileRef = 8461E16F23013A6B00764748 /* UIApplication+Initialize.m */; };
 		8461E19F23013A6B00764748 /* NetWorkRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8461E17123013A6B00764748 /* NetWorkRequest.m */; };
-		8461E1A023013A6B00764748 /* NetWorkRequest+Business.m in Sources */ = {isa = PBXBuildFile; fileRef = 8461E17223013A6B00764748 /* NetWorkRequest+Business.m */; };
 		8461E1A123013A6B00764748 /* homeTabBarImg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8461E17623013A6B00764748 /* homeTabBarImg@3x.png */; };
 		8461E1A223013A6B00764748 /* workTabBarImg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8461E17723013A6B00764748 /* workTabBarImg@2x.png */; };
 		8461E1A323013A6B00764748 /* personTabBarSelected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8461E17823013A6B00764748 /* personTabBarSelected@2x.png */; };
@@ -247,6 +246,7 @@
 		84B954DB2324B0C800A7E8D2 /* ConfimBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B954DA2324B0C800A7E8D2 /* ConfimBottomView.m */; };
 		84B954E22324E3BE00A7E8D2 /* ConfirmInfoData.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B954E12324E3BE00A7E8D2 /* ConfirmInfoData.m */; };
 		84B9C1F02329296A00C30F41 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B9C1EF2329296A00C30F41 /* RegisterViewController.m */; };
+		84C29209235DEF5B00034213 /* NetWorkRequest+Business.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C29207235DEF5B00034213 /* NetWorkRequest+Business.m */; };
 		A2245433E31B0B126C5C0D61 /* Pods_LifeBoxTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42783EC83E66FDB25449EC1A /* Pods_LifeBoxTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -531,8 +531,6 @@
 		8461E16C23013A6B00764748 /* UIApplication+Initialize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+Initialize.h"; sourceTree = "<group>"; };
 		8461E16F23013A6B00764748 /* UIApplication+Initialize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+Initialize.m"; sourceTree = "<group>"; };
 		8461E17123013A6B00764748 /* NetWorkRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorkRequest.m; sourceTree = "<group>"; };
-		8461E17223013A6B00764748 /* NetWorkRequest+Business.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NetWorkRequest+Business.m"; path = "../../../Comment/RequestManagement/NetWorkRequest+Business.m"; sourceTree = "<group>"; };
-		8461E17323013A6B00764748 /* NetWorkRequest+Business.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NetWorkRequest+Business.h"; path = "../../../Comment/RequestManagement/NetWorkRequest+Business.h"; sourceTree = "<group>"; };
 		8461E17423013A6B00764748 /* NetWorkRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkRequest.h; sourceTree = "<group>"; };
 		8461E17623013A6B00764748 /* homeTabBarImg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homeTabBarImg@3x.png"; sourceTree = "<group>"; };
 		8461E17723013A6B00764748 /* workTabBarImg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workTabBarImg@2x.png"; sourceTree = "<group>"; };
@@ -634,6 +632,8 @@
 		84B954E12324E3BE00A7E8D2 /* ConfirmInfoData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfirmInfoData.m; sourceTree = "<group>"; };
 		84B9C1EE2329296A00C30F41 /* RegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		84B9C1EF2329296A00C30F41 /* RegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		84C29207235DEF5B00034213 /* NetWorkRequest+Business.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NetWorkRequest+Business.m"; path = "LifeBox/Comment/RequestManagement/NetWorkRequest+Business.m"; sourceTree = SOURCE_ROOT; };
+		84C29208235DEF5B00034213 /* NetWorkRequest+Business.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NetWorkRequest+Business.h"; path = "LifeBox/Comment/RequestManagement/NetWorkRequest+Business.h"; sourceTree = SOURCE_ROOT; };
 		8B45816D0134074CDFF8F87E /* Pods-LifeBoxUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeBoxUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LifeBoxUITests/Pods-LifeBoxUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CF018FD20FA4FDD9D71E8F8B /* Pods-LifeBoxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeBoxTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LifeBoxTests/Pods-LifeBoxTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1305,8 +1305,8 @@
 		8478A27223263872005681CF /* API */ = {
 			isa = PBXGroup;
 			children = (
-				8461E17223013A6B00764748 /* NetWorkRequest+Business.m */,
-				8461E17323013A6B00764748 /* NetWorkRequest+Business.h */,
+				84C29208235DEF5B00034213 /* NetWorkRequest+Business.h */,
+				84C29207235DEF5B00034213 /* NetWorkRequest+Business.m */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -1918,8 +1918,8 @@
 				84B2E03C2303074800BC9197 /* UIColor+UG.m in Sources */,
 				8461E19923013A6B00764748 /* UIViewController+RTRootNavigationController.m in Sources */,
 				05BBBB7B230F98B500C01FC3 /* MyToolCell.m in Sources */,
+				84C29209235DEF5B00034213 /* NetWorkRequest+Business.m in Sources */,
 				0537918623158AE500DF4DA0 /* HomeGoodsCell.m in Sources */,
-				8461E1A023013A6B00764748 /* NetWorkRequest+Business.m in Sources */,
 				0531EA12233A080700775D79 /* ChangeWeChatController.m in Sources */,
 				84B954D42323731F00A7E8D2 /* NetWorkRequest+Orlder.m in Sources */,
 				84B2E0622307067E00BC9197 /* NSObject+BlockDelayedPerforming.m in Sources */,
