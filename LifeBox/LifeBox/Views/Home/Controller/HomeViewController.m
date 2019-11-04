@@ -10,9 +10,9 @@
 #import <SDCycleScrollView/SDCycleScrollView.h>
 #import "NoticeView.h"
 #import "HomeToolCell.h"
-#import "HomeToolData.h"
 #import "HomeGoodsCell.h"
 #import "HomeProductdata.h"
+#import "HomeData.h"
 
 
 #import "GoodsDefViewController.h"
@@ -42,6 +42,7 @@ static NSString *homeGoodsCellID = @"HomeGoodsCellID";
      self.view.backgroundColor = [UIColor whiteColor];
     [self createUI];
     [self recommendProduct];
+    [self homePageDataRequest];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -183,17 +184,17 @@ static NSString *homeGoodsCellID = @"HomeGoodsCellID";
     }];
     tableView.tableHeaderView = topView;
     HomeToolData *oneData = [[HomeToolData alloc] init];
-    oneData.toolImg = @"ic_fruit";
-    oneData.toolName = @"新鲜水果";
+    oneData.logo = @"ic_fruit";
+    oneData.name = @"新鲜水果";
     HomeToolData *twoData = [[HomeToolData alloc] init];
-    twoData.toolImg = @"ic_vegetables";
-    twoData.toolName = @"时令蔬菜";
+    twoData.logo = @"ic_vegetables";
+    twoData.name = @"时令蔬菜";
     HomeToolData *thrData = [[HomeToolData alloc] init];
-    thrData.toolImg = @"ic_egg";
-    thrData.toolName = @"肉禽蛋类";
+    thrData.logo = @"ic_egg";
+    thrData.name = @"肉禽蛋类";
     HomeToolData *fourData = [[HomeToolData alloc] init];
-    fourData.toolImg = @"ic_tourism";
-    fourData.toolName = @"旅游";
+    fourData.logo = @"ic_tourism";
+    fourData.name = @"旅游";
     dataArr = [NSArray arrayWithObjects:oneData, twoData, thrData, fourData, nil];
     [collectionView reloadData];
 }
@@ -280,8 +281,26 @@ static NSString *homeGoodsCellID = @"HomeGoodsCellID";
     [self.navigationController pushViewController:goodsDefViewController animated:YES];
 }
 
--(void)recommendProduct{
-    [[[NetWorkRequest alloc]init] recommendProductListblock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
+#pragma mark - 首页数据接口
+- (void)homePageDataRequest {
+    [[[NetWorkRequest alloc] init] getHomeInfoendblock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
+        if (error) {
+            [self.view ug_msg:error.domain];
+        }else{
+            NSDictionary *toolDic = [result objectForKey:@"brandList"];
+            NSArray *dataArr = [NSArray yy_modelArrayWithClass:[HomeToolData class] json:toolDic];
+            NSDictionary *bannerDic = [result objectForKey:@"advertiseList"];
+            NSArray *bannerArr = [NSArray yy_modelArrayWithClass:[HomeBannerData class] json:bannerDic];
+            NSDictionary *notiDic = [result objectForKey:@"subjectList"];
+            NSArray *notiArr = [NSArray yy_modelArrayWithClass:[HomeNotiData class] json:notiDic];
+            NSLog(@"");
+        }
+    }];
+}
+
+#pragma mark - 为你推荐接口
+- (void)recommendProduct{
+    [[[NetWorkRequest alloc] init] recommendProductListblock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
         if (error) {
             [self.view ug_msg:error.domain];
         }else{
@@ -290,4 +309,5 @@ static NSString *homeGoodsCellID = @"HomeGoodsCellID";
         }
     }];
 }
+
 @end

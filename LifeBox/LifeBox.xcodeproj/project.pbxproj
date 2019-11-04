@@ -88,7 +88,6 @@
 		0537917C2314237100DF4DA0 /* ic_tourism@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 053791742314237000DF4DA0 /* ic_tourism@2x.png */; };
 		0537917D2314237100DF4DA0 /* ic_fruit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 053791752314237100DF4DA0 /* ic_fruit@2x.png */; };
 		05379180231428A900DF4DA0 /* HomeToolCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0537917F231428A900DF4DA0 /* HomeToolCell.m */; };
-		05379183231579A400DF4DA0 /* HomeToolData.m in Sources */ = {isa = PBXBuildFile; fileRef = 05379182231579A400DF4DA0 /* HomeToolData.m */; };
 		0537918623158AE500DF4DA0 /* HomeGoodsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0537918523158AE500DF4DA0 /* HomeGoodsCell.m */; };
 		0537918A231610A800DF4DA0 /* NSString+Convenient.m in Sources */ = {isa = PBXBuildFile; fileRef = 05379189231610A800DF4DA0 /* NSString+Convenient.m */; };
 		0537918D231623E200DF4DA0 /* ic_add_to@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0537918B231623E200DF4DA0 /* ic_add_to@3x.png */; };
@@ -126,6 +125,7 @@
 		056E4A5F2354BAA400C07936 /* ic_add_toAddress@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 056E4A5D2354BAA400C07936 /* ic_add_toAddress@3x.png */; };
 		058C83D0232690BF007AA863 /* AddressEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 058C83CF232690BF007AA863 /* AddressEditController.m */; };
 		058C83D323269147007AA863 /* AddressManagementController.m in Sources */ = {isa = PBXBuildFile; fileRef = 058C83D223269147007AA863 /* AddressManagementController.m */; };
+		059435BF237073B5003CFBE9 /* HomeData.m in Sources */ = {isa = PBXBuildFile; fileRef = 059435BE237073B5003CFBE9 /* HomeData.m */; };
 		059F2C902322BCA40045BA65 /* OrderDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 059F2C8F2322BCA40045BA65 /* OrderDetailsController.m */; };
 		059F2C9523239CCD0045BA65 /* ic_completed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 059F2C9123239CCC0045BA65 /* ic_completed@2x.png */; };
 		059F2C9623239CCD0045BA65 /* ic_address_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 059F2C9223239CCC0045BA65 /* ic_address_1@2x.png */; };
@@ -375,8 +375,6 @@
 		053791752314237100DF4DA0 /* ic_fruit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_fruit@2x.png"; sourceTree = "<group>"; };
 		0537917E231428A900DF4DA0 /* HomeToolCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeToolCell.h; sourceTree = "<group>"; };
 		0537917F231428A900DF4DA0 /* HomeToolCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeToolCell.m; sourceTree = "<group>"; };
-		05379181231579A400DF4DA0 /* HomeToolData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeToolData.h; sourceTree = "<group>"; };
-		05379182231579A400DF4DA0 /* HomeToolData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeToolData.m; sourceTree = "<group>"; };
 		0537918423158AE500DF4DA0 /* HomeGoodsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeGoodsCell.h; sourceTree = "<group>"; };
 		0537918523158AE500DF4DA0 /* HomeGoodsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeGoodsCell.m; sourceTree = "<group>"; };
 		05379188231610A800DF4DA0 /* NSString+Convenient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Convenient.h"; sourceTree = "<group>"; };
@@ -428,6 +426,8 @@
 		058C83CF232690BF007AA863 /* AddressEditController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddressEditController.m; sourceTree = "<group>"; };
 		058C83D123269147007AA863 /* AddressManagementController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddressManagementController.h; sourceTree = "<group>"; };
 		058C83D223269147007AA863 /* AddressManagementController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddressManagementController.m; sourceTree = "<group>"; };
+		059435BD237073B5003CFBE9 /* HomeData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeData.h; sourceTree = "<group>"; };
+		059435BE237073B5003CFBE9 /* HomeData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeData.m; sourceTree = "<group>"; };
 		059F2C8E2322BCA40045BA65 /* OrderDetailsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderDetailsController.h; sourceTree = "<group>"; };
 		059F2C8F2322BCA40045BA65 /* OrderDetailsController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderDetailsController.m; sourceTree = "<group>"; };
 		059F2C9123239CCC0045BA65 /* ic_completed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_completed@2x.png"; sourceTree = "<group>"; };
@@ -698,10 +698,10 @@
 		0537918F2316A59E00DF4DA0 /* Mode */ = {
 			isa = PBXGroup;
 			children = (
-				05379181231579A400DF4DA0 /* HomeToolData.h */,
-				05379182231579A400DF4DA0 /* HomeToolData.m */,
 				8478A2732326391D005681CF /* HomeProductdata.h */,
 				8478A2742326391D005681CF /* HomeProductdata.m */,
+				059435BD237073B5003CFBE9 /* HomeData.h */,
+				059435BE237073B5003CFBE9 /* HomeData.m */,
 			);
 			path = Mode;
 			sourceTree = "<group>";
@@ -1960,7 +1960,6 @@
 				842D2B562320AD7A00C50605 /* NSString+JSON.m in Sources */,
 				0514512B231EAD0D00547E42 /* CouponsController.m in Sources */,
 				0531EA38233C9CBB00775D79 /* CommentsCell.m in Sources */,
-				05379183231579A400DF4DA0 /* HomeToolData.m in Sources */,
 				8461E1CB2301586F00764748 /* BlockTableView.m in Sources */,
 				059F2CB32323B7F90045BA65 /* DetailsGoodsCell.m in Sources */,
 				8461E19823013A6B00764748 /* LifeBoxViewController.m in Sources */,
@@ -2014,6 +2013,7 @@
 				84B2E0602307067E00BC9197 /* NSString+Encode.m in Sources */,
 				050E0493230DC3E500DA5BFD /* PersonIconData.m in Sources */,
 				059F2CBC2323F5120045BA65 /* SetViewController.m in Sources */,
+				059435BF237073B5003CFBE9 /* HomeData.m in Sources */,
 				8461E1C92301586F00764748 /* BlockCollectionView.m in Sources */,
 				059F2CB92323B8FD0045BA65 /* DetailsPriceCell.m in Sources */,
 				0531EA0F233A07EB00775D79 /* ChangeNameController.m in Sources */,

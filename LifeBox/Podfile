@@ -25,6 +25,7 @@ target 'LifeBox' do
    
    #适配
    pod 'Masonry'
+   
    #模型转换
    pod 'YYModel'
    pod 'BlocksKit'
