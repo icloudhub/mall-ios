@@ -7,7 +7,7 @@
 //
 
 #import "NoticeView.h"
-
+#import "HomeData.h"
 @implementation NoticeView
 
 #pragma mark - 初始化
@@ -50,12 +50,12 @@
     /*
      * 通知内容
      */
-    UILabel *noticeLab = [[UILabel alloc] init];
-    noticeLab.font = [UIFont systemFontOfSize:Scale750(30)];
-    noticeLab.textColor = RGBColor(51, 51, 51);
-    noticeLab.text = @"最近农家新品蔬菜上市了";
-    [self addSubview:noticeLab];
-    [noticeLab mas_makeConstraints:^(MASConstraintMaker *make) {
+    self.noticeLab = [[UILabel alloc] init];
+    _noticeLab.font = [UIFont systemFontOfSize:Scale750(30)];
+    _noticeLab.textColor = RGBColor(51, 51, 51);
+    _noticeLab.text = @"最近农家新品蔬菜上市了";
+    [self addSubview:_noticeLab];
+    [_noticeLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(hornImg.mas_right).mas_offset(Scale750(20));
         make.right.mas_equalTo(moreBtn.mas_left).mas_offset(-Scale750(20));
         make.centerY.mas_equalTo(self);
@@ -74,4 +74,10 @@
     }];
 }
 
+//刷新数据
+-(void)reload:(NSArray*)arr{
+    HomeNotiData *data = arr.firstObject;
+    _noticeLab.text = data.title;
+  
+}
 @end

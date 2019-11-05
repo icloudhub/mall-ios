@@ -23,13 +23,14 @@
     UICollectionView *collectionView;
     ///数据展示
     UITableView *tableView;
-    
-    NSArray *dataArr;  //临时数组
 }
 
 ///轮播View
 @property (strong, nonatomic) SDCycleScrollView *scrollView;
+///通知View
+@property (strong, nonatomic) NoticeView *notice;
 @property (strong, nonatomic) NSArray *likeproducts;
+@property (strong, nonatomic) HomeData *homedata;
 @end
 
 ///HomeGoodsCellID
@@ -143,8 +144,7 @@ static NSString *homeGoodsCellID = @"HomeGoodsCellID";
     _scrollView.bannerImageViewContentMode = UIViewContentModeScaleToFill;
     _scrollView.autoScrollTimeInterval = 3;
     _scrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
-    NSArray *imgArr = [NSArray arrayWithObjects:@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566836643282&di=1e0aea2d46e6cf6df4f0ac78d11aaf83&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01a49659652b6ca8012193a38907d5.jpg", @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566836670731&di=370c93b0013a47af58a96f8b49410463&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F013dce57fb4a44a84a0e282b326790.jpg", nil];
-    _scrollView.imageURLStringsGroup = imgArr;
+   
     [topView addSubview:_scrollView];
     [_scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(searchView.mas_bottom);
@@ -154,10 +154,10 @@ static NSString *homeGoodsCellID = @"HomeGoodsCellID";
     /*
      * 通知View
      */
-    NoticeView *notice = [[NoticeView alloc] init];
-    notice.backgroundColor = [UIColor whiteColor];
-    [topView addSubview:notice];
-    [notice mas_makeConstraints:^(MASConstraintMaker *make) {
+    self.notice = [[NoticeView alloc] init];
+    _notice.backgroundColor = [UIColor whiteColor];
+    [topView addSubview:_notice];
+    [_notice mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self->_scrollView.mas_bottom);
         make.left.right.mas_equalTo(0);
         make.height.mas_equalTo(Scale750(90));
@@ -178,33 +178,32 @@ static NSString *homeGoodsCellID = @"HomeGoodsCellID";
     [collectionView registerClass:[HomeToolCell class] forCellWithReuseIdentifier:@"HomeToolCellID"];
     [topView addSubview:collectionView];
     [collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(notice.mas_bottom).mas_offset(0);
+        make.top.mas_equalTo(self.notice.mas_bottom).mas_offset(0);
         make.left.right.mas_equalTo(0);
         make.height.mas_equalTo(Scale750(180));
     }];
     tableView.tableHeaderView = topView;
-    HomeToolData *oneData = [[HomeToolData alloc] init];
-    oneData.logo = @"ic_fruit";
-    oneData.name = @"新鲜水果";
-    HomeToolData *twoData = [[HomeToolData alloc] init];
-    twoData.logo = @"ic_vegetables";
-    twoData.name = @"时令蔬菜";
-    HomeToolData *thrData = [[HomeToolData alloc] init];
-    thrData.logo = @"ic_egg";
-    thrData.name = @"肉禽蛋类";
-    HomeToolData *fourData = [[HomeToolData alloc] init];
-    fourData.logo = @"ic_tourism";
-    fourData.name = @"旅游";
-    dataArr = [NSArray arrayWithObjects:oneData, twoData, thrData, fourData, nil];
-    [collectionView reloadData];
 }
 
+-(void)reloadUI{
+    //轮播图
+     NSMutableArray *temp = [NSMutableArray new];
+    [_homedata.bannerArr enumerateObjectsUsingBlock:^(HomeBannerData * obj, NSUInteger idx, BOOL * stop) {
+         [temp addObject:obj.pic];
+    }];
+     _scrollView.imageURLStringsGroup = temp;
+    //
+    [collectionView reloadData];
+    //通知
+    [_notice reload:_homedata.notiArr];
+    
+}
 #pragma mark - CollectionView代理
 //设置CollectionCell的内容
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     HomeToolCell *cell = (HomeToolCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"HomeToolCellID" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor whiteColor];
-    HomeToolData *cellData = [dataArr objectAtIndex:indexPath.row];
+    HomeToolData *cellData = [_homedata.toolArr objectAtIndex:indexPath.row];
     [cell reloadCellUIWithData:cellData];
     return cell;
 }
@@ -283,16 +282,13 @@ static NSString *homeGoodsCellID = @"HomeGoodsCellID";
 
 #pragma mark - 首页数据接口
 - (void)homePageDataRequest {
+    
     [[[NetWorkRequest alloc] init] getHomeInfoendblock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
         if (error) {
             [self.view ug_msg:error.domain];
         }else{
-            NSDictionary *toolDic = [result objectForKey:@"brandList"];
-            NSArray *dataArr = [NSArray yy_modelArrayWithClass:[HomeToolData class] json:toolDic];
-            NSDictionary *bannerDic = [result objectForKey:@"advertiseList"];
-            NSArray *bannerArr = [NSArray yy_modelArrayWithClass:[HomeBannerData class] json:bannerDic];
-            NSDictionary *notiDic = [result objectForKey:@"subjectList"];
-            NSArray *notiArr = [NSArray yy_modelArrayWithClass:[HomeNotiData class] json:notiDic];
+            self.homedata = [HomeData yy_modelWithJSON:result];
+            [self reloadUI];
             NSLog(@"");
         }
     }];

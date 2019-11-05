@@ -38,7 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface HomeBannerData : NSObject
 
 ///首页轮播地址
-@property (strong, nonatomic) NSString *url;
+@property (strong, nonatomic) NSString *pic;
 
 @end
 

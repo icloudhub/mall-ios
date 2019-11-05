@@ -10,7 +10,7 @@
 #import "ShoppingCarCell.h"
 #import "NetWorkRequest+Shoping.h"
 #import "CardItem.h"
-#import <SDWebImage/SDWebImage.h>
+
 #import "GoodsDefViewController.h"
 #import "NoDataView.h"
 #import "CarBottomView.h"

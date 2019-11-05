@@ -47,7 +47,8 @@
 
 #pragma mark - 刷新UI
 - (void)reloadCellUIWithData:(HomeToolData *)data {
-    _toolImg.image = [UIImage imageNamed:data.logo];
+
+    [_toolImg sd_setImageWithURL:UG_URL(data.logo)];
     _titleLab.text = data.name;
 }
 

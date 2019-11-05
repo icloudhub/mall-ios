@@ -12,6 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NoticeView : UIView
 
+@property(strong, nonatomic) UILabel *noticeLab;
+
+//刷新数据
+-(void)reload:(NSArray*)arr;
 @end
 
 NS_ASSUME_NONNULL_END

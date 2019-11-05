@@ -25,7 +25,7 @@
 #import "NSString+Convenient.h"
 #import "UIScrollView+EmptyDataSet.h"
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
-#import "UIImageView+WebCache.h"
+#import <SDWebImage/SDWebImage.h>
 
 
 #endif /* LifeBoxHeader_pch */

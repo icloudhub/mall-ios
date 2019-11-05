@@ -11,6 +11,20 @@
 
 @implementation HomeData
 
++ (NSDictionary *)modelCustomPropertyMapper {
+    return @{@"toolArr" : @"brandList",
+             @"bannerArr" : @"advertiseList",
+             @"notiArr" : @"subjectList",
+    };
+}
+
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    return @{
+             @"toolArr":[HomeToolData class],
+             @"bannerArr":[HomeBannerData class],
+             @"notiArr":[HomeNotiData class]
+             };
+}
 
 @end
 
