@@ -17,6 +17,7 @@
 
 #import "GoodsDefViewController.h"
 #import "SureOrderController.h"
+#import "WebViewController.h"
 
 @interface HomeViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource> {
     ///按钮功能数据展示
@@ -162,6 +163,14 @@ static NSString *homeGoodsCellID = @"HomeGoodsCellID";
         make.left.right.mas_equalTo(0);
         make.height.mas_equalTo(Scale750(90));
     }];
+    
+    [_notice addGestureRecognizer:[UITapGestureRecognizer bk_recognizerWithHandler:^(UIGestureRecognizer *sender, UIGestureRecognizerState state, CGPoint location) {
+        WebViewController *vc = [WebViewController new];
+        HomeNotiData *temdata = _homedata.notiArr.firstObject;
+        vc.htmlstr = temdata.content;
+        [vc setHidesBottomBarWhenPushed:YES];
+        [self.navigationController pushViewController:vc animated:YES];
+    }]];
     /*
      * 可点击数据区域
      */

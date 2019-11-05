@@ -174,6 +174,7 @@
 		05BBBB85230FA16400C01FC3 /* navBackImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 05BBBB84230FA16400C01FC3 /* navBackImage.png */; };
 		05BBBB882312A08700C01FC3 /* ProfitViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BBBB872312A08700C01FC3 /* ProfitViewCell.m */; };
 		05C954552322567A00517381 /* OrderViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C954542322567A00517381 /* OrderViewCell.m */; };
+		20A2F5172371630C00B2C7AF /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A2F5162371630B00B2C7AF /* WebViewController.m */; };
 		20D1FFB52354687F0084613C /* RegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D1FFB42354687F0084613C /* RegisterView.m */; };
 		20D1FFB8235468CE0084613C /* VerCodeInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D1FFB7235468CE0084613C /* VerCodeInputView.m */; };
 		44817E12D5A0B5C6851BE813 /* Pods_LifeBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71F3AEA030591677BD69ABCD /* Pods_LifeBox.framework */; };
@@ -496,6 +497,8 @@
 		05C954532322567A00517381 /* OrderViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderViewCell.h; sourceTree = "<group>"; };
 		05C954542322567A00517381 /* OrderViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderViewCell.m; sourceTree = "<group>"; };
 		1C30ECA15C1E0199568E084A /* Pods-LifeBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeBox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LifeBox/Pods-LifeBox.debug.xcconfig"; sourceTree = "<group>"; };
+		20A2F5152371630B00B2C7AF /* WebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		20A2F5162371630B00B2C7AF /* WebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		20D1FFB32354687F0084613C /* RegisterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterView.h; sourceTree = "<group>"; };
 		20D1FFB42354687F0084613C /* RegisterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterView.m; sourceTree = "<group>"; };
 		20D1FFB6235468CE0084613C /* VerCodeInputView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VerCodeInputView.h; sourceTree = "<group>"; };
@@ -872,6 +875,23 @@
 			path = Mode;
 			sourceTree = "<group>";
 		};
+		20A2F514237162C100B2C7AF /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				20A2F5182371631C00B2C7AF /* Controller */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
+		20A2F5182371631C00B2C7AF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				20A2F5152371630B00B2C7AF /* WebViewController.h */,
+				20A2F5162371630B00B2C7AF /* WebViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		267156A8A335230883E61BE2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1163,6 +1183,7 @@
 		8461E18923013A6B00764748 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				20A2F514237162C100B2C7AF /* WebView */,
 				8478A25E2326384A005681CF /* Shopping */,
 				84B954CC23235FB400A7E8D2 /* Orlder */,
 				84B2E06F2307C85600BC9197 /* Goods */,
@@ -2013,6 +2034,7 @@
 				84B2E0602307067E00BC9197 /* NSString+Encode.m in Sources */,
 				050E0493230DC3E500DA5BFD /* PersonIconData.m in Sources */,
 				059F2CBC2323F5120045BA65 /* SetViewController.m in Sources */,
+				20A2F5172371630C00B2C7AF /* WebViewController.m in Sources */,
 				059435BF237073B5003CFBE9 /* HomeData.m in Sources */,
 				8461E1C92301586F00764748 /* BlockCollectionView.m in Sources */,
 				059F2CB92323B8FD0045BA65 /* DetailsPriceCell.m in Sources */,

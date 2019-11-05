@@ -48,6 +48,8 @@ NS_ASSUME_NONNULL_BEGIN
 ///通知内容
 @property (strong, nonatomic) NSString *title;
 
+@property (strong, nonatomic) NSString *content;
+
 @end
 
 NS_ASSUME_NONNULL_END
