@@ -43,13 +43,14 @@ static NSString *homeGoodsCellID = @"HomeGoodsCellID";
 - (void)viewDidLoad {
      self.view.backgroundColor = [UIColor whiteColor];
     [self createUI];
-    [self recommendProduct];
-    [self homePageDataRequest];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = YES;
+    [self recommendProduct];
+    [self homePageDataRequest];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
