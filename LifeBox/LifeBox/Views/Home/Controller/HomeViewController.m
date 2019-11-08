@@ -13,7 +13,7 @@
 #import "HomeGoodsCell.h"
 #import "HomeProductdata.h"
 #import "HomeData.h"
-
+#import "SubjectData.h"
 
 #import "GoodsDefViewController.h"
 #import "SureOrderController.h"
@@ -165,11 +165,8 @@ static NSString *homeGoodsCellID = @"HomeGoodsCellID";
     }];
     
     [_notice addGestureRecognizer:[UITapGestureRecognizer bk_recognizerWithHandler:^(UIGestureRecognizer *sender, UIGestureRecognizerState state, CGPoint location) {
-        WebViewController *vc = [WebViewController new];
         HomeNotiData *temdata = _homedata.notiArr.firstObject;
-        vc.htmlstr = temdata.content;
-        [vc setHidesBottomBarWhenPushed:YES];
-        [self.navigationController pushViewController:vc animated:YES];
+        [self subjectDef:temdata.id];
     }]];
     /*
      * 可点击数据区域
@@ -313,6 +310,22 @@ static NSString *homeGoodsCellID = @"HomeGoodsCellID";
             [self->tableView reloadData];
         }
     }];
+}
+#pragma mark - 去专题详情
+-(void)subjectDef:(NSString*)subjectid{
+    [[[NetWorkRequest alloc] init] subject:subjectid block:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
+        if (error) {
+            [self.view ug_msg:error.domain];
+        }else{
+            SubjectData *data = [SubjectData yy_modelWithJSON:result];
+            WebViewController *vc = [WebViewController new];
+            vc.htmlstr = data.content;
+            vc.title = data.title;
+            [vc setHidesBottomBarWhenPushed:YES];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+    }];
+    
 }
 
 @end

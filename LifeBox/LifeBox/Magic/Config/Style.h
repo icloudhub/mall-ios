@@ -9,6 +9,9 @@
 #ifndef Style_h
 #define Style_h
 
+//弱引用
+#define UG_WEAKSELF __weak typeof(self) weakSelf = self;
+
 
 // 圆角
 #define S_Radius 5 //默认圆角
@@ -33,6 +36,21 @@
 #define S_Phone 11 //用户名
 #define S_Password 16 //用户名
 #define S_CerCode 6 //用户名
+
+#define FONT_BSYS24 [UIFont boldSystemFontOfSize:24]
+#define FONT_BSYS20 [UIFont boldSystemFontOfSize:20]
+#define FONT_BSYS18 [UIFont boldSystemFontOfSize:18]
+#define FONT_BSYS16 [UIFont boldSystemFontOfSize:16]
+#define FONT_BSYS14 [UIFont boldSystemFontOfSize:14]
+#define FONT_BSYS12 [UIFont boldSystemFontOfSize:12]
+#define FONT_BSYS10 [UIFont boldSystemFontOfSize:10]
+
+#define FONT_SYS20 [UIFont systemFontOfSize:20]
+#define FONT_SYS18 [UIFont systemFontOfSize:18]
+#define FONT_SYS16 [UIFont systemFontOfSize:16]
+#define FONT_SYS14 [UIFont systemFontOfSize:14]
+#define FONT_SYS12 [UIFont systemFontOfSize:12]
+#define FONT_SYS10 [UIFont systemFontOfSize:10]
 
 //颜色
 #define S_COLine [UIColor ug_hexString:@"#eeeeee"] //线颜色

@@ -23,23 +23,34 @@
 }
 
 -(void)configUI{
+    [self setWhiteNaviWithTitle:self.title];
     /*
      * 详情显示Web
      */
-    self.webview = [[WKWebView alloc] init];
-    _webview.backgroundColor = [UIColor yellowColor];
-    _webview.hidden = YES;
-    [self.view addSubview:_webview];
-    [_webview mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(self.view);
-    }];
+ 
     
+}
+-(WKWebView *)webview{
+    
+    if (!_webview) {
+        _webview = [[WKWebView alloc] init];
+        _webview.backgroundColor = [UIColor yellowColor];
+        [self.view addSubview:_webview];
+     
+    }
+    return _webview;
 }
 
 -(void)setHtmlstr:(NSString *)htmlstr{
 
     _htmlstr = htmlstr;
-    [_webview loadHTMLString:_htmlstr baseURL:nil];
+    [self.webview loadHTMLString:_htmlstr baseURL:nil];
+}
+-(void)viewWillLayoutSubviews{
+    [super viewWillLayoutSubviews];
+    [_webview mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(self.view);
+    }];
 }
 
 @end

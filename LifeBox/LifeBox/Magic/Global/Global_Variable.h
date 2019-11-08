@@ -31,18 +31,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (readonly) NSString *token;//用户token
 
-#pragma mark - 方法 -
-#pragma mark - 获取服务IP地址
-- (NSString *)getSeverIp;
 
 #pragma mark - App版本
 - (NSString *)getAppVersion;
 
-#pragma mark - 获取默认服务端口
-- (NSString *)getDefaultPort;
-
-#pragma mark - 获取搜索服务端口
-- (NSString *)getSearchPort;
 
 @end
 

@@ -175,8 +175,10 @@
 		05BBBB882312A08700C01FC3 /* ProfitViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BBBB872312A08700C01FC3 /* ProfitViewCell.m */; };
 		05C954552322567A00517381 /* OrderViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C954542322567A00517381 /* OrderViewCell.m */; };
 		20A2F5172371630C00B2C7AF /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A2F5162371630B00B2C7AF /* WebViewController.m */; };
+		20A2F51F23726D7000B2C7AF /* SubjectData.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A2F51E23726D6F00B2C7AF /* SubjectData.m */; };
 		20D1FFB52354687F0084613C /* RegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D1FFB42354687F0084613C /* RegisterView.m */; };
 		20D1FFB8235468CE0084613C /* VerCodeInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D1FFB7235468CE0084613C /* VerCodeInputView.m */; };
+		20D763B92373FC1500D513BC /* DorConfigServiceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D763B82373FC1500D513BC /* DorConfigServiceVC.m */; };
 		44817E12D5A0B5C6851BE813 /* Pods_LifeBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71F3AEA030591677BD69ABCD /* Pods_LifeBox.framework */; };
 		759CA6986FF80A3AF593086D /* Pods_LifeBoxUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 820141ED82991FFDD6D1CFDB /* Pods_LifeBoxUITests.framework */; };
 		842D2B562320AD7A00C50605 /* NSString+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 842D2B552320AD7A00C50605 /* NSString+JSON.m */; };
@@ -499,10 +501,14 @@
 		1C30ECA15C1E0199568E084A /* Pods-LifeBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeBox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LifeBox/Pods-LifeBox.debug.xcconfig"; sourceTree = "<group>"; };
 		20A2F5152371630B00B2C7AF /* WebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		20A2F5162371630B00B2C7AF /* WebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		20A2F51D23726D6F00B2C7AF /* SubjectData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubjectData.h; sourceTree = "<group>"; };
+		20A2F51E23726D6F00B2C7AF /* SubjectData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubjectData.m; sourceTree = "<group>"; };
 		20D1FFB32354687F0084613C /* RegisterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterView.h; sourceTree = "<group>"; };
 		20D1FFB42354687F0084613C /* RegisterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterView.m; sourceTree = "<group>"; };
 		20D1FFB6235468CE0084613C /* VerCodeInputView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VerCodeInputView.h; sourceTree = "<group>"; };
 		20D1FFB7235468CE0084613C /* VerCodeInputView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VerCodeInputView.m; sourceTree = "<group>"; };
+		20D763B72373FC1500D513BC /* DorConfigServiceVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DorConfigServiceVC.h; sourceTree = "<group>"; };
+		20D763B82373FC1500D513BC /* DorConfigServiceVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DorConfigServiceVC.m; sourceTree = "<group>"; };
 		42783EC83E66FDB25449EC1A /* Pods_LifeBoxTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LifeBoxTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AD101B6451A24A944A808A5 /* Pods-LifeBoxTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeBoxTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LifeBoxTests/Pods-LifeBoxTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4CA0226A52EDF4D7BD639A38 /* Pods-LifeBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeBox.release.xcconfig"; path = "Pods/Target Support Files/Pods-LifeBox/Pods-LifeBox.release.xcconfig"; sourceTree = "<group>"; };
@@ -705,6 +711,8 @@
 				8478A2742326391D005681CF /* HomeProductdata.m */,
 				059435BD237073B5003CFBE9 /* HomeData.h */,
 				059435BE237073B5003CFBE9 /* HomeData.m */,
+				20A2F51D23726D6F00B2C7AF /* SubjectData.h */,
+				20A2F51E23726D6F00B2C7AF /* SubjectData.m */,
 			);
 			path = Mode;
 			sourceTree = "<group>";
@@ -1000,6 +1008,8 @@
 				8461E16923013A6B00764748 /* UIApplication+DORConfig.m */,
 				8461E1CC230159DA00764748 /* DorViewAlertVC.h */,
 				8461E1CD230159DB00764748 /* DorViewAlertVC.m */,
+				20D763B72373FC1500D513BC /* DorConfigServiceVC.h */,
+				20D763B82373FC1500D513BC /* DorConfigServiceVC.m */,
 			);
 			path = DOR;
 			sourceTree = "<group>";
@@ -1985,6 +1995,7 @@
 				059F2CB32323B7F90045BA65 /* DetailsGoodsCell.m in Sources */,
 				8461E19823013A6B00764748 /* LifeBoxViewController.m in Sources */,
 				050E047A230D86D400DA5BFD /* SafeAreaInsets.m in Sources */,
+				20D763B92373FC1500D513BC /* DorConfigServiceVC.m in Sources */,
 				0531EA002338AAA000775D79 /* ChangeNickNameController.m in Sources */,
 				0531EA35233C9AC200775D79 /* GoodsCommentsController.m in Sources */,
 				8461E1B423013A6B00764748 /* MyViewController.m in Sources */,
@@ -2021,6 +2032,7 @@
 				0537918A231610A800DF4DA0 /* NSString+Convenient.m in Sources */,
 				056217F9231FF0A0007E27AF /* InvitationCell.m in Sources */,
 				84B2E05B2307067E00BC9197 /* UITextView+UG.m in Sources */,
+				20A2F51F23726D7000B2C7AF /* SubjectData.m in Sources */,
 				84B9C1F02329296A00C30F41 /* RegisterViewController.m in Sources */,
 				8461E1B023013A6B00764748 /* main.m in Sources */,
 				8461E1CE230159DB00764748 /* DorViewAlertVC.m in Sources */,
