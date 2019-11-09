@@ -115,7 +115,7 @@
      * 分割线
      */
     UIView *lineView = [[UIView alloc] init];
-    lineView.backgroundColor = S_COLine;
+    lineView.backgroundColor = COLOREE;
     [topView addSubview:lineView];
     [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.left.right.mas_equalTo(0);

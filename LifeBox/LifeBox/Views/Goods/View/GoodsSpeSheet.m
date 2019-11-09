@@ -91,7 +91,7 @@
      * 上分割线
      */
     UIView *lineView1 = [[UIView alloc] init];
-    lineView1.backgroundColor = S_COLine;
+    lineView1.backgroundColor = COLOREE;
     [self.bottomView addSubview:lineView1];
     [lineView1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(goodsImg.mas_bottom).mas_offset(Scale750(30));
@@ -115,7 +115,7 @@
      * 下分割线
      */
     UIView *lineView2 = [[UIView alloc] init];
-    lineView2.backgroundColor = S_COLine;
+    lineView2.backgroundColor = COLOREE;
     [self.bottomView addSubview:lineView2];
     [lineView2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(speLab.mas_bottom).mas_offset(Scale750(30));

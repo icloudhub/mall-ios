@@ -188,7 +188,7 @@ static NSString *profitViewCellID = @"ProfitViewCellID";
         make.width.height.mas_greaterThanOrEqualTo(0);
     }];
     UIView *headLine = [[UIView alloc] init];
-    headLine.backgroundColor = S_COLine;
+    headLine.backgroundColor = COLOREE;
     [headView addSubview:headLine];
     [headLine mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(Scale750(30));

@@ -11,7 +11,16 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NetWorkRequest (Goods)
+/**
+ * 获取商品详情
+ */
 -(void)productproductInfo:(NSInteger)productid block:(NREndBlock)endblock;
+
+/**
+ * /cart/add post
+ * 添加商品到购物车
+ */
+-(void)addCar:(NSString*)productId skuId:(NSString*)skuId block:(NREndBlock)endblock;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -28,7 +28,7 @@
     
     self.inputTF = [UITextField new];
     [self addSubview:_inputTF];
-    [_inputTF ug_border:S_COLine white:1];
+    [_inputTF ug_border:COLOREE white:1];
    
 }
 
@@ -63,7 +63,7 @@
     self.centview = [UIView new];
     [self addSubview:_centview];
     _centview.backgroundColor = UIColor.whiteColor;
-    [_centview ug_border:S_COLine white:1];
+    [_centview ug_border:COLOREE white:1];
     [_centview ug_Radius:S_Radius];
     
     self.titleInput = [ServiecInputview new];
@@ -85,7 +85,7 @@
     self.commitBtn = [UIButton new];
     [self addSubview:_commitBtn];
     [_commitBtn setTitle:@"添加" forState:UIControlStateNormal];
-    [_commitBtn ug_border:S_COLine white:1];
+    [_commitBtn ug_border:COLOREE white:1];
     [_commitBtn ug_Radius:S_Radius];
     _commitBtn.backgroundColor = S_COGreenBack;
 }

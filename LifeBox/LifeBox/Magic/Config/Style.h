@@ -53,7 +53,8 @@
 #define FONT_SYS10 [UIFont systemFontOfSize:10]
 
 //颜色
-#define S_COLine [UIColor ug_hexString:@"#eeeeee"] //线颜色
+#define COLOREE [UIColor ug_hexString:@"#eeeeee"] //线颜色
+#define COLOR23 [UIColor ug_hexString:@"#232323"] 
 
 ///页面背景色
 #define S_COBackground RGBColor(245, 245, 245)

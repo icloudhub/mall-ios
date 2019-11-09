@@ -21,7 +21,7 @@
 
 -(void)configView{
     
-    [self ug_defborder];
+    [self ug_border:COLOREE white:1];
     self.inputTF = [UITextField new];
     [self addSubview:_inputTF];
     

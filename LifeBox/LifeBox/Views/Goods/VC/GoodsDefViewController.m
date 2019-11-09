@@ -15,35 +15,38 @@
 #import <SDCycleScrollView/SDCycleScrollView.h>
 #import "GoodsCommentsController.h"
 #import "GoodsSpeSheet.h"
+#import "GoodsBuyView.h"
 
 @interface GoodsDefViewController ()<SDCycleScrollViewDelegate> {
-    ///顶部导航View
-    UIView *navView;
-    ///下划线
-    UIView *botLine;
-    ///轮播View
-    SDCycleScrollView *bannerView;
-    ///商品区域View
-    UIView *goodsView;
-    ///Banner数量展示
-    UILabel *numLab;
-    ///商品名称
-    UILabel *goodsName;
-    ///商品标题
-    UILabel *goodsTitle;
-    ///商品价格
-    UILabel *goodsPrice;
-    ///商品规格View
-    GoodsSpeSheet *speSheet;
-}
 
+}
+///顶部导航View
+@property(strong, nonatomic) UIView *navView;
+///下划线
+@property(strong, nonatomic) UIView *botLine;
+///轮播View
+@property(strong, nonatomic) SDCycleScrollView *bannerView;
+///商品区域View
+@property(strong, nonatomic) UIView *goodsView;
+///Banner数量展示
+@property(strong, nonatomic) UILabel *numLab;
+///商品名称
+@property(strong, nonatomic) UILabel *goodsName;
+///商品标题
+@property(strong, nonatomic) UILabel *goodsTitle;
+///商品价格
+@property(strong, nonatomic) UILabel *goodsPrice;
+///商品规格View
+@property(strong, nonatomic) GoodsSpeSheet *speSheet;
 ///详情显示Web
 @property(strong, nonatomic) WKWebView *defWebview;
+
+@property(strong, nonatomic) GoodsBuyView *goodsBuyView;
 
 ///可滚动区域
 @property(strong, nonatomic) UIScrollView *scrollView;
 
-@property(strong, nonatomic) NSDictionary *productdic;
+@property(strong, nonatomic) ProductModel *productdata;
 
 @end
 
@@ -72,7 +75,7 @@
 
 - (void)viewLayoutMarginsDidChange {
     [super viewLayoutMarginsDidChange];
-    CGFloat scrollViewH = goodsView.frame.origin.y + goodsView.frame.size.height + Scale750(30);
+    CGFloat scrollViewH = _goodsView.frame.origin.y + _goodsView.frame.size.height + Scale750(30);
     [_scrollView setContentSize:CGSizeMake(Screen_width, scrollViewH)];
 }
 
@@ -81,10 +84,10 @@
     /*
      * 导航View
      */
-    navView = [[UIView alloc] init];
-    navView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:navView];
-    [navView mas_makeConstraints:^(MASConstraintMaker *make) {
+    _navView = [[UIView alloc] init];
+    _navView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:_navView];
+    [_navView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.mas_equalTo(0);
         make.height.mas_equalTo(SAFE_Top + Scale750(88));
     }];
@@ -92,8 +95,8 @@
      * 分割线
      */
     UIView *lineView = [[UIView alloc] init];
-    lineView.backgroundColor = S_COLine;
-    [navView addSubview:lineView];
+    lineView.backgroundColor = COLOREE;
+    [_navView addSubview:lineView];
     [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.mas_equalTo(0);
         make.height.mas_equalTo(1);
@@ -104,7 +107,7 @@
     UIButton *backBtn = [[UIButton alloc] init];
     [backBtn setBackgroundImage:[UIImage imageNamed:@"ic_return"] forState:UIControlStateNormal];
     [backBtn setBackgroundImage:[UIImage imageNamed:@"ic_return"] forState:UIControlStateHighlighted];
-    [navView addSubview:backBtn];
+    [_navView addSubview:backBtn];
     [backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.mas_equalTo(-Scale750(30));
         make.left.mas_equalTo(Scale750(50));
@@ -120,7 +123,7 @@
     UIButton *shopCar = [[UIButton alloc] init];
     [shopCar setBackgroundImage:[UIImage imageNamed:@"ic_cart_shop"] forState:UIControlStateNormal];
     [shopCar setBackgroundImage:[UIImage imageNamed:@"ic_cart_shop"] forState:UIControlStateHighlighted];
-    [navView addSubview:shopCar];
+    [_navView addSubview:shopCar];
     [shopCar mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(backBtn);
         make.right.mas_equalTo(-Scale750(40));
@@ -138,10 +141,10 @@
     [goodsBtn setTitleColor:RGBColor(51, 51, 51) forState:UIControlStateNormal];
     goodsBtn.tag = 1000;
     [goodsBtn addTarget:self action:@selector(chooseTypeBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [navView addSubview:goodsBtn];
+    [_navView addSubview:goodsBtn];
     [goodsBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(backBtn);
-        make.right.mas_equalTo(navView.mas_centerX).mas_offset(-Scale750(20));
+        make.right.mas_equalTo(self.navView.mas_centerX).mas_offset(-Scale750(20));
         make.width.mas_equalTo(Scale750(100));
         make.height.mas_equalTo(Scale750(40));
     }];
@@ -154,20 +157,20 @@
     [detBtn setTitleColor:RGBColor(51, 51, 51) forState:UIControlStateNormal];
     detBtn.tag = 1001;
     [detBtn addTarget:self action:@selector(chooseTypeBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [navView addSubview:detBtn];
+    [_navView addSubview:detBtn];
     [detBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(backBtn);
-        make.left.mas_equalTo(navView.mas_centerX).mas_offset(Scale750(20));
+        make.left.mas_equalTo(self.navView.mas_centerX).mas_offset(Scale750(20));
         make.width.mas_equalTo(Scale750(100));
         make.height.mas_equalTo(Scale750(40));
     }];
     /*
      * 下划线
      */
-    botLine = [[UIView alloc] init];
-    botLine.backgroundColor = S_COGreenBack;
-    [navView addSubview:botLine];
-    [botLine mas_makeConstraints:^(MASConstraintMaker *make) {
+    _botLine = [[UIView alloc] init];
+    _botLine.backgroundColor = S_COGreenBack;
+    [_navView addSubview:_botLine];
+    [_botLine mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.mas_equalTo(0);
         make.centerX.mas_equalTo(goodsBtn);
         make.width.mas_equalTo(Scale750(80));
@@ -185,7 +188,7 @@
     _scrollView.hidden = NO;
     [self.view addSubview:_scrollView];
     [_scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(navView.mas_bottom);
+        make.top.mas_equalTo(_navView.mas_bottom);
         make.bottom.mas_equalTo(0);
         make.left.mas_equalTo(0);
         make.width.mas_equalTo(Screen_width);
@@ -193,17 +196,17 @@
     /*
      * 商品banner
      */
-    bannerView = [[SDCycleScrollView alloc] init];
-    bannerView.backgroundColor = S_COBackground;
-    bannerView.bannerImageViewContentMode = UIViewContentModeScaleToFill;
-    bannerView.autoScroll = NO;
-    bannerView.showPageControl = NO;
-    bannerView.delegate = self;
+    _bannerView = [[SDCycleScrollView alloc] init];
+    _bannerView.backgroundColor = S_COBackground;
+    _bannerView.bannerImageViewContentMode = UIViewContentModeScaleToFill;
+    _bannerView.autoScroll = NO;
+    _bannerView.showPageControl = NO;
+    _bannerView.delegate = self;
     NSArray *imgArr = [NSArray arrayWithObjects:@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566836643282&di=1e0aea2d46e6cf6df4f0ac78d11aaf83&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01a49659652b6ca8012193a38907d5.jpg", @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566836670731&di=370c93b0013a47af58a96f8b49410463&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F013dce57fb4a44a84a0e282b326790.jpg", nil];
     
-    bannerView.imageURLStringsGroup = imgArr;
-    [_scrollView addSubview:bannerView];
-    [bannerView mas_makeConstraints:^(MASConstraintMaker *make) {
+    _bannerView.imageURLStringsGroup = imgArr;
+    [_scrollView addSubview:_bannerView];
+    [_bannerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.mas_equalTo(0);
         make.width.mas_equalTo(Screen_width);
         make.height.mas_equalTo(Scale750(600));
@@ -211,17 +214,17 @@
     /*
      * 图片数量展示
      */
-    numLab = [[UILabel alloc] init];
-    numLab.backgroundColor = [RGBColor(223, 223, 223) colorWithAlphaComponent:0.8];
-    numLab.layer.cornerRadius = Scale750(30);
-    numLab.clipsToBounds = YES;
-    numLab.textAlignment = NSTextAlignmentCenter;
-    numLab.textColor = [UIColor whiteColor];
-    numLab.font = [UIFont systemFontOfSize:Scale750(22)];
+    _numLab = [[UILabel alloc] init];
+    _numLab.backgroundColor = [RGBColor(223, 223, 223) colorWithAlphaComponent:0.8];
+    _numLab.layer.cornerRadius = Scale750(30);
+    _numLab.clipsToBounds = YES;
+    _numLab.textAlignment = NSTextAlignmentCenter;
+    _numLab.textColor = [UIColor whiteColor];
+    _numLab.font = [UIFont systemFontOfSize:Scale750(22)];
     NSString *tempStr = @"1/6";
-    numLab.attributedText = [tempStr strChangFlagWithStr:@"1" Color:[UIColor whiteColor] Font:Scale750(34)];
-    [bannerView addSubview:numLab];
-    [numLab mas_makeConstraints:^(MASConstraintMaker *make) {
+    _numLab.attributedText = [tempStr strChangFlagWithStr:@"1" Color:[UIColor whiteColor] Font:Scale750(34)];
+    [_bannerView addSubview:_numLab];
+    [_numLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo(-Scale750(30));
         make.bottom.mas_equalTo(-Scale750(30));
         make.width.height.mas_equalTo(Scale750(60));
@@ -229,11 +232,11 @@
     /*
      * 商品区域View
      */
-    goodsView = [[UIView alloc] init];
-    goodsView.backgroundColor = [UIColor whiteColor];
-    [_scrollView addSubview:goodsView];
-    [goodsView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(bannerView.mas_bottom);
+    _goodsView = [[UIView alloc] init];
+    _goodsView.backgroundColor = [UIColor whiteColor];
+    [_scrollView addSubview:_goodsView];
+    [_goodsView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self.bannerView.mas_bottom);
         make.left.mas_equalTo(0);
         make.width.mas_equalTo(Screen_width);
         make.height.mas_greaterThanOrEqualTo(Scale750(400));
@@ -244,21 +247,21 @@
     UIButton *shareBtn = [[UIButton alloc] init];
     [shareBtn setBackgroundImage:[UIImage imageNamed:@"ic_share_goods"] forState:UIControlStateNormal];
     [shareBtn setBackgroundImage:[UIImage imageNamed:@"ic_share_goods"] forState:UIControlStateHighlighted];
-    [goodsView addSubview:shareBtn];
+    [_goodsView addSubview:shareBtn];
     [shareBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(bannerView.mas_bottom).mas_offset(Scale750(30));
+        make.top.mas_equalTo(self.bannerView.mas_bottom).mas_offset(Scale750(30));
         make.right.mas_equalTo(-Scale750(30));
         make.width.height.mas_equalTo(Scale750(50));
     }];
     /*
      * 商品名称
      */
-    goodsName = [[UILabel alloc] init];
-    goodsName.font = [UIFont systemFontOfSize:Scale750(30)];
-    goodsName.textColor = RGBColor(51, 51, 51);
-    goodsName.text = @"高山苹果 400g";
-    [goodsView addSubview:goodsName];
-    [goodsName mas_makeConstraints:^(MASConstraintMaker *make) {
+    _goodsName = [[UILabel alloc] init];
+    _goodsName.font = [UIFont systemFontOfSize:Scale750(30)];
+    _goodsName.textColor = RGBColor(51, 51, 51);
+    _goodsName.text = @"高山苹果 400g";
+    [_goodsView addSubview:_goodsName];
+    [_goodsName mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(shareBtn);
         make.left.mas_equalTo(Scale750(30));
         make.right.mas_equalTo(shareBtn.mas_left).mas_offset(-Scale750(20));
@@ -267,27 +270,27 @@
     /*
      * 商品标题
      */
-    goodsTitle = [[UILabel alloc] init];
-    goodsTitle.font = [UIFont systemFontOfSize:Scale750(24)];
-    goodsTitle.textColor = RGBColor(189, 189, 189);
-    goodsTitle.text = @"果色艳丽，果肉鲜美";
-    [goodsView addSubview:goodsTitle];
-    [goodsTitle mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(goodsName.mas_bottom).mas_offset(Scale750(5));
-        make.left.height.width.mas_equalTo(goodsName);
+    _goodsTitle = [[UILabel alloc] init];
+    _goodsTitle.font = [UIFont systemFontOfSize:Scale750(24)];
+    _goodsTitle.textColor = RGBColor(189, 189, 189);
+    _goodsTitle.text = @"果色艳丽，果肉鲜美";
+    [_goodsView addSubview:_goodsTitle];
+    [_goodsTitle mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(_goodsName.mas_bottom).mas_offset(Scale750(5));
+        make.left.height.width.mas_equalTo(self.goodsName);
     }];
     /*
      * 商品价格
      */
-    goodsPrice = [[UILabel alloc] init];
-    goodsPrice.font = [UIFont systemFontOfSize:Scale750(25)];
-    goodsPrice.textColor = S_CORedText;
+    _goodsPrice = [[UILabel alloc] init];
+    _goodsPrice.font = [UIFont systemFontOfSize:Scale750(25)];
+    _goodsPrice.textColor = S_CORedText;
     NSString *priceStr = @"¥12.90";
-    goodsPrice.attributedText = [priceStr strChangFlagWithStr:@"12" Color:S_CORedText Font:Scale750(35)];
-    [goodsView addSubview:goodsPrice];
-    [goodsPrice mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(goodsTitle.mas_bottom).mas_offset(Scale750(40));
-        make.left.mas_equalTo(goodsName);
+    _goodsPrice.attributedText = [priceStr strChangFlagWithStr:@"12" Color:S_CORedText Font:Scale750(35)];
+    [_goodsView addSubview:_goodsPrice];
+    [_goodsPrice mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self.goodsTitle.mas_bottom).mas_offset(Scale750(40));
+        make.left.mas_equalTo(self.goodsName);
         make.width.height.mas_greaterThanOrEqualTo(0);
     }];
     /*
@@ -295,9 +298,9 @@
      */
     UIView *timeView = [[UIView alloc] init];
     timeView.backgroundColor = RGBColor(245, 245, 245);
-    [goodsView addSubview:timeView];
+    [_goodsView addSubview:timeView];
     [timeView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(goodsPrice.mas_bottom).mas_offset(Scale750(30));
+        make.top.mas_equalTo(self.goodsPrice.mas_bottom).mas_offset(Scale750(30));
         make.left.mas_equalTo(Scale750(30));
         make.right.mas_equalTo(-Scale750(30));
         make.height.mas_equalTo(Scale750(90));
@@ -331,7 +334,7 @@
      */
     UIButton *speView = [[UIButton alloc] init];
     speView.backgroundColor = RGBColor(245, 245, 245);
-    [goodsView addSubview:speView];
+    [_goodsView addSubview:speView];
     [speView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(timeView.mas_bottom).mas_offset(Scale750(20));
         make.left.mas_equalTo(Scale750(30));
@@ -339,8 +342,8 @@
         make.height.mas_equalTo(Scale750(90));
     }];
     [speView bk_addEventHandler:^(id sender) {
-        self->speSheet = [[GoodsSpeSheet alloc] init];
-        [self->speSheet showView];
+        self.speSheet = [[GoodsSpeSheet alloc] init];
+        [self.speSheet showView];
     } forControlEvents:UIControlEventTouchUpInside];
     /*
      * 规格Lab
@@ -372,7 +375,7 @@
      */
     UIButton *commentsView = [[UIButton alloc] init];
     commentsView.backgroundColor = RGBColor(245, 245, 245);
-    [goodsView addSubview:commentsView];
+    [_goodsView addSubview:commentsView];
     [commentsView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(speView.mas_bottom).mas_offset(Scale750(20));
         make.left.mas_equalTo(Scale750(30));
@@ -424,9 +427,11 @@
     /*
      * 更新布局
      */
-    [goodsView mas_updateConstraints:^(MASConstraintMaker *make) {
+    [_goodsView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.bottom.mas_equalTo(commentsView.mas_bottom).mas_offset(Scale750(40));
     }];
+    [self.view addSubview:self.goodsBuyView];
+ 
 }
 
 #pragma mark - 创建详情区域
@@ -439,18 +444,28 @@
     _defWebview.hidden = YES;
     [self.view addSubview:_defWebview];
     [_defWebview mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(navView.mas_bottom);
+        make.top.mas_equalTo(self.navView.mas_bottom);
         make.left.right.bottom.mas_equalTo(0);
     }];
 }
 
+#pragma mark - 底部购买区域
+-(GoodsBuyView *)goodsBuyView{
+    if(!_goodsBuyView){
+        _goodsBuyView = [GoodsBuyView new];
+        [_goodsBuyView.addcarBtn ug_addEvents:UIControlEventTouchUpInside andBlock:^(id  _Nonnull sender) {
+            [self addToCar];
+        }];
+    }
+    return _goodsBuyView;
+}
 
 #pragma mark - 切换Btn点击
 - (void)chooseTypeBtnClicked:(UIButton *)btn {
     /*
      * 清除原有状态
      */
-    for (UIButton *myBtn in navView.subviews) {
+    for (UIButton *myBtn in _navView.subviews) {
         if ([myBtn isKindOfClass:[UIButton class]]) {
             if (myBtn.tag == 1000 || myBtn.tag == 1001) {
                 myBtn.titleLabel.font = [UIFont systemFontOfSize:Scale750(32)];
@@ -464,7 +479,7 @@
     /*
      * 移动下划线
      */
-    [botLine mas_remakeConstraints:^(MASConstraintMaker *make) {
+    [_botLine mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.bottom.mas_equalTo(0);
         make.centerX.mas_equalTo(btn);
         make.width.mas_equalTo(Scale750(80));
@@ -482,35 +497,58 @@
     }
 }
 
-#pragma mark - 接口请求
--(void)getHttpLoadData {
-    [self.defWebview ug_loading];
-    [[NetWorkRequest new]productproductInfo:_productid block:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
-        [self.defWebview ug_hiddenLoading];
-        if (error) {
-            [self.view ug_msg:error.domain];
-        }else{
-            self.productdic = dataDict;
-            ProductModel *temdata = [ProductModel yy_modelWithJSON:dataDict];
-            if (temdata.detailMobileHtml.length>0 ) {
-                [self->_defWebview loadHTMLString:temdata.detailMobileHtml baseURL:nil];
-            }else{
-                [self->_defWebview loadHTMLString:temdata.detailHtml baseURL:nil];
-            }
-            
-            [self->bannerView setImageURLStringsGroup:[temdata.albumPics componentsSeparatedByString:@","]];
-            self->_defWebview.backgroundColor = UIColor.ug_random;
-        }
-    }];
-}
-
 #pragma mark - SDCycleScrollViewDelegate
 //滚动到第几张图片的回调
 -(void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didScrollToIndex:(NSInteger)index {
     NSString *numStr = [NSString stringWithFormat:@"%ld", index+1];
     NSString *allStr = @"6";
     NSString *tempStr = [NSString stringWithFormat:@"%@/%@", numStr, allStr];
-    numLab.attributedText = [tempStr strChangFlagWithStr:numStr Color:[UIColor whiteColor] Font:Scale750(36)];
+    _numLab.attributedText = [tempStr strChangFlagWithStr:numStr Color:[UIColor whiteColor] Font:Scale750(36)];
 }
 
+#pragma mark - 接口请求
+// 获取商品详情
+-(void)getHttpLoadData {
+    UG_WEAKSELF
+    [self.defWebview ug_loading];
+    [[NetWorkRequest new]productproductInfo:_productid block:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
+        [self.defWebview ug_hiddenLoading];
+        if (error) {
+            [self.view ug_msg:error.domain];
+        }else{
+            self.productdata =  [ProductModel yy_modelWithJSON:dataDict];
+            if (weakSelf.productdata.detailMobileHtml.length>0 ) {
+                [self->_defWebview loadHTMLString:weakSelf.productdata.detailMobileHtml baseURL:nil];
+            }else{
+                [self->_defWebview loadHTMLString:weakSelf.productdata.detailHtml baseURL:nil];
+            }
+            
+            [weakSelf.bannerView setImageURLStringsGroup:[weakSelf.productdata.albumPics componentsSeparatedByString:@","]];
+            weakSelf.defWebview.backgroundColor = UIColor.ug_random;
+        }
+    }];
+}
+
+// 添加到购物车
+-(void)addToCar{
+    ProductSKUModel *skudata = _productdata.skuStockList.firstObject;
+    [[NetWorkRequest new] addCar:_productdata.productid skuId:skudata.skuid  block:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
+      
+        if (error) {
+            [self.view ug_msg:error.domain];
+        }else{
+            [self.view ug_msg:@"添加成功"];
+        }
+    }];
+}
+
+-(void)viewWillLayoutSubviews{
+    [super viewWillLayoutSubviews];
+    [_goodsBuyView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(self.view).mas_offset(SPanding_DEF);
+        make.right.mas_equalTo(self.view).mas_offset(-SPanding_DEF);
+        make.height.mas_equalTo(44);
+        make.bottom.mas_equalTo(self.view).mas_offset(-SAFE_Bottom);
+    }];
+}
 @end

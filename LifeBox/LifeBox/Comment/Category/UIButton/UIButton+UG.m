@@ -30,43 +30,42 @@
     }
     [self setImage:image forState:UIControlStateNormal];
     
-    NSString *temstr = [imagestr stringByAppendingString:@"_Highlighted"];
+    NSString *temstr = [imagestr stringByAppendingString:@"_highlighted"];
     image = UGIMAGE(temstr);
     if (image) {
         [self setImage:image forState:UIControlStateHighlighted];
     }
     
-    temstr = [imagestr stringByAppendingString:@"_Disabled"];
+    temstr = [imagestr stringByAppendingString:@"_disabled"];
     image = UGIMAGE(temstr);
     if (image) {
         [self setImage:image forState:UIControlStateDisabled];
     }
     
-    temstr = [imagestr stringByAppendingString:@"_Selected"];
+    temstr = [imagestr stringByAppendingString:@"_selected"];
     image = UGIMAGE(temstr);
     if (image) {
         [self setImage:image forState:UIControlStateSelected];
     }
     
-    temstr = [imagestr stringByAppendingString:@"_Focused"];
+    temstr = [imagestr stringByAppendingString:@"_focused"];
     image = UGIMAGE(temstr);
     if (image) {
         [self setImage:image forState:UIControlStateFocused];
     }
     
-    temstr = [imagestr stringByAppendingString:@"_Application"];
+    temstr = [imagestr stringByAppendingString:@"_application"];
     image = UGIMAGE(temstr);
     if (image) {
         [self setImage:image forState:UIControlStateApplication];
     }
     
-    temstr = [imagestr stringByAppendingString:@"_Reserved"];
+    temstr = [imagestr stringByAppendingString:@"_reserved"];
     image = UGIMAGE(temstr);
     if (image) {
         [self setImage:image forState:UIControlStateReserved];
     }
 }
-
 
 
 

@@ -249,6 +249,7 @@
 		84B954DB2324B0C800A7E8D2 /* ConfimBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B954DA2324B0C800A7E8D2 /* ConfimBottomView.m */; };
 		84B954E22324E3BE00A7E8D2 /* ConfirmInfoData.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B954E12324E3BE00A7E8D2 /* ConfirmInfoData.m */; };
 		84B9C1F02329296A00C30F41 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B9C1EF2329296A00C30F41 /* RegisterViewController.m */; };
+		84BA6F942376505F0047796E /* GoodsBuyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BA6F932376505F0047796E /* GoodsBuyView.m */; };
 		84C29209235DEF5B00034213 /* NetWorkRequest+Business.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C29207235DEF5B00034213 /* NetWorkRequest+Business.m */; };
 		A2245433E31B0B126C5C0D61 /* Pods_LifeBoxTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42783EC83E66FDB25449EC1A /* Pods_LifeBoxTests.framework */; };
 /* End PBXBuildFile section */
@@ -641,6 +642,8 @@
 		84B954E12324E3BE00A7E8D2 /* ConfirmInfoData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfirmInfoData.m; sourceTree = "<group>"; };
 		84B9C1EE2329296A00C30F41 /* RegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		84B9C1EF2329296A00C30F41 /* RegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		84BA6F922376505F0047796E /* GoodsBuyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsBuyView.h; sourceTree = "<group>"; };
+		84BA6F932376505F0047796E /* GoodsBuyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsBuyView.m; sourceTree = "<group>"; };
 		84C29207235DEF5B00034213 /* NetWorkRequest+Business.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NetWorkRequest+Business.m"; path = "LifeBox/Comment/RequestManagement/NetWorkRequest+Business.m"; sourceTree = SOURCE_ROOT; };
 		84C29208235DEF5B00034213 /* NetWorkRequest+Business.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NetWorkRequest+Business.h"; path = "LifeBox/Comment/RequestManagement/NetWorkRequest+Business.h"; sourceTree = SOURCE_ROOT; };
 		8B45816D0134074CDFF8F87E /* Pods-LifeBoxUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeBoxUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LifeBoxUITests/Pods-LifeBoxUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1546,6 +1549,8 @@
 				05AC5C30235619C3000584CB /* OrderPriceCell.m */,
 				05AC5C3223561A0F000584CB /* OrderPromptCell.h */,
 				05AC5C3323561A0F000584CB /* OrderPromptCell.m */,
+				84BA6F922376505F0047796E /* GoodsBuyView.h */,
+				84BA6F932376505F0047796E /* GoodsBuyView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1960,6 +1965,7 @@
 				059F2CCA2323FB260045BA65 /* SetInfoCell.m in Sources */,
 				0531EA062339B0B400775D79 /* ChangePhoneController.m in Sources */,
 				8461E19A23013A6B00764748 /* RTRootNavigationController.m in Sources */,
+				84BA6F942376505F0047796E /* GoodsBuyView.m in Sources */,
 				8461E19C23013A6B00764748 /* UIApplication+DORConfig.m in Sources */,
 				8461E1B523013A6B00764748 /* MyTabBarController.m in Sources */,
 				05BBBB79230F98B500C01FC3 /* MyOrderCell.m in Sources */,

@@ -113,7 +113,7 @@ static NSString *cellID = @"AddressChooseCellID";
      * 分割线
      */
     ividerLine = [[UIView alloc] init];
-    ividerLine.backgroundColor = S_COLine;
+    ividerLine.backgroundColor = COLOREE;
     [self.bottomView addSubview:ividerLine];
     [ividerLine mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(provinceBtn.mas_bottom).mas_offset(Scale750(10));

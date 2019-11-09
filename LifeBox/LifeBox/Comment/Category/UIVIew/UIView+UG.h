@@ -18,14 +18,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)ug_Radius:(CGFloat)radius;
 
 /**
- *
+ * 
  */
 -(void)ug_border:(UIColor*)color white:(CGFloat)width;
 
-/**
- *
- */
--(void)ug_defborder;
 @end
 
 NS_ASSUME_NONNULL_END

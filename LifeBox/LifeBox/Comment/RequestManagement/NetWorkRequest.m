@@ -23,9 +23,11 @@ static AFHTTPSessionManager *afManager = nil;
         afManager = nil;
         afManager = [AFHTTPSessionManager manager];
         afManager.responseSerializer = [AFJSONResponseSerializer serializer];
-        afManager.requestSerializer = [AFHTTPRequestSerializer serializer];
+        afManager.requestSerializer = [AFJSONRequestSerializer serializer];
         afManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/JavaScript",@"text/html",@"text/plain",@"image/jpeg",
                                                                @"image/png", @"application/octet-stream",  nil];
+        [afManager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        
         //设置网络延时
         afManager.requestSerializer.timeoutInterval = 30;
     }
@@ -43,9 +45,14 @@ static AFHTTPSessionManager *afManager = nil;
     }
     
     [afManager.requestSerializer setValue:[self getclientAgent] forHTTPHeaderField:@"client_Agent"];
+    if (head) {
+        for (NSString *key in head) {
+            [afManager.requestSerializer setValue:head[key] forHTTPHeaderField:key];
+        }
+    }
     
     //网络判断
-    
+
     //开始请求
     [afManager POST:url parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
