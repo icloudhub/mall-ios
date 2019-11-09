@@ -18,32 +18,10 @@
 #import "GoodsBuyView.h"
 
 @interface GoodsDefViewController ()<SDCycleScrollViewDelegate> {
-<<<<<<< HEAD
-    ///顶部导航View
-    UIView *navView;
-    ///下划线
-    UIView *botLine;
-    ///轮播View
-    SDCycleScrollView *bannerView;
-    ///商品区域View
-    UIView *goodsView;
-    ///Banner数量展示
-    UILabel *numLab;
-    ///商品名称
-    UILabel *goodsName;
-    ///商品标题
-    UILabel *goodsTitle;
-    ///商品价格
-    UILabel *goodsPrice;
-    ///商品规格View
-    GoodsSpeSheet *speSheet;
     ///轮播图个数
     NSString *allStr;
 }
-=======
->>>>>>> 39f6af04a36ebbc346a7f5fc62bc16103b0c23a8
 
-}
 ///顶部导航View
 @property(strong, nonatomic) UIView *navView;
 ///下划线
@@ -66,7 +44,6 @@
 @property(strong, nonatomic) WKWebView *defWebview;
 
 @property(strong, nonatomic) GoodsBuyView *goodsBuyView;
-
 ///可滚动区域
 @property(strong, nonatomic) UIScrollView *scrollView;
 
@@ -245,7 +222,7 @@
     _numLab.textAlignment = NSTextAlignmentCenter;
     _numLab.textColor = [UIColor whiteColor];
     _numLab.font = [UIFont systemFontOfSize:Scale750(22)];
-    NSString *tempStr = @"1/6";
+    NSString *tempStr = @"0/0";
     _numLab.attributedText = [tempStr strChangFlagWithStr:@"1" Color:[UIColor whiteColor] Font:Scale750(34)];
     [_bannerView addSubview:_numLab];
     [_numLab mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -521,15 +498,6 @@
     }
 }
 
-#pragma mark - SDCycleScrollViewDelegate
-//滚动到第几张图片的回调
--(void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didScrollToIndex:(NSInteger)index {
-    NSString *numStr = [NSString stringWithFormat:@"%ld", index+1];
-    NSString *allStr = @"6";
-    NSString *tempStr = [NSString stringWithFormat:@"%@/%@", numStr, allStr];
-    _numLab.attributedText = [tempStr strChangFlagWithStr:numStr Color:[UIColor whiteColor] Font:Scale750(36)];
-}
-
 #pragma mark - 接口请求
 // 获取商品详情
 -(void)getHttpLoadData {
@@ -540,11 +508,8 @@
         if (error) {
             [self.view ug_msg:error.domain];
         }else{
-<<<<<<< HEAD
-            self.productdic = dataDict;
             ProductModel *temdata = [ProductModel yy_modelWithJSON:dataDict];
             [self reloadViewUIWith:temdata];
-=======
             self.productdata =  [ProductModel yy_modelWithJSON:dataDict];
             if (weakSelf.productdata.detailMobileHtml.length>0 ) {
                 [self->_defWebview loadHTMLString:weakSelf.productdata.detailMobileHtml baseURL:nil];
@@ -554,42 +519,43 @@
             
             [weakSelf.bannerView setImageURLStringsGroup:[weakSelf.productdata.albumPics componentsSeparatedByString:@","]];
             weakSelf.defWebview.backgroundColor = UIColor.ug_random;
->>>>>>> 39f6af04a36ebbc346a7f5fc62bc16103b0c23a8
         }
     }];
 }
 
-<<<<<<< HEAD
 #pragma mark - 刷新UI
 - (void)reloadViewUIWith:(ProductModel *)data {
-    //轮播图处理
+    //轮播显示及图个数问题
     NSArray *bannerCount = [data.albumPics componentsSeparatedByString:@","];
-    allStr = [NSString stringWithFormat:@"%lu", (unsigned long)bannerCount.count];
-    NSString *numStr = @"1";
+    NSString *tempCountStr = bannerCount.firstObject;
+    NSString *numStr;
+    if (tempCountStr.length > 0) {
+        allStr = [NSString stringWithFormat:@"%lu", (unsigned long)bannerCount.count];
+        numStr = @"1";
+    }else{
+        allStr = @"0";
+        numStr = @"0";
+    }
     NSString *tempStr = [NSString stringWithFormat:@"%@/%@", numStr, allStr];
-    numLab.attributedText = [tempStr strChangFlagWithStr:numStr Color:[UIColor whiteColor] Font:Scale750(36)];
-    [self->bannerView setImageURLStringsGroup:bannerCount];
-    //
-    
-    
-//    if (temdata.detailMobileHtml.length>0 ) {
-//        [self->_defWebview loadHTMLString:temdata.detailMobileHtml baseURL:nil];
-//    }else{
-//        [self->_defWebview loadHTMLString:temdata.detailHtml baseURL:nil];
-//    }
-    
-    
+    _numLab.attributedText = [tempStr strChangFlagWithStr:numStr Color:[UIColor whiteColor] Font:Scale750(36)];
+    [_bannerView setImageURLStringsGroup:bannerCount];
+    //商品详情数据
     self->_defWebview.backgroundColor = UIColor.ug_random;
+    if (data.detailMobileHtml.length>0 ) {
+        [self->_defWebview loadHTMLString:data.detailMobileHtml baseURL:nil];
+    }else{
+        [self->_defWebview loadHTMLString:data.detailHtml baseURL:nil];
+    }
 }
-
 
 #pragma mark - SDCycleScrollViewDelegate
 //滚动到第几张图片的回调
 -(void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didScrollToIndex:(NSInteger)index {
     NSString *numStr = [NSString stringWithFormat:@"%ld", index+1];
     NSString *tempStr = [NSString stringWithFormat:@"%@/%@", numStr, allStr];
-    numLab.attributedText = [tempStr strChangFlagWithStr:numStr Color:[UIColor whiteColor] Font:Scale750(36)];
-=======
+    _numLab.attributedText = [tempStr strChangFlagWithStr:numStr Color:[UIColor whiteColor] Font:Scale750(36)];
+}
+    
 // 添加到购物车
 -(void)addToCar{
     ProductSKUModel *skudata = _productdata.skuStockList.firstObject;
@@ -601,7 +567,6 @@
             [self.view ug_msg:@"添加成功"];
         }
     }];
->>>>>>> 39f6af04a36ebbc346a7f5fc62bc16103b0c23a8
 }
 
 -(void)viewWillLayoutSubviews{

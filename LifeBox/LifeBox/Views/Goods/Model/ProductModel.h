@@ -35,13 +35,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(strong, nonatomic) NSString *detailMobileHtml;
 @property(strong, nonatomic) NSString *detailHtml;
 @property(strong, nonatomic) NSString *productid;
-<<<<<<< HEAD
-@property(strong, nonatomic) NSString *albumPics;  //画册图片用逗号分割
-
-=======
 @property(strong, nonatomic) NSString *albumPics;//画册图片用逗号分割
 @property(strong, nonatomic) NSArray<ProductSKUModel*> *skuStockList;
->>>>>>> 39f6af04a36ebbc346a7f5fc62bc16103b0c23a8
 @end
 
 NS_ASSUME_NONNULL_END

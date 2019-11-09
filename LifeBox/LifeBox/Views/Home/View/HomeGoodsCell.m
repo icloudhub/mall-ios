@@ -121,6 +121,7 @@
     _addBtn = [[UIButton alloc] init];
     [_addBtn setBackgroundImage:[UIImage imageNamed:@"ic_add_to"] forState:UIControlStateNormal];
     [_addBtn setBackgroundImage:[UIImage imageNamed:@"ic_add_to"] forState:UIControlStateHighlighted];
+    _addBtn.hidden = YES;
     [self addSubview:_addBtn];
     [_addBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo(-Scale750(40));
@@ -141,11 +142,6 @@
     NSString *tempStr = [NSString stringWithFormat:@"%@", cellData.price];
     _goodsMoney.font = [UIFont systemFontOfSize:Scale750(38)];
     _goodsMoney.attributedText = [tempStr strChangFlagWithStr:@".00" Color:RGBColor(235, 62, 49) Font:Scale750(24)];
-    //    goodsCell.speciLab.text = data.spstr;
-    //    goodsCell.goodsTitle.text = data.pmsProduct.subTitle;
-    //    goodsCell.goodsMoney.text = [NSString stringWithFormat:@"%.2f",data.pmsSkuStock.price];
-    //    goodsCell.original.text = [NSString stringWithFormat:@"%.2f",data.pmsSkuStock.originalPrice];
-    //    goodsCell.numLab.text = [NSString stringWithFormat:@"%zd",data.quantity];
 }
 
 @end

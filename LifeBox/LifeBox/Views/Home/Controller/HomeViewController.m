@@ -283,7 +283,7 @@ static NSString *homeGoodsCellID = @"HomeGoodsCellID";
 
 #pragma mark - 首页数据接口
 - (void)homePageDataRequest {
-    
+//    [self.view ug_loading];
     [[[NetWorkRequest alloc] init] getHomeInfoendblock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
         if (error) {
             [self.view ug_msg:error.domain];
