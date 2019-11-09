@@ -13,10 +13,11 @@
 #import "HomeGoodsCell.h"
 #import "HomeProductdata.h"
 #import "HomeData.h"
-
+#import "SubjectData.h"
 
 #import "GoodsDefViewController.h"
 #import "SureOrderController.h"
+#import "WebViewController.h"
 
 @interface HomeViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource> {
     ///按钮功能数据展示
@@ -42,13 +43,14 @@ static NSString *homeGoodsCellID = @"HomeGoodsCellID";
 - (void)viewDidLoad {
      self.view.backgroundColor = [UIColor whiteColor];
     [self createUI];
-    [self recommendProduct];
-    [self homePageDataRequest];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = YES;
+    [self recommendProduct];
+    [self homePageDataRequest];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -162,6 +164,11 @@ static NSString *homeGoodsCellID = @"HomeGoodsCellID";
         make.left.right.mas_equalTo(0);
         make.height.mas_equalTo(Scale750(90));
     }];
+    
+    [_notice addGestureRecognizer:[UITapGestureRecognizer bk_recognizerWithHandler:^(UIGestureRecognizer *sender, UIGestureRecognizerState state, CGPoint location) {
+        HomeNotiData *temdata = _homedata.notiArr.firstObject;
+        [self subjectDef:temdata.id];
+    }]];
     /*
      * 可点击数据区域
      */
@@ -297,6 +304,22 @@ static NSString *homeGoodsCellID = @"HomeGoodsCellID";
             [self->tableView reloadData];
         }
     }];
+}
+#pragma mark - 去专题详情
+-(void)subjectDef:(NSString*)subjectid{
+    [[[NetWorkRequest alloc] init] subject:subjectid block:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
+        if (error) {
+            [self.view ug_msg:error.domain];
+        }else{
+            SubjectData *data = [SubjectData yy_modelWithJSON:result];
+            WebViewController *vc = [WebViewController new];
+            vc.htmlstr = data.content;
+            vc.title = data.title;
+            [vc setHidesBottomBarWhenPushed:YES];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+    }];
+    
 }
 
 @end

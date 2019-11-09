@@ -27,10 +27,4 @@
     self.layer.borderWidth = width;
 }
 
-/**
- *
- */
--(void)ug_defborder{
-    [self ug_border:S_COLine white:S_Line];
-}
 @end

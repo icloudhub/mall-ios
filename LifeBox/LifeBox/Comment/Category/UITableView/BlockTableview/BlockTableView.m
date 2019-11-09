@@ -27,7 +27,7 @@
     [self addSubview:_tableview];
     _tableview.dataSource = self;
     _tableview.delegate = self;
-    [_tableview registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+//    [_tableview registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     [_tableview mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self);
     }];
@@ -45,7 +45,11 @@
     if (_cellForRowAtIndexPath) {
         return _cellForRowAtIndexPath(tableView,indexPath);
     }else{
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleValue1
+                                          reuseIdentifier: @"defualcell"];
+        }
         cell.textLabel.text = @"ceshi";
         return cell;
     }
@@ -101,6 +105,29 @@
         return  _viewForFooterInSection(tableView, section);
     }else{
         return nil;
+    }
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    return YES;
+
+}
+
+// 修改编辑按钮文字
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath*)indexPath {
+    if (_titleForDeleteConfirmationButtonForRowAtIndexPath) {
+        return  _titleForDeleteConfirmationButtonForRowAtIndexPath(tableView, indexPath);
+    }else{
+        return @"删除";
+    }
+    
+}
+
+// 进入编辑模式，按下出现的编辑按钮后,进行删除操作
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (_commitEditingStyle) {
+        _commitEditingStyle(tableView,editingStyle,indexPath);
     }
 }
 @end

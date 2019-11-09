@@ -45,8 +45,11 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - 首页通知Data
 @interface HomeNotiData : NSObject
 
+@property (strong, nonatomic) NSString *id;
 ///通知内容
 @property (strong, nonatomic) NSString *title;
+
+@property (strong, nonatomic) NSString *content;
 
 @end
 

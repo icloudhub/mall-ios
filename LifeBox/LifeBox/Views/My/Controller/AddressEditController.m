@@ -78,19 +78,19 @@
      * 分割线1
      */
     lineView1 = [[UIView alloc] init];
-    lineView1.backgroundColor = S_COLine;
+    lineView1.backgroundColor = COLOREE;
     [addressView addSubview:lineView1];
     /*
      * 分割线2
      */
     lineView2 = [[UIView alloc] init];
-    lineView2.backgroundColor = S_COLine;
+    lineView2.backgroundColor = COLOREE;
     [addressView addSubview:lineView2];
     /*
      * 分割线3
      */
     lineView3 = [[UIView alloc] init];
-    lineView3.backgroundColor = S_COLine;
+    lineView3.backgroundColor = COLOREE;
     [addressView addSubview:lineView3];
     /*
      * 收货人

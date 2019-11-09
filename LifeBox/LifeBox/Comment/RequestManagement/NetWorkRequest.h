@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 
 #define BASEURL [NSString stringWithFormat:@"%@:%@",\
-[[Global_Variable shared] getSeverIp],\
-[[Global_Variable shared] getDefaultPort]\
+[[Global_Variable shared] serviceIP],\
+[[Global_Variable shared] defaultPort]\
 ]
 
-#define SEARCHURL [NSString stringWithFormat:@"%@:%@",[[Global_Variable shared] getSeverIp],[[Global_Variable shared] getSearchPort]]
+#define SEARCHURL [NSString stringWithFormat:@"%@:%@",[[Global_Variable shared] serviceIP],[[Global_Variable shared] searchPort]]
 
 NS_ASSUME_NONNULL_BEGIN
 

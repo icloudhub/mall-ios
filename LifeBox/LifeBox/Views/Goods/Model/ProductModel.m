@@ -8,6 +8,15 @@
 
 #import "ProductModel.h"
 
+@implementation ProductSKUModel
+
++ (NSDictionary *)modelCustomPropertyMapper {
+    
+    return @{@"skuid":@"id"};
+    
+}
+@end
+
 @implementation ProductModel
 + (NSDictionary *)modelCustomPropertyMapper {
 
@@ -15,4 +24,9 @@
 
 }
 
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    return @{
+             @"skuStockList":[ProductSKUModel class],
+             };
+}
 @end

@@ -28,9 +28,16 @@
     
     [[DoraemonManager shareInstance] addPluginWithTitle:@"弹框" icon:@"doraemon_ui" desc:@"弹框" pluginName:@"DorAlert" atModule:@"功能测试"];
     
+
+    
     //接口测试
+    [[DoraemonManager shareInstance] addPluginWithTitle:@"接口配置" icon:@"doraemon_ui" desc:@"接口配置" pluginName:@"DorConfigServiceproVC" atModule:@"接口测试"];
     [[DoraemonManager shareInstance] addPluginWithTitle:@"接口测试" icon:@"doraemon_ui" desc:@"接口测试" pluginName:@"DorSwagger" atModule:@"接口测试"];
     [[DoraemonManager shareInstance] addPluginWithTitle:@"搜索接口测试" icon:@"doraemon_ui" desc:@"搜索接口测试" pluginName:@"DorSearchSwagger" atModule:@"接口测试"];
+    
+   
+    
+    
 
 }
 @end
@@ -121,5 +128,17 @@
 }
 
 @end
+
+#import "DorConfigServiceVC.h"
+@implementation DorConfigServiceproVC
+
+- (void)pluginDidLoad{
+   DorConfigServiceVC *vc = [[DorConfigServiceVC alloc] init];
+    [DoraemonUtil openPlugin:vc];
+}
+
+@end
+
+
 
 #endif

@@ -23,5 +23,9 @@
     [self get:url param:nil head:nil endblock:endblock];
     
 }
-
+#pragma mark - 专题详情
+-(void)subject:(NSString*)id block:(void(^)(NSDictionary *result, NSError *error))endblock{
+    NSString *url = [NSString stringWithFormat:@"%@/subject/subject/%@",BASEURL,id];
+    [self post:url param:nil head:nil endblock:endblock];
+}
 @end

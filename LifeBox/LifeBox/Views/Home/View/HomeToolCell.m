@@ -25,6 +25,7 @@
      * 功能图片
      */
     _toolImg = [[UIImageView alloc] init];
+    [_toolImg ug_Radius:Scale750(49)];
     [self addSubview:_toolImg];
     [_toolImg mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(self);

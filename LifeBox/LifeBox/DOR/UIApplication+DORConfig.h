@@ -37,6 +37,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface DorConfigController : NSObject<DoraemonPluginProtocol>
 @end
 
+@interface DorConfigServiceproVC : NSObject<DoraemonPluginProtocol>
+@end
+
+
 
 
 NS_ASSUME_NONNULL_END

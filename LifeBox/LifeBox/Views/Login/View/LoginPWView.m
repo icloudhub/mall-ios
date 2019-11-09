@@ -20,7 +20,7 @@
 }
 
 -(void)configView{
-    [self ug_defborder];
+    [self ug_border:COLOREE white:1];
     self.usernameView = [LogInInputView new];
     [self addSubview:_usernameView];
     

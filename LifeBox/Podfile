@@ -28,6 +28,7 @@ target 'LifeBox' do
    
    #模型转换
    pod 'YYModel'
+#   pod 'YYKit'
    pod 'BlocksKit'
    
    #空数据界面

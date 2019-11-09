@@ -52,22 +52,28 @@ static Global_Variable *sharedInstance = nil;
 }
 
 #pragma mark - 获取服务IP地址
-- (NSString *)getSeverIp{
-
-    self.serviceIP = @"http://120.77.202.156";  //测试环境
-
+- (NSString *)serviceIP{
+    if (!_serviceIP) {
+//        _serviceIP = @"http://120.77.202.156";  //测试环境
+        _serviceIP = @"http://192.168.2.174";  //测试环境
+    }
     return _serviceIP;
 }
 
 #pragma mark - 获取默认服务端口
-- (NSString *)getDefaultPort {
-    self.defaultPort = @"15674";  //测试环境
+- (NSString *)defaultPort {
+    if (!_defaultPort) {
+        _defaultPort = @"15674";  //测试环境
+    }
     return _defaultPort;
 }
 
 #pragma mark - 获取搜索服务端口
-- (NSString *)getSearchPort {
-    self.searchPort = @"15673";  //测试环境
+- (NSString *)searchPort {
+
+    if (!_searchPort) {
+        _searchPort = @"15673";  //测试环境
+    }
     return _searchPort;
 }
 -(NSString *)userid{

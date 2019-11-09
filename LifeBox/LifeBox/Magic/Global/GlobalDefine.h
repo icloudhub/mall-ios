@@ -62,5 +62,6 @@ dispatch_async(dispatch_get_main_queue(), block);\
  * 常用方法
  */
 #define UG_URL(str) [NSURL URLWithString:str]
+#define UG_IMAGE(str) [UIImage imageNamed:str]
 
 #endif /* GlobalDefine_h */
