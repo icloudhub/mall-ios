@@ -75,9 +75,8 @@
 }
 
 //刷新数据
--(void)reload:(NSArray*)arr{
+-(void)reload:(NSArray*)arr {
     HomeNotiData *data = arr.firstObject;
     _noticeLab.text = data.title;
-  
 }
 @end

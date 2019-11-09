@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HomeProductdata.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -30,6 +31,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 ///添加购物车Btn
 @property (strong, nonatomic) UIButton *addBtn;
+
+#pragma mark - 刷新UI
+///刷新首页推荐商品UI
+- (void)reloadHomeGoodsCellUIWith:(HomeProductdata *)cellData;
 
 @end
 

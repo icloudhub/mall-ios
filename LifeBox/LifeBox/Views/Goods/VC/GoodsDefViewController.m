@@ -35,6 +35,8 @@
     UILabel *goodsPrice;
     ///商品规格View
     GoodsSpeSheet *speSheet;
+    ///轮播图个数
+    NSString *allStr;
 }
 
 ///详情显示Web
@@ -492,23 +494,38 @@
         }else{
             self.productdic = dataDict;
             ProductModel *temdata = [ProductModel yy_modelWithJSON:dataDict];
-            if (temdata.detailMobileHtml.length>0 ) {
-                [self->_defWebview loadHTMLString:temdata.detailMobileHtml baseURL:nil];
-            }else{
-                [self->_defWebview loadHTMLString:temdata.detailHtml baseURL:nil];
-            }
-            
-            [self->bannerView setImageURLStringsGroup:[temdata.albumPics componentsSeparatedByString:@","]];
-            self->_defWebview.backgroundColor = UIColor.ug_random;
+            [self reloadViewUIWith:temdata];
         }
     }];
 }
+
+#pragma mark - 刷新UI
+- (void)reloadViewUIWith:(ProductModel *)data {
+    //轮播图处理
+    NSArray *bannerCount = [data.albumPics componentsSeparatedByString:@","];
+    allStr = [NSString stringWithFormat:@"%lu", (unsigned long)bannerCount.count];
+    NSString *numStr = @"1";
+    NSString *tempStr = [NSString stringWithFormat:@"%@/%@", numStr, allStr];
+    numLab.attributedText = [tempStr strChangFlagWithStr:numStr Color:[UIColor whiteColor] Font:Scale750(36)];
+    [self->bannerView setImageURLStringsGroup:bannerCount];
+    //
+    
+    
+//    if (temdata.detailMobileHtml.length>0 ) {
+//        [self->_defWebview loadHTMLString:temdata.detailMobileHtml baseURL:nil];
+//    }else{
+//        [self->_defWebview loadHTMLString:temdata.detailHtml baseURL:nil];
+//    }
+    
+    
+    self->_defWebview.backgroundColor = UIColor.ug_random;
+}
+
 
 #pragma mark - SDCycleScrollViewDelegate
 //滚动到第几张图片的回调
 -(void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didScrollToIndex:(NSInteger)index {
     NSString *numStr = [NSString stringWithFormat:@"%ld", index+1];
-    NSString *allStr = @"6";
     NSString *tempStr = [NSString stringWithFormat:@"%@/%@", numStr, allStr];
     numLab.attributedText = [tempStr strChangFlagWithStr:numStr Color:[UIColor whiteColor] Font:Scale750(36)];
 }

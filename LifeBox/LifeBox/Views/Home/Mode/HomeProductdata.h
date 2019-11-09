@@ -12,10 +12,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HomeProductdata : NSObject
 
+///商品ID
 @property(assign, nonatomic) CGFloat id;
-@property (strong, nonatomic) NSString* albumPics;
-@property (strong, nonatomic) NSString* pic;
-@property (strong, nonatomic) NSString* name;
+///商品展示图片
+@property (strong, nonatomic) NSString *pic;
+///商品名称
+@property (strong, nonatomic) NSString *name;
+///商品副标题
+@property (strong, nonatomic) NSString *subTitle;
+///商品价格
+@property (strong, nonatomic) NSString *price;
 
 @end
 

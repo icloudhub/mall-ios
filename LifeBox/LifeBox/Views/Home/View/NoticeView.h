@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 //刷新数据
 -(void)reload:(NSArray*)arr;
+
 @end
 
 NS_ASSUME_NONNULL_END

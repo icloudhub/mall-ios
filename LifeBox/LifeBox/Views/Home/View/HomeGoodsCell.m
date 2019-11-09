@@ -69,7 +69,8 @@
     [_goodsTitle mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self->_goodsLab);
         make.top.mas_equalTo(self->_goodsLab.mas_bottom).mas_offset(Scale750(20));
-        make.width.height.mas_greaterThanOrEqualTo(0);
+        make.right.mas_equalTo(self.mas_right).mas_offset(-Scale750(30));
+        make.height.mas_greaterThanOrEqualTo(0);
     }];
     /*
      * 货币符号
@@ -89,7 +90,7 @@
      */
     _goodsMoney = [[UILabel alloc] init];
     _goodsMoney.textColor = RGBColor(235, 62, 49);
-    NSString *tempStr = @"8.00";
+    NSString *tempStr = @"0.00";
     _goodsMoney.font = [UIFont systemFontOfSize:Scale750(38)];
     _goodsMoney.attributedText = [tempStr strChangFlagWithStr:@".00" Color:RGBColor(235, 62, 49) Font:Scale750(24)];
     [self addSubview:_goodsMoney];
@@ -107,6 +108,7 @@
     NSDictionary *attribtDic = @{NSStrikethroughStyleAttributeName: [NSNumber numberWithInteger:NSUnderlineStyleSingle], NSForegroundColorAttributeName:RGBColor(189, 189, 189)};
     NSMutableAttributedString *attribtStr = [[NSMutableAttributedString alloc] initWithString:@"¥10.00" attributes:attribtDic];
     _original.attributedText = attribtStr;
+    _original.hidden = YES;
     [self addSubview:_original];
     [_original mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self->_goodsMoney.mas_right).mas_offset(Scale750(10));
@@ -125,6 +127,25 @@
         make.bottom.mas_equalTo(-Scale750(30));
         make.width.height.mas_equalTo(Scale750(44));
     }];
+}
+
+#pragma mark - 刷新UI
+- (void)reloadHomeGoodsCellUIWith:(HomeProductdata *)cellData {
+    //商品图片
+    [_goodsImg sd_setImageWithURL:UG_URL(cellData.pic)];
+    //商品名称
+    _goodsLab.text = cellData.name;
+    //商品副标题
+    _goodsTitle.text = cellData.subTitle;
+    //商品价格
+    NSString *tempStr = [NSString stringWithFormat:@"%@", cellData.price];
+    _goodsMoney.font = [UIFont systemFontOfSize:Scale750(38)];
+    _goodsMoney.attributedText = [tempStr strChangFlagWithStr:@".00" Color:RGBColor(235, 62, 49) Font:Scale750(24)];
+    //    goodsCell.speciLab.text = data.spstr;
+    //    goodsCell.goodsTitle.text = data.pmsProduct.subTitle;
+    //    goodsCell.goodsMoney.text = [NSString stringWithFormat:@"%.2f",data.pmsSkuStock.price];
+    //    goodsCell.original.text = [NSString stringWithFormat:@"%.2f",data.pmsSkuStock.originalPrice];
+    //    goodsCell.numLab.text = [NSString stringWithFormat:@"%zd",data.quantity];
 }
 
 @end

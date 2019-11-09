@@ -11,7 +11,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GoodsDefViewController : LifeBoxViewController
-@property(assign, nonatomic) NSInteger productid;//商品id
+///传入的商品id
+@property(assign, nonatomic) NSInteger productid;
+
 @end
 
 NS_ASSUME_NONNULL_END

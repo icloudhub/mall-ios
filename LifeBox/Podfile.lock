@@ -103,7 +103,7 @@ DEPENDENCIES:
   - YYModel
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - AFNetworking
     - BlocksKit
     - BSBacktraceLogger
@@ -147,4 +147,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 8353b8ba329823f250f2bf8c1e00038b736105d4
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.7.5

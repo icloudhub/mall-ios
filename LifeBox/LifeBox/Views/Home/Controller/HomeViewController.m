@@ -251,13 +251,7 @@ static NSString *homeGoodsCellID = @"HomeGoodsCellID";
     }
     HomeProductdata *data = [_likeproducts objectAtIndex:indexPath.row];
     goodsCell.addBtn.tag = indexPath.row;
-    [goodsCell.goodsImg sd_setImageWithURL:UG_URL(data.pic)];
-    goodsCell.goodsLab.text = data.name;
-//    goodsCell.speciLab.text = data.spstr;
-//    goodsCell.goodsTitle.text = data.pmsProduct.subTitle;
-//    goodsCell.goodsMoney.text = [NSString stringWithFormat:@"%.2f",data.pmsSkuStock.price];
-//    goodsCell.original.text = [NSString stringWithFormat:@"%.2f",data.pmsSkuStock.originalPrice];
-//    goodsCell.numLab.text = [NSString stringWithFormat:@"%zd",data.quantity];
+    [goodsCell reloadHomeGoodsCellUIWith:data];
     return goodsCell;
 }
 
@@ -289,7 +283,6 @@ static NSString *homeGoodsCellID = @"HomeGoodsCellID";
         }else{
             self.homedata = [HomeData yy_modelWithJSON:result];
             [self reloadUI];
-            NSLog(@"");
         }
     }];
 }
