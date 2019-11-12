@@ -132,5 +132,33 @@
     
 }
 
-
+-(void)reloadUI:(ProductCommentModel*)commdata{
+    
+    [headImg sd_setImageWithURL:UG_URL(commdata.memberIcon)];
+    nickLab.text = commdata.memberNickName;
+    
+    infoLab.text = commdata.content;
+    
+    timeLab.text = [commdata.createTime ug_dayTime];
+    
+    NSString *starstr = @"";
+    if (commdata.star>3) {
+        starstr = @" 好评";
+    }else if(commdata.star>2){
+        starstr = @" 中评";
+    }else{
+        starstr = @" 差评";
+    }
+    NSMutableAttributedString *attri =     [[NSMutableAttributedString alloc] initWithString:starstr];
+    NSTextAttachment *attch = [[NSTextAttachment alloc] init];
+    // 表情图片
+    attch.image = [UIImage imageNamed:@"ic_comments"];
+    // 设置图片大小
+    //attch.bounds = CGRectMake(0, 0, 30/2, 27/2);
+    // 创建带有图片的富文本
+    NSAttributedString *string = [NSAttributedString attributedStringWithAttachment:attch];
+    //在文字下标第几个添加图片  0就是文字前面添加图片
+    [attri insertAttributedString:string atIndex:0];
+    comLab.attributedText = attri;
+}
 @end

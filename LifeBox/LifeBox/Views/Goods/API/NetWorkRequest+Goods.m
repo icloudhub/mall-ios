@@ -27,4 +27,17 @@
                             };
     [self post:url param:param head:nil endblock:endblock];
 }
+
+/**
+ * /product/commentlist
+ * 添加商品到购物车
+ */
+-(void)commentlist:(NSString*)productId pageSize:(NSInteger)pageSize pageNum:(NSInteger)pageNum block:(NREndBlock)endblock{
+    NSString *url = [NSString stringWithFormat:@"%@/product/commentlist/%@",BASEURL,productId];
+    NSDictionary *param = @{
+        @"pageSize":[NSNumber numberWithInteger: pageSize],
+        @"pageNum":[NSNumber numberWithInteger: pageNum],
+    };
+     [self get:url param:param head:nil endblock:endblock];
+}
 @end

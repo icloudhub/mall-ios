@@ -383,8 +383,10 @@
         make.right.mas_equalTo(-Scale750(30));
         make.height.mas_equalTo(Scale750(90));
     }];
+    UG_WEAKSELF
     [commentsView bk_addEventHandler:^(id sender) {
         GoodsCommentsController *commentsCtl = [[GoodsCommentsController alloc] init];
+        commentsCtl.productId = [NSString stringWithFormat:@"%zd",weakSelf.productid];
         [self.navigationController pushViewController:commentsCtl animated:YES];
     } forControlEvents:UIControlEventTouchUpInside];
     /*

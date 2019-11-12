@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ProductModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CommentsCell : UITableViewCell
 
+-(void)reloadUI:(ProductCommentModel*)commdata;
 @end
 
 NS_ASSUME_NONNULL_END

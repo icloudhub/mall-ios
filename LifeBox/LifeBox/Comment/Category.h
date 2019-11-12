@@ -18,5 +18,6 @@
 #import "NSString+JSON.h"
 #import "UIControl+UG.h"
 #import "UIButton+UG.h"
+#import "NSDate+UG.h"
 
 #endif /* Category_h */

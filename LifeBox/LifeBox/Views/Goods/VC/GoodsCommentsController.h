@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GoodsCommentsController : LifeBoxViewController
 
+@property(strong,nonatomic) NSString* productId;
 @end
 
 NS_ASSUME_NONNULL_END

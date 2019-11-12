@@ -17,16 +17,51 @@
 }
 @end
 
+@implementation ProductSpecModel
+
++ (NSDictionary *)modelCustomPropertyMapper {
+    
+    return @{};
+    
+}
+@end
+
+@implementation ProductCommentReplayModel
+
++ (NSDictionary *)modelCustomPropertyMapper {
+    
+    return @{};
+    
+}
+@end
+
+
+@implementation ProductCommentModel
+
++ (NSDictionary *)modelCustomPropertyMapper {
+    
+    return @{};
+    
+}
+@end
+
+
+
+
 @implementation ProductModel
 + (NSDictionary *)modelCustomPropertyMapper {
 
-    return @{@"productid":@"id"};
+    return @{@"productid":@"id",
+             @"specList":@"productAttributeValueList"
+    };
 
 }
 
 + (NSDictionary *)modelContainerPropertyGenericClass {
     return @{
-             @"skuStockList":[ProductSKUModel class],
-             };
+            @"skuStockList":[ProductSKUModel class],
+            @"specList":[ProductSpecModel class],
+            @"commentList":[ProductCommentModel class],
+            };
 }
 @end

@@ -24,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 -(NSString *)stringByReplacingAsteriskWithRange:(NSRange)range;
 
+
 @end
 
 NS_ASSUME_NONNULL_END
