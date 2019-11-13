@@ -29,6 +29,41 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+// 规格
+@interface ProductSpecModel : NSObject
+@property(strong, nonatomic) NSString *id;
+@property(strong, nonatomic) NSString *productAttributeId;
+@property(strong, nonatomic) NSString *productId;
+@property(strong, nonatomic) NSString *value;
+
+@end
+
+// 评价回复
+@interface ProductCommentReplayModel : NSObject
+@property(strong, nonatomic) NSString *id;
+@property(strong, nonatomic) NSString *commentId; //评价id
+@property(strong, nonatomic) NSString *content;// 回复内容
+@property(strong, nonatomic) NSDate *createTime; // 回复时间
+@property(strong, nonatomic) NSString *memberIcon; // 回复人头像
+@property(strong, nonatomic) NSString *memberNickName;// 回复人昵称
+@property(strong, nonatomic) NSString *type;// 评论人员类型；0->会员；1->管理员
+
+@end
+
+// 评价
+@interface ProductCommentModel : NSObject
+@property(strong, nonatomic) NSString *id;
+@property(strong, nonatomic) NSString *content;// 评价内容
+@property(strong, nonatomic) NSDate *createTime; //评价时间,
+@property(strong, nonatomic) NSString *memberIcon; // 评论用户头像 ,
+@property(strong, nonatomic) NSString *memberNickName; // 评论用户
+@property(strong, nonatomic) NSString *pics;// 上传图片地址，以逗号隔开 ,
+@property(strong, nonatomic) NSString *productAttribute;// 购买时的商品属性 ,
+@property(strong, nonatomic) NSArray<ProductCommentReplayModel*> *replayList; //产品评价回复表 ,
+@property(assign, nonatomic) NSInteger star; //评价星数：0->5
+
+@end
+
 @interface ProductModel : NSObject
 
 @property(strong, nonatomic) NSString *name;
@@ -36,7 +71,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(strong, nonatomic) NSString *detailHtml;
 @property(strong, nonatomic) NSString *productid;
 @property(strong, nonatomic) NSString *albumPics;//画册图片用逗号分割
-@property(strong, nonatomic) NSArray<ProductSKUModel*> *skuStockList;
+@property(strong, nonatomic) NSArray<ProductSKUModel*> *skuStockList;//sku list
+@property(strong, nonatomic) NSArray<ProductSpecModel*> *specList;//规格 list
+@property(strong, nonatomic) NSArray<ProductCommentModel*> *commentList;//评论 list
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -8,12 +8,13 @@
 
 #import "GoodsCommentsController.h"
 #import "CommentsCell.h"
+#import "NetWorkRequest+Goods.h"
 
 @interface GoodsCommentsController ()<UITableViewDelegate, UITableViewDataSource> {
     ///评论数据展示
     UITableView *tableView;
 }
-
+@property(strong, nonatomic) NSArray* dataList;//数据源
 @end
 
 static NSString *cellID = @"CommentsCellID";
@@ -26,6 +27,7 @@ static NSString *cellID = @"CommentsCellID";
     [self setWhiteNaviWithTitle:@"商品评价(66)"];
     self.view.backgroundColor = S_COBackground;
     [self createUI];
+    [self request];
 }
 
 #pragma mark - 创建UI
@@ -55,15 +57,28 @@ static NSString *cellID = @"CommentsCellID";
         cell = [[CommentsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
+    ProductCommentModel *data = [_dataList objectAtIndex:indexPath.row];
+    [cell reloadUI:data];
     return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 6;
+    return _dataList.count;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
+-(void)request{
+    UG_WEAKSELF
+    [[NetWorkRequest new] commentlist:_productId pageSize:10 pageNum:1 block:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
+        if (error) {
+            [self.view ug_msg:error.domain];
+        }else{
+            weakSelf.dataList = [NSArray yy_modelArrayWithClass:[ProductCommentModel class] json:dataDict];
+            [tableView reloadData];
+        }
+    }];
+}
 @end

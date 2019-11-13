@@ -21,6 +21,12 @@ NS_ASSUME_NONNULL_BEGIN
  * 添加商品到购物车
  */
 -(void)addCar:(NSString*)productId skuId:(NSString*)skuId block:(NREndBlock)endblock;
+
+/**
+ * /product/commentlist
+ * 添加商品到购物车
+ */
+-(void)commentlist:(NSString*)productId pageSize:(NSInteger)pageSize pageNum:(NSInteger)pageNum block:(NREndBlock)endblock;
 @end
 
 NS_ASSUME_NONNULL_END
