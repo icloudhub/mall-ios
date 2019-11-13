@@ -45,6 +45,10 @@
 		05145135231EB6A600547E42 /* CollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05145134231EB6A600547E42 /* CollectionCell.m */; };
 		05145138231EB7D900547E42 /* InvitationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05145137231EB7D900547E42 /* InvitationController.m */; };
 		0515B42D2321506800026D37 /* MyOrderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0515B42C2321506800026D37 /* MyOrderController.m */; };
+		052DCA082379587800C16128 /* ic_closeImage@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 052DCA062379587800C16128 /* ic_closeImage@3x.png */; };
+		052DCA092379587800C16128 /* ic_closeImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 052DCA072379587800C16128 /* ic_closeImage@2x.png */; };
+		052DCA0C23795F2100C16128 /* LoginCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 052DCA0B23795F2100C16128 /* LoginCodeView.m */; };
+		052DCA13237AA3D600C16128 /* BaseTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 052DCA12237AA3D600C16128 /* BaseTextField.m */; };
 		0531E9F32337B1C100775D79 /* AddressChooseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0531E9F22337B1C100775D79 /* AddressChooseCell.m */; };
 		0531E9F62337B29F00775D79 /* ic_selected_address@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0531E9F42337B29F00775D79 /* ic_selected_address@3x.png */; };
 		0531E9F72337B29F00775D79 /* ic_selected_address@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0531E9F52337B29F00775D79 /* ic_selected_address@2x.png */; };
@@ -173,11 +177,16 @@
 		05BBBB83230FA0EC00C01FC3 /* ic_return@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05BBBB81230FA0EC00C01FC3 /* ic_return@3x.png */; };
 		05BBBB85230FA16400C01FC3 /* navBackImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 05BBBB84230FA16400C01FC3 /* navBackImage.png */; };
 		05BBBB882312A08700C01FC3 /* ProfitViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BBBB872312A08700C01FC3 /* ProfitViewCell.m */; };
+		05C4696D237B9EC200D21EA1 /* NSString+WPAttributedMarkup.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C46966237B9EC200D21EA1 /* NSString+WPAttributedMarkup.m */; };
+		05C4696E237B9EC200D21EA1 /* WPHotspotLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C46968237B9EC200D21EA1 /* WPHotspotLabel.m */; };
+		05C4696F237B9EC200D21EA1 /* WPTappableLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C46969237B9EC200D21EA1 /* WPTappableLabel.m */; };
+		05C46970237B9EC200D21EA1 /* NSMutableString+TagReplace.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C4696B237B9EC200D21EA1 /* NSMutableString+TagReplace.m */; };
+		05C46971237B9EC200D21EA1 /* WPAttributedStyleAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C4696C237B9EC200D21EA1 /* WPAttributedStyleAction.m */; };
+		05C46974237BAB7500D21EA1 /* LoginPwView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C46973237BAB7500D21EA1 /* LoginPwView.m */; };
+		05C46977237BE19500D21EA1 /* RegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C46976237BE19500D21EA1 /* RegisterController.m */; };
 		05C954552322567A00517381 /* OrderViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C954542322567A00517381 /* OrderViewCell.m */; };
 		20A2F5172371630C00B2C7AF /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A2F5162371630B00B2C7AF /* WebViewController.m */; };
 		20A2F51F23726D7000B2C7AF /* SubjectData.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A2F51E23726D6F00B2C7AF /* SubjectData.m */; };
-		20D1FFB52354687F0084613C /* RegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D1FFB42354687F0084613C /* RegisterView.m */; };
-		20D1FFB8235468CE0084613C /* VerCodeInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D1FFB7235468CE0084613C /* VerCodeInputView.m */; };
 		20D763B92373FC1500D513BC /* DorConfigServiceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D763B82373FC1500D513BC /* DorConfigServiceVC.m */; };
 		44817E12D5A0B5C6851BE813 /* Pods_LifeBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71F3AEA030591677BD69ABCD /* Pods_LifeBox.framework */; };
 		759CA6986FF80A3AF593086D /* Pods_LifeBoxUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 820141ED82991FFDD6D1CFDB /* Pods_LifeBoxUITests.framework */; };
@@ -228,7 +237,6 @@
 		84B2E032230303C200BC9197 /* Userinfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2E031230303C200BC9197 /* Userinfo.m */; };
 		84B2E0382303055900BC9197 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2E0372303055900BC9197 /* LoginViewController.m */; };
 		84B2E03C2303074800BC9197 /* UIColor+UG.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2E03A2303074800BC9197 /* UIColor+UG.m */; };
-		84B2E03F2307051200BC9197 /* LogInInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2E03E2307051200BC9197 /* LogInInputView.m */; };
 		84B2E05B2307067E00BC9197 /* UITextView+UG.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2E0412307067D00BC9197 /* UITextView+UG.m */; };
 		84B2E05C2307067E00BC9197 /* UIControl+UG.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2E0452307067D00BC9197 /* UIControl+UG.m */; };
 		84B2E05D2307067E00BC9197 /* NSDate+UG.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2E0482307067D00BC9197 /* NSDate+UG.m */; };
@@ -239,7 +247,6 @@
 		84B2E0622307067E00BC9197 /* NSObject+BlockDelayedPerforming.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2E0562307067E00BC9197 /* NSObject+BlockDelayedPerforming.m */; };
 		84B2E0632307067E00BC9197 /* UITextField+UG.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2E05A2307067E00BC9197 /* UITextField+UG.m */; };
 		84B2E0662307072600BC9197 /* UIView+UG.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2E0652307072500BC9197 /* UIView+UG.m */; };
-		84B2E06A23070B1600BC9197 /* LoginPWView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2E06923070B1600BC9197 /* LoginPWView.m */; };
 		84B2E0732307C8AF00BC9197 /* GoodsDefViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2E0722307C8AF00BC9197 /* GoodsDefViewController.m */; };
 		84B2E0772307C97300BC9197 /* NetWorkRequest+Goods.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2E0762307C97300BC9197 /* NetWorkRequest+Goods.m */; };
 		84B2E07B231260CC00BC9197 /* ProductModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2E07A231260CC00BC9197 /* ProductModel.m */; };
@@ -248,7 +255,6 @@
 		84B954D82324AD1200A7E8D2 /* ConfirAddressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B954D72324AD1200A7E8D2 /* ConfirAddressView.m */; };
 		84B954DB2324B0C800A7E8D2 /* ConfimBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B954DA2324B0C800A7E8D2 /* ConfimBottomView.m */; };
 		84B954E22324E3BE00A7E8D2 /* ConfirmInfoData.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B954E12324E3BE00A7E8D2 /* ConfirmInfoData.m */; };
-		84B9C1F02329296A00C30F41 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B9C1EF2329296A00C30F41 /* RegisterViewController.m */; };
 		84BA6F942376505F0047796E /* GoodsBuyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BA6F932376505F0047796E /* GoodsBuyView.m */; };
 		84C29209235DEF5B00034213 /* NetWorkRequest+Business.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C29207235DEF5B00034213 /* NetWorkRequest+Business.m */; };
 		A2245433E31B0B126C5C0D61 /* Pods_LifeBoxTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42783EC83E66FDB25449EC1A /* Pods_LifeBoxTests.framework */; };
@@ -319,6 +325,12 @@
 		05145137231EB7D900547E42 /* InvitationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InvitationController.m; sourceTree = "<group>"; };
 		0515B42B2321506800026D37 /* MyOrderController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyOrderController.h; sourceTree = "<group>"; };
 		0515B42C2321506800026D37 /* MyOrderController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyOrderController.m; sourceTree = "<group>"; };
+		052DCA062379587800C16128 /* ic_closeImage@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_closeImage@3x.png"; sourceTree = "<group>"; };
+		052DCA072379587800C16128 /* ic_closeImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_closeImage@2x.png"; sourceTree = "<group>"; };
+		052DCA0A23795F2100C16128 /* LoginCodeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginCodeView.h; sourceTree = "<group>"; };
+		052DCA0B23795F2100C16128 /* LoginCodeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginCodeView.m; sourceTree = "<group>"; };
+		052DCA11237AA3D600C16128 /* BaseTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTextField.h; sourceTree = "<group>"; };
+		052DCA12237AA3D600C16128 /* BaseTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTextField.m; sourceTree = "<group>"; };
 		0531E9F12337B1C100775D79 /* AddressChooseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddressChooseCell.h; sourceTree = "<group>"; };
 		0531E9F22337B1C100775D79 /* AddressChooseCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddressChooseCell.m; sourceTree = "<group>"; };
 		0531E9F42337B29F00775D79 /* ic_selected_address@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_selected_address@3x.png"; sourceTree = "<group>"; };
@@ -497,6 +509,20 @@
 		05BBBB84230FA16400C01FC3 /* navBackImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navBackImage.png; sourceTree = "<group>"; };
 		05BBBB862312A08700C01FC3 /* ProfitViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfitViewCell.h; sourceTree = "<group>"; };
 		05BBBB872312A08700C01FC3 /* ProfitViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfitViewCell.m; sourceTree = "<group>"; };
+		05C46963237B9EC200D21EA1 /* WPTappableLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPTappableLabel.h; sourceTree = "<group>"; };
+		05C46964237B9EC200D21EA1 /* WPHotspotLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPHotspotLabel.h; sourceTree = "<group>"; };
+		05C46965237B9EC200D21EA1 /* NSMutableString+TagReplace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableString+TagReplace.h"; sourceTree = "<group>"; };
+		05C46966237B9EC200D21EA1 /* NSString+WPAttributedMarkup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+WPAttributedMarkup.m"; sourceTree = "<group>"; };
+		05C46967237B9EC200D21EA1 /* WPAttributedStyleAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPAttributedStyleAction.h; sourceTree = "<group>"; };
+		05C46968237B9EC200D21EA1 /* WPHotspotLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPHotspotLabel.m; sourceTree = "<group>"; };
+		05C46969237B9EC200D21EA1 /* WPTappableLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPTappableLabel.m; sourceTree = "<group>"; };
+		05C4696A237B9EC200D21EA1 /* NSString+WPAttributedMarkup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+WPAttributedMarkup.h"; sourceTree = "<group>"; };
+		05C4696B237B9EC200D21EA1 /* NSMutableString+TagReplace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableString+TagReplace.m"; sourceTree = "<group>"; };
+		05C4696C237B9EC200D21EA1 /* WPAttributedStyleAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPAttributedStyleAction.m; sourceTree = "<group>"; };
+		05C46972237BAB7500D21EA1 /* LoginPwView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginPwView.h; sourceTree = "<group>"; };
+		05C46973237BAB7500D21EA1 /* LoginPwView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginPwView.m; sourceTree = "<group>"; };
+		05C46975237BE19500D21EA1 /* RegisterController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterController.h; sourceTree = "<group>"; };
+		05C46976237BE19500D21EA1 /* RegisterController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterController.m; sourceTree = "<group>"; };
 		05C954532322567A00517381 /* OrderViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderViewCell.h; sourceTree = "<group>"; };
 		05C954542322567A00517381 /* OrderViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderViewCell.m; sourceTree = "<group>"; };
 		1C30ECA15C1E0199568E084A /* Pods-LifeBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeBox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LifeBox/Pods-LifeBox.debug.xcconfig"; sourceTree = "<group>"; };
@@ -504,10 +530,6 @@
 		20A2F5162371630B00B2C7AF /* WebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		20A2F51D23726D6F00B2C7AF /* SubjectData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubjectData.h; sourceTree = "<group>"; };
 		20A2F51E23726D6F00B2C7AF /* SubjectData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubjectData.m; sourceTree = "<group>"; };
-		20D1FFB32354687F0084613C /* RegisterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterView.h; sourceTree = "<group>"; };
-		20D1FFB42354687F0084613C /* RegisterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterView.m; sourceTree = "<group>"; };
-		20D1FFB6235468CE0084613C /* VerCodeInputView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VerCodeInputView.h; sourceTree = "<group>"; };
-		20D1FFB7235468CE0084613C /* VerCodeInputView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VerCodeInputView.m; sourceTree = "<group>"; };
 		20D763B72373FC1500D513BC /* DorConfigServiceVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DorConfigServiceVC.h; sourceTree = "<group>"; };
 		20D763B82373FC1500D513BC /* DorConfigServiceVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DorConfigServiceVC.m; sourceTree = "<group>"; };
 		42783EC83E66FDB25449EC1A /* Pods_LifeBoxTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LifeBoxTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -599,8 +621,6 @@
 		84B2E0372303055900BC9197 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		84B2E03A2303074800BC9197 /* UIColor+UG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+UG.m"; sourceTree = "<group>"; };
 		84B2E03B2303074800BC9197 /* UIColor+UG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+UG.h"; sourceTree = "<group>"; };
-		84B2E03D2307051200BC9197 /* LogInInputView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LogInInputView.h; sourceTree = "<group>"; };
-		84B2E03E2307051200BC9197 /* LogInInputView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LogInInputView.m; sourceTree = "<group>"; };
 		84B2E0412307067D00BC9197 /* UITextView+UG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+UG.m"; sourceTree = "<group>"; };
 		84B2E0422307067D00BC9197 /* UITextView+UG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+UG.h"; sourceTree = "<group>"; };
 		84B2E0442307067D00BC9197 /* UIControl+UG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+UG.h"; sourceTree = "<group>"; };
@@ -622,8 +642,6 @@
 		84B2E0642307072500BC9197 /* UIView+UG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+UG.h"; sourceTree = "<group>"; };
 		84B2E0652307072500BC9197 /* UIView+UG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+UG.m"; sourceTree = "<group>"; };
 		84B2E0672307079B00BC9197 /* Style.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Style.h; sourceTree = "<group>"; };
-		84B2E06823070B1600BC9197 /* LoginPWView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginPWView.h; sourceTree = "<group>"; };
-		84B2E06923070B1600BC9197 /* LoginPWView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginPWView.m; sourceTree = "<group>"; };
 		84B2E0712307C8AF00BC9197 /* GoodsDefViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsDefViewController.h; sourceTree = "<group>"; };
 		84B2E0722307C8AF00BC9197 /* GoodsDefViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsDefViewController.m; sourceTree = "<group>"; };
 		84B2E0752307C97300BC9197 /* NetWorkRequest+Goods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NetWorkRequest+Goods.h"; sourceTree = "<group>"; };
@@ -640,8 +658,6 @@
 		84B954DA2324B0C800A7E8D2 /* ConfimBottomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfimBottomView.m; sourceTree = "<group>"; };
 		84B954E02324E3BE00A7E8D2 /* ConfirmInfoData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfirmInfoData.h; sourceTree = "<group>"; };
 		84B954E12324E3BE00A7E8D2 /* ConfirmInfoData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfirmInfoData.m; sourceTree = "<group>"; };
-		84B9C1EE2329296A00C30F41 /* RegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
-		84B9C1EF2329296A00C30F41 /* RegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		84BA6F922376505F0047796E /* GoodsBuyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsBuyView.h; sourceTree = "<group>"; };
 		84BA6F932376505F0047796E /* GoodsBuyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsBuyView.m; sourceTree = "<group>"; };
 		84C29207235DEF5B00034213 /* NetWorkRequest+Business.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NetWorkRequest+Business.m"; path = "LifeBox/Comment/RequestManagement/NetWorkRequest+Business.m"; sourceTree = SOURCE_ROOT; };
@@ -694,6 +710,15 @@
 				0513E22E233359320008709B /* BaseSheet.m */,
 			);
 			path = SheetView;
+			sourceTree = "<group>";
+		};
+		052DCA0D237A93BC00C16128 /* LifeTextField */ = {
+			isa = PBXGroup;
+			children = (
+				052DCA11237AA3D600C16128 /* BaseTextField.h */,
+				052DCA12237AA3D600C16128 /* BaseTextField.m */,
+			);
+			path = LifeTextField;
 			sourceTree = "<group>";
 		};
 		053791872316106E00DF4DA0 /* Extension */ = {
@@ -834,6 +859,23 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		05C46962237B9EC200D21EA1 /* protocolLabel */ = {
+			isa = PBXGroup;
+			children = (
+				05C46963237B9EC200D21EA1 /* WPTappableLabel.h */,
+				05C46964237B9EC200D21EA1 /* WPHotspotLabel.h */,
+				05C46965237B9EC200D21EA1 /* NSMutableString+TagReplace.h */,
+				05C46966237B9EC200D21EA1 /* NSString+WPAttributedMarkup.m */,
+				05C46967237B9EC200D21EA1 /* WPAttributedStyleAction.h */,
+				05C46968237B9EC200D21EA1 /* WPHotspotLabel.m */,
+				05C46969237B9EC200D21EA1 /* WPTappableLabel.m */,
+				05C4696A237B9EC200D21EA1 /* NSString+WPAttributedMarkup.h */,
+				05C4696B237B9EC200D21EA1 /* NSMutableString+TagReplace.m */,
+				05C4696C237B9EC200D21EA1 /* WPAttributedStyleAction.m */,
+			);
+			path = protocolLabel;
+			sourceTree = "<group>";
+		};
 		05F77C9C230E1F3C006A3CC4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -950,6 +992,8 @@
 		8461E15623013A6B00764748 /* Magic */ = {
 			isa = PBXGroup;
 			children = (
+				05C46962237B9EC200D21EA1 /* protocolLabel */,
+				052DCA0D237A93BC00C16128 /* LifeTextField */,
 				0513E22C233359060008709B /* SheetView */,
 				053791AC231B94CD00DF4DA0 /* NoDataView */,
 				050E0477230D86AA00DA5BFD /* SafeAreaInsets */,
@@ -1063,6 +1107,8 @@
 		8461E17523013A6B00764748 /* ImageSource */ = {
 			isa = PBXGroup;
 			children = (
+				052DCA072379587800C16128 /* ic_closeImage@2x.png */,
+				052DCA062379587800C16128 /* ic_closeImage@3x.png */,
 				05AC5C282356048F000584CB /* ic_time@2x.png */,
 				05AC5C292356048F000584CB /* ic_time@3x.png */,
 				056E4A5C2354BAA300C07936 /* ic_add_toAddress@2x.png */,
@@ -1379,8 +1425,8 @@
 			children = (
 				84B2E0362303055900BC9197 /* LoginViewController.h */,
 				84B2E0372303055900BC9197 /* LoginViewController.m */,
-				84B9C1EE2329296A00C30F41 /* RegisterViewController.h */,
-				84B9C1EF2329296A00C30F41 /* RegisterViewController.m */,
+				05C46975237BE19500D21EA1 /* RegisterController.h */,
+				05C46976237BE19500D21EA1 /* RegisterController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1388,14 +1434,10 @@
 		84B2E0352303051700BC9197 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				84B2E03D2307051200BC9197 /* LogInInputView.h */,
-				84B2E03E2307051200BC9197 /* LogInInputView.m */,
-				20D1FFB6235468CE0084613C /* VerCodeInputView.h */,
-				20D1FFB7235468CE0084613C /* VerCodeInputView.m */,
-				84B2E06823070B1600BC9197 /* LoginPWView.h */,
-				84B2E06923070B1600BC9197 /* LoginPWView.m */,
-				20D1FFB32354687F0084613C /* RegisterView.h */,
-				20D1FFB42354687F0084613C /* RegisterView.m */,
+				052DCA0A23795F2100C16128 /* LoginCodeView.h */,
+				052DCA0B23795F2100C16128 /* LoginCodeView.m */,
+				05C46972237BAB7500D21EA1 /* LoginPwView.h */,
+				05C46973237BAB7500D21EA1 /* LoginPwView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1733,6 +1775,7 @@
 				059F2CAE2323A2510045BA65 /* bg_background.png in Resources */,
 				0531EA3B233CB38400775D79 /* ic_comments@3x.png in Resources */,
 				8461E1A623013A6B00764748 /* homeTabBarImg@2x.png in Resources */,
+				052DCA082379587800C16128 /* ic_closeImage@3x.png in Resources */,
 				0531EA1F233A17AF00775D79 /* ic_zhishiqi_select@2x.png in Resources */,
 				050E0489230DAB1400DA5BFD /* ic_pending_payment@3x.png in Resources */,
 				050E04B1230DC9FC00DA5BFD /* ic_invitation_gift@2x.png in Resources */,
@@ -1741,6 +1784,7 @@
 				0531EA1E233A17AF00775D79 /* ic_zhishiqi_select@3x.png in Resources */,
 				0537914A2314120500DF4DA0 /* ic_share@3x.png in Resources */,
 				0531EA2A233B4FED00775D79 /* ic_cart_shop@3x.png in Resources */,
+				052DCA092379587800C16128 /* ic_closeImage@2x.png in Resources */,
 				0537918E231623E200DF4DA0 /* ic_add_to@2x.png in Resources */,
 				059F2CCD2323FD5C0045BA65 /* ic_avatar@3x.png in Resources */,
 				050E04B4230DC9FC00DA5BFD /* ic_public_welfare@3x.png in Resources */,
@@ -1956,17 +2000,22 @@
 				05BBBB7B230F98B500C01FC3 /* MyToolCell.m in Sources */,
 				84C29209235DEF5B00034213 /* NetWorkRequest+Business.m in Sources */,
 				0537918623158AE500DF4DA0 /* HomeGoodsCell.m in Sources */,
+				05C46970237B9EC200D21EA1 /* NSMutableString+TagReplace.m in Sources */,
 				0531EA12233A080700775D79 /* ChangeWeChatController.m in Sources */,
 				84B954D42323731F00A7E8D2 /* NetWorkRequest+Orlder.m in Sources */,
 				84B2E0622307067E00BC9197 /* NSObject+BlockDelayedPerforming.m in Sources */,
-				84B2E06A23070B1600BC9197 /* LoginPWView.m in Sources */,
+				05C4696E237B9EC200D21EA1 /* WPHotspotLabel.m in Sources */,
+				052DCA0C23795F2100C16128 /* LoginCodeView.m in Sources */,
 				05AC5C2E2356136A000584CB /* OrderInfoCell.m in Sources */,
+				05C46974237BAB7500D21EA1 /* LoginPwView.m in Sources */,
 				0531EA092339FA7600775D79 /* AppDelegate+KeyValue.m in Sources */,
 				059F2CCA2323FB260045BA65 /* SetInfoCell.m in Sources */,
 				0531EA062339B0B400775D79 /* ChangePhoneController.m in Sources */,
 				8461E19A23013A6B00764748 /* RTRootNavigationController.m in Sources */,
 				84BA6F942376505F0047796E /* GoodsBuyView.m in Sources */,
 				8461E19C23013A6B00764748 /* UIApplication+DORConfig.m in Sources */,
+				052DCA13237AA3D600C16128 /* BaseTextField.m in Sources */,
+				05C46977237BE19500D21EA1 /* RegisterController.m in Sources */,
 				8461E1B523013A6B00764748 /* MyTabBarController.m in Sources */,
 				05BBBB79230F98B500C01FC3 /* MyOrderCell.m in Sources */,
 				8461E1C82301586F00764748 /* BlockCollectionViewFlowLayout.m in Sources */,
@@ -1975,7 +2024,6 @@
 				8461E19F23013A6B00764748 /* NetWorkRequest.m in Sources */,
 				058C83D0232690BF007AA863 /* AddressEditController.m in Sources */,
 				8461E19E23013A6B00764748 /* UIApplication+Initialize.m in Sources */,
-				20D1FFB8235468CE0084613C /* VerCodeInputView.m in Sources */,
 				053791512314198A00DF4DA0 /* NoticeView.m in Sources */,
 				053791AF231B94CD00DF4DA0 /* NoDataView.m in Sources */,
 				05145138231EB7D900547E42 /* InvitationController.m in Sources */,
@@ -1991,15 +2039,18 @@
 				056DEA3D2327DCD8000BF45D /* AddressManageCell.m in Sources */,
 				8478A26E2326384A005681CF /* ShoppingCartController.m in Sources */,
 				0513E22F233359320008709B /* BaseSheet.m in Sources */,
+				05C4696D237B9EC200D21EA1 /* NSString+WPAttributedMarkup.m in Sources */,
 				84B2E0382303055900BC9197 /* LoginViewController.m in Sources */,
 				842D2B592320B0BD00C50605 /* ConfigData.m in Sources */,
 				84B2E032230303C200BC9197 /* Userinfo.m in Sources */,
 				842D2B562320AD7A00C50605 /* NSString+JSON.m in Sources */,
+				05C46971237B9EC200D21EA1 /* WPAttributedStyleAction.m in Sources */,
 				0514512B231EAD0D00547E42 /* CouponsController.m in Sources */,
 				0531EA38233C9CBB00775D79 /* CommentsCell.m in Sources */,
 				8461E1CB2301586F00764748 /* BlockTableView.m in Sources */,
 				059F2CB32323B7F90045BA65 /* DetailsGoodsCell.m in Sources */,
 				8461E19823013A6B00764748 /* LifeBoxViewController.m in Sources */,
+				05C4696F237B9EC200D21EA1 /* WPTappableLabel.m in Sources */,
 				050E047A230D86D400DA5BFD /* SafeAreaInsets.m in Sources */,
 				20D763B92373FC1500D513BC /* DorConfigServiceVC.m in Sources */,
 				0531EA002338AAA000775D79 /* ChangeNickNameController.m in Sources */,
@@ -2010,7 +2061,6 @@
 				84B954D82324AD1200A7E8D2 /* ConfirAddressView.m in Sources */,
 				84B2E0612307067E00BC9197 /* UIButton+UG.m in Sources */,
 				059F2C902322BCA40045BA65 /* OrderDetailsController.m in Sources */,
-				84B2E03F2307051200BC9197 /* LogInInputView.m in Sources */,
 				05BBBB7F230F99D500C01FC3 /* ProfitViewController.m in Sources */,
 				84B2E02D2302FFB300BC9197 /* NetWorkRequest+Login.m in Sources */,
 				84B2E07B231260CC00BC9197 /* ProductModel.m in Sources */,
@@ -2039,7 +2089,6 @@
 				056217F9231FF0A0007E27AF /* InvitationCell.m in Sources */,
 				84B2E05B2307067E00BC9197 /* UITextView+UG.m in Sources */,
 				20A2F51F23726D7000B2C7AF /* SubjectData.m in Sources */,
-				84B9C1F02329296A00C30F41 /* RegisterViewController.m in Sources */,
 				8461E1B023013A6B00764748 /* main.m in Sources */,
 				8461E1CE230159DB00764748 /* DorViewAlertVC.m in Sources */,
 				0531EA18233A138D00775D79 /* GenderSheet.m in Sources */,
@@ -2060,7 +2109,6 @@
 				8461E1B223013A6B00764748 /* HomeViewController.m in Sources */,
 				84B2E0732307C8AF00BC9197 /* GoodsDefViewController.m in Sources */,
 				05C954552322567A00517381 /* OrderViewCell.m in Sources */,
-				20D1FFB52354687F0084613C /* RegisterView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

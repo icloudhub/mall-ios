@@ -47,4 +47,27 @@
     return theNewStr;
 }
 
+#pragma mark - 判断输入的内容是否有空格
+- (BOOL)spaceJudgment {
+    if([self rangeOfString:@" "].location != NSNotFound) {
+        return YES;
+    }
+    return NO;
+}
+
+#pragma mark - 判断string是否为全数字
+- (BOOL)isPureInt {
+    NSScanner* scan = [NSScanner scannerWithString:self];
+    int val;
+    return [scan scanInt:&val] && [scan isAtEnd];
+}
+
+#pragma mark - 正则匹配用户密码8-20位数字和字母组合
+- (BOOL)checkPassword {
+    NSString *pattern = @"^(?![0-9]+$)(?![a-zA-Z]+$)[a-zA-Z0-9]{6,18}";
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", pattern];
+    BOOL isMatch = [pred evaluateWithObject:self];
+    return isMatch;
+}
+
 @end

@@ -24,6 +24,15 @@ NS_ASSUME_NONNULL_BEGIN
  */
 -(NSString *)stringByReplacingAsteriskWithRange:(NSRange)range;
 
+#pragma mark - 判断输入的内容是否有空格
+- (BOOL)spaceJudgment;
+
+#pragma mark - 判断string是否为全数字
+- (BOOL)isPureInt;
+
+#pragma mark - 正则匹配用户密码8-20位数字和字母组合
+- (BOOL)checkPassword;
+
 @end
 
 NS_ASSUME_NONNULL_END

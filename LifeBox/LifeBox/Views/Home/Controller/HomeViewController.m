@@ -14,10 +14,12 @@
 #import "HomeProductdata.h"
 #import "HomeData.h"
 #import "SubjectData.h"
-
 #import "GoodsDefViewController.h"
-#import "SureOrderController.h"
 #import "WebViewController.h"
+
+
+
+#import "LoginViewController.h"
 
 @interface HomeViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource> {
     ///按钮功能数据展示
@@ -115,7 +117,7 @@ static NSString *homeGoodsCellID = @"HomeGoodsCellID";
     [shareBtn bk_addEventHandler:^(id sender) {
         
         
-        SureOrderController *ctl = [[SureOrderController alloc] init];
+        LoginViewController *ctl = [[LoginViewController alloc] init];
         ctl.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:ctl animated:YES];
     } forControlEvents:UIControlEventTouchUpInside];
@@ -166,7 +168,7 @@ static NSString *homeGoodsCellID = @"HomeGoodsCellID";
     }];
     
     [_notice addGestureRecognizer:[UITapGestureRecognizer bk_recognizerWithHandler:^(UIGestureRecognizer *sender, UIGestureRecognizerState state, CGPoint location) {
-        HomeNotiData *temdata = _homedata.notiArr.firstObject;
+        HomeNotiData *temdata = self->_homedata.notiArr.firstObject;
         [self subjectDef:temdata.id];
     }]];
     /*

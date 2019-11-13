@@ -1,8 +1,8 @@
 //
-//  RegisterViewController.h
+//  RegisterController.h
 //  LifeBox
 //
-//  Created by admin on 2019/9/11.
+//  Created by Lucky on 2019/11/13.
 //  Copyright © 2019 Lucky. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface RegisterViewController : LifeBoxViewController
+@interface RegisterController : LifeBoxViewController
 
 @end
 

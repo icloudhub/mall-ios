@@ -44,9 +44,9 @@ dispatch_async(dispatch_get_main_queue(), block);\
  * 控件尺寸换算（设计图标注尺寸*(屏幕尺寸宽度/设计图尺寸图片宽度)）
  */
 #define ScaleExtent(x,Actual,criterion) (x*(Actual/criterion))
-#define Scale320(x) (x*(Screen_width/320.0))
-#define Scale640(x) (x*(Screen_width/640.0))
-#define Scale720(x) (x*(Screen_width/720.0))
+//#define Scale320(x) (x*(Screen_width/320.0))
+//#define Scale640(x) (x*(Screen_width/640.0))
+//#define Scale720(x) (x*(Screen_width/720.0))
 #define Scale750(x) (x*(Screen_width/750.0))
 
 #pragma mark - 颜色RGB

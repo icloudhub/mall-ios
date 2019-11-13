@@ -27,6 +27,6 @@
 #import "UIScrollView+EmptyDataSet.h"
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #import <SDWebImage/SDWebImage.h>
-
+#import "BaseTextField.h"
 
 #endif /* LifeBoxHeader_pch */
