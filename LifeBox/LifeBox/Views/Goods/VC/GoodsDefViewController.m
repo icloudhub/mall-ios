@@ -16,8 +16,9 @@
 #import "GoodsCommentsController.h"
 #import "GoodsSpeSheet.h"
 #import "GoodsBuyView.h"
+#import "ShoppingCartController.h"
 
-@interface GoodsDefViewController ()<SDCycleScrollViewDelegate> {
+@interface GoodsDefViewController ()<SDCycleScrollViewDelegate, BuyViewDelegate> {
     ///轮播图个数
     NSString *allStr;
 }
@@ -42,7 +43,7 @@
 @property(strong, nonatomic) GoodsSpeSheet *speSheet;
 ///详情显示Web
 @property(strong, nonatomic) WKWebView *defWebview;
-
+///底部购买View
 @property(strong, nonatomic) GoodsBuyView *goodsBuyView;
 ///可滚动区域
 @property(strong, nonatomic) UIScrollView *scrollView;
@@ -57,7 +58,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    [self CreateTopNavView];
+    [self CreateTopNavViewAndBottomView];
     [self createGoodsView];
     [self createDetailsView];
     [self getHttpLoadData];
@@ -80,8 +81,8 @@
     [_scrollView setContentSize:CGSizeMake(Screen_width, scrollViewH)];
 }
 
-#pragma mark - 顶部导航了View
-- (void)CreateTopNavView {
+#pragma mark - 顶部导航和底部功能栏View
+- (void)CreateTopNavViewAndBottomView {
     /*
      * 导航View
      */
@@ -121,18 +122,18 @@
     /*
      * 进入购物车Btn
      */
-    UIButton *shopCar = [[UIButton alloc] init];
-    [shopCar setBackgroundImage:[UIImage imageNamed:@"ic_cart_shop"] forState:UIControlStateNormal];
-    [shopCar setBackgroundImage:[UIImage imageNamed:@"ic_cart_shop"] forState:UIControlStateHighlighted];
-    [_navView addSubview:shopCar];
-    [shopCar mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.mas_equalTo(backBtn);
-        make.right.mas_equalTo(-Scale750(40));
-        make.width.height.mas_equalTo(Scale750(50));
-    }];
-    [shopCar bk_addEventHandler:^(id sender) {
-        self.tabBarController.selectedIndex = 1;
-    } forControlEvents:UIControlEventTouchUpInside];
+//    UIButton *shopCar = [[UIButton alloc] init];
+//    [shopCar setBackgroundImage:[UIImage imageNamed:@"ic_cart_shop"] forState:UIControlStateNormal];
+//    [shopCar setBackgroundImage:[UIImage imageNamed:@"ic_cart_shop"] forState:UIControlStateHighlighted];
+//    [_navView addSubview:shopCar];
+//    [shopCar mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.centerY.mas_equalTo(backBtn);
+//        make.right.mas_equalTo(-Scale750(40));
+//        make.width.height.mas_equalTo(Scale750(50));
+//    }];
+//    [shopCar bk_addEventHandler:^(id sender) {
+//        self.tabBarController.selectedIndex = 1;
+//    } forControlEvents:UIControlEventTouchUpInside];
     /*
      * 商品按钮
      */
@@ -177,6 +178,17 @@
         make.width.mas_equalTo(Scale750(80));
         make.height.mas_equalTo(Scale750(8));
     }];
+    /*
+     * 底部购买区域
+     */
+    _goodsBuyView = [[GoodsBuyView alloc] init];
+    _goodsBuyView.delegate = self;
+    [self.view addSubview:_goodsBuyView];
+    [_goodsBuyView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.mas_equalTo(self.view);
+        make.left.right.mas_equalTo(0);
+        make.height.mas_equalTo(SAFE_Bottom + Scale750(90));
+    }];
 }
 
 #pragma mark - 创建商品区域
@@ -190,7 +202,7 @@
     [self.view addSubview:_scrollView];
     [_scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(_navView.mas_bottom);
-        make.bottom.mas_equalTo(0);
+        make.bottom.mas_equalTo(_goodsBuyView.mas_top);
         make.left.mas_equalTo(0);
         make.width.mas_equalTo(Screen_width);
     }];
@@ -433,8 +445,6 @@
     [_goodsView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.bottom.mas_equalTo(commentsView.mas_bottom).mas_offset(Scale750(40));
     }];
-    [self.view addSubview:self.goodsBuyView];
- 
 }
 
 #pragma mark - 创建详情区域
@@ -450,54 +460,6 @@
         make.top.mas_equalTo(self.navView.mas_bottom);
         make.left.right.bottom.mas_equalTo(0);
     }];
-}
-
-#pragma mark - 底部购买区域
--(GoodsBuyView *)goodsBuyView{
-    if(!_goodsBuyView){
-        _goodsBuyView = [GoodsBuyView new];
-        [_goodsBuyView.addcarBtn ug_addEvents:UIControlEventTouchUpInside andBlock:^(id  _Nonnull sender) {
-            [self addToCar];
-        }];
-    }
-    return _goodsBuyView;
-}
-
-#pragma mark - 切换Btn点击
-- (void)chooseTypeBtnClicked:(UIButton *)btn {
-    /*
-     * 清除原有状态
-     */
-    for (UIButton *myBtn in _navView.subviews) {
-        if ([myBtn isKindOfClass:[UIButton class]]) {
-            if (myBtn.tag == 1000 || myBtn.tag == 1001) {
-                myBtn.titleLabel.font = [UIFont systemFontOfSize:Scale750(32)];
-            }
-        }
-    }
-    /*
-     * 赋值新状态
-     */
-    btn.titleLabel.font = [UIFont boldSystemFontOfSize:Scale750(36)];
-    /*
-     * 移动下划线
-     */
-    [_botLine mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.mas_equalTo(0);
-        make.centerX.mas_equalTo(btn);
-        make.width.mas_equalTo(Scale750(80));
-        make.height.mas_equalTo(Scale750(8));
-    }];
-    /*
-     * 控制界面显示
-     */
-    if (btn.tag == 1000) {
-        _scrollView.hidden = NO;
-        _defWebview.hidden = YES;
-    }else{
-        _scrollView.hidden = YES;
-        _defWebview.hidden = NO;
-    }
 }
 
 #pragma mark - 接口请求
@@ -557,9 +519,80 @@
     NSString *tempStr = [NSString stringWithFormat:@"%@/%@", numStr, allStr];
     _numLab.attributedText = [tempStr strChangFlagWithStr:numStr Color:[UIColor whiteColor] Font:Scale750(36)];
 }
-    
-// 添加到购物车
--(void)addToCar{
+
+#pragma mark - 切换Btn点击
+- (void)chooseTypeBtnClicked:(UIButton *)btn {
+    /*
+     * 清除原有状态
+     */
+    for (UIButton *myBtn in _navView.subviews) {
+        if ([myBtn isKindOfClass:[UIButton class]]) {
+            if (myBtn.tag == 1000 || myBtn.tag == 1001) {
+                myBtn.titleLabel.font = [UIFont systemFontOfSize:Scale750(32)];
+            }
+        }
+    }
+    /*
+     * 赋值新状态
+     */
+    btn.titleLabel.font = [UIFont boldSystemFontOfSize:Scale750(36)];
+    /*
+     * 移动下划线
+     */
+    [_botLine mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.mas_equalTo(0);
+        make.centerX.mas_equalTo(btn);
+        make.width.mas_equalTo(Scale750(80));
+        make.height.mas_equalTo(Scale750(8));
+    }];
+    /*
+     * 控制界面显示
+     */
+    if (btn.tag == 1000) {
+        _scrollView.hidden = NO;
+        _defWebview.hidden = YES;
+    }else{
+        _scrollView.hidden = YES;
+        _defWebview.hidden = NO;
+    }
+}
+
+#pragma mark - buyView代理
+- (void)buyViewBtnClicked:(NSInteger)tag {
+    switch (tag) {
+        case 1000:{
+            //立即购买
+            NSLog(@"立即购买");
+        }
+            break;
+        case 1001:{
+            //加入购物车
+            [self addToCar];
+        }
+            break;
+        case 1002:{
+            //购物车
+            ShoppingCartController *shopCtl = [[ShoppingCartController alloc] init];
+            shopCtl.passCtlStr = @"shopCtl";
+            [self.navigationController pushViewController:shopCtl animated:NO];
+        }
+            break;
+        case 1003:{
+            //收藏
+            NSLog(@"收藏");
+        }
+            break;
+        case 1004:{
+            
+        }
+            break;
+        default:
+            break;
+    }
+}
+
+#pragma mark - 添加到购物车
+-(void)addToCar {
     ProductSKUModel *skudata = _productdata.skuStockList.firstObject;
     [[NetWorkRequest new] addCar:_productdata.productid skuId:skudata.skuid  block:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
       
@@ -571,13 +604,4 @@
     }];
 }
 
--(void)viewWillLayoutSubviews{
-    [super viewWillLayoutSubviews];
-    [_goodsBuyView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(self.view).mas_offset(SPanding_DEF);
-        make.right.mas_equalTo(self.view).mas_offset(-SPanding_DEF);
-        make.height.mas_equalTo(44);
-        make.bottom.mas_equalTo(self.view).mas_offset(-SAFE_Bottom);
-    }];
-}
 @end

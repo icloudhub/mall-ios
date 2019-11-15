@@ -10,11 +10,11 @@
 #import "ShoppingCarCell.h"
 #import "NetWorkRequest+Shoping.h"
 #import "CardItem.h"
-
 #import "GoodsDefViewController.h"
 #import "NoDataView.h"
 #import "CarBottomView.h"
 #import "ConfimOrderVC.h"
+
 @interface ShoppingCartController ()<UITableViewDelegate, UITableViewDataSource, CellNumBtnDelegate> {
     ///数据展示
     UITableView *tableView;
@@ -51,6 +51,20 @@ static NSString *cellID = @"ShoppingCarCellID";
     [editBtn addTarget:self action:@selector(editBtnClicked) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithCustomView:editBtn];
     self.navigationItem.rightBarButtonItem = rightItem;
+    if (_passCtlStr.length != 0) {
+        /*
+         * 返回按钮
+         */
+        UIButton *bakcBtn = [UIButton buttonWithType:UIButtonTypeSystem];
+        [bakcBtn setFrame:CGRectMake(0, 0, 30, 40)];
+        [bakcBtn setImage:[UIImage imageNamed:@"ic_return"] forState:UIControlStateNormal];
+        [bakcBtn bk_addEventHandler:^(id sender) {
+            [self.navigationController popViewControllerAnimated:YES];
+        } forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *leftItem = [[UIBarButtonItem alloc]initWithCustomView:bakcBtn];
+        self.navigationItem.leftBarButtonItem = leftItem;
+        self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+    }
     [self createUI];
     
 }
