@@ -138,11 +138,11 @@
     [self setNeedsDisplay];
 }
 
-- (void)setFont:(UIFont *)font {
-    
-    // setNeedsDisplay会在下一个消息循环时刻，调用drawRect:
-    [self setNeedsDisplay];
-}
+//- (void)setFont:(UIFont *)font {
+//    
+//    // setNeedsDisplay会在下一个消息循环时刻，调用drawRect:
+//    [self setNeedsDisplay];
+//}
 
 - (void)drawRect:(CGRect)rect {
     
