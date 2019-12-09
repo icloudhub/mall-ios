@@ -280,6 +280,7 @@ static NSString *homeGoodsCellID = @"HomeGoodsCellID";
     GoodsDefViewController *goodsDefViewController = [GoodsDefViewController new];
     HomeProductdata *data = [_likeproducts objectAtIndex:indexPath.row];
     goodsDefViewController.productid = data.id;
+    goodsDefViewController.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:goodsDefViewController animated:YES];
 }
 

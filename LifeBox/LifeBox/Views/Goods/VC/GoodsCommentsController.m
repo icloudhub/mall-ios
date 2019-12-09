@@ -27,7 +27,7 @@ static NSString *cellID = @"CommentsCellID";
     [self setWhiteNaviWithTitle:@"商品评价(66)"];
     self.view.backgroundColor = S_COBackground;
     [self createUI];
-    [self request];
+    [self requestHttp];
 }
 
 #pragma mark - 创建UI
@@ -70,14 +70,14 @@ static NSString *cellID = @"CommentsCellID";
     return 1;
 }
 
--(void)request{
+-(void)requestHttp{
     UG_WEAKSELF
     [[NetWorkRequest new] commentlist:_productId pageSize:10 pageNum:1 block:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
         if (error) {
             [self.view ug_msg:error.domain];
         }else{
             weakSelf.dataList = [NSArray yy_modelArrayWithClass:[ProductCommentModel class] json:dataDict];
-            [tableView reloadData];
+            [self->tableView reloadData];
         }
     }];
 }

@@ -12,6 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ShoppingCartController : LifeBoxViewController
 
+///界面跳转进入判断
+@property (strong, nonatomic) NSString *passCtlStr;
+
 @end
 
 NS_ASSUME_NONNULL_END
