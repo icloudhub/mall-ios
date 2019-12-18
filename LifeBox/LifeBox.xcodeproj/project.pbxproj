@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0507C5132398E51200761497 /* NetWorkRequest+MyInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 0507C5122398E51200761497 /* NetWorkRequest+MyInterface.m */; };
 		050E0476230D84D800DA5BFD /* my_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 050E0475230D84D800DA5BFD /* my_background.png */; };
 		050E047A230D86D400DA5BFD /* SafeAreaInsets.m in Sources */ = {isa = PBXBuildFile; fileRef = 050E0479230D86D400DA5BFD /* SafeAreaInsets.m */; };
 		050E047D230D943900DA5BFD /* ic_setting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 050E047B230D943900DA5BFD /* ic_setting@2x.png */; };
@@ -194,6 +195,7 @@
 		05C46974237BAB7500D21EA1 /* LoginPwView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C46973237BAB7500D21EA1 /* LoginPwView.m */; };
 		05C46977237BE19500D21EA1 /* RegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C46976237BE19500D21EA1 /* RegisterController.m */; };
 		05C954552322567A00517381 /* OrderViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C954542322567A00517381 /* OrderViewCell.m */; };
+		05DC21A0239E86290037DF5B /* AddressData.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DC219F239E86290037DF5B /* AddressData.m */; };
 		20A2F5172371630C00B2C7AF /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A2F5162371630B00B2C7AF /* WebViewController.m */; };
 		20A2F51F23726D7000B2C7AF /* SubjectData.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A2F51E23726D6F00B2C7AF /* SubjectData.m */; };
 		20D763B92373FC1500D513BC /* DorConfigServiceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D763B82373FC1500D513BC /* DorConfigServiceVC.m */; };
@@ -287,6 +289,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0507C5112398E51200761497 /* NetWorkRequest+MyInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NetWorkRequest+MyInterface.h"; sourceTree = "<group>"; };
+		0507C5122398E51200761497 /* NetWorkRequest+MyInterface.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NetWorkRequest+MyInterface.m"; sourceTree = "<group>"; };
 		050E0475230D84D800DA5BFD /* my_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = my_background.png; sourceTree = "<group>"; };
 		050E0478230D86D400DA5BFD /* SafeAreaInsets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SafeAreaInsets.h; sourceTree = "<group>"; };
 		050E0479230D86D400DA5BFD /* SafeAreaInsets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SafeAreaInsets.m; sourceTree = "<group>"; };
@@ -544,6 +548,8 @@
 		05C46976237BE19500D21EA1 /* RegisterController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterController.m; sourceTree = "<group>"; };
 		05C954532322567A00517381 /* OrderViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderViewCell.h; sourceTree = "<group>"; };
 		05C954542322567A00517381 /* OrderViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderViewCell.m; sourceTree = "<group>"; };
+		05DC219E239E86290037DF5B /* AddressData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddressData.h; sourceTree = "<group>"; };
+		05DC219F239E86290037DF5B /* AddressData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddressData.m; sourceTree = "<group>"; };
 		1C30ECA15C1E0199568E084A /* Pods-LifeBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeBox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LifeBox/Pods-LifeBox.debug.xcconfig"; sourceTree = "<group>"; };
 		20A2F5152371630B00B2C7AF /* WebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		20A2F5162371630B00B2C7AF /* WebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
@@ -713,6 +719,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0507C5102398E4B500761497 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				0507C5112398E51200761497 /* NetWorkRequest+MyInterface.h */,
+				0507C5122398E51200761497 /* NetWorkRequest+MyInterface.m */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		050E0477230D86AA00DA5BFD /* SafeAreaInsets */ = {
 			isa = PBXGroup;
 			children = (
@@ -943,6 +958,8 @@
 			children = (
 				050E0491230DC3E500DA5BFD /* PersonIconData.h */,
 				050E0492230DC3E500DA5BFD /* PersonIconData.m */,
+				05DC219E239E86290037DF5B /* AddressData.h */,
+				05DC219F239E86290037DF5B /* AddressData.m */,
 			);
 			path = Mode;
 			sourceTree = "<group>";
@@ -1295,6 +1312,7 @@
 		8461E19023013A6B00764748 /* My */ = {
 			isa = PBXGroup;
 			children = (
+				0507C5102398E4B500761497 /* API */,
 				05BBBB70230F98B500C01FC3 /* View */,
 				05F77C9C230E1F3C006A3CC4 /* Controller */,
 				05F77C9D230E1F3C006A3CC4 /* Mode */,
@@ -2029,6 +2047,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05DC21A0239E86290037DF5B /* AddressData.m in Sources */,
 				05AC5C31235619C3000584CB /* OrderPriceCell.m in Sources */,
 				8478A26F2326384A005681CF /* CarBottomView.m in Sources */,
 				0531EA032338BB2B00775D79 /* SetPasswordController.m in Sources */,
@@ -2127,6 +2146,7 @@
 				056217F9231FF0A0007E27AF /* InvitationCell.m in Sources */,
 				84B2E05B2307067E00BC9197 /* UITextView+UG.m in Sources */,
 				20A2F51F23726D7000B2C7AF /* SubjectData.m in Sources */,
+				0507C5132398E51200761497 /* NetWorkRequest+MyInterface.m in Sources */,
 				8461E1B023013A6B00764748 /* main.m in Sources */,
 				8461E1CE230159DB00764748 /* DorViewAlertVC.m in Sources */,
 				0531EA18233A138D00775D79 /* GenderSheet.m in Sources */,

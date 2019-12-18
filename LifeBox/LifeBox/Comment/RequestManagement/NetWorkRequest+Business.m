@@ -11,7 +11,7 @@
 @implementation NetWorkRequest (Business)
 
 #pragma mark - 首页数据请求
-- (void)getHomeInfoendblock:(void(^)(NSDictionary *result, NSError *error))endblock{
+- (void)getHomeInfoendblock:(void(^)(NSDictionary *result, NSError *error))endblock {
     
     NSString *url = [NSString stringWithFormat:@"%@/home/content",BASEURL];
     [self get:url param:nil head:nil endblock:endblock];

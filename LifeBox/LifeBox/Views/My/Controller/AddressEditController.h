@@ -7,14 +7,15 @@
 //
 
 #import "LifeBoxViewController.h"
+#import "AddressData.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface AddressEditController : LifeBoxViewController
 
 #pragma mark - 属性
-///标示
-@property (strong, nonatomic) NSString *markStr;
+///传入的地址数据
+@property (strong, nonatomic) AddressData *passData;
 
 @end
 

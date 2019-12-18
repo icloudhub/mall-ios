@@ -9,11 +9,15 @@
 #import "AddressManagementController.h"
 #import "AddressManageCell.h"
 #import "AddressEditController.h"
+#import "AddressData.h"
 
 @interface AddressManagementController ()<UITableViewDelegate, UITableViewDataSource> {
     ///数据展示UITableView
     UITableView *tableView;
 }
+
+///地址数组
+@property (strong, nonatomic) NSArray *addreddArr;
 
 @end
 
@@ -27,6 +31,11 @@ static NSString *cellID = @"AddressManageCellID";
     [self setWhiteNaviWithTitle:@"收货地址"];
     self.view.backgroundColor = S_COBackground;
     [self createUI];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self getAddressListHttp];
 }
 
 #pragma mark - 创建UI
@@ -64,15 +73,14 @@ static NSString *cellID = @"AddressManageCellID";
 #pragma mark - 添加收货地址
 - (void)addBtnClicked {
     AddressEditController *addCtl = [[AddressEditController alloc] init];
-    addCtl.markStr = @"0";
     [self.navigationController pushViewController:addCtl animated:YES];
 }
 
 #pragma mark - 编辑收货地址
 - (void)editBtnClicked:(UIButton *)btn {
-    AddressEditController *addCtl = [[AddressEditController alloc] init];
-    addCtl.markStr = @"1";
-    [self.navigationController pushViewController:addCtl animated:YES];
+    AddressEditController *passCtl = [[AddressEditController alloc] init];
+    passCtl.passData = [self.addreddArr objectAtIndex:btn.tag];
+    [self.navigationController pushViewController:passCtl animated:YES];
 }
 
 #pragma mark - UITableView代理
@@ -85,11 +93,12 @@ static NSString *cellID = @"AddressManageCellID";
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.editBtn.tag = indexPath.row;
     [cell.editBtn addTarget:self action:@selector(editBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [cell reloadCellUIWith:[self.addreddArr objectAtIndex:indexPath.row]];
     return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return self.addreddArr.count;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -100,8 +109,18 @@ static NSString *cellID = @"AddressManageCellID";
     return Scale750(190);
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+#pragma mark - 获取地址列表接口
+- (void)getAddressListHttp {
+    [self.view ug_loading];
+    [[[NetWorkRequest alloc] init] getAddressListBlock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
+        [self.view ug_hiddenLoading];
+        if (error) {
+            [self.view ug_msg:error.domain];
+        }else{
+            self.addreddArr = [NSArray yy_modelArrayWithClass:[AddressData class] json:result];
+            [self->tableView reloadData];
+        }
+    }];
 }
 
 

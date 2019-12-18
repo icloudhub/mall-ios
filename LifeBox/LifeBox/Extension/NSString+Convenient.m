@@ -70,4 +70,12 @@
     return isMatch;
 }
 
+#pragma mark - 输入完成后判断是纯中文
+- (BOOL)inputToCompletejudgePureChinese {
+    NSString *nameRegex = @"^[\\u4e00-\\u9fa5]+$";
+    NSPredicate *nameTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", nameRegex];
+    return [nameTest evaluateWithObject:self];
+}
+
+
 @end

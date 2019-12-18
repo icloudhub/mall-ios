@@ -92,11 +92,12 @@ static Global_Variable *sharedInstance = nil;
 }
 
 -(NSString *)token{
-    NSDictionary *userinfo = [[NSUserDefaults standardUserDefaults]objectForKey:@"LoginUserInfo"];
-    if (![userinfo objectForKey:@"userinfo"]) {
-        return nil;
-    }
-    return [userinfo objectForKey:@"token"];
+    NSDictionary *userinfo = [[NSUserDefaults standardUserDefaults] objectForKey:@"LoginUserInfo"];
+//    if (![userinfo objectForKey:@"userinfo"]) {
+//        return nil;
+//    }
+//    return [userinfo objectForKey:@"token"];
+    return @"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0IiwiY3JlYXRlZCI6MTU3NjYzNDMyMzc2NiwiZXhwIjoxNTc3MjM5MTIzfQ.a9YKakXpZGaOMLZCz1xb82Y9AF7b3_gJyn_bn1t9aRl5ZYDtxqIfpEgMB3mxDaoFY_x6YhckHtMM3GPDOVKEAw";
 }
 
 @end

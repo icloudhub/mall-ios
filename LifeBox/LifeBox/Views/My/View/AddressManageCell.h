@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AddressData.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -26,6 +27,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 ///默认
 @property (strong, nonatomic) UILabel *defaultLab;
+
+#pragma mark - 刷新数据
+- (void)reloadCellUIWith:(AddressData *)data;
 
 @end
 
