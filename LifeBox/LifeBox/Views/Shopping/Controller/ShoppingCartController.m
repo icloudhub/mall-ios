@@ -31,7 +31,10 @@
 
 static NSString *cellID = @"ShoppingCarCellID";
 
-@implementation ShoppingCartController
+@implementation ShoppingCartController {
+    ///编辑按钮
+    UIButton *editBtn;
+}
 
 #pragma mark - 视图层
 - (void)viewDidLoad {
@@ -44,7 +47,7 @@ static NSString *cellID = @"ShoppingCarCellID";
     /*
      * 导航栏右边按钮
      */
-    UIButton *editBtn = [UIButton buttonWithType:UIButtonTypeSystem];
+    editBtn = [UIButton buttonWithType:UIButtonTypeSystem];
     [editBtn setTitle:@"编辑" forState:UIControlStateNormal];
     [editBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [editBtn setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
@@ -73,6 +76,19 @@ static NSString *cellID = @"ShoppingCarCellID";
     [self loadData];
 }
 
+-(void)viewLayoutMarginsDidChange{
+    [super viewLayoutMarginsDidChange];
+    [_bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.mas_equalTo(0);
+        make.bottom.mas_equalTo(0);
+        make.height.mas_equalTo(Scale750(90));
+    }];
+    [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.right.mas_equalTo(0);
+        make.bottom.mas_equalTo(self.bottomView.mas_top);
+    }];
+}
+
 #pragma mark - 创建UI
 - (void)createUI {
     /*
@@ -99,19 +115,7 @@ static NSString *cellID = @"ShoppingCarCellID";
 
 #pragma mark - 编辑按钮点击
 - (void)editBtnClicked {
-    _noView = [[NoDataView alloc] init];
-    _noView.imgName = @"ic_gouwuchekong";
-    _noView.titleStr = @"您的购物车空空如也～";
-    _noView.btnStr = @"去逛逛";
-    _noView.backgroundColor = [UIColor whiteColor];
-    __weak __typeof(self) weakSelf = self;
-    _noView.btnBlock = ^{
-        [weakSelf.noView removeFromSuperview];
-    };
-    [self.view addSubview:_noView];
-    [_noView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.right.bottom.mas_equalTo(0);
-    }];
+    
 }
 
 #pragma mark - UITableView代理
@@ -146,12 +150,14 @@ static NSString *cellID = @"ShoppingCarCellID";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return Scale750(270);
 }
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     GoodsDefViewController *goodsDefViewController = [GoodsDefViewController new];
     CardItem *data = [_carItemlist objectAtIndex:indexPath.row];
     goodsDefViewController.productid = data.productId;
     [self.navigationController pushViewController:goodsDefViewController animated:YES];
 }
+
 #pragma mark - 数量选择代理
 - (void)addBtnClicked:(UIButton *)btn {
     DDLogVerbose(@"第%ld行Cell上，添加Btn被点击", (long)btn.tag);
@@ -161,18 +167,38 @@ static NSString *cellID = @"ShoppingCarCellID";
     DDLogVerbose(@"第%ld行Cell上，减少Btn被点击", (long)btn.tag);
 }
 
--(void)loadData{
+#pragma mark - 接口请求
+- (void)loadData {
+    __weak __typeof(self) weakSelf = self;
     [[[NetWorkRequest alloc]init] cartlistblock:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
         if (error) {
             [self.view ug_msg:error.domain];
         }else{
             self.carItemlist = [NSMutableArray yy_modelArrayWithClass:[CardItem class] json:dataDict];
+            if (self.carItemlist.count == 0) {
+                weakSelf.noView = [[NoDataView alloc] init];
+                weakSelf.noView.imgName = @"ic_gouwuchekong";
+                weakSelf.noView.titleStr = @"您的购物车空空如也～";
+                weakSelf.noView.btnStr = @"去逛逛";
+                weakSelf.noView.backgroundColor = [UIColor whiteColor];
+                weakSelf.noView.btnBlock = ^{
+                    [weakSelf.noView removeFromSuperview];
+                };
+                [self.view addSubview:weakSelf.noView];
+                [weakSelf.noView mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.top.left.right.bottom.mas_equalTo(0);
+                }];
+                self->editBtn.hidden = YES;
+            }else{
+                self->editBtn.hidden = NO;
+            }
             [self->tableView reloadData];
         }
     }];
 }
-//结算
--(void)dobuy{
+
+#pragma mark - 结算
+- (void)dobuy {
     NSMutableArray *cars = [[NSMutableArray alloc]initWithCapacity:0];
     for ( CardItem *data in _carItemlist) {
         [cars addObject:[NSString stringWithFormat:@"%zd",data.id]];
@@ -186,19 +212,6 @@ static NSString *cellID = @"ShoppingCarCellID";
             vc.confimid = [dataDict[@"id"] integerValue];
             [self.navigationController pushViewController:vc animated:YES];
         }
-    }];
-}
-
--(void)viewLayoutMarginsDidChange{
-    [super viewLayoutMarginsDidChange];
-    [_bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.mas_equalTo(0);
-        make.bottom.mas_equalTo(0);
-        make.height.mas_equalTo(Scale750(90));
-    }];
-    [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.right.mas_equalTo(0);
-        make.bottom.mas_equalTo(self.bottomView.mas_top);
     }];
 }
 

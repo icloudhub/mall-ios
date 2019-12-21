@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AreaData.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -17,6 +18,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 ///图标
 @property (strong, nonatomic) UIImageView *markImg;
+
+#pragma mark - 刷新数据
+- (void)reloadCellUIWithData:(AreaData *)data;
 
 @end
 

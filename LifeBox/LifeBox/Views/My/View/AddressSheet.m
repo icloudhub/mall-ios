@@ -9,6 +9,7 @@
 #import "AddressSheet.h"
 #import "AddressChooseCell.h"
 
+
 static NSString *cellID = @"AddressChooseCellID";
 
 @implementation AddressSheet {
@@ -24,6 +25,14 @@ static NSString *cellID = @"AddressChooseCellID";
     UITableView *tableView;
     ///分割线
     UIView *ividerLine;
+    ///点击选项
+    NSString *isChoose;
+    ///省数组
+    NSMutableArray *provinceList;
+    ///市数组
+    NSMutableArray *cityList;
+    ///区数组
+    NSMutableArray *areaList;
 }
 
 #pragma mark - 高度
@@ -149,10 +158,44 @@ static NSString *cellID = @"AddressChooseCellID";
         make.left.right.mas_equalTo(0);
         make.bottom.mas_equalTo(self.bottomView.mas_bottom).mas_offset(-20);
     }];
+    /*
+     * 请求数据
+     */
+    //处理默认数据
+    isChoose = @"1";
+    //发起请求
+    NSDictionary *tempDic = [[NSDictionary alloc] initWithObjectsAndKeys:@"0", @"parentCode" , nil];
+    [self getAddressHttpWith:tempDic];
 }
+
 
 #pragma mark - 地区Btn点击
 - (void)addressBtnClicked:(UIButton *)btn {
+    /*
+     * 数据判断
+     */
+    NSDictionary *tempDic;
+    if (btn.tag == 100) {
+        isChoose = @"1";
+        tempDic = [[NSDictionary alloc] initWithObjectsAndKeys:@"0", @"parentCode" , nil];
+    }
+    if (btn.tag == 101) {
+        if (_provinceData.name.length == 0) {
+            [self.bottomView ug_msg:@"请选择省信息"];
+            return;
+        }
+        isChoose = @"2";
+        tempDic = [[NSDictionary alloc] initWithObjectsAndKeys:_provinceData.areaCode, @"parentCode" , nil];
+    }
+    if (btn.tag == 102) {
+        if (_cityData.name.length == 0) {
+            [self.bottomView ug_msg:@"请选择市信息"];
+            return;
+        }
+        isChoose = @"3";
+        tempDic = [[NSDictionary alloc] initWithObjectsAndKeys:_cityData.areaCode, @"parentCode" , nil];
+    }
+    [self getAddressHttpWith:tempDic];
     /*
      * 取消原本选中颜色,设置选中的颜色
      */
@@ -173,6 +216,70 @@ static NSString *cellID = @"AddressChooseCellID";
     }];
 }
 
+#pragma mark - 接口请求
+- (void)getAddressHttpWith:(NSDictionary *)dic {
+    //避免数据重复请求
+    if ([isChoose isEqualToString:@"1"]) {
+        if (provinceList.count != 0) {
+            [tableView reloadData];
+            return;
+        }
+    }
+    else if ([isChoose isEqualToString:@"2"]) {
+        if (cityList.count != 0) {
+            [tableView reloadData];
+            return;
+        }
+    }else {
+        if (areaList.count != 0) {
+            [tableView reloadData];
+            return;
+        }
+    }
+    //开始请求
+    [self ug_loading];
+    [[[NetWorkRequest alloc] init] queryAddressInfoParams:dic endBlock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
+        [self ug_hiddenLoading];
+        if (error) {
+            [self ug_msg:error.domain];
+        }else{
+            if ([self->isChoose isEqualToString:@"1"]) {
+                self->provinceList = (NSMutableArray *)[NSMutableArray yy_modelArrayWithClass:[AreaData class] json:result];
+                if (self.provinceData.name != 0) {
+                    for (AreaData *data in self->provinceList) {
+                        if ([data.name isEqualToString:self.provinceData.name]) {
+                            data.isSelect = @"1";
+                            self.provinceData.areaCode = data.areaCode;
+                        }
+                    }
+                }
+            }
+            else if ([self->isChoose isEqualToString:@"2"]) {
+                self->cityList = (NSMutableArray *)[NSMutableArray yy_modelArrayWithClass:[AreaData class] json:result];
+                if (self.cityData.name != 0) {
+                    for (AreaData *data in self->cityList) {
+                        if ([data.name isEqualToString:self.cityData.name]) {
+                            data.isSelect = @"1";
+                            self.cityData.areaCode = data.areaCode;
+                        }
+                    }
+                }
+            }else{
+                self->areaList = (NSMutableArray *)[NSMutableArray yy_modelArrayWithClass:[AreaData class] json:result];
+                if (self.areaData.name != 0) {
+                    for (AreaData *data in self->areaList) {
+                        if ([data.name isEqualToString:self.areaData.name]) {
+                            data.isSelect = @"1";
+                            self.areaData.areaCode = data.areaCode;
+                        }
+                    }
+                }
+            }
+            [self->tableView reloadData];
+        }
+    }];
+}
+
 #pragma mark - UITableView代理
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     AddressChooseCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
@@ -180,11 +287,27 @@ static NSString *cellID = @"AddressChooseCellID";
         cell = [[AddressChooseCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    if ([isChoose isEqualToString:@"1"]) {
+        [cell reloadCellUIWithData:[provinceList objectAtIndex:indexPath.row]];
+    }
+    else if ([isChoose isEqualToString:@"2"]) {
+        [cell reloadCellUIWithData:[cityList objectAtIndex:indexPath.row]];
+    }else{
+        [cell reloadCellUIWithData:[areaList objectAtIndex:indexPath.row]];
+    }
     return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    if ([isChoose isEqualToString:@"1"]) {
+        return provinceList.count;
+    }
+    else if ([isChoose isEqualToString:@"2"]) {
+        return cityList.count;
+    }else{
+        return areaList.count;
+    }
+    return 0;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -196,7 +319,43 @@ static NSString *cellID = @"AddressChooseCellID";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    /*
+     * 数据重新绑定
+     */
+    if ([isChoose isEqualToString:@"1"]) {
+        for (AreaData *tempData in provinceList) {
+            tempData.isSelect = @"";
+        }
+        AreaData *pData = [provinceList objectAtIndex:indexPath.row];
+        pData.isSelect = @"1";
+        _provinceData.name = pData.name;
+        _provinceData.areaCode = pData.areaCode;
+        [cityList removeAllObjects];
+        [areaList removeAllObjects];
+    }
+    else if ([isChoose isEqualToString:@"2"]) {
+        for (AreaData *tempData in cityList) {
+            tempData.isSelect = @"";
+        }
+        AreaData *cData = [cityList objectAtIndex:indexPath.row];
+        cData.isSelect = @"1";
+        _cityData.name = cData.name;
+        _cityData.areaCode = cData.areaCode;
+        [areaList removeAllObjects];
+    }else{
+        for (AreaData *tempData in areaList) {
+            tempData.isSelect = @"";
+        }
+        AreaData *aData = [areaList objectAtIndex:indexPath.row];
+        aData.isSelect = @"1";
+        _areaData.name = aData.name;
+        _areaData.areaCode = aData.areaCode;
+        //数据选择完成回调地址编辑界面
+        if ([_delegate respondsToSelector:@selector(selectProvince:city:area:)]) {
+            [_delegate selectProvince:_provinceData.name city:_cityData.name area:_areaData.name];
+        }
+    }
+    [tableView reloadData];
 }
 
 

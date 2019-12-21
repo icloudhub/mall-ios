@@ -195,6 +195,7 @@
 		05C46974237BAB7500D21EA1 /* LoginPwView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C46973237BAB7500D21EA1 /* LoginPwView.m */; };
 		05C46977237BE19500D21EA1 /* RegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C46976237BE19500D21EA1 /* RegisterController.m */; };
 		05C954552322567A00517381 /* OrderViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C954542322567A00517381 /* OrderViewCell.m */; };
+		05D0A3D623AD23AB001C00D5 /* AreaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D0A3D523AD23AB001C00D5 /* AreaData.m */; };
 		05DC21A0239E86290037DF5B /* AddressData.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DC219F239E86290037DF5B /* AddressData.m */; };
 		20A2F5172371630C00B2C7AF /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A2F5162371630B00B2C7AF /* WebViewController.m */; };
 		20A2F51F23726D7000B2C7AF /* SubjectData.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A2F51E23726D6F00B2C7AF /* SubjectData.m */; };
@@ -548,6 +549,8 @@
 		05C46976237BE19500D21EA1 /* RegisterController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterController.m; sourceTree = "<group>"; };
 		05C954532322567A00517381 /* OrderViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderViewCell.h; sourceTree = "<group>"; };
 		05C954542322567A00517381 /* OrderViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderViewCell.m; sourceTree = "<group>"; };
+		05D0A3D423AD23AB001C00D5 /* AreaData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AreaData.h; sourceTree = "<group>"; };
+		05D0A3D523AD23AB001C00D5 /* AreaData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AreaData.m; sourceTree = "<group>"; };
 		05DC219E239E86290037DF5B /* AddressData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddressData.h; sourceTree = "<group>"; };
 		05DC219F239E86290037DF5B /* AddressData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddressData.m; sourceTree = "<group>"; };
 		1C30ECA15C1E0199568E084A /* Pods-LifeBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeBox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LifeBox/Pods-LifeBox.debug.xcconfig"; sourceTree = "<group>"; };
@@ -960,6 +963,8 @@
 				050E0492230DC3E500DA5BFD /* PersonIconData.m */,
 				05DC219E239E86290037DF5B /* AddressData.h */,
 				05DC219F239E86290037DF5B /* AddressData.m */,
+				05D0A3D423AD23AB001C00D5 /* AreaData.h */,
+				05D0A3D523AD23AB001C00D5 /* AreaData.m */,
 			);
 			path = Mode;
 			sourceTree = "<group>";
@@ -2056,6 +2061,7 @@
 				05BBBB7B230F98B500C01FC3 /* MyToolCell.m in Sources */,
 				84C29209235DEF5B00034213 /* NetWorkRequest+Business.m in Sources */,
 				0537918623158AE500DF4DA0 /* HomeGoodsCell.m in Sources */,
+				05D0A3D623AD23AB001C00D5 /* AreaData.m in Sources */,
 				05C46970237B9EC200D21EA1 /* NSMutableString+TagReplace.m in Sources */,
 				0531EA12233A080700775D79 /* ChangeWeChatController.m in Sources */,
 				84B954D42323731F00A7E8D2 /* NetWorkRequest+Orlder.m in Sources */,

@@ -34,5 +34,11 @@
     [self post:url param:params head:nil endblock:endblock];
 }
 
+#pragma mark - 查询省市区信息
+- (void)queryAddressInfoParams:(NSDictionary *)params endBlock:(void(^)(NSDictionary *result, NSError *error))endblock {
+    NSString *url = [NSString stringWithFormat:@"%@/cnarea/list", BASEURL];
+    [self get:url param:params head:nil endblock:endblock];
+}
+
 
 @end

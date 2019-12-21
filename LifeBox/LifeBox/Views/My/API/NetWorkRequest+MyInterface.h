@@ -35,6 +35,12 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param endblock 数据回调
 - (void)updateAddressWithID:(NSInteger)addressID Params:(NSDictionary *)params endBlock:(void(^)(NSDictionary *result, NSError *error))endblock;
 
+#pragma mark - 查询省市区信息
+/// 查询省市区信息
+/// @param params 区域ID参数
+/// @param endblock 数据回调
+- (void)queryAddressInfoParams:(NSDictionary *)params endBlock:(void(^)(NSDictionary *result, NSError *error))endblock;
+
 @end
 
 NS_ASSUME_NONNULL_END

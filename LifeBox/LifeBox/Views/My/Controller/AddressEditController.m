@@ -9,7 +9,7 @@
 #import "AddressEditController.h"
 #import "AddressSheet.h"
 
-@interface AddressEditController ()<UITextFieldDelegate, UITextViewDelegate> {
+@interface AddressEditController ()<UITextFieldDelegate, UITextViewDelegate, ChooseAddressDelegate> {
     ///地址View
     UIView *addressView;
     ///设置View
@@ -40,6 +40,8 @@
     AddressSheet *chooseArea;
     ///默认地址数据
     NSString *defaultStr;
+    ///选择后地址信息数据
+    AddressData *selectData;
 }
 
 @end
@@ -325,6 +327,7 @@
             [defaultBtn setBackgroundImage:[UIImage imageNamed:@"ic_shut_down"] forState:UIControlStateHighlighted];
             defaultBtn.selected = NO;
         }
+        selectData = _passData;
     }else{
         deleteBtn.hidden = YES;
     }
@@ -340,7 +343,16 @@
         return;
     }
     if (phoneTF.text.length == 0) {
-        [self.view ug_msg:@"请输入电话"];
+        [self.view ug_msg:@"请输入手机号"];
+        return;
+    }else{
+        if (phoneTF.text.length < 11) {
+            [self.view ug_msg:@"手机号码位数错误"];
+            return;
+        }
+    }
+    if ([regionLab.text isEqualToString:@"所在地区"]) {
+        [self.view ug_msg:@"请选择位置信息"];
         return;
     }
     if (detailedTV.text.length == 0) {
@@ -352,17 +364,28 @@
      */
     NSDictionary *tempDic;
     if (_passData == nil) {
-        tempDic = [[NSDictionary alloc] initWithObjectsAndKeys:consigneeTF.text, @"name", phoneTF.text, @"phoneNumber", @"广东省", @"province", @"深圳市", @"city", @"宝安区", @"region", @"详细地址信息输入", @"detailAddress", defaultStr, @"defaultStatus", nil];
+        tempDic = [[NSDictionary alloc] initWithObjectsAndKeys:consigneeTF.text, @"name", phoneTF.text, @"phoneNumber", selectData.province, @"province", selectData.city, @"city", selectData.region, @"region", detailedTV.text, @"detailAddress", defaultStr, @"defaultStatus", nil];
         [self addNewHttpData:tempDic];
     }else{
-        tempDic = [[NSDictionary alloc] initWithObjectsAndKeys:consigneeTF.text, @"name", phoneTF.text, @"phoneNumber", @"广东省", @"province", @"深圳市", @"city", @"宝安区", @"region", detailedTV.text, @"detailAddress", defaultStr, @"defaultStatus", nil];
+        tempDic = [[NSDictionary alloc] initWithObjectsAndKeys:consigneeTF.text, @"name", phoneTF.text, @"phoneNumber", selectData.province, @"province", selectData.city, @"city", selectData.region, @"region", detailedTV.text, @"detailAddress", defaultStr, @"defaultStatus", nil];
         [self updateHttpData:tempDic];
     }
 }
 
 #pragma mark - 选择地区按钮点击
 - (void)chooseBtnClicked {
+    [self.view endEditing:YES];
     chooseArea = [[AddressSheet alloc] init];
+    AreaData *pData = [[AreaData alloc] init];
+    pData.name = _passData.province;
+    chooseArea.provinceData = pData;
+    AreaData *cData = [[AreaData alloc] init];
+    cData.name = _passData.city;
+    chooseArea.cityData = cData;
+    AreaData *aData = [[AreaData alloc] init];
+    aData.name = _passData.region;
+    chooseArea.areaData = aData;
+    chooseArea.delegate = self;
     [chooseArea showView];
 }
 
@@ -422,7 +445,20 @@
     }];
 }
 
-#pragma mark - 代理
+#pragma mark - 选择省市区代理
+- (void)selectProvince:(NSString *)province city:(NSString *)city area:(NSString *)area {
+    [chooseArea dismissView];
+    selectData = [[AddressData alloc] init];
+    selectData.province = province;
+    selectData.city = city;
+    selectData.region = area;
+    //省市区
+    regionLab.textColor = RGBColor(51, 51, 51);
+    NSString *tempStr = [NSString stringWithFormat:@"%@ %@ %@", selectData.province, selectData.city, selectData.region];
+    regionLab.text = tempStr;
+}
+
+#pragma mark - UITextField代理
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     //得到输入框的内容
     NSString *toBeString = [textField.text stringByReplacingCharactersInRange:range withString:string];
