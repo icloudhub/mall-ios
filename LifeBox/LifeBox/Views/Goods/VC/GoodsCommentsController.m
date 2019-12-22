@@ -8,7 +8,6 @@
 
 #import "GoodsCommentsController.h"
 #import "CommentsCell.h"
-#import "NetWorkRequest+Goods.h"
 
 @interface GoodsCommentsController ()<UITableViewDelegate, UITableViewDataSource> {
     ///评论数据展示

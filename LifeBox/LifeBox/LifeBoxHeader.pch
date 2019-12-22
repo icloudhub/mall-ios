@@ -31,5 +31,6 @@
 //接口请求
 #import "NetWorkRequest+Business.h"
 #import "NetWorkRequest+MyInterface.h"
+#import "NetWorkRequest+Goods.h"
 
 #endif /* LifeBoxHeader_pch */

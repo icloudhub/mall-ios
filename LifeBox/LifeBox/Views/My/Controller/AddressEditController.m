@@ -60,6 +60,11 @@
     [self createUI];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.view endEditing:YES];
+}
+
 #pragma mark - 创建UI
 - (void)createUI {
     /*
@@ -335,6 +340,7 @@
 
 #pragma mark - 保存按钮点击
 - (void)saveBtnClicked {
+    [self.view endEditing:YES];
     /*
      * 输入内容判断
      */
@@ -405,6 +411,7 @@
 
 #pragma mark - 删除按钮点击
 - (void)deleteBtnClicked {
+    [self.view endEditing:YES];
     [self.view ug_loading];
     [[[NetWorkRequest alloc] init] deleteAddressWithID:[_passData.addressId integerValue] endBlock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
         [self.view ug_hiddenLoading];
@@ -431,7 +438,7 @@
     }];
 }
 
-#pragma mark - 删除地址接口
+#pragma mark - 更新地址接口
 - (void)updateHttpData:(NSDictionary *)dic {
     [self.view ug_loading];
     [[[NetWorkRequest alloc] init] updateAddressWithID:[_passData.addressId integerValue] Params:dic endBlock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
@@ -464,7 +471,7 @@
     NSString *toBeString = [textField.text stringByReplacingCharactersInRange:range withString:string];
     //怕输入是否有空格
     if ([toBeString spaceJudgment]) {
-        [self.view ug_msg:@"不能输入空格"];
+        [addressView ug_msg:@"不能输入空格"];
         return NO;
     }
     if (![string isEqualToString:@""]) {
@@ -473,7 +480,7 @@
         }
         if (textField == phoneTF) {
             if (![toBeString isPureInt]) {
-                [self.view ug_msg:@"手机号码格式有误"];
+                [addressView ug_msg:@"手机号码格式有误"];
                 return NO;
             }
             if (toBeString.length > 11) {
@@ -482,7 +489,7 @@
         }
         if (textField == consigneeTF) {
             if (![toBeString inputToCompletejudgePureChinese]) {
-                [self.view ug_msg:@"姓名只能是中文"];
+                [addressView ug_msg:@"姓名只能是中文"];
                 return NO;
             }
             if (toBeString.length > 10) {
