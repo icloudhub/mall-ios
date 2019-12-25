@@ -579,6 +579,13 @@
         case 1003:{
             //收藏
             NSLog(@"收藏");
+            [[NetWorkRequest new] addCollectionWithWithMemberId:@"0" productId:@"26" endBlock:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
+                if (error) {
+                    [self.view ug_msg:error.domain];
+                }else{
+                    [self.view ug_msg:@"添加成功"];
+                }
+            }];
         }
             break;
         case 1004:{
