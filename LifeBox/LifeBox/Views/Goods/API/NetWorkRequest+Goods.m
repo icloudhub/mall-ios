@@ -38,26 +38,20 @@
 
 #pragma mark - 商品添加收藏
 -(void)addCollectionWithWithProductId:(NSString *)productId endBlock:(NREndBlock)endblock {
-    NSString *url = [NSString stringWithFormat:@"%@/member/collection/addProduct",BASEURL];
-    NSDictionary *param = @{
-        @"productId": productId,
-    };
-    [self post:url param:param head:nil endblock:endblock];
+    NSString *url = [NSString stringWithFormat:@"%@/member/collection/addProduct/%@", BASEURL, productId];
+    [self post:url param:nil head:nil endblock:endblock];
 }
 
 #pragma mark - 商品取消收藏
 -(void)cancelCollectionWithMemberId:(NSString *)memberId productId:(NSString *)productId endBlock:(NREndBlock)endblock {
-    NSString *url = [NSString stringWithFormat:@"%@/member/collection/deleteProduct",BASEURL];
-    NSDictionary *param = @{
-        @"memberId": memberId,
-        @"productId": productId,
-    };
-    [self post:url param:param head:nil endblock:endblock];
+    NSString *url = [NSString stringWithFormat:@"%@/member/collection/deleteProduct/%@",BASEURL,productId];
+
+    [self post:url param:nil head:nil endblock:endblock];
 }
 
 #pragma mark - 根据用户ID获取关注列表
 -(void)getCommentlistWithMemberId:(NSString *)memberId endBlock:(NREndBlock)endblock {
-    NSString *url = [NSString stringWithFormat:@"%@/member/collection/listProduct/%@", BASEURL, memberId];
+    NSString *url = [NSString stringWithFormat:@"%@/member/collection/listProduct", BASEURL];
      [self get:url param:nil head:nil endblock:endblock];
 }
 

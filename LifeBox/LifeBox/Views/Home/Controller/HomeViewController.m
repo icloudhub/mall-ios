@@ -307,6 +307,7 @@ static NSString *homeGoodsCellID = @"HomeGoodsCellID";
         }
     }];
 }
+
 #pragma mark - 去专题详情
 -(void)subjectDef:(NSString*)subjectid{
     [[[NetWorkRequest alloc] init] subject:subjectid block:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0507C5132398E51200761497 /* NetWorkRequest+MyInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 0507C5122398E51200761497 /* NetWorkRequest+MyInterface.m */; };
 		050E0476230D84D800DA5BFD /* my_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 050E0475230D84D800DA5BFD /* my_background.png */; };
 		050E047A230D86D400DA5BFD /* SafeAreaInsets.m in Sources */ = {isa = PBXBuildFile; fileRef = 050E0479230D86D400DA5BFD /* SafeAreaInsets.m */; };
 		050E047D230D943900DA5BFD /* ic_setting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 050E047B230D943900DA5BFD /* ic_setting@2x.png */; };
@@ -195,8 +194,6 @@
 		05C46974237BAB7500D21EA1 /* LoginPwView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C46973237BAB7500D21EA1 /* LoginPwView.m */; };
 		05C46977237BE19500D21EA1 /* RegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C46976237BE19500D21EA1 /* RegisterController.m */; };
 		05C954552322567A00517381 /* OrderViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C954542322567A00517381 /* OrderViewCell.m */; };
-		05D0A3D623AD23AB001C00D5 /* AreaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D0A3D523AD23AB001C00D5 /* AreaData.m */; };
-		05DC21A0239E86290037DF5B /* AddressData.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DC219F239E86290037DF5B /* AddressData.m */; };
 		20A2F5172371630C00B2C7AF /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A2F5162371630B00B2C7AF /* WebViewController.m */; };
 		20A2F51F23726D7000B2C7AF /* SubjectData.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A2F51E23726D6F00B2C7AF /* SubjectData.m */; };
 		20D763B92373FC1500D513BC /* DorConfigServiceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D763B82373FC1500D513BC /* DorConfigServiceVC.m */; };
@@ -205,6 +202,7 @@
 		842D2B562320AD7A00C50605 /* NSString+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 842D2B552320AD7A00C50605 /* NSString+JSON.m */; };
 		842D2B592320B0BD00C50605 /* ConfigData.m in Sources */ = {isa = PBXBuildFile; fileRef = 842D2B582320B0BD00C50605 /* ConfigData.m */; };
 		842D2B5C2320B16B00C50605 /* NetWorkRequest+COM.m in Sources */ = {isa = PBXBuildFile; fileRef = 842D2B5B2320B16B00C50605 /* NetWorkRequest+COM.m */; };
+		84501F14239F7E5C00225D9F /* UGTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 84501F13239F7E5C00225D9F /* UGTextField.m */; };
 		8461E19723013A6B00764748 /* UIApplication+LOG.m in Sources */ = {isa = PBXBuildFile; fileRef = 8461E15A23013A6B00764748 /* UIApplication+LOG.m */; };
 		8461E19823013A6B00764748 /* LifeBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8461E15C23013A6B00764748 /* LifeBoxViewController.m */; };
 		8461E19923013A6B00764748 /* UIViewController+RTRootNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8461E15F23013A6B00764748 /* UIViewController+RTRootNavigationController.m */; };
@@ -269,6 +267,9 @@
 		84B954E22324E3BE00A7E8D2 /* ConfirmInfoData.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B954E12324E3BE00A7E8D2 /* ConfirmInfoData.m */; };
 		84BA6F942376505F0047796E /* GoodsBuyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BA6F932376505F0047796E /* GoodsBuyView.m */; };
 		84C29209235DEF5B00034213 /* NetWorkRequest+Business.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C29207235DEF5B00034213 /* NetWorkRequest+Business.m */; };
+		84F3400E23B4BA4100BAE696 /* NetWorkRequest+MyInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F3400C23B4BA4100BAE696 /* NetWorkRequest+MyInterface.m */; };
+		84F3401323B4BA5C00BAE696 /* AddressData.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F3400F23B4BA5C00BAE696 /* AddressData.m */; };
+		84F3401423B4BA5C00BAE696 /* AreaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F3401123B4BA5C00BAE696 /* AreaData.m */; };
 		A2245433E31B0B126C5C0D61 /* Pods_LifeBoxTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42783EC83E66FDB25449EC1A /* Pods_LifeBoxTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -290,8 +291,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0507C5112398E51200761497 /* NetWorkRequest+MyInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NetWorkRequest+MyInterface.h"; sourceTree = "<group>"; };
-		0507C5122398E51200761497 /* NetWorkRequest+MyInterface.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NetWorkRequest+MyInterface.m"; sourceTree = "<group>"; };
 		050E0475230D84D800DA5BFD /* my_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = my_background.png; sourceTree = "<group>"; };
 		050E0478230D86D400DA5BFD /* SafeAreaInsets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SafeAreaInsets.h; sourceTree = "<group>"; };
 		050E0479230D86D400DA5BFD /* SafeAreaInsets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SafeAreaInsets.m; sourceTree = "<group>"; };
@@ -549,10 +548,6 @@
 		05C46976237BE19500D21EA1 /* RegisterController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterController.m; sourceTree = "<group>"; };
 		05C954532322567A00517381 /* OrderViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderViewCell.h; sourceTree = "<group>"; };
 		05C954542322567A00517381 /* OrderViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderViewCell.m; sourceTree = "<group>"; };
-		05D0A3D423AD23AB001C00D5 /* AreaData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AreaData.h; sourceTree = "<group>"; };
-		05D0A3D523AD23AB001C00D5 /* AreaData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AreaData.m; sourceTree = "<group>"; };
-		05DC219E239E86290037DF5B /* AddressData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddressData.h; sourceTree = "<group>"; };
-		05DC219F239E86290037DF5B /* AddressData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddressData.m; sourceTree = "<group>"; };
 		1C30ECA15C1E0199568E084A /* Pods-LifeBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeBox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LifeBox/Pods-LifeBox.debug.xcconfig"; sourceTree = "<group>"; };
 		20A2F5152371630B00B2C7AF /* WebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		20A2F5162371630B00B2C7AF /* WebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
@@ -572,6 +567,8 @@
 		842D2B582320B0BD00C50605 /* ConfigData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfigData.m; sourceTree = "<group>"; };
 		842D2B5A2320B16B00C50605 /* NetWorkRequest+COM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NetWorkRequest+COM.h"; sourceTree = "<group>"; };
 		842D2B5B2320B16B00C50605 /* NetWorkRequest+COM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NetWorkRequest+COM.m"; sourceTree = "<group>"; };
+		84501F12239F7E5C00225D9F /* UGTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UGTextField.h; sourceTree = "<group>"; };
+		84501F13239F7E5C00225D9F /* UGTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UGTextField.m; sourceTree = "<group>"; };
 		8461E15423013A6B00764748 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8461E15523013A6B00764748 /* LifeBoxHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LifeBoxHeader.pch; sourceTree = "<group>"; };
 		8461E15723013A6B00764748 /* Magic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Magic.h; sourceTree = "<group>"; };
@@ -690,6 +687,12 @@
 		84BA6F932376505F0047796E /* GoodsBuyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsBuyView.m; sourceTree = "<group>"; };
 		84C29207235DEF5B00034213 /* NetWorkRequest+Business.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NetWorkRequest+Business.m"; path = "LifeBox/Comment/RequestManagement/NetWorkRequest+Business.m"; sourceTree = SOURCE_ROOT; };
 		84C29208235DEF5B00034213 /* NetWorkRequest+Business.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NetWorkRequest+Business.h"; path = "LifeBox/Comment/RequestManagement/NetWorkRequest+Business.h"; sourceTree = SOURCE_ROOT; };
+		84F3400C23B4BA4100BAE696 /* NetWorkRequest+MyInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NetWorkRequest+MyInterface.m"; sourceTree = "<group>"; };
+		84F3400D23B4BA4100BAE696 /* NetWorkRequest+MyInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NetWorkRequest+MyInterface.h"; sourceTree = "<group>"; };
+		84F3400F23B4BA5C00BAE696 /* AddressData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressData.m; sourceTree = "<group>"; };
+		84F3401023B4BA5C00BAE696 /* AddressData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressData.h; sourceTree = "<group>"; };
+		84F3401123B4BA5C00BAE696 /* AreaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaData.m; sourceTree = "<group>"; };
+		84F3401223B4BA5C00BAE696 /* AreaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaData.h; sourceTree = "<group>"; };
 		8B45816D0134074CDFF8F87E /* Pods-LifeBoxUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeBoxUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LifeBoxUITests/Pods-LifeBoxUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CF018FD20FA4FDD9D71E8F8B /* Pods-LifeBoxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeBoxTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LifeBoxTests/Pods-LifeBoxTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -722,15 +725,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0507C5102398E4B500761497 /* API */ = {
-			isa = PBXGroup;
-			children = (
-				0507C5112398E51200761497 /* NetWorkRequest+MyInterface.h */,
-				0507C5122398E51200761497 /* NetWorkRequest+MyInterface.m */,
-			);
-			path = API;
-			sourceTree = "<group>";
-		};
 		050E0477230D86AA00DA5BFD /* SafeAreaInsets */ = {
 			isa = PBXGroup;
 			children = (
@@ -959,12 +953,12 @@
 		05F77C9D230E1F3C006A3CC4 /* Mode */ = {
 			isa = PBXGroup;
 			children = (
+				84F3401023B4BA5C00BAE696 /* AddressData.h */,
+				84F3400F23B4BA5C00BAE696 /* AddressData.m */,
+				84F3401223B4BA5C00BAE696 /* AreaData.h */,
+				84F3401123B4BA5C00BAE696 /* AreaData.m */,
 				050E0491230DC3E500DA5BFD /* PersonIconData.h */,
 				050E0492230DC3E500DA5BFD /* PersonIconData.m */,
-				05DC219E239E86290037DF5B /* AddressData.h */,
-				05DC219F239E86290037DF5B /* AddressData.m */,
-				05D0A3D423AD23AB001C00D5 /* AreaData.h */,
-				05D0A3D523AD23AB001C00D5 /* AreaData.m */,
 			);
 			path = Mode;
 			sourceTree = "<group>";
@@ -1317,7 +1311,7 @@
 		8461E19023013A6B00764748 /* My */ = {
 			isa = PBXGroup;
 			children = (
-				0507C5102398E4B500761497 /* API */,
+				84F3400B23B4BA4100BAE696 /* API */,
 				05BBBB70230F98B500C01FC3 /* View */,
 				05F77C9C230E1F3C006A3CC4 /* Controller */,
 				05F77C9D230E1F3C006A3CC4 /* Mode */,
@@ -1580,6 +1574,8 @@
 			children = (
 				84B2E0592307067E00BC9197 /* UITextField+UG.h */,
 				84B2E05A2307067E00BC9197 /* UITextField+UG.m */,
+				84501F12239F7E5C00225D9F /* UGTextField.h */,
+				84501F13239F7E5C00225D9F /* UGTextField.m */,
 			);
 			path = UITextField;
 			sourceTree = "<group>";
@@ -1696,6 +1692,15 @@
 				84B954E12324E3BE00A7E8D2 /* ConfirmInfoData.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		84F3400B23B4BA4100BAE696 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				84F3400C23B4BA4100BAE696 /* NetWorkRequest+MyInterface.m */,
+				84F3400D23B4BA4100BAE696 /* NetWorkRequest+MyInterface.h */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2052,7 +2057,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05DC21A0239E86290037DF5B /* AddressData.m in Sources */,
 				05AC5C31235619C3000584CB /* OrderPriceCell.m in Sources */,
 				8478A26F2326384A005681CF /* CarBottomView.m in Sources */,
 				0531EA032338BB2B00775D79 /* SetPasswordController.m in Sources */,
@@ -2061,7 +2065,6 @@
 				05BBBB7B230F98B500C01FC3 /* MyToolCell.m in Sources */,
 				84C29209235DEF5B00034213 /* NetWorkRequest+Business.m in Sources */,
 				0537918623158AE500DF4DA0 /* HomeGoodsCell.m in Sources */,
-				05D0A3D623AD23AB001C00D5 /* AreaData.m in Sources */,
 				05C46970237B9EC200D21EA1 /* NSMutableString+TagReplace.m in Sources */,
 				0531EA12233A080700775D79 /* ChangeWeChatController.m in Sources */,
 				84B954D42323731F00A7E8D2 /* NetWorkRequest+Orlder.m in Sources */,
@@ -2085,6 +2088,7 @@
 				8478A2712326384A005681CF /* NetWorkRequest+Shoping.m in Sources */,
 				8461E19F23013A6B00764748 /* NetWorkRequest.m in Sources */,
 				058C83D0232690BF007AA863 /* AddressEditController.m in Sources */,
+				84F3401323B4BA5C00BAE696 /* AddressData.m in Sources */,
 				8461E19E23013A6B00764748 /* UIApplication+Initialize.m in Sources */,
 				053791512314198A00DF4DA0 /* NoticeView.m in Sources */,
 				053791AF231B94CD00DF4DA0 /* NoDataView.m in Sources */,
@@ -2094,6 +2098,7 @@
 				0531E9F32337B1C100775D79 /* AddressChooseCell.m in Sources */,
 				84B2E05E2307067E00BC9197 /* UIImage+UG.m in Sources */,
 				05AC5C27235603E9000584CB /* OrderTopCell.m in Sources */,
+				84501F14239F7E5C00225D9F /* UGTextField.m in Sources */,
 				84B954CF2323726500A7E8D2 /* ConfimOrderVC.m in Sources */,
 				05145135231EB6A600547E42 /* CollectionCell.m in Sources */,
 				8478A2752326391D005681CF /* HomeProductdata.m in Sources */,
@@ -2142,6 +2147,7 @@
 				84B2E05C2307067E00BC9197 /* UIControl+UG.m in Sources */,
 				0531E9FA2338645F00775D79 /* PersonInfoController.m in Sources */,
 				8461E19723013A6B00764748 /* UIApplication+LOG.m in Sources */,
+				84F3401423B4BA5C00BAE696 /* AreaData.m in Sources */,
 				05AC5C3423561A0F000584CB /* OrderPromptCell.m in Sources */,
 				0513E23223335ABC0008709B /* AddressSheet.m in Sources */,
 				05BBBB882312A08700C01FC3 /* ProfitViewCell.m in Sources */,
@@ -2152,8 +2158,8 @@
 				056217F9231FF0A0007E27AF /* InvitationCell.m in Sources */,
 				84B2E05B2307067E00BC9197 /* UITextView+UG.m in Sources */,
 				20A2F51F23726D7000B2C7AF /* SubjectData.m in Sources */,
-				0507C5132398E51200761497 /* NetWorkRequest+MyInterface.m in Sources */,
 				8461E1B023013A6B00764748 /* main.m in Sources */,
+				84F3400E23B4BA4100BAE696 /* NetWorkRequest+MyInterface.m in Sources */,
 				8461E1CE230159DB00764748 /* DorViewAlertVC.m in Sources */,
 				0531EA18233A138D00775D79 /* GenderSheet.m in Sources */,
 				84B954DB2324B0C800A7E8D2 /* ConfimBottomView.m in Sources */,
