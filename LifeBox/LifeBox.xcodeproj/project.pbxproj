@@ -202,6 +202,7 @@
 		842D2B562320AD7A00C50605 /* NSString+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 842D2B552320AD7A00C50605 /* NSString+JSON.m */; };
 		842D2B592320B0BD00C50605 /* ConfigData.m in Sources */ = {isa = PBXBuildFile; fileRef = 842D2B582320B0BD00C50605 /* ConfigData.m */; };
 		842D2B5C2320B16B00C50605 /* NetWorkRequest+COM.m in Sources */ = {isa = PBXBuildFile; fileRef = 842D2B5B2320B16B00C50605 /* NetWorkRequest+COM.m */; };
+		84501F14239F7E5C00225D9F /* UGTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 84501F13239F7E5C00225D9F /* UGTextField.m */; };
 		8461E19723013A6B00764748 /* UIApplication+LOG.m in Sources */ = {isa = PBXBuildFile; fileRef = 8461E15A23013A6B00764748 /* UIApplication+LOG.m */; };
 		8461E19823013A6B00764748 /* LifeBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8461E15C23013A6B00764748 /* LifeBoxViewController.m */; };
 		8461E19923013A6B00764748 /* UIViewController+RTRootNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8461E15F23013A6B00764748 /* UIViewController+RTRootNavigationController.m */; };
@@ -563,6 +564,8 @@
 		842D2B582320B0BD00C50605 /* ConfigData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfigData.m; sourceTree = "<group>"; };
 		842D2B5A2320B16B00C50605 /* NetWorkRequest+COM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NetWorkRequest+COM.h"; sourceTree = "<group>"; };
 		842D2B5B2320B16B00C50605 /* NetWorkRequest+COM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NetWorkRequest+COM.m"; sourceTree = "<group>"; };
+		84501F12239F7E5C00225D9F /* UGTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UGTextField.h; sourceTree = "<group>"; };
+		84501F13239F7E5C00225D9F /* UGTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UGTextField.m; sourceTree = "<group>"; };
 		8461E15423013A6B00764748 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8461E15523013A6B00764748 /* LifeBoxHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LifeBoxHeader.pch; sourceTree = "<group>"; };
 		8461E15723013A6B00764748 /* Magic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Magic.h; sourceTree = "<group>"; };
@@ -1557,6 +1560,8 @@
 			children = (
 				84B2E0592307067E00BC9197 /* UITextField+UG.h */,
 				84B2E05A2307067E00BC9197 /* UITextField+UG.m */,
+				84501F12239F7E5C00225D9F /* UGTextField.h */,
+				84501F13239F7E5C00225D9F /* UGTextField.m */,
 			);
 			path = UITextField;
 			sourceTree = "<group>";
@@ -2069,6 +2074,7 @@
 				0531E9F32337B1C100775D79 /* AddressChooseCell.m in Sources */,
 				84B2E05E2307067E00BC9197 /* UIImage+UG.m in Sources */,
 				05AC5C27235603E9000584CB /* OrderTopCell.m in Sources */,
+				84501F14239F7E5C00225D9F /* UGTextField.m in Sources */,
 				84B954CF2323726500A7E8D2 /* ConfimOrderVC.m in Sources */,
 				05145135231EB6A600547E42 /* CollectionCell.m in Sources */,
 				8478A2752326391D005681CF /* HomeProductdata.m in Sources */,
