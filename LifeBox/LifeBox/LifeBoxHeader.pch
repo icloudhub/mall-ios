@@ -12,10 +12,10 @@
 /*
  * 头文件引用
  */
+//实体类
 #import "AppDelegate+KeyValue.h"
 #import "RTRootNavigationController.h"
 #import "Masonry.h"
-#import "NetWorkRequest+Business.h"
 #import "YYModel.h"
 //#import <YYKit/YYKit.h>
 #import <BlocksKit/BlocksKit.h>
@@ -28,5 +28,9 @@
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #import <SDWebImage/SDWebImage.h>
 #import "BaseTextField.h"
+//接口请求
+#import "NetWorkRequest+Business.h"
+#import "NetWorkRequest+MyInterface.h"
+#import "NetWorkRequest+Goods.h"
 
 #endif /* LifeBoxHeader_pch */

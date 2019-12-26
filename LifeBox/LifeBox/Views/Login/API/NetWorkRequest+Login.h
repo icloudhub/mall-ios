@@ -11,20 +11,44 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NetWorkRequest (Login)
-/**
- 用户名。密码登陆
- */
--(void)passlogin:(NSString*)name passwd:(NSString*)passwd block:(NREndBlock)endblock;
 
-/**
- 注册
- */
--(void)register:(NSString*)name passwd:(NSString*)passwd tel:(NSString*)tel  authCode:(NSString*)authCode  reccode:(nullable NSString *)reccode block:(NREndBlock)endblock;
+#pragma mark - 密码登录接口
+/// 密码登录接口
+/// @param name 用户名
+/// @param passwd 密码
+/// @param endblock 接口回调
+-(void)passlogin:(NSString *)name passwd:(NSString *)passwd block:(NREndBlock)endblock;
 
-/**
- 获取验证码
- */
+#pragma mark - 注册接口
+/// 注册接口
+/// @param name 用户名
+/// @param passwd 密码
+/// @param tel 电话号码
+/// @param authCode 验证码
+/// @param reccode 邀请码
+/// @param endblock 接口回调
+-(void)registerWith:(NSString*)name passwd:(NSString*)passwd tel:(NSString*)tel  authCode:(NSString*)authCode  reccode:(nullable NSString *)reccode block:(NREndBlock)endblock;
+
+#pragma mark - 获取验证码
+/// 获取验证码
+/// @param tel 电话号码
+/// @param endblock 接口回调
 -(void)getAuthCode:(NSString*)tel block:(NREndBlock)endblock;
+
+#pragma mark - 验证码登录接口
+/// 验证码登录接口
+/// @param code 验证码
+/// @param phone 手机号码
+/// @param endblock 接口回调
+- (void)loginWihtCode:(NSString *)code phone:(NSString *)phone endBlock:(NREndBlock)endblock;
+
+#pragma mark - 修改密码接口
+/// 修改密码接口
+/// @param authCode 验证码
+/// @param telephone 电话号码
+/// @param password 新密码
+/// @param endblock 接口回调
+- (void)updataPasswdWihtCode:(NSString *)authCode phone:(NSString *)telephone password:(NSString *)password endBlock:(NREndBlock)endblock;
 
 @end
 

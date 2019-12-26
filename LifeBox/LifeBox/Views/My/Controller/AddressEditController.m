@@ -9,7 +9,7 @@
 #import "AddressEditController.h"
 #import "AddressSheet.h"
 
-@interface AddressEditController () {
+@interface AddressEditController ()<UITextFieldDelegate, UITextViewDelegate, ChooseAddressDelegate> {
     ///地址View
     UIView *addressView;
     ///设置View
@@ -38,6 +38,10 @@
     UILabel *placeLab;
     ///选择区域
     AddressSheet *chooseArea;
+    ///默认地址数据
+    NSString *defaultStr;
+    ///选择后地址信息数据
+    AddressData *selectData;
 }
 
 @end
@@ -47,13 +51,18 @@
 #pragma mark - 视图层
 - (void)viewDidLoad {
     [super viewDidLoad];
-    if ([_markStr intValue] == 0) {
+    if (_passData == nil) {
         [self setWhiteNaviWithTitle:@"新增收货地址"];
     }else{
         [self setWhiteNaviWithTitle:@"编辑收货地址"];
     }
     self.view.backgroundColor = S_COBackground;
     [self createUI];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.view endEditing:YES];
 }
 
 #pragma mark - 创建UI
@@ -109,6 +118,7 @@
                         range:NSMakeRange(0, nameHolder.length)];
     consigneeTF.attributedPlaceholder = placeName;
     consigneeTF.font = [UIFont systemFontOfSize:Scale750(30)];
+    consigneeTF.delegate = self;
     [addressView addSubview:consigneeTF];
     /*
      * 手机号码
@@ -127,6 +137,7 @@
                       range:NSMakeRange(0, phoneHolder.length)];
     phoneTF.attributedPlaceholder = placePhone;
     phoneTF.font = [UIFont systemFontOfSize:Scale750(30)];
+    phoneTF.delegate = self;
     [addressView addSubview:phoneTF];
     /*
      * 所在地区
@@ -148,6 +159,7 @@
     detailedTV = [[UITextView alloc] init];
     detailedTV.font = [UIFont systemFontOfSize:Scale750(30)];
     detailedTV.backgroundColor = [UIColor whiteColor];
+    detailedTV.delegate = self;
     [addressView addSubview:detailedTV];
     /*
      * 占位符
@@ -170,7 +182,7 @@
     defaultBtn = [[UIButton alloc] init];
     [defaultBtn setBackgroundImage:[UIImage imageNamed:@"ic_shut_down"] forState:UIControlStateNormal];
     [defaultBtn setBackgroundImage:[UIImage imageNamed:@"ic_shut_down"] forState:UIControlStateHighlighted];
-    [defaultBtn addTarget:self action:@selector(defaultBtnClicked) forControlEvents:UIControlEventTouchUpInside];
+    [defaultBtn addTarget:self action:@selector(defaultBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [setView addSubview:defaultBtn];
     /*
      * 删除View
@@ -179,6 +191,7 @@
     deleteBtn.backgroundColor = [UIColor whiteColor];
     [deleteBtn addTarget:self action:@selector(deleteBtnClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:deleteBtn];
+    [self reloadUIWithAddreddData];
 }
 
 #pragma mark - 适配
@@ -294,26 +307,211 @@
     }];
 }
 
+#pragma mark - 刷新数据
+- (void)reloadUIWithAddreddData {
+    if (_passData != nil) {
+        //姓名
+        consigneeTF.text = _passData.name;
+        //电话
+        phoneTF.text = _passData.phoneNumber;
+        //省市区
+        regionLab.textColor = RGBColor(51, 51, 51);
+        NSString *tempStr = [NSString stringWithFormat:@"%@ %@ %@", _passData.province, _passData.city, _passData.region];
+        regionLab.text = tempStr;
+        //详细地址
+        placeLab.hidden = YES;
+        detailedTV.text = _passData.detailAddress;
+        defaultStr = _passData.defaultStatus;
+        //默认地址
+        if ([defaultStr intValue] == 1) {
+            [defaultBtn setBackgroundImage:[UIImage imageNamed:@"ic_turn_on"] forState:UIControlStateNormal];
+            [defaultBtn setBackgroundImage:[UIImage imageNamed:@"ic_turn_on"] forState:UIControlStateHighlighted];
+            defaultBtn.selected = YES;
+        }else{
+            [defaultBtn setBackgroundImage:[UIImage imageNamed:@"ic_shut_down"] forState:UIControlStateNormal];
+            [defaultBtn setBackgroundImage:[UIImage imageNamed:@"ic_shut_down"] forState:UIControlStateHighlighted];
+            defaultBtn.selected = NO;
+        }
+        selectData = _passData;
+    }else{
+        deleteBtn.hidden = YES;
+    }
+}
+
 #pragma mark - 保存按钮点击
 - (void)saveBtnClicked {
-    
+    [self.view endEditing:YES];
+    /*
+     * 输入内容判断
+     */
+    if (consigneeTF.text.length == 0) {
+        [self.view ug_msg:@"请输入姓名"];
+        return;
+    }
+    if (phoneTF.text.length == 0) {
+        [self.view ug_msg:@"请输入手机号"];
+        return;
+    }else{
+        if (phoneTF.text.length < 11) {
+            [self.view ug_msg:@"手机号码位数错误"];
+            return;
+        }
+    }
+    if ([regionLab.text isEqualToString:@"所在地区"]) {
+        [self.view ug_msg:@"请选择位置信息"];
+        return;
+    }
+    if (detailedTV.text.length == 0) {
+        [self.view ug_msg:@"输入详细地址以便精准配送哦"];
+        return;
+    }
+    /*
+     * 请求数据处理
+     */
+    NSDictionary *tempDic;
+    if (_passData == nil) {
+        tempDic = [[NSDictionary alloc] initWithObjectsAndKeys:consigneeTF.text, @"name", phoneTF.text, @"phoneNumber", selectData.province, @"province", selectData.city, @"city", selectData.region, @"region", detailedTV.text, @"detailAddress", defaultStr, @"defaultStatus", nil];
+        [self addNewHttpData:tempDic];
+    }else{
+        tempDic = [[NSDictionary alloc] initWithObjectsAndKeys:consigneeTF.text, @"name", phoneTF.text, @"phoneNumber", selectData.province, @"province", selectData.city, @"city", selectData.region, @"region", detailedTV.text, @"detailAddress", defaultStr, @"defaultStatus", nil];
+        [self updateHttpData:tempDic];
+    }
 }
 
 #pragma mark - 选择地区按钮点击
 - (void)chooseBtnClicked {
+    [self.view endEditing:YES];
     chooseArea = [[AddressSheet alloc] init];
+    AreaData *pData = [[AreaData alloc] init];
+    pData.name = _passData.province;
+    chooseArea.provinceData = pData;
+    AreaData *cData = [[AreaData alloc] init];
+    cData.name = _passData.city;
+    chooseArea.cityData = cData;
+    AreaData *aData = [[AreaData alloc] init];
+    aData.name = _passData.region;
+    chooseArea.areaData = aData;
+    chooseArea.delegate = self;
     [chooseArea showView];
 }
 
 #pragma mark - 默认按钮点击
-- (void)defaultBtnClicked {
-    [defaultBtn setBackgroundImage:[UIImage imageNamed:@"ic_turn_on"] forState:UIControlStateNormal];
-    [defaultBtn setBackgroundImage:[UIImage imageNamed:@"ic_turn_on"] forState:UIControlStateHighlighted];
+- (void)defaultBtnClicked:(UIButton *)btn {
+    if (btn.isSelected == YES) {
+        [defaultBtn setBackgroundImage:[UIImage imageNamed:@"ic_shut_down"] forState:UIControlStateNormal];
+        [defaultBtn setBackgroundImage:[UIImage imageNamed:@"ic_shut_down"] forState:UIControlStateHighlighted];
+        defaultStr = @"0";
+    }else{
+        [defaultBtn setBackgroundImage:[UIImage imageNamed:@"ic_turn_on"] forState:UIControlStateNormal];
+        [defaultBtn setBackgroundImage:[UIImage imageNamed:@"ic_turn_on"] forState:UIControlStateHighlighted];
+        defaultStr = @"1";
+    }
+    btn.selected = !btn.selected;
 }
 
 #pragma mark - 删除按钮点击
 - (void)deleteBtnClicked {
-    
+    [self.view endEditing:YES];
+    [self.view ug_loading];
+    [[[NetWorkRequest alloc] init] deleteAddressWithID:[_passData.addressId integerValue] endBlock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
+        [self.view ug_hiddenLoading];
+        if (error) {
+            [self.view ug_msg:error.domain];
+        }else{
+            [self.view ug_msg:@"删除成功"];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    }];
+}
+
+#pragma mark - 新增地址接口
+- (void)addNewHttpData:(NSDictionary *)dic {
+    [self.view ug_loading];
+    [[[NetWorkRequest alloc] init] addAddressParams:dic endBlock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
+        [self.view ug_hiddenLoading];
+        if (error) {
+            [self.view ug_msg:error.domain];
+        }else{
+            [self.view ug_msg:@"添加成功"];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    }];
+}
+
+#pragma mark - 更新地址接口
+- (void)updateHttpData:(NSDictionary *)dic {
+    [self.view ug_loading];
+    [[[NetWorkRequest alloc] init] updateAddressWithID:[_passData.addressId integerValue] Params:dic endBlock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
+        [self.view ug_hiddenLoading];
+        if (error) {
+            [self.view ug_msg:error.domain];
+        }else{
+            [self.view ug_msg:@"修改成功"];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    }];
+}
+
+#pragma mark - 选择省市区代理
+- (void)selectProvince:(NSString *)province city:(NSString *)city area:(NSString *)area {
+    [chooseArea dismissView];
+    selectData = [[AddressData alloc] init];
+    selectData.province = province;
+    selectData.city = city;
+    selectData.region = area;
+    //省市区
+    regionLab.textColor = RGBColor(51, 51, 51);
+    NSString *tempStr = [NSString stringWithFormat:@"%@ %@ %@", selectData.province, selectData.city, selectData.region];
+    regionLab.text = tempStr;
+}
+
+#pragma mark - UITextField代理
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    //得到输入框的内容
+    NSString *toBeString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    //怕输入是否有空格
+    if ([toBeString spaceJudgment]) {
+        [addressView ug_msg:@"不能输入空格"];
+        return NO;
+    }
+    if (![string isEqualToString:@""]) {
+        if ([string isEqualToString:@"\n"]) {
+            return NO;
+        }
+        if (textField == phoneTF) {
+            if (![toBeString isPureInt]) {
+                [addressView ug_msg:@"手机号码格式有误"];
+                return NO;
+            }
+            if (toBeString.length > 11) {
+                return NO;
+            }
+        }
+        if (textField == consigneeTF) {
+            if (![toBeString inputToCompletejudgePureChinese]) {
+                [addressView ug_msg:@"姓名只能是中文"];
+                return NO;
+            }
+            if (toBeString.length > 10) {
+                return NO;
+            }
+        }
+    }
+    return YES;
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    NSString *toBeString = [textView.text stringByReplacingCharactersInRange:range withString:text];
+    //得到输入框的内容
+    if (![text isEqualToString:@""]) {
+        if (toBeString.length > 0) {
+            placeLab.hidden = YES;
+        }
+    }
+    if (toBeString.length <= 0) {
+        placeLab.hidden = NO;
+    }
+    return YES;
 }
 
 @end

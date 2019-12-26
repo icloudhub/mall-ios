@@ -33,6 +33,9 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - 正则匹配用户密码8-20位数字和字母组合
 - (BOOL)checkPassword;
 
+#pragma mark - 输入完成后判断是纯中文
+- (BOOL)inputToCompletejudgePureChinese;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -14,6 +14,7 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        self.backgroundColor = [UIColor whiteColor];
         [self createUI];
     }
     return self;
@@ -36,7 +37,7 @@
      * 商品图片
      */
     _goodsImg = [[UIImageView alloc] init];
-    _goodsImg.backgroundColor = [UIColor redColor];
+    _goodsImg.backgroundColor = [UIColor grayColor];
     [self addSubview:_goodsImg];
     [_goodsImg mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(Scale750(30));

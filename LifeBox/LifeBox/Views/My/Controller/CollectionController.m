@@ -26,6 +26,7 @@ static NSString *cellID = @"CollectionCellID";
     [self setWhiteNaviWithTitle:@"收藏"];
     self.view.backgroundColor = S_COBackground;
     [self createUI];
+    [self getHttpRequest];
 }
 
 #pragma mark - 创建UI
@@ -48,6 +49,19 @@ static NSString *cellID = @"CollectionCellID";
     }];
 }
 
+#pragma mark - 接口请求
+- (void)getHttpRequest {
+    [self.view ug_loading];
+    [[[NetWorkRequest alloc] init] getCommentlistWithMemberId:@"1" endBlock:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
+        [self.view ug_hiddenLoading];
+        if (error) {
+            [self.view ug_msg:error.domain];
+        }else{
+            
+        }
+    }];
+}
+
 #pragma mark - UITableView代理
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CollectionCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
@@ -59,7 +73,7 @@ static NSString *cellID = @"CollectionCellID";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 6;
+    return 1;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

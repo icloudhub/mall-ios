@@ -199,7 +199,7 @@ static NSString *cellID = @"OrderViewCellID";
     tableView.separatorStyle = UITableViewCellEditingStyleNone;
     tableView.estimatedRowHeight = 60;
     tableView.rowHeight = UITableViewAutomaticDimension;
-    // 删除单元格分隔线的一个小技巧
+    //删除单元格分隔线的一个小技巧
     tableView.tableFooterView = [UIView new];
     [self.view addSubview:tableView];
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {

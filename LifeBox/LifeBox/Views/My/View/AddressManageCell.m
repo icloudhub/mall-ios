@@ -29,7 +29,6 @@
     _nameLab = [[UILabel alloc] init];
     _nameLab.font = [UIFont systemFontOfSize:Scale750(30)];
     _nameLab.textColor = RGBColor(51, 51, 51);
-    _nameLab.text = @"某某某";
     [self.contentView addSubview:_nameLab];
     /*
      * 电话
@@ -37,7 +36,6 @@
     _phoneLab = [[UILabel alloc] init];
     _phoneLab.font = [UIFont systemFontOfSize:Scale750(30)];
     _phoneLab.textColor = RGBColor(189, 189, 189);
-    _phoneLab.text = @"13823555555";
     [self.contentView addSubview:_phoneLab];
     /*
      * 默认
@@ -71,10 +69,10 @@
     _addressLab.numberOfLines = 0;
     _addressLab.font = [UIFont systemFontOfSize:Scale750(24)];
     _addressLab.textColor = RGBColor(51, 51, 51);
-    _addressLab.text = @"深圳市宝安区大益广场宝莲新村11巷11号深圳市宝安区大益广场宝莲新村11巷11号";
     [self.contentView addSubview:_addressLab];
 }
 
+#pragma mark - 适配
 - (void)layoutIfNeeded {
     [_nameLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(Scale750(30));
@@ -110,6 +108,31 @@
         make.right.mas_equalTo(self->line.mas_left).mas_offset(-Scale750(40));
         make.height.mas_greaterThanOrEqualTo(0);
     }];
+}
+
+#pragma mark - 刷新数据
+- (void)reloadCellUIWith:(AddressData *)data {
+    /*
+     * 姓名
+     */
+    _nameLab.text = data.name;
+    /*
+     * 电话号码
+     */
+    _phoneLab.text = data.phoneNumber;
+    /*
+     * 是否默认
+     */
+    if ([data.defaultStatus intValue] == 1) {
+        _defaultLab.hidden = NO;
+    }else{
+        _defaultLab.hidden = YES;
+    }
+    /*
+     * 地址
+     */
+    NSString *addressStr = [NSString stringWithFormat:@"%@%@%@%@", data.province, data.city, data.region, data.detailAddress];
+    _addressLab.text = addressStr;
 }
 
 

@@ -8,7 +8,6 @@
 
 #import "GoodsDefViewController.h"
 #import <WebKit/WebKit.h>
-#import "NetWorkRequest+Goods.h"
 #import "ProductModel.h"
 #import "NetWorkRequest+Shoping.h"
 #import "ConfimOrderVC.h"
@@ -580,6 +579,13 @@
         case 1003:{
             //收藏
             NSLog(@"收藏");
+            [[NetWorkRequest new] addCollectionWithWithMemberId:@"0" productId:@"26" endBlock:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
+                if (error) {
+                    [self.view ug_msg:error.domain];
+                }else{
+                    [self.view ug_msg:@"添加成功"];
+                }
+            }];
         }
             break;
         case 1004:{
@@ -595,13 +601,17 @@
 -(void)addToCar {
     ProductSKUModel *skudata = _productdata.skuStockList.firstObject;
     [[NetWorkRequest new] addCar:_productdata.productid skuId:skudata.skuid  block:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
-      
         if (error) {
             [self.view ug_msg:error.domain];
         }else{
             [self.view ug_msg:@"添加成功"];
         }
     }];
+}
+
+#pragma mark - 收藏接口
+- (void)addCollectionHttp {
+//    [[NetWorkRequest alloc] init] addCollectionWithParams:@"" endBlock:<#^(NSDictionary * _Nullable dataDict, NSError * _Nullable error)endblock#>
 }
 
 @end
