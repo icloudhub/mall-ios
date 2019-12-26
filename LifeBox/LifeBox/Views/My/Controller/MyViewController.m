@@ -17,7 +17,8 @@
 #import "MyOrderController.h"
 #import "SetViewController.h"
 
-@interface MyViewController ()<UITableViewDelegate, UITableViewDataSource, OrderCellDelegate, WalletCellDelegate, TooltCellDelegate>
+@interface MyViewController ()<UITableViewDelegate, UITableViewDataSource, OrderCellDelegate, WalletCellDelegate, TooltCellDelegate> {
+}
 
 ///数据展示
 @property (strong, nonatomic) UITableView *tableView;
@@ -114,7 +115,11 @@ static NSString *toolCellID = @"ToolCellID";
      */
     UILabel *nickLab = [[UILabel alloc] init];
     nickLab.font = [UIFont systemFontOfSize:Scale750(35)];
-    nickLab.text = @"我就是个昵称";
+    if ([Global_Variable shared].nickname == nil) {
+        nickLab.text = @"SHB000000";
+    }else{
+        nickLab.text = [Global_Variable shared].nickname;
+    }
     nickLab.textColor = [UIColor whiteColor];
     [headImg addSubview:nickLab];
     [nickLab mas_makeConstraints:^(MASConstraintMaker *make) {

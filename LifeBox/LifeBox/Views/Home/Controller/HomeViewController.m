@@ -115,11 +115,10 @@ static NSString *homeGoodsCellID = @"HomeGoodsCellID";
         make.width.height.mas_equalTo(Scale750(50));
     }];
     [shareBtn bk_addEventHandler:^(id sender) {
-        
-        
-        LoginViewController *ctl = [[LoginViewController alloc] init];
-        ctl.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:ctl animated:YES];
+        [UIApplication gotoLoginCtl];
+//        LoginViewController *ctl = [[LoginViewController alloc] init];
+//        ctl.hidesBottomBarWhenPushed = YES;
+//        [self.navigationController pushViewController:ctl animated:YES];
     } forControlEvents:UIControlEventTouchUpInside];
     /*
      * 自定义搜索框

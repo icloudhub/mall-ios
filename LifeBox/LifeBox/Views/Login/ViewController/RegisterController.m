@@ -17,6 +17,8 @@
 @property (strong, nonatomic) BaseTextField *phoneTF;
 ///验证码输入
 @property (strong, nonatomic) BaseTextField *codeTF;
+///密码输入
+@property (strong, nonatomic) BaseTextField *passwdTF;
 ///邀请码输入
 @property (strong, nonatomic) BaseTextField *invitaTF;
 ///注册Btn
@@ -137,8 +139,16 @@
         make.height.mas_equalTo(Scale750(80));
     }];
     [_codeBtn bk_addEventHandler:^(id sender) {
-        [AppDelegate addObjectIndateDic:self->keyStr];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationDoit) name:APPTIMEINFORMATION object:nil];
+        [self.view endEditing:YES];
+        if (self.phoneTF.text.length == 0) {
+            return;
+        }else{
+            if (self.phoneTF.text.length < 11) {
+                [self.view ug_msg:@"手机号码有误"];
+                return;
+            }
+        }
+        [self getCodeHttpWith:self->_phoneTF.text];
     } forControlEvents:UIControlEventTouchUpInside];
     /*
      * 验证码输入框
@@ -168,7 +178,36 @@
         make.left.right.height.mas_equalTo(line1);
     }];
     /*
-     * 手机号输入
+     * 密码输入
+     */
+    _passwdTF = [[BaseTextField alloc] init];
+    _passwdTF = [[BaseTextField alloc] init];
+    _passwdTF.borderStyle = UITextBorderStyleNone;
+    _passwdTF.clearButtonMode = UITextFieldViewModeWhileEditing;
+    _passwdTF.keyboardType = UIKeyboardTypeDefault;
+    _passwdTF.font = [UIFont systemFontOfSize:Scale750(30)];
+    _passwdTF.placeholder = @"设置密码(6-15位数字与字母)";
+    _passwdTF.secureTextEntry = YES;
+    _passwdTF.delegate = self;
+    [self.view addSubview:_passwdTF];
+    [_passwdTF mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.mas_equalTo(line3.mas_top);
+        make.left.mas_equalTo(line3.mas_left).mas_offset(Scale750(10));
+        make.right.mas_equalTo(line3.mas_right).mas_offset(-Scale750(10));
+        make.height.mas_equalTo(Scale750(80));
+    }];
+    /*
+     * 分割线
+     */
+    UIView *line4 = [[UIView alloc] init];
+    line4.backgroundColor = COLOREE;
+    [self.view addSubview:line4];
+    [line4 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(line3.mas_bottom).mas_offset(Scale750(110));
+        make.left.right.height.mas_equalTo(line1);
+    }];
+    /*
+     * 邀请码输入
      */
     _invitaTF = [[BaseTextField alloc] init];
     _invitaTF.borderStyle = UITextBorderStyleNone;
@@ -179,9 +218,9 @@
     _invitaTF.delegate = self;
     [self.view addSubview:_invitaTF];
     [_invitaTF mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.mas_equalTo(line3.mas_top);
-        make.left.mas_equalTo(line3.mas_left).mas_offset(Scale750(10));
-        make.right.mas_equalTo(line3.mas_right).mas_offset(-Scale750(10));
+        make.bottom.mas_equalTo(line4.mas_top);
+        make.left.mas_equalTo(line4.mas_left).mas_offset(Scale750(10));
+        make.right.mas_equalTo(line4.mas_right).mas_offset(-Scale750(10));
         make.height.mas_equalTo(Scale750(80));
     }];
     /*
@@ -196,7 +235,7 @@
     _registerBtn.enabled = NO;
     [self.view addSubview:_registerBtn];
     [_registerBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(line3.mas_bottom).mas_offset(Scale750(80));
+        make.top.mas_equalTo(line4.mas_bottom).mas_offset(Scale750(80));
         make.left.mas_equalTo(Scale750(60));
         make.right.mas_equalTo(-Scale750(60));
         make.height.mas_equalTo(Scale750(90));
@@ -222,7 +261,14 @@
 
 #pragma mark - 注册Btn点击
 - (void)registerBtnClicked {
-    
+    /*
+     * 数据判断
+     */
+    if (![_passwdTF.text checkPassword]) {
+        [self.view ug_msg:@"密码格式有误"];
+        return;
+    }
+    [self getRegisteredHttp];
 }
 
 #pragma mark - 验证码监听
@@ -236,6 +282,37 @@
         [_codeBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
         [AppDelegate removeObjectKey:keyStr];
     }
+}
+
+#pragma mark - 验证码接口
+- (void)getCodeHttpWith:(NSString *)phone {
+    [self.view ug_loading];
+    [[[NetWorkRequest alloc] init] getAuthCode:phone block:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
+        [self.view ug_hiddenLoading];
+        if (error) {
+            [self.view ug_msg:error.domain];
+        }else{
+            [AppDelegate addObjectIndateDic:self->keyStr];
+            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationDoit) name:APPTIMEINFORMATION object:nil];
+        }
+    }];
+}
+
+#pragma mark - 注册接口
+- (void)getRegisteredHttp {
+    [self.view ug_loading];
+    NSString *timeStr = [NSString getCurrentTimeBySecond];
+    NSString *tempStr = [timeStr substringFromIndex:timeStr.length - 6];
+    NSString *nameStr = [NSString stringWithFormat:@"SHB%@", tempStr];
+    [[[NetWorkRequest alloc] init] registerWithTel:_phoneTF.text passwd:[_passwdTF.text encryptionSha1] authCode:_codeTF.text reccode:_invitaTF.text username:nameStr block:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
+        [self.view ug_hiddenLoading];
+        if (error) {
+            [self.view ug_msg:error.domain];
+        }else{
+            [self.view ug_msg:@"注册成功"];
+            [self.navigationController popViewControllerAnimated:NO];
+        }
+    }];
 }
 
 #pragma mark - UITextField代理
@@ -270,6 +347,11 @@
                 return NO;
             }
         }
+        if (textField == _passwdTF) {
+            if (toBeString.length > 15) {
+                return NO;
+            }
+        }
         if (textField == _invitaTF) {
             if (toBeString.length > 8) {
                 return NO;
@@ -282,7 +364,7 @@
             _registerBtn.backgroundColor = RGBColor(172, 215, 187);
             [_registerBtn setTitleColor:RGBColor(216, 236, 223) forState:UIControlStateNormal];
         }
-        if (_codeTF.text.length == 6) {
+        if (_codeTF.text.length == 6 && _passwdTF.text.length >= 6) {
             if (toBeString.length == 11) {
                 _registerBtn.enabled = YES;
                 _registerBtn.backgroundColor = S_COGreenBack;
@@ -296,8 +378,22 @@
             _registerBtn.backgroundColor = RGBColor(172, 215, 187);
             [_registerBtn setTitleColor:RGBColor(216, 236, 223) forState:UIControlStateNormal];
         }
-        if (_phoneTF.text.length == 11) {
+        if (_phoneTF.text.length == 11 && _passwdTF.text.length >= 6) {
             if (toBeString.length > 5) {
+                _registerBtn.enabled = YES;
+                _registerBtn.backgroundColor = S_COGreenBack;
+                [_registerBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            }
+        }
+    }
+    if (textField == _passwdTF) {
+        if (toBeString.length < 6) {
+            _registerBtn.enabled = NO;
+            _registerBtn.backgroundColor = RGBColor(172, 215, 187);
+            [_registerBtn setTitleColor:RGBColor(216, 236, 223) forState:UIControlStateNormal];
+        }
+        if (_codeTF.text.length == 6 && _phoneTF.text.length == 11) {
+            if (toBeString.length >= 6) {
                 _registerBtn.enabled = YES;
                 _registerBtn.backgroundColor = S_COGreenBack;
                 [_registerBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];

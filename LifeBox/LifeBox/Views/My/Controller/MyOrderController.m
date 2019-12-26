@@ -10,13 +10,15 @@
 #import "OrderViewCell.h"
 #import "OrderDetailsController.h"
 
-@interface MyOrderController ()<UITableViewDelegate, UITableViewDataSource> {
+@interface MyOrderController ()<UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate> {
     ///数据展示tableView
     UITableView *tableView;
     ///选择View
     UIView *chooseView;
     ///指示线
     UIView *lineView;
+    ///数据数组
+    NSArray *dataArr;
 }
 
 @end
@@ -143,23 +145,26 @@ static NSString *cellID = @"OrderViewCellID";
     lineView.backgroundColor = S_COGreenBack;
     [chooseView addSubview:lineView];
     UIButton *selectBtn;
+    NSString *stateStr;
     switch (_selectIndex) {
         case 1:
         {
             //待付款
             selectBtn = paymentBtn;
+            stateStr = @"0";
         }
             break;
         case 2:
         {
-            //待发货
+            //待自提
             selectBtn = sendBtn;
         }
             break;
         case 3:
         {
-            //待收货
+            //待配送
             selectBtn = receivedBtn;
+            stateStr = @"1";
         }
             break;
         case 4:
@@ -194,6 +199,8 @@ static NSString *cellID = @"OrderViewCellID";
     tableView = [[UITableView alloc] init];
     tableView.delegate = self;
     tableView.dataSource = self;
+    tableView.emptyDataSetSource = self;
+    tableView.emptyDataSetDelegate = self;
     tableView.backgroundColor = S_COBackground;
     tableView.bounces = NO;
     tableView.separatorStyle = UITableViewCellEditingStyleNone;
@@ -206,7 +213,10 @@ static NSString *cellID = @"OrderViewCellID";
         make.top.mas_equalTo(self->chooseView.mas_bottom);
         make.left.right.bottom.mas_equalTo(0);
     }];
-    
+    /*
+     * 接口请求
+     */
+    [self getOrderListWithState:stateStr];
 }
 
 #pragma mark - 选择Btn点击
@@ -232,6 +242,20 @@ static NSString *cellID = @"OrderViewCellID";
     }];
 }
 
+#pragma mark - 订单状态接口请求
+- (void)getOrderListWithState:(NSString *)state {
+    [self.view ug_loading];
+    [[NetWorkRequest new] getOrderStateListWithState:state pageSize:@"30" pageNum:@"1" endBlock:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
+        [self.view ug_hiddenLoading];
+        if (error) {
+            [self.view ug_msg:error.domain];
+        }else{
+            
+        }
+    }];
+}
+
+
 #pragma mark - UITableView代理
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     OrderViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
@@ -255,5 +279,20 @@ static NSString *cellID = @"OrderViewCellID";
     OrderDetailsController *detailsCtl = [[OrderDetailsController alloc] init];
     [self.navigationController pushViewController:detailsCtl animated:YES];
 }
+
+#pragma mark - 空数据代理
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView {
+    return [UIImage imageNamed:@"ic_gouwuchekong"];
+}
+
+- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
+    NSString *title = @"暂无该状态订单哦～";
+    NSDictionary *attributes = @{
+                                 NSFontAttributeName:[UIFont boldSystemFontOfSize:Scale750(28)],
+                                 NSForegroundColorAttributeName:[UIColor grayColor]
+                                 };
+    return [[NSAttributedString alloc] initWithString:title attributes:attributes];
+}
+
 
 @end

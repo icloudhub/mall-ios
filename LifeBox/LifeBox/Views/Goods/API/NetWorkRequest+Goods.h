@@ -34,10 +34,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - 商品添加收藏
 /// 商品添加收藏
-/// @param memberId 会员ID
 /// @param productId 商品ID
 /// @param endblock 请求结束回调
--(void)addCollectionWithWithMemberId:(NSString *)memberId productId:(NSString *)productId endBlock:(NREndBlock)endblock;
+-(void)addCollectionWithWithProductId:(NSString *)productId endBlock:(NREndBlock)endblock;
 
 #pragma mark - 商品取消收藏
 /// 商品取消收藏
@@ -52,7 +51,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param endblock 请求回调
 -(void)getCommentlistWithMemberId:(NSString *)memberId endBlock:(NREndBlock)endblock;
 
-#pragma mark - 获取订单数据接口
+#pragma mark - 获取不同状态订单接口
 /// 获取订单数据接口
 /// @param state 订单状态
 /// @param pageSize 一页个数

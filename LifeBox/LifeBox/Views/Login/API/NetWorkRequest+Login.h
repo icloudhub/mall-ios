@@ -21,13 +21,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - 注册接口
 /// 注册接口
-/// @param name 用户名
+/// @param username 用户名
 /// @param passwd 密码
 /// @param tel 电话号码
 /// @param authCode 验证码
 /// @param reccode 邀请码
 /// @param endblock 接口回调
--(void)registerWith:(NSString*)name passwd:(NSString*)passwd tel:(NSString*)tel  authCode:(NSString*)authCode  reccode:(nullable NSString *)reccode block:(NREndBlock)endblock;
+-(void)registerWithTel:(NSString*)tel passwd:(NSString*)passwd authCode:(NSString*)authCode reccode:(NSString*)reccode username:(NSString *)username block:(NREndBlock)endblock;
 
 #pragma mark - 获取验证码
 /// 获取验证码
