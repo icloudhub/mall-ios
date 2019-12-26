@@ -9,10 +9,9 @@
 #import "CollectionController.h"
 #import "CollectionCell.h"
 
-@interface CollectionController ()<UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate> {
-    ///数据展示tableView
-    UITableView *tableView;
-}
+@interface CollectionController ()<UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
+@property(strong,nonatomic) UITableView *tableView;
+@property(strong,nonatomic) NSMutableArray *collections;
 
 @end
 
@@ -34,21 +33,27 @@ static NSString *cellID = @"CollectionCellID";
     /*
      * 数据展示
      */
-    tableView = [[UITableView alloc] init];
-    tableView.delegate = self;
-    tableView.dataSource = self;
-    tableView.emptyDataSetSource = self;
-    tableView.emptyDataSetDelegate = self;
-    tableView.backgroundColor = S_COBackground;
-    tableView.separatorStyle = UITableViewCellEditingStyleNone;
+    self.tableView = [[UITableView alloc] init];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    _tableView.emptyDataSetSource = self;
+    _tableView.emptyDataSetDelegate = self;
+    _tableView.backgroundColor = S_COBackground;
+    _tableView.separatorStyle = UITableViewCellEditingStyleNone;
     // 删除单元格分隔线的一个小技巧
-    tableView.tableFooterView = [UIView new];
-    [self.view addSubview:tableView];
-    [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+    _tableView.tableFooterView = [UIView new];
+    [self.view addSubview:_tableView];
+    [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.bottom.mas_equalTo(0);
     }];
 }
-
+#pragma mark - get
+-(NSMutableArray *)collections{
+    if (!_collections) {
+        _collections = [NSMutableArray new];
+    }
+    return _collections;
+}
 #pragma mark - 接口请求
 - (void)getHttpRequest {
     [self.view ug_loading];
@@ -57,7 +62,8 @@ static NSString *cellID = @"CollectionCellID";
         if (error) {
             [self.view ug_msg:error.domain];
         }else{
-            
+            self.collections = dataDict;
+            [self.tableView reloadData];
         }
     }];
 }
@@ -68,12 +74,15 @@ static NSString *cellID = @"CollectionCellID";
     if (cell == nil) {
         cell = [[CollectionCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
+    NSDictionary *dataDict = [self.collections objectAtIndex:indexPath.row];
+//    [[cell.goodsImg sd_setImageWithURL:UG_URL(dataDict[@"productPic"])];
+    cell.goodsLab.text = dataDict[@"productName"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return self.collections.count;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

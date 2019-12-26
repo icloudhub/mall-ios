@@ -37,7 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param memberId 会员ID
 /// @param productId 商品ID
 /// @param endblock 请求结束回调
--(void)addCollectionWithWithMemberId:(NSString *)memberId productId:(NSString *)productId endBlock:(NREndBlock)endblock;
+-(void)addCollectionWithWithProductId:(NSString *)productId endBlock:(NREndBlock)endblock;
 
 #pragma mark - 商品取消收藏
 /// 商品取消收藏

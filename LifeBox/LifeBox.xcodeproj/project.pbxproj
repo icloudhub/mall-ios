@@ -267,6 +267,9 @@
 		84B954E22324E3BE00A7E8D2 /* ConfirmInfoData.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B954E12324E3BE00A7E8D2 /* ConfirmInfoData.m */; };
 		84BA6F942376505F0047796E /* GoodsBuyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BA6F932376505F0047796E /* GoodsBuyView.m */; };
 		84C29209235DEF5B00034213 /* NetWorkRequest+Business.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C29207235DEF5B00034213 /* NetWorkRequest+Business.m */; };
+		84F3400E23B4BA4100BAE696 /* NetWorkRequest+MyInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F3400C23B4BA4100BAE696 /* NetWorkRequest+MyInterface.m */; };
+		84F3401323B4BA5C00BAE696 /* AddressData.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F3400F23B4BA5C00BAE696 /* AddressData.m */; };
+		84F3401423B4BA5C00BAE696 /* AreaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F3401123B4BA5C00BAE696 /* AreaData.m */; };
 		A2245433E31B0B126C5C0D61 /* Pods_LifeBoxTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42783EC83E66FDB25449EC1A /* Pods_LifeBoxTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -684,6 +687,12 @@
 		84BA6F932376505F0047796E /* GoodsBuyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsBuyView.m; sourceTree = "<group>"; };
 		84C29207235DEF5B00034213 /* NetWorkRequest+Business.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NetWorkRequest+Business.m"; path = "LifeBox/Comment/RequestManagement/NetWorkRequest+Business.m"; sourceTree = SOURCE_ROOT; };
 		84C29208235DEF5B00034213 /* NetWorkRequest+Business.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NetWorkRequest+Business.h"; path = "LifeBox/Comment/RequestManagement/NetWorkRequest+Business.h"; sourceTree = SOURCE_ROOT; };
+		84F3400C23B4BA4100BAE696 /* NetWorkRequest+MyInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NetWorkRequest+MyInterface.m"; sourceTree = "<group>"; };
+		84F3400D23B4BA4100BAE696 /* NetWorkRequest+MyInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NetWorkRequest+MyInterface.h"; sourceTree = "<group>"; };
+		84F3400F23B4BA5C00BAE696 /* AddressData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressData.m; sourceTree = "<group>"; };
+		84F3401023B4BA5C00BAE696 /* AddressData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressData.h; sourceTree = "<group>"; };
+		84F3401123B4BA5C00BAE696 /* AreaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaData.m; sourceTree = "<group>"; };
+		84F3401223B4BA5C00BAE696 /* AreaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaData.h; sourceTree = "<group>"; };
 		8B45816D0134074CDFF8F87E /* Pods-LifeBoxUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeBoxUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LifeBoxUITests/Pods-LifeBoxUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CF018FD20FA4FDD9D71E8F8B /* Pods-LifeBoxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeBoxTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LifeBoxTests/Pods-LifeBoxTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -944,6 +953,10 @@
 		05F77C9D230E1F3C006A3CC4 /* Mode */ = {
 			isa = PBXGroup;
 			children = (
+				84F3401023B4BA5C00BAE696 /* AddressData.h */,
+				84F3400F23B4BA5C00BAE696 /* AddressData.m */,
+				84F3401223B4BA5C00BAE696 /* AreaData.h */,
+				84F3401123B4BA5C00BAE696 /* AreaData.m */,
 				050E0491230DC3E500DA5BFD /* PersonIconData.h */,
 				050E0492230DC3E500DA5BFD /* PersonIconData.m */,
 			);
@@ -1298,6 +1311,7 @@
 		8461E19023013A6B00764748 /* My */ = {
 			isa = PBXGroup;
 			children = (
+				84F3400B23B4BA4100BAE696 /* API */,
 				05BBBB70230F98B500C01FC3 /* View */,
 				05F77C9C230E1F3C006A3CC4 /* Controller */,
 				05F77C9D230E1F3C006A3CC4 /* Mode */,
@@ -1678,6 +1692,15 @@
 				84B954E12324E3BE00A7E8D2 /* ConfirmInfoData.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		84F3400B23B4BA4100BAE696 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				84F3400C23B4BA4100BAE696 /* NetWorkRequest+MyInterface.m */,
+				84F3400D23B4BA4100BAE696 /* NetWorkRequest+MyInterface.h */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2065,6 +2088,7 @@
 				8478A2712326384A005681CF /* NetWorkRequest+Shoping.m in Sources */,
 				8461E19F23013A6B00764748 /* NetWorkRequest.m in Sources */,
 				058C83D0232690BF007AA863 /* AddressEditController.m in Sources */,
+				84F3401323B4BA5C00BAE696 /* AddressData.m in Sources */,
 				8461E19E23013A6B00764748 /* UIApplication+Initialize.m in Sources */,
 				053791512314198A00DF4DA0 /* NoticeView.m in Sources */,
 				053791AF231B94CD00DF4DA0 /* NoDataView.m in Sources */,
@@ -2123,6 +2147,7 @@
 				84B2E05C2307067E00BC9197 /* UIControl+UG.m in Sources */,
 				0531E9FA2338645F00775D79 /* PersonInfoController.m in Sources */,
 				8461E19723013A6B00764748 /* UIApplication+LOG.m in Sources */,
+				84F3401423B4BA5C00BAE696 /* AreaData.m in Sources */,
 				05AC5C3423561A0F000584CB /* OrderPromptCell.m in Sources */,
 				0513E23223335ABC0008709B /* AddressSheet.m in Sources */,
 				05BBBB882312A08700C01FC3 /* ProfitViewCell.m in Sources */,
@@ -2134,6 +2159,7 @@
 				84B2E05B2307067E00BC9197 /* UITextView+UG.m in Sources */,
 				20A2F51F23726D7000B2C7AF /* SubjectData.m in Sources */,
 				8461E1B023013A6B00764748 /* main.m in Sources */,
+				84F3400E23B4BA4100BAE696 /* NetWorkRequest+MyInterface.m in Sources */,
 				8461E1CE230159DB00764748 /* DorViewAlertVC.m in Sources */,
 				0531EA18233A138D00775D79 /* GenderSheet.m in Sources */,
 				84B954DB2324B0C800A7E8D2 /* ConfimBottomView.m in Sources */,
