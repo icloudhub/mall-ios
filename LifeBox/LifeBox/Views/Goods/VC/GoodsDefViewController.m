@@ -48,6 +48,7 @@
 @property(strong, nonatomic) UIScrollView *scrollView;
 
 @property(strong, nonatomic) ProductModel *productdata;
+@property(strong, nonatomic) ProductSKUModel *selectsku;
 
 @end
 
@@ -473,7 +474,9 @@
         }else{
             ProductModel *temdata = [ProductModel yy_modelWithJSON:dataDict];
             [self reloadViewUIWith:temdata];
+            
             self.productdata =  [ProductModel yy_modelWithJSON:dataDict];
+            self.selectsku = _productdata.skuList.firstObject;
             if (weakSelf.productdata.detailMobileHtml.length>0 ) {
                 [self->_defWebview loadHTMLString:weakSelf.productdata.detailMobileHtml baseURL:nil];
             }else{
@@ -596,8 +599,8 @@
         [self.view ug_msg:@"商品数据有误"];
         return;
     }
-    ProductSKUModel *skudata = _productdata.skuStockList.firstObject;
-    [[NetWorkRequest new] addCar:_productdata.productid skuId:skudata.skuid  block:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
+    
+    [[NetWorkRequest new] addCar:_productdata.productid skuId:_selectsku.skuid  block:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
         if (error) {
             [self.view ug_msg:error.domain];
         }else{

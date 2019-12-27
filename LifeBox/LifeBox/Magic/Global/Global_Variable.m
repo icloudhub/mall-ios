@@ -54,8 +54,8 @@ static Global_Variable *sharedInstance = nil;
 #pragma mark - 获取服务IP地址
 - (NSString *)serviceIP{
     if (!_serviceIP) {
-        _serviceIP = @"http://120.77.202.156";  //测试环境
-//        _serviceIP = @"http://10.10.10.226";  //测试环境
+//        _serviceIP = @"http://120.77.202.156";  //测试环境
+        _serviceIP = @"http://10.10.11.106";  //测试环境
     }
     return _serviceIP;
 }
@@ -101,6 +101,7 @@ static Global_Variable *sharedInstance = nil;
     if (![userinfo objectForKey:@"userinfo"]) {
         return nil;
     }
+    return @"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0IiwiY3JlYXRlZCI6MTU3NzQ0NDAwMTQ1MSwiZXhwIjoxNTc4MDQ4ODAxfQ.3I0radYZkxpiCVcLu_TTtW-eLLgWTOG-Jp3YH_Y8p_Y45cfJ5lnvGB0skJTiSnzJyiDvYYaeyzbJ5auDvFxaRw";
     return [userinfo objectForKey:@"token"];
 }
 
