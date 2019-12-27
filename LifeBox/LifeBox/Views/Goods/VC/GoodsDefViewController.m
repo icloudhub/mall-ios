@@ -599,6 +599,10 @@
 
 #pragma mark - 添加到购物车
 -(void)addToCar {
+    if(!_productdata){
+        [self.view ug_msg:@"商品数据有误"];
+        return;
+    }
     ProductSKUModel *skudata = _productdata.skuStockList.firstObject;
     [[NetWorkRequest new] addCar:_productdata.productid skuId:skudata.skuid  block:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
         if (error) {
