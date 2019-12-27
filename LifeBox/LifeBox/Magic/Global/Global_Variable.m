@@ -54,8 +54,8 @@ static Global_Variable *sharedInstance = nil;
 #pragma mark - 获取服务IP地址
 - (NSString *)serviceIP{
     if (!_serviceIP) {
-//        _serviceIP = @"http://120.77.202.156";  //测试环境
-        _serviceIP = @"http://10.10.10.226";  //测试环境
+        _serviceIP = @"http://120.77.202.156";  //测试环境
+//        _serviceIP = @"http://10.10.10.226";  //测试环境
     }
     return _serviceIP;
 }
@@ -76,28 +76,32 @@ static Global_Variable *sharedInstance = nil;
     }
     return _searchPort;
 }
--(NSString *)userid{
+
+#pragma mark - 获取用户ID
+-(NSString *)userid {
     NSDictionary *userinfo = [[NSUserDefaults standardUserDefaults]objectForKey:@"LoginUserInfo"];
     if (![userinfo objectForKey:@"userinfo"]) {
         return nil;
     }
     return [[userinfo objectForKey:@"userinfo"] objectForKey:@"id"];
 }
--(NSString *)nickname{
+
+#pragma mark - 获取用户昵称
+-(NSString *)nickname {
     NSDictionary *userinfo = [[NSUserDefaults standardUserDefaults]objectForKey:@"LoginUserInfo"];
     if (![userinfo objectForKey:@"userinfo"]) {
         return nil;
     }
-    return [[userinfo objectForKey:@"userinfo"] objectForKey:@"nickname"];
+    return [[userinfo objectForKey:@"userinfo"] objectForKey:@"username"];
 }
 
--(NSString *)token{
+#pragma mark - 获取用户token
+-(NSString *)token {
     NSDictionary *userinfo = [[NSUserDefaults standardUserDefaults] objectForKey:@"LoginUserInfo"];
-//    if (![userinfo objectForKey:@"userinfo"]) {
-//        return nil;
-//    }
-//    return [userinfo objectForKey:@"token"];
-    return @"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0IiwiY3JlYXRlZCI6MTU3Njk5OTY1NTQ3OSwiZXhwIjoxNTc3NjA0NDU1fQ.03DeX5qgDeWvq8ptI_Rmuyc20GSHL2McBzMWBUAmmkZDmXc8FSPoJbFLIUxyORKGNjeStbYQMY2vD8SYsH0OyQ";
+    if (![userinfo objectForKey:@"userinfo"]) {
+        return nil;
+    }
+    return [userinfo objectForKey:@"token"];
 }
 
 @end

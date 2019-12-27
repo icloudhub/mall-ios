@@ -36,6 +36,12 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - 输入完成后判断是纯中文
 - (BOOL)inputToCompletejudgePureChinese;
 
+#pragma mark - sha1加密方式
+- (NSString *)encryptionSha1;
+
+#pragma mark - 获取时间戳(秒为单位)
++ (NSString *)getCurrentTimeBySecond;
+
 @end
 
 NS_ASSUME_NONNULL_END

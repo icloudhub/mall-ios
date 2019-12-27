@@ -15,6 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - 创建主界面
 + (void)markWindownRootVC;
 
+#pragma mark - 去登录界面
++ (void)gotoLoginCtl;
+
 @end
 
 NS_ASSUME_NONNULL_END

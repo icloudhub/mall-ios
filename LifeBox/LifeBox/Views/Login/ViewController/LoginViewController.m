@@ -7,7 +7,6 @@
 //
 
 #import "LoginViewController.h"
-#import "NetWorkRequest+Login.h"
 #import "Userinfo.h"
 #import "LoginCodeView.h"
 #import "LoginPwView.h"
@@ -73,6 +72,9 @@
         make.top.mas_equalTo(SAFE_Top+ Scale750(20));
         make.width.height.mas_equalTo(Scale750(40));
     }];
+    [clostBtn bk_addEventHandler:^(id sender) {
+        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    } forControlEvents:UIControlEventTouchUpInside];
     /*
      * 登录标题
      */
@@ -298,22 +300,75 @@
 - (void)loginBtnClicked:(UIButton *)btn {
     if (btn.tag == 1000) {
         //验证码登录
-        
+        [self codeBtnClicked];
     }else{
         //密码登录
-        
+        [self loginWithPasswdHttp];
     }
 }
 
 #pragma mark - 获取验证码Btn点击
 - (void)codeBtnClicked {
-    [AppDelegate addObjectIndateDic:self->keyStr];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationDoit) name:APPTIMEINFORMATION object:nil];
+    [self.view endEditing:YES];
+    if (self.codeView.phoneTF.text.length == 0) {
+        return;
+    }else{
+        if (self.codeView.phoneTF.text.length < 11) {
+            [self.view ug_msg:@"手机号码有误"];
+            return;
+        }
+    }
+    [self getCodeHttpWithPhone:self.codeView.phoneTF.text];
+}
+
+#pragma mark - 密码登录接口
+- (void)loginWithPasswdHttp {
+    [self.view ug_loading];
+    [[NetWorkRequest new] passlogin:_pwView.phoneTF.text passwd:[_pwView.passwTF.text encryptionSha1] block:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
+        [self.view ug_hiddenLoading];
+        if (error) {
+            [self.view ug_msg:error.domain];
+        }else{
+            [UIView animateWithDuration:1 animations:^{
+                [self.view ug_msg:@"登陆成功"];
+            } completion:^(BOOL finished) {
+                [[NSUserDefaults standardUserDefaults]setObject:dataDict forKey:@"LoginUserInfo"];
+                [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+            }];
+        }
+    }];
+}
+
+#pragma mark - 验证码登录接口
+- (void)loginWithCodeHttp {
+    [self.view ug_loading];
+    [[NetWorkRequest new] loginWihtCode:_codeView.codeTF.text phone:_codeView.phoneTF.text endBlock:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
+        [self.view ug_hiddenLoading];
+        if (error) {
+            [self.view ug_msg:error.domain];
+        }else{
+            [UIView animateWithDuration:1 animations:^{
+                [self.view ug_msg:@"登陆成功"];
+            } completion:^(BOOL finished) {
+                [[NSUserDefaults standardUserDefaults]setObject:dataDict forKey:@"LoginUserInfo"];
+                [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+            }];
+        }
+    }];
 }
 
 #pragma mark - 请求验证码接口
-- (void)getCodeHttp {
-    
+- (void)getCodeHttpWithPhone:(NSString *)phone {
+    [self.view ug_loading];
+    [[[NetWorkRequest alloc] init] getAuthCode:phone block:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
+        [self.view ug_hiddenLoading];
+        if (error) {
+            [self.view ug_msg:error.domain];
+        }else{
+            [AppDelegate addObjectIndateDic:self->keyStr];
+            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationDoit) name:APPTIMEINFORMATION object:nil];
+        }
+    }];
 }
 
 #pragma mark - 验证码监听
@@ -328,18 +383,5 @@
         [AppDelegate removeObjectKey:keyStr];
     }
 }
-
-//[[NetWorkRequest new] passlogin:username passwd:password block:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
-//    if (error) {
-//        [self.view ug_msg:error.domain];
-//    }else{
-//       
-//        [self.view ug_msg:@"登陆成功"];
-//        [[NSUserDefaults standardUserDefaults]setObject:dataDict forKey:@"LoginUserInfo"];
-//        [self.view ug_msg:[Global_Variable shared].token];
-//       
-//        
-//    }
-//}];
 
 @end

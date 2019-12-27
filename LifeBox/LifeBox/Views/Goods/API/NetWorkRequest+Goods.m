@@ -38,7 +38,7 @@
 
 #pragma mark - 商品添加收藏
 -(void)addCollectionWithWithProductId:(NSString *)productId endBlock:(NREndBlock)endblock {
-    NSString *url = [NSString stringWithFormat:@"%@/member/collection/addProduct/%@",BASEURL,productId];
+    NSString *url = [NSString stringWithFormat:@"%@/member/collection/addProduct/%@", BASEURL, productId];
     [self post:url param:nil head:nil endblock:endblock];
 }
 
@@ -55,7 +55,7 @@
      [self get:url param:nil head:nil endblock:endblock];
 }
 
-#pragma mark - 获取订单数据接口
+#pragma mark - 获取不同状态订单接口
 -(void)getOrderStateListWithState:(NSString *)state pageSize:(NSString *)pageSize pageNum:(NSString *)pageNum endBlock:(NREndBlock)endblock {
     NSString *url = [NSString stringWithFormat:@"%@/order/orderlist", BASEURL];
     NSDictionary *param = @{

@@ -578,14 +578,7 @@
             break;
         case 1003:{
             //收藏
-            NSLog(@"收藏");
-            [[NetWorkRequest new] addCollectionWithWithProductId:@"26" endBlock:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
-                if (error) {
-                    [self.view ug_msg:error.domain];
-                }else{
-                    [self.view ug_msg:@"添加成功"];
-                }
-            }];
+            [self addCollectionHttp];
         }
             break;
         case 1004:{
@@ -615,7 +608,16 @@
 
 #pragma mark - 收藏接口
 - (void)addCollectionHttp {
-//    [[NetWorkRequest alloc] init] addCollectionWithParams:@"" endBlock:<#^(NSDictionary * _Nullable dataDict, NSError * _Nullable error)endblock#>
+    [self.view ug_loading];
+    NSString *productidStr = _productdata.productid;
+    [[[NetWorkRequest alloc] init] addCollectionWithWithProductId:productidStr endBlock:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
+        [self.view ug_hiddenLoading];
+        if (error) {
+            [self.view ug_msg:error.domain];
+        }else{
+            [self.view ug_msg:@"收藏成功"];
+        }
+    }];
 }
 
 @end

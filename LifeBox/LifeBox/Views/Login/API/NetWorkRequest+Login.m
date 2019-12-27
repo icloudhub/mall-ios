@@ -21,16 +21,16 @@
 }
 
 #pragma mark - 注册接口
--(void)registerWith:(NSString*)name passwd:(NSString*)passwd tel:(NSString*)tel  authCode:(NSString*)authCode  reccode:(NSString*)reccode  block:(NREndBlock)endblock{
+-(void)registerWithTel:(NSString*)tel passwd:(NSString*)passwd authCode:(NSString*)authCode reccode:(NSString*)reccode username:(NSString *)username block:(NREndBlock)endblock {
     NSString *url = [NSString stringWithFormat:@"%@/sso/register",BASEURL];
     NSDictionary *param = @{
-                               @"username":name,
-                               @"password":passwd,
-                               @"telephone":tel,
-                               @"authCode":authCode,
+                               @"password": passwd,
+                               @"telephone": tel,
+                               @"authCode": authCode,
+                               @"username": username
                                };
     NSMutableDictionary *muparam = [[NSMutableDictionary alloc]initWithDictionary:param];
-    if(reccode){
+    if(reccode.length != 0){
         [muparam setObject:reccode forKey:reccode];
     }
     [self post:url param:muparam head:nil endblock:endblock];
@@ -50,7 +50,7 @@
     NSString *url = [NSString stringWithFormat:@"%@/sso/smslogin",BASEURL];
     NSDictionary *param = @{
                             @"authCode": code,
-                            @"telephone": phone,
+                            @"telephone": phone
                             };
     [self post:url param:param head:nil endblock:endblock];
 }
@@ -61,7 +61,7 @@
     NSDictionary *param = @{
                             @"authCode": authCode,
                             @"telephone": telephone,
-                            @"password": password,
+                            @"password": password
                             };
     [self post:url param:param head:nil endblock:endblock];
 }

@@ -8,6 +8,7 @@
 
 #import "UIApplication+Initialize.h"
 #import "MyTabBarController.h"
+#import "LoginViewController.h"
 
 @implementation UIApplication (Initialize)
 
@@ -19,6 +20,14 @@
     }
     RTRootNavigationController *mainVC = [[RTRootNavigationController alloc] initWithRootViewController:[[MyTabBarController alloc] init]];
     awindow.rootViewController = mainVC;
+}
+
+#pragma mark - 去登录界面
++ (void)gotoLoginCtl {
+    LoginViewController *loginCtl = [[LoginViewController alloc] init];
+    RTRootNavigationController *loginNav = [[RTRootNavigationController alloc] initWithRootViewController:loginCtl];
+    loginNav.modalPresentationStyle = UIModalPresentationFullScreen;
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:loginNav animated:YES completion:nil];
 }
 
 @end
