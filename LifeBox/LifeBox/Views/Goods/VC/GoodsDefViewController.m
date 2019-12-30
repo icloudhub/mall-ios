@@ -16,6 +16,7 @@
 #import "GoodsSpeSheet.h"
 #import "GoodsBuyView.h"
 #import "ShoppingCartController.h"
+#import "OrderDetailsController.h"
 
 @interface GoodsDefViewController ()<SDCycleScrollViewDelegate, BuyViewDelegate> {
     ///轮播图个数
@@ -565,6 +566,7 @@
         case 1000:{
             //立即购买
             NSLog(@"立即购买");
+            [self buynow];
         }
             break;
         case 1001:{
@@ -591,6 +593,28 @@
         default:
             break;
     }
+}
+#pragma mark - 立即购买
+-(void)buynow {
+    NSMutableArray *remarks = [NSMutableArray new];
+    [remarks addObject:_productdata.productid];
+    [remarks addObject:_selectsku.skuid];
+    [remarks addObject:@1];
+    NSString *remark = [remarks componentsJoinedByString:@","];
+
+     [[[NetWorkRequest alloc]init] confirmOrdertype:0 remark:remark block:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
+         if (error) {
+             [self.view ug_msg:error.domain];
+         }else{
+//             ConfimOrderVC *vc = [ConfimOrderVC new];
+//             vc.confimid = [dataDict[@"id"] integerValue];
+//             [self.navigationController pushViewController:vc animated:YES];
+            OrderDetailsController *detailsController = [OrderDetailsController new];
+             detailsController.orderid = [dataDict objectForKey:@"id"];
+            [self.navigationController pushViewController:detailsController animated:NO];
+         }
+     }];
+
 }
 
 #pragma mark - 添加到购物车

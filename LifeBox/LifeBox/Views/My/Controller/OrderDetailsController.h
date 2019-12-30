@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface OrderDetailsController : LifeBoxViewController
-
+@property(strong, nonatomic) NSString *orderid;
 @end
 
 NS_ASSUME_NONNULL_END

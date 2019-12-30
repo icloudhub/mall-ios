@@ -55,7 +55,7 @@ static Global_Variable *sharedInstance = nil;
 - (NSString *)serviceIP{
     if (!_serviceIP) {
 //        _serviceIP = @"http://120.77.202.156";  //测试环境
-        _serviceIP = @"http://10.10.11.106";  //测试环境
+        _serviceIP = @"http://192.168.1.6";  //测试环境
     }
     return _serviceIP;
 }
