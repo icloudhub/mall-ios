@@ -71,6 +71,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(strong, nonatomic) NSString *detailHtml;
 @property(strong, nonatomic) NSString *productid;
 @property(strong, nonatomic) NSString *albumPics;//画册图片用逗号分割
+@property(strong, nonatomic) NSString *pic;//图片
 @property(strong, nonatomic) NSArray<ProductSKUModel*> *skuList;//sku list
 @property(strong, nonatomic) NSArray<ProductSpecModel*> *specList;//规格 list
 @property(strong, nonatomic) NSArray<ProductCommentModel*> *commentList;//评论 list

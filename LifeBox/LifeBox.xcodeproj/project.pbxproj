@@ -270,6 +270,7 @@
 		84F3400E23B4BA4100BAE696 /* NetWorkRequest+MyInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F3400C23B4BA4100BAE696 /* NetWorkRequest+MyInterface.m */; };
 		84F3401323B4BA5C00BAE696 /* AddressData.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F3400F23B4BA5C00BAE696 /* AddressData.m */; };
 		84F3401423B4BA5C00BAE696 /* AreaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F3401123B4BA5C00BAE696 /* AreaData.m */; };
+		84F3401B23BB215400BAE696 /* ConfirmOrderData.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F3401A23BB215400BAE696 /* ConfirmOrderData.m */; };
 		A2245433E31B0B126C5C0D61 /* Pods_LifeBoxTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42783EC83E66FDB25449EC1A /* Pods_LifeBoxTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -693,6 +694,8 @@
 		84F3401023B4BA5C00BAE696 /* AddressData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressData.h; sourceTree = "<group>"; };
 		84F3401123B4BA5C00BAE696 /* AreaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaData.m; sourceTree = "<group>"; };
 		84F3401223B4BA5C00BAE696 /* AreaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaData.h; sourceTree = "<group>"; };
+		84F3401923BB215400BAE696 /* ConfirmOrderData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfirmOrderData.h; sourceTree = "<group>"; };
+		84F3401A23BB215400BAE696 /* ConfirmOrderData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfirmOrderData.m; sourceTree = "<group>"; };
 		8B45816D0134074CDFF8F87E /* Pods-LifeBoxUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeBoxUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LifeBoxUITests/Pods-LifeBoxUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CF018FD20FA4FDD9D71E8F8B /* Pods-LifeBoxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeBoxTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LifeBoxTests/Pods-LifeBoxTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -955,6 +958,8 @@
 			children = (
 				84F3401023B4BA5C00BAE696 /* AddressData.h */,
 				84F3400F23B4BA5C00BAE696 /* AddressData.m */,
+				84F3401923BB215400BAE696 /* ConfirmOrderData.h */,
+				84F3401A23BB215400BAE696 /* ConfirmOrderData.m */,
 				84F3401223B4BA5C00BAE696 /* AreaData.h */,
 				84F3401123B4BA5C00BAE696 /* AreaData.m */,
 				050E0491230DC3E500DA5BFD /* PersonIconData.h */,
@@ -2143,6 +2148,7 @@
 				055C0CB3233DAC5400302E7A /* GoodsSpeSheet.m in Sources */,
 				8461E1BA2301562800764748 /* UIView+Alert.m in Sources */,
 				84B2E0772307C97300BC9197 /* NetWorkRequest+Goods.m in Sources */,
+				84F3401B23BB215400BAE696 /* ConfirmOrderData.m in Sources */,
 				84B954E22324E3BE00A7E8D2 /* ConfirmInfoData.m in Sources */,
 				84B2E05C2307067E00BC9197 /* UIControl+UG.m in Sources */,
 				0531E9FA2338645F00775D79 /* PersonInfoController.m in Sources */,

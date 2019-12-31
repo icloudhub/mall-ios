@@ -41,6 +41,13 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param endblock 数据回调
 - (void)queryAddressInfoParams:(NSDictionary *)params endBlock:(void(^)(NSDictionary *result, NSError *error))endblock;
 
+#pragma mark - 根据确认单编号返回确认订单信息
+/// POST /order/getConfirmOrderInfo
+/// @param confirmid 确认订单id
+/// @param endblock 数据回调
+- (void)getConfirmOrderInfo:(NSString *)confirmid endBlock:(void(^)(NSDictionary *result, NSError *error))endblock;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

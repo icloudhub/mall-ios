@@ -10,6 +10,7 @@
 #import "DetailsGoodsCell.h"
 #import "DetailsPriceCell.h"
 #import "DetailsInfoCell.h"
+#import "ConfirmOrderData.h"
 
 @interface OrderDetailsController ()<UITableViewDelegate, UITableViewDataSource> {
     ///顶部View
@@ -48,6 +49,9 @@
 ///右边Btn
 @property (strong, nonatomic) UIButton *rightBtn;
 
+///右边Btn
+@property (strong, nonatomic) ConfirmOrderData *confirmOrderData;
+
 @end
 
 static NSString *detailsCellID = @"DetailsGoodsCellID";
@@ -62,6 +66,7 @@ static NSString *priceCellID = @"DetailsPriceCellID";
     [self setWhiteNaviWithTitle:@"订单详情"];
     self.view.backgroundColor = S_COBackground;
     [self createUI];
+    [self getConfirmOrderInfo];
 }
 
 #pragma mark - 创建UI
@@ -86,6 +91,16 @@ static NSString *priceCellID = @"DetailsPriceCellID";
         make.right.left.mas_equalTo(0);
         make.bottom.mas_equalTo(self->bottomView.mas_top);
     }];
+}
+-(void)reloadUI{
+    _needPayLab.text = [NSString stringWithFormat:@"需付款: ¥%.2f",_confirmOrderData.calcAmountData.totalAmount];
+    AddressData *addressData = _confirmOrderData.defualaddress;
+    
+    _addressLab.text = [NSString stringWithFormat:@"地址: %@ %@ %@ %@",addressData.province,addressData.city,addressData.region,addressData.detailAddress];
+    _nameLab.text = addressData.name;
+    _phoneLab.text = addressData.phoneNumber;
+    [tableView reloadData];
+  
 }
 
 #pragma mark - 创建顶部View
@@ -286,16 +301,20 @@ static NSString *priceCellID = @"DetailsPriceCellID";
 
 #pragma mark - UITableView代理
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row <= 1) {
+    if (indexPath.section == 0) {
         DetailsGoodsCell *cell = [tableView dequeueReusableCellWithIdentifier:detailsCellID];
         if (cell == nil) {
             cell = [[DetailsGoodsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:detailsCellID];
+            cell.backgroundColor = S_COBackground;
+                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
-        cell.backgroundColor = S_COBackground;
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        ProductItemlist *product = [_confirmOrderData.productItemlist objectAtIndex:indexPath.row];
+        HomeProductdata *data = product.product;
+        [cell.goodsImg sd_setImageWithURL:UG_URL(data.pic)];
+     
         return cell;
     }
-    else if (indexPath.row == 2) {
+    else if (indexPath.section == 1) {
         DetailsInfoCell *infoCell = [tableView dequeueReusableCellWithIdentifier:infoCellID];
         if (infoCell == nil) {
             infoCell = [[DetailsInfoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:infoCellID];
@@ -316,12 +335,26 @@ static NSString *priceCellID = @"DetailsPriceCellID";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 4;
+    if (section==0) {
+        return _confirmOrderData.productItemlist.count;
+    }else{
+        return 1;
+    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return 3;
 }
 
-
+#pragma mark http
+-(void)getConfirmOrderInfo{
+    [[NetWorkRequest new] getConfirmOrderInfo:_orderid endBlock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
+        if (error) {
+            [self.view ug_msg:error.domain];
+        }else{
+            self.confirmOrderData = [ConfirmOrderData yy_modelWithJSON:result];
+            [self reloadUI];
+        }
+    }];
+}
 @end
