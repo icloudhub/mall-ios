@@ -272,6 +272,9 @@ static NSString *priceCellID = @"DetailsPriceCellID";
     [_rightBtn setBackgroundColor:S_COGreenBack];
     [_rightBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_rightBtn setTitle:@"去支付" forState:UIControlStateNormal];
+    [_rightBtn ug_addEvents:UIControlEventTouchUpInside andBlock:^(id  _Nonnull sender) {
+        [self getPaytype];
+    }];
     [bottomView addSubview:_rightBtn];
     [_rightBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(Scale750(20));
@@ -354,6 +357,16 @@ static NSString *priceCellID = @"DetailsPriceCellID";
         }else{
             self.confirmOrderData = [ConfirmOrderData yy_modelWithJSON:result];
             [self reloadUI];
+        }
+    }];
+}
+// 获取支付方式
+-(void)getPaytype{
+    [[NetWorkRequest new] cfgGetvalueByType:@"1001" endBlock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
+        if (error) {
+            [self.view ug_msg:error.domain];
+        }else{
+            [self.view ug_msg:[NSString stringWithFormat:@"%@",result]];
         }
     }];
 }

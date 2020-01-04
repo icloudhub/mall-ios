@@ -51,4 +51,14 @@
     } head:nil endblock:endblock];
     
 }
+
+#pragma mark -  根据配置类型获取配置参(获取支持的支付方式)
+/// GET /cfg/getvalue
+-(void)cfgGetvalueByType:(NSString *)type endBlock:(void(^)(NSDictionary *result, NSError *error))endblock{
+    
+    NSString *url = [NSString stringWithFormat:@"%@/cfg/getvalue", BASEURL];
+      [self get:url param:@{
+          @"typeid":type
+      } head:nil endblock:endblock];
+}
 @end

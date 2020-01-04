@@ -101,7 +101,7 @@ static Global_Variable *sharedInstance = nil;
     if (![userinfo objectForKey:@"userinfo"]) {
         return nil;
     }
-    return @"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0IiwiY3JlYXRlZCI6MTU3NzQ0NDAwMTQ1MSwiZXhwIjoxNTc4MDQ4ODAxfQ.3I0radYZkxpiCVcLu_TTtW-eLLgWTOG-Jp3YH_Y8p_Y45cfJ5lnvGB0skJTiSnzJyiDvYYaeyzbJ5auDvFxaRw";
+//    return @"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0IiwiY3JlYXRlZCI6MTU3NzQ0NDAwMTQ1MSwiZXhwIjoxNTc4MDQ4ODAxfQ.3I0radYZkxpiCVcLu_TTtW-eLLgWTOG-Jp3YH_Y8p_Y45cfJ5lnvGB0skJTiSnzJyiDvYYaeyzbJ5auDvFxaRw";
     return [userinfo objectForKey:@"token"];
 }
 

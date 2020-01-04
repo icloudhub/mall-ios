@@ -47,7 +47,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param endblock 数据回调
 - (void)getConfirmOrderInfo:(NSString *)confirmid endBlock:(void(^)(NSDictionary *result, NSError *error))endblock;
 
-
+#pragma mark -  根据配置类型获取配置参(获取支持的支付方式)
+/// GET /cfg/getvalue
+-(void)cfgGetvalueByType:(NSString *)type endBlock:(void(^)(NSDictionary *result, NSError *error))endblock;
 @end
 
 NS_ASSUME_NONNULL_END
