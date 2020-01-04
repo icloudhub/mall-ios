@@ -48,6 +48,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = YES;
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"LoginUserInfo"];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationDoit) name:APPTIMEINFORMATION object:nil];
 }
 
@@ -166,13 +167,13 @@
         }
         if (textField == self->_pwView.passwTF) {
             if (weakSelf.pwView.phoneTF.text.length == 11) {
-                if (count >= 8) {
+                if (count >= S_MINPassword) {
                     weakSelf.loginBtn.backgroundColor = S_COGreenBack;
                     [weakSelf.loginBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
                     weakSelf.loginBtn.enabled = YES;
                 }
             }
-            if (count < 8) {
+            if (count < S_MINPassword) {
                 weakSelf.loginBtn.backgroundColor = RGBColor(172, 215, 187);
                 [weakSelf.loginBtn setTitleColor:RGBColor(216, 236, 223) forState:UIControlStateNormal];
                 weakSelf.loginBtn.enabled = NO;
@@ -300,7 +301,7 @@
 - (void)loginBtnClicked:(UIButton *)btn {
     if (btn.tag == 1000) {
         //验证码登录
-        [self codeBtnClicked];
+        [self loginWithCodeHttp];
     }else{
         //密码登录
         [self loginWithPasswdHttp];
@@ -365,6 +366,10 @@
         if (error) {
             [self.view ug_msg:error.domain];
         }else{
+#ifdef DEBUG
+            _codeView.codeTF.text = dataDict;
+            _loginBtn.userInteractionEnabled = YES;
+#endif
             [AppDelegate addObjectIndateDic:self->keyStr];
             [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationDoit) name:APPTIMEINFORMATION object:nil];
         }

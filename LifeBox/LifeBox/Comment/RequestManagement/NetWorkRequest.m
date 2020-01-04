@@ -95,7 +95,7 @@ static AFHTTPSessionManager *afManager = nil;
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
        
-        DDLogWarn(@"❗️{POST}url:%@ \nheader:%@ \nparame:%@ \nerror:%@", url, afManager.requestSerializer, param, error);
+        DDLogWarn(@"❗️{POST}url:%@ \nheader:%@ \nparame:%@ \nerror:%@", url, [afManager.requestSerializer yy_modelDescription], param, error);
         if (endblock) {
             endblock(nil,error);
         }

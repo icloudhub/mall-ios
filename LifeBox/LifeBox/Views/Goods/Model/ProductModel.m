@@ -59,7 +59,7 @@
 
 + (NSDictionary *)modelContainerPropertyGenericClass {
     return @{
-            @"skuStockList":[ProductSKUModel class],
+            @"skuList":[ProductSKUModel class],
             @"specList":[ProductSpecModel class],
             @"commentList":[ProductCommentModel class],
             };

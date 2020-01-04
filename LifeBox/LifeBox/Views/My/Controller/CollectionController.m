@@ -62,8 +62,8 @@ static NSString *cellID = @"CollectionCellID";
         if (error) {
             [self.view ug_msg:error.domain];
         }else{
-//            self.collections = dataDict;
-//            [self.tableView reloadData];
+            self.collections = dataDict;
+            [self.tableView reloadData];
         }
     }];
 }
@@ -75,7 +75,7 @@ static NSString *cellID = @"CollectionCellID";
         cell = [[CollectionCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
     NSDictionary *dataDict = [self.collections objectAtIndex:indexPath.row];
-//    [[cell.goodsImg sd_setImageWithURL:UG_URL(dataDict[@"productPic"])];
+    [cell.goodsImg sd_setImageWithURL:UG_URL(dataDict[@"productPic"])];
     cell.goodsLab.text = dataDict[@"productName"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;

@@ -34,8 +34,13 @@
 // 字符长度
 #define S_UserName 16 //用户名
 #define S_Phone 11 //用户名
-#define S_Password 16 //用户名
-#define S_CerCode 6 //用户名
+#define S_Password 16 //密码最大
+#ifdef DEBUG
+#define S_MINPassword 6 //密码最小长度
+#else
+#define S_MINPassword 8 //密码最小长度
+#endif
+#define S_CerCode 6 //验证码长度
 
 #define FONT_BSYS24 [UIFont boldSystemFontOfSize:24]
 #define FONT_BSYS20 [UIFont boldSystemFontOfSize:20]
