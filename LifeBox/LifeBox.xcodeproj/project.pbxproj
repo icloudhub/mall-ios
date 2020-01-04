@@ -194,6 +194,9 @@
 		05C46974237BAB7500D21EA1 /* LoginPwView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C46973237BAB7500D21EA1 /* LoginPwView.m */; };
 		05C46977237BE19500D21EA1 /* RegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C46976237BE19500D21EA1 /* RegisterController.m */; };
 		05C954552322567A00517381 /* OrderViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C954542322567A00517381 /* OrderViewCell.m */; };
+		05D0A3D923B8E278001C00D5 /* SingleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D0A3D823B8E278001C00D5 /* SingleView.m */; };
+		05D0A3DC23B8E293001C00D5 /* MultipleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D0A3DB23B8E293001C00D5 /* MultipleView.m */; };
+		05D0A3DE23B8FC10001C00D5 /* orderMoreImg.png in Resources */ = {isa = PBXBuildFile; fileRef = 05D0A3DD23B8FC10001C00D5 /* orderMoreImg.png */; };
 		20A2F5172371630C00B2C7AF /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A2F5162371630B00B2C7AF /* WebViewController.m */; };
 		20A2F51F23726D7000B2C7AF /* SubjectData.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A2F51E23726D6F00B2C7AF /* SubjectData.m */; };
 		20D763B92373FC1500D513BC /* DorConfigServiceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D763B82373FC1500D513BC /* DorConfigServiceVC.m */; };
@@ -548,6 +551,11 @@
 		05C46976237BE19500D21EA1 /* RegisterController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterController.m; sourceTree = "<group>"; };
 		05C954532322567A00517381 /* OrderViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderViewCell.h; sourceTree = "<group>"; };
 		05C954542322567A00517381 /* OrderViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderViewCell.m; sourceTree = "<group>"; };
+		05D0A3D723B8E278001C00D5 /* SingleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SingleView.h; sourceTree = "<group>"; };
+		05D0A3D823B8E278001C00D5 /* SingleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SingleView.m; sourceTree = "<group>"; };
+		05D0A3DA23B8E293001C00D5 /* MultipleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultipleView.h; sourceTree = "<group>"; };
+		05D0A3DB23B8E293001C00D5 /* MultipleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultipleView.m; sourceTree = "<group>"; };
+		05D0A3DD23B8FC10001C00D5 /* orderMoreImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orderMoreImg.png; sourceTree = "<group>"; };
 		1C30ECA15C1E0199568E084A /* Pods-LifeBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeBox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LifeBox/Pods-LifeBox.debug.xcconfig"; sourceTree = "<group>"; };
 		20A2F5152371630B00B2C7AF /* WebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		20A2F5162371630B00B2C7AF /* WebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
@@ -886,6 +894,10 @@
 				0531EA17233A138D00775D79 /* GenderSheet.m */,
 				0531EA21233A5B6400775D79 /* BirthdaySheet.h */,
 				0531EA22233A5B6400775D79 /* BirthdaySheet.m */,
+				05D0A3D723B8E278001C00D5 /* SingleView.h */,
+				05D0A3D823B8E278001C00D5 /* SingleView.m */,
+				05D0A3DA23B8E293001C00D5 /* MultipleView.h */,
+				05D0A3DB23B8E293001C00D5 /* MultipleView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1142,6 +1154,7 @@
 		8461E17523013A6B00764748 /* ImageSource */ = {
 			isa = PBXGroup;
 			children = (
+				05D0A3DD23B8FC10001C00D5 /* orderMoreImg.png */,
 				05A34CFF237E5577007BD139 /* ic_shop_cart@2x.png */,
 				05A34D01237E5578007BD139 /* ic_shop_cart@3x.png */,
 				05A34D02237E5578007BD139 /* ic_shop_home@2x.png */,
@@ -1839,6 +1852,7 @@
 				050E04B1230DC9FC00DA5BFD /* ic_invitation_gift@2x.png in Resources */,
 				8461E1AC23013A6B00764748 /* workTabBarSelected@3x.png in Resources */,
 				053791A22318164F00DF4DA0 /* ic_plus@3x.png in Resources */,
+				05D0A3DE23B8FC10001C00D5 /* orderMoreImg.png in Resources */,
 				0531EA1E233A17AF00775D79 /* ic_zhishiqi_select@3x.png in Resources */,
 				0537914A2314120500DF4DA0 /* ic_share@3x.png in Resources */,
 				0531EA2A233B4FED00775D79 /* ic_cart_shop@3x.png in Resources */,
@@ -2069,6 +2083,7 @@
 				0531EA12233A080700775D79 /* ChangeWeChatController.m in Sources */,
 				84B954D42323731F00A7E8D2 /* NetWorkRequest+Orlder.m in Sources */,
 				84B2E0622307067E00BC9197 /* NSObject+BlockDelayedPerforming.m in Sources */,
+				05D0A3DC23B8E293001C00D5 /* MultipleView.m in Sources */,
 				05C4696E237B9EC200D21EA1 /* WPHotspotLabel.m in Sources */,
 				052DCA0C23795F2100C16128 /* LoginCodeView.m in Sources */,
 				05AC5C2E2356136A000584CB /* OrderInfoCell.m in Sources */,
@@ -2174,6 +2189,7 @@
 				20A2F5172371630C00B2C7AF /* WebViewController.m in Sources */,
 				059435BF237073B5003CFBE9 /* HomeData.m in Sources */,
 				8461E1C92301586F00764748 /* BlockCollectionView.m in Sources */,
+				05D0A3D923B8E278001C00D5 /* SingleView.m in Sources */,
 				059F2CB92323B8FD0045BA65 /* DetailsPriceCell.m in Sources */,
 				0531EA0F233A07EB00775D79 /* ChangeNameController.m in Sources */,
 				8461E1B223013A6B00764748 /* HomeViewController.m in Sources */,

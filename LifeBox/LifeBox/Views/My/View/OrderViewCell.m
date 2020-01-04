@@ -7,11 +7,17 @@
 //
 
 #import "OrderViewCell.h"
+#import "MultipleView.h"
+#import "SingleView.h"
 
 @implementation OrderViewCell {
     UIView *bottomView;
     UIView *lineView;
     UIView *lineView1;
+    ///单个商品展示view
+    SingleView *singleView;
+    ///多个商品展示view
+    MultipleView *multipleView;
 }
 
 #pragma mark - 初始化
@@ -64,11 +70,6 @@
     _stateImg.backgroundColor = [UIColor yellowColor];
     _stateImg.hidden = YES;
     [bottomView addSubview:_stateImg];
-    [_stateImg mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.mas_equalTo(-Scale750(20));
-        make.centerY.mas_equalTo(self->_orderNumLab.mas_bottom);
-        make.width.height.mas_equalTo(Scale750(90));
-    }];
     /*
      * 上分割线
      */
@@ -76,38 +77,30 @@
     lineView.backgroundColor = S_COBackground;
     [bottomView addSubview:lineView];
     /*
-     * 商品图片
+     * 单个商品展现View
      */
-    _goodsImg = [[UIImageView alloc] init];
-    _goodsImg.layer.borderColor = [S_COBackground CGColor];
-    _goodsImg.layer.borderWidth = 1;
-    _goodsImg.layer.cornerRadius = Scale750(4);
-    _goodsImg.backgroundColor = [UIColor yellowColor];
-    [bottomView addSubview:_goodsImg];
+    singleView = [[SingleView alloc] init];
+    singleView.backgroundColor = [UIColor whiteColor];
+    [bottomView addSubview:singleView];
+    [singleView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(lineView.mas_bottom).mas_offset(0);
+        make.left.right.mas_equalTo(0);
+        make.height.mas_equalTo(Scale750(150));
+    }];
+    singleView.hidden = YES;
     /*
-     * 商品名称
+     * 多个商品展现View
      */
-    _goodsName = [[UILabel alloc] init];
-    _goodsName.font = [UIFont systemFontOfSize:Scale750(30)];
-    _goodsName.textColor = RGBColor(51, 51, 51);
-    _goodsName.text = @"高山苹果 400g";
-    [bottomView addSubview:_goodsName];
-    /*
-     * 商品购买数量
-     */
-    _goodsNum = [[UILabel alloc] init];
-    _goodsNum.font = [UIFont systemFontOfSize:Scale750(24)];
-    _goodsNum.textColor = RGBColor(189, 189, 189);
-    _goodsNum.text = @"数量: 1";
-    [bottomView addSubview:_goodsNum];
-    /*
-     * 单个价格
-     */
-    _goodsPrice = [[UILabel alloc] init];
-    _goodsPrice.font = [UIFont systemFontOfSize:Scale750(30)];
-    _goodsPrice.textColor = RGBColor(51, 51, 51);
-    _goodsPrice.text = @"¥1.99";
-    [bottomView addSubview:_goodsPrice];
+    multipleView = [[MultipleView alloc] init];
+    multipleView.backgroundColor = [UIColor whiteColor];
+    multipleView.dataArr = nil;
+    [bottomView addSubview:multipleView];
+    [multipleView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(lineView.mas_bottom).mas_offset(0);
+        make.left.right.mas_equalTo(0);
+        make.height.mas_equalTo(Scale750(150));
+    }];
+    multipleView.hidden = NO;
     /*
      * 商品应付价格
      */
@@ -191,33 +184,18 @@
         make.centerY.mas_equalTo(self->_orderNumLab.mas_bottom);
         make.width.height.mas_greaterThanOrEqualTo(0);
     }];
+    [_stateImg mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.mas_equalTo(-Scale750(20));
+        make.centerY.mas_equalTo(self->_orderNumLab.mas_bottom);
+        make.width.height.mas_equalTo(Scale750(90));
+    }];
     [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self->_timeLab.mas_bottom).mas_offset(Scale750(15));
         make.left.right.mas_equalTo(0);
         make.height.mas_equalTo(1);
     }];
-    [_goodsImg mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(lineView.mas_bottom).mas_offset(Scale750(15));
-        make.left.mas_equalTo(Scale750(20));
-        make.width.height.mas_equalTo(Scale750(120));
-    }];
-    [_goodsName mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(lineView.mas_bottom).mas_offset(Scale750(20));
-        make.left.mas_equalTo(self->_goodsImg.mas_right).mas_offset(Scale750(20));
-        make.width.height.mas_greaterThanOrEqualTo(0);
-    }];
-    [_goodsNum mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self->_goodsName.mas_bottom).mas_offset(Scale750(10));
-        make.left.mas_equalTo(self->_goodsName);
-        make.width.height.mas_greaterThanOrEqualTo(0);
-    }];
-    [_goodsPrice mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(lineView.mas_bottom).mas_offset(Scale750(20));
-        make.right.mas_equalTo(-Scale750(20));
-        make.width.height.mas_greaterThanOrEqualTo(0);
-    }];
     [_allPrice mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self->_goodsImg.mas_bottom).mas_offset(Scale750(30));
+        make.top.mas_equalTo(self->singleView.mas_bottom).mas_offset(Scale750(15));
         make.right.mas_equalTo(-Scale750(20));
         make.width.height.mas_greaterThanOrEqualTo(0);
     }];

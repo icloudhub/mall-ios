@@ -75,7 +75,9 @@ static AFHTTPSessionManager *afManager = nil;
                     endblock(dic,nil);
                 }
             }else{
-                
+                if (code == 403) {
+                    [UIApplication gotoLoginCtl];
+                }
                 NSError *error = [NSError errorWithDomain:responseObject[@"message"] code:[responseObject[@"code"] integerValue] userInfo:responseObject];
                 DDLogWarn(@"❗️{POST}url:%@ \nheader:%@ \nparame:%@ \nerror:%@", url, afManager.requestSerializer, param, responseObject);
                 
@@ -119,23 +121,27 @@ static AFHTTPSessionManager *afManager = nil;
             NSString *cookie = [[setCookie componentsSeparatedByString:@";"] objectAtIndex:0];
             [[NSUserDefaults standardUserDefaults]setObject:cookie forKey:@"Set-Cookie"];
         }
-        /*
-         * 解析请求返回码
-         */
-        NSInteger code = [responseObject[@"code"] integerValue];
-        if (code == 200) {
-            DDLogVerbose(@"{GET}url:%@ \nheader:%@ \nparame:%@ \nresult:%@", url, [Global_Variable shared].token, param, responseObject);
-            NSDictionary *dic = responseObject[@"data"];
-            if (endblock) {
-                endblock(dic,nil);
-            }
-        }else{
-            
-            NSError *error = [NSError errorWithDomain:responseObject[@"message"] code:[responseObject[@"code"] integerValue] userInfo:responseObject];
-            DDLogWarn(@"❗️{GET}url:%@ \nheader:%@ \nparame:%@ \nerror:%@", url, [Global_Variable shared].token, param, responseObject);
-            
-            if (endblock) {
-                endblock(nil,error);
+        if (responseObject) {
+            /*
+             * 解析请求返回码
+             */
+            NSInteger code = [responseObject[@"code"] integerValue];
+            if (code == 200) {
+                DDLogVerbose(@"{GET}url:%@ \nheader:%@ \nparame:%@ \nresult:%@", url, [Global_Variable shared].token, param, responseObject);
+                NSDictionary *dic = responseObject[@"data"];
+                if (endblock) {
+                    endblock(dic,nil);
+                }
+            }else{
+                if (code == 403) {
+                    [UIApplication gotoLoginCtl];
+                }
+                NSError *error = [NSError errorWithDomain:responseObject[@"message"] code:[responseObject[@"code"] integerValue] userInfo:responseObject];
+                DDLogWarn(@"❗️{GET}url:%@ \nheader:%@ \nparame:%@ \nerror:%@", url, [Global_Variable shared].token, param, responseObject);
+                
+                if (endblock) {
+                    endblock(nil,error);
+                }
             }
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -146,7 +152,7 @@ static AFHTTPSessionManager *afManager = nil;
     }];
 }
 
--(NSString*)getclientAgent{
+-(NSString *) getclientAgent{
     NSDictionary *dic = @{@"verstion":@"v1.0.1",@"platform":@"iOS"};
     return @"{verstion:\"v1.0.1\",platform:\"iOS\"}";
     

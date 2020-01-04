@@ -24,18 +24,6 @@ NS_ASSUME_NONNULL_BEGIN
 ///状态Img
 @property (strong, nonatomic) UIImageView *stateImg;
 
-///商品图片
-@property (strong, nonatomic) UIImageView *goodsImg;
-
-///商品名称
-@property (strong, nonatomic) UILabel *goodsName;
-
-///商品数量
-@property (strong, nonatomic) UILabel *goodsNum;
-
-///商品价格
-@property (strong, nonatomic) UILabel *goodsPrice;
-
 ///商品合计个数
 @property (strong, nonatomic) UILabel *goodsAllNum;
 
