@@ -362,11 +362,25 @@ static NSString *priceCellID = @"DetailsPriceCellID";
 }
 // 获取支付方式
 -(void)getPaytype{
-    [[NetWorkRequest new] cfgGetvalueByType:@"1001" endBlock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
+    [[NetWorkRequest new] cfgGetvalueByType:@"1002" endBlock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
         if (error) {
             [self.view ug_msg:error.domain];
         }else{
-            [self.view ug_msg:[NSString stringWithFormat:@"%@",result]];
+            UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"支付方式" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+            for (NSDictionary *dic in result) {
+                [alertController addAction:[UIAlertAction actionWithTitle:dic[@"name"] style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    
+                    
+                }]];
+            }
+            //添加取消选项
+               [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                   
+                   [alertController dismissViewControllerAnimated:YES completion:nil];
+                   
+               }]];
+             [self presentViewController:alertController animated:YES completion:nil];
+//            [self.view ug_msg:[NSString stringWithFormat:@"%@",result]];
         }
     }];
 }

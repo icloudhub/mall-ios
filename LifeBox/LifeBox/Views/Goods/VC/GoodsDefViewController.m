@@ -596,6 +596,10 @@
 }
 #pragma mark - 立即购买
 -(void)buynow {
+    if (!_productdata) {
+        [self.view ug_msg:@"数据错误"];
+        return;
+    }
     NSMutableArray *remarks = [NSMutableArray new];
     [remarks addObject:_productdata.productid];
     [remarks addObject:_selectsku.skuid];
