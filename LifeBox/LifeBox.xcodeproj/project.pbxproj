@@ -197,6 +197,11 @@
 		05D0A3D923B8E278001C00D5 /* SingleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D0A3D823B8E278001C00D5 /* SingleView.m */; };
 		05D0A3DC23B8E293001C00D5 /* MultipleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D0A3DB23B8E293001C00D5 /* MultipleView.m */; };
 		05D0A3DE23B8FC10001C00D5 /* orderMoreImg.png in Resources */ = {isa = PBXBuildFile; fileRef = 05D0A3DD23B8FC10001C00D5 /* orderMoreImg.png */; };
+		05D0A3E223C70594001C00D5 /* startPictures.png in Resources */ = {isa = PBXBuildFile; fileRef = 05D0A3E123C70594001C00D5 /* startPictures.png */; };
+		05D0A3E523C709B9001C00D5 /* GuidePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D0A3E423C709B9001C00D5 /* GuidePageController.m */; };
+		05D0A3E923C70EC0001C00D5 /* GuideViewOne.png in Resources */ = {isa = PBXBuildFile; fileRef = 05D0A3E623C70EBF001C00D5 /* GuideViewOne.png */; };
+		05D0A3EA23C70EC0001C00D5 /* GuideViewTwo.png in Resources */ = {isa = PBXBuildFile; fileRef = 05D0A3E723C70EBF001C00D5 /* GuideViewTwo.png */; };
+		05D0A3EB23C70EC0001C00D5 /* GuideViewThr.png in Resources */ = {isa = PBXBuildFile; fileRef = 05D0A3E823C70EBF001C00D5 /* GuideViewThr.png */; };
 		20A2F5172371630C00B2C7AF /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A2F5162371630B00B2C7AF /* WebViewController.m */; };
 		20A2F51F23726D7000B2C7AF /* SubjectData.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A2F51E23726D6F00B2C7AF /* SubjectData.m */; };
 		20D763B92373FC1500D513BC /* DorConfigServiceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D763B82373FC1500D513BC /* DorConfigServiceVC.m */; };
@@ -557,6 +562,12 @@
 		05D0A3DA23B8E293001C00D5 /* MultipleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultipleView.h; sourceTree = "<group>"; };
 		05D0A3DB23B8E293001C00D5 /* MultipleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultipleView.m; sourceTree = "<group>"; };
 		05D0A3DD23B8FC10001C00D5 /* orderMoreImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orderMoreImg.png; sourceTree = "<group>"; };
+		05D0A3E123C70594001C00D5 /* startPictures.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = startPictures.png; sourceTree = "<group>"; };
+		05D0A3E323C709B9001C00D5 /* GuidePageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GuidePageController.h; sourceTree = "<group>"; };
+		05D0A3E423C709B9001C00D5 /* GuidePageController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GuidePageController.m; sourceTree = "<group>"; };
+		05D0A3E623C70EBF001C00D5 /* GuideViewOne.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GuideViewOne.png; sourceTree = "<group>"; };
+		05D0A3E723C70EBF001C00D5 /* GuideViewTwo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GuideViewTwo.png; sourceTree = "<group>"; };
+		05D0A3E823C70EBF001C00D5 /* GuideViewThr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GuideViewThr.png; sourceTree = "<group>"; };
 		1C30ECA15C1E0199568E084A /* Pods-LifeBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeBox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LifeBox/Pods-LifeBox.debug.xcconfig"; sourceTree = "<group>"; };
 		20A2F5152371630B00B2C7AF /* WebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		20A2F5162371630B00B2C7AF /* WebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
@@ -1159,6 +1170,10 @@
 		8461E17523013A6B00764748 /* ImageSource */ = {
 			isa = PBXGroup;
 			children = (
+				05D0A3E623C70EBF001C00D5 /* GuideViewOne.png */,
+				05D0A3E823C70EBF001C00D5 /* GuideViewThr.png */,
+				05D0A3E723C70EBF001C00D5 /* GuideViewTwo.png */,
+				05D0A3E123C70594001C00D5 /* startPictures.png */,
 				05D0A3DD23B8FC10001C00D5 /* orderMoreImg.png */,
 				05A34CFF237E5577007BD139 /* ic_shop_cart@2x.png */,
 				05A34D01237E5578007BD139 /* ic_shop_cart@3x.png */,
@@ -1342,6 +1357,8 @@
 			children = (
 				8461E19423013A6B00764748 /* MyTabBarController.m */,
 				8461E19523013A6B00764748 /* MyTabBarController.h */,
+				05D0A3E323C709B9001C00D5 /* GuidePageController.h */,
+				05D0A3E423C709B9001C00D5 /* GuidePageController.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -1816,8 +1833,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				053A751B22F484BA0023A156 /* LifeBox */,
 				053A753322F484BA0023A156 /* LifeBoxTests */,
+				053A751B22F484BA0023A156 /* LifeBox */,
 				053A753E22F484BA0023A156 /* LifeBoxUITests */,
 			);
 		};
@@ -1836,6 +1853,7 @@
 				056DEA45232804AE000BF45D /* ic_turn_on@2x.png in Resources */,
 				056E4A5F2354BAA400C07936 /* ic_add_toAddress@3x.png in Resources */,
 				0537915523141B6200DF4DA0 /* ic_notice@2x.png in Resources */,
+				05D0A3E223C70594001C00D5 /* startPictures.png in Resources */,
 				053791762314237100DF4DA0 /* ic_egg@2x.png in Resources */,
 				050E049E230DC56F00DA5BFD /* ic_comment@2x.png in Resources */,
 				0531EA2E233C693E00775D79 /* ic_share_goods@3x.png in Resources */,
@@ -1882,6 +1900,7 @@
 				0537914E2314149D00DF4DA0 /* ic_search@3x.png in Resources */,
 				050E049F230DC56F00DA5BFD /* ic_pending_delivery@3x.png in Resources */,
 				050E0486230D96BC00DA5BFD /* ic_avatarHeadImg@2x.png in Resources */,
+				05D0A3EA23C70EC0001C00D5 /* GuideViewTwo.png in Resources */,
 				050E04B2230DC9FC00DA5BFD /* ic_customer_service@2x.png in Resources */,
 				05A34D07237E5578007BD139 /* ic_shop_cart@2x.png in Resources */,
 				050E047D230D943900DA5BFD /* ic_setting@2x.png in Resources */,
@@ -1893,10 +1912,12 @@
 				05AC5C2A2356048F000584CB /* ic_time@2x.png in Resources */,
 				053791492314120500DF4DA0 /* ic_share@2x.png in Resources */,
 				0513E236233360220008709B /* ic_address_close@2x.png in Resources */,
+				05D0A3E923C70EC0001C00D5 /* GuideViewOne.png in Resources */,
 				050E04A4230DC86600DA5BFD /* ic_coupon@2x.png in Resources */,
 				059F2C9723239CCD0045BA65 /* ic_completed@3x.png in Resources */,
 				050E04A7230DC86600DA5BFD /* ic_coupon@3x.png in Resources */,
 				8461E1AF23013A6B00764748 /* Main.storyboard in Resources */,
+				05D0A3EB23C70EC0001C00D5 /* GuideViewThr.png in Resources */,
 				059F2CCE2323FD5C0045BA65 /* ic_avatar@2x.png in Resources */,
 				0531EA20233A17AF00775D79 /* ic_zhishiqi@2x.png in Resources */,
 				053791AA231B6DE600DF4DA0 /* ic_no_network@2x.png in Resources */,
@@ -2125,6 +2146,7 @@
 				84B2E0632307067E00BC9197 /* UITextField+UG.m in Sources */,
 				056DEA3D2327DCD8000BF45D /* AddressManageCell.m in Sources */,
 				8478A26E2326384A005681CF /* ShoppingCartController.m in Sources */,
+				05D0A3E523C709B9001C00D5 /* GuidePageController.m in Sources */,
 				0513E22F233359320008709B /* BaseSheet.m in Sources */,
 				05C4696D237B9EC200D21EA1 /* NSString+WPAttributedMarkup.m in Sources */,
 				84B2E0382303055900BC9197 /* LoginViewController.m in Sources */,
@@ -2379,7 +2401,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/LifeBox/LifeBoxHeader.pch";
 				INFOPLIST_FILE = LifeBox/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2400,7 +2422,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/LifeBox/LifeBoxHeader.pch";
 				INFOPLIST_FILE = LifeBox/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
