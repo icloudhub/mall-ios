@@ -422,7 +422,7 @@
 		053791A9231B6DE600DF4DA0 /* ic_no_network@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_no_network@3x.png"; sourceTree = "<group>"; };
 		053791AD231B94CD00DF4DA0 /* NoDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoDataView.h; sourceTree = "<group>"; };
 		053791AE231B94CD00DF4DA0 /* NoDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoDataView.m; sourceTree = "<group>"; };
-		053A751C22F484BA0023A156 /* LifeBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LifeBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		053A751C22F484BA0023A156 /* 生活宝.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "生活宝.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		053A753422F484BA0023A156 /* LifeBoxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LifeBoxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		053A753822F484BA0023A156 /* LifeBoxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LifeBoxTests.m; sourceTree = "<group>"; };
 		053A753A22F484BA0023A156 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -833,7 +833,7 @@
 		053A751D22F484BA0023A156 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				053A751C22F484BA0023A156 /* LifeBox.app */,
+				053A751C22F484BA0023A156 /* 生活宝.app */,
 				053A753422F484BA0023A156 /* LifeBoxTests.xctest */,
 				053A753F22F484BA0023A156 /* LifeBoxUITests.xctest */,
 			);
@@ -1740,7 +1740,7 @@
 			);
 			name = LifeBox;
 			productName = LifeBox;
-			productReference = 053A751C22F484BA0023A156 /* LifeBox.app */;
+			productReference = 053A751C22F484BA0023A156 /* 生活宝.app */;
 			productType = "com.apple.product-type.application";
 		};
 		053A753322F484BA0023A156 /* LifeBoxTests */ = {
@@ -2385,7 +2385,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dehome.dev;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "生活宝";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -2406,7 +2406,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dehome.dev;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "生活宝";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
