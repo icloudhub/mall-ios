@@ -11,6 +11,7 @@
 #import "SDWebImageManager.h"
 #import "UIApplication+Initialize.h"
 #import "Reachability.h"
+#import "GuidePageController.h"
 
 #ifdef DEBUG
 #import "UIApplication+DORConfig.h"
@@ -30,7 +31,7 @@
     //设置状态栏颜色
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
     // 启动图片延时: 1秒
-    [NSThread sleepForTimeInterval:1];
+    [NSThread sleepForTimeInterval:1.2];
     /*
      * 初始化KeyWindow
      */
@@ -46,10 +47,6 @@
     //控制点击背景是否收起键盘
     keyboardManager.shouldResignOnTouchOutside = YES;
     /*
-     * 图片请求最大缓存
-     */
-//    [[SDWebImageManager sharedManager].imageCache setMaxMemoryCost:20480];
-    /*
      * 开启网络状况的监听
      */
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
@@ -59,13 +56,12 @@
      * 判断是否第一次启动
      */
     NSString *isFirst = [[NSUserDefaults standardUserDefaults] objectForKey:@"firstApp"];
-//    if ([isFirst isEqualToString:@""] || isFirst == nil || isFirst.length == 0) {
-//        GuideViewController *viewcon = [[GuideViewController alloc]init];
-//        self.window.rootViewController = viewcon;
-//    }else{
-//        [UIApplication markWindownRootVC];
-//    }
-    [UIApplication markWindownRootVC];
+    if (isFirst.length == 0) {
+        GuidePageController *viewcon = [[GuidePageController alloc]init];
+        self.window.rootViewController = viewcon;
+    }else{
+        [UIApplication markWindownRootVC];
+    }
     #ifdef DEBUG
         [[UIApplication sharedApplication] configDor];
     #endif
