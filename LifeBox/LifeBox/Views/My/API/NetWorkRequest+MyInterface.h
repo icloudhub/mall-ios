@@ -50,6 +50,23 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark -  根据配置类型获取配置参(获取支持的支付方式)
 /// GET /cfg/getvalue
 -(void)cfgGetvalueByType:(NSString *)type endBlock:(void(^)(NSDictionary *result, NSError *error))endblock;
+
+#pragma mark -  根据确认信息生成支付订单
+/// POST order/generatePayOrder
+/**
+ confirmid (integer, optional): 确认信息id ,
+ couponId (integer, optional): 优惠券id ,
+ memberReceiveAddressId (integer, optional): 收货地址id ,
+ payType (integer, optional): 支付方式 按接口返回参数传递 ,
+ useIntegration (integer, optional): 使用的积分数
+ */
+    
+-(void)generatePayOrder:(NSString *)confirmid
+               couponId:(NSString *)couponId
+              addressId:(NSString *)addressId
+                payType:(NSString *)payType
+         useIntegration:(NSString *)useIntegration
+               endBlock:(void(^)(NSDictionary *result, NSError *error))endblock;
 @end
 
 NS_ASSUME_NONNULL_END

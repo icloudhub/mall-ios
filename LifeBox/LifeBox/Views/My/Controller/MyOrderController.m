@@ -20,7 +20,7 @@
     ///数据数组
     NSArray *dataArr;
 }
-
+@property(strong, nonatomic) UIButton *selectbtn;//背选中的btn
 @end
 
 static NSString *cellID = @"OrderViewCellID";
@@ -33,6 +33,10 @@ static NSString *cellID = @"OrderViewCellID";
     [self setWhiteNaviWithTitle:@"我的订单"];
     self.view.backgroundColor = S_COBackground;
     [self createUI];
+    /*
+     * 接口请求
+     */
+    [self getOrderListWithState];
 }
 
 #pragma mark - 创建UI
@@ -144,52 +148,44 @@ static NSString *cellID = @"OrderViewCellID";
     lineView = [[UIView alloc] init];
     lineView.backgroundColor = S_COGreenBack;
     [chooseView addSubview:lineView];
-    UIButton *selectBtn;
-    NSString *stateStr;
+
     switch (_selectIndex) {
-        case 1:
-        {
+        case 1:{
             //待付款
-            selectBtn = paymentBtn;
-            stateStr = @"0";
+            self.selectbtn = paymentBtn;
         }
             break;
-        case 2:
-        {
+        case 2:{
             //待自提
-            selectBtn = sendBtn;
+             self.selectbtn = sendBtn;
         }
             break;
-        case 3:
-        {
+        case 3:{
             //待配送
-            selectBtn = receivedBtn;
-            stateStr = @"1";
+             self.selectbtn = receivedBtn;
+  
         }
             break;
-        case 4:
-        {
+        case 4:{
             //已完成
-            selectBtn = finishBtn;
+             self.selectbtn = finishBtn;
         }
             break;
-        case 5:
-        {
+        case 5:{
             //待评价
-            selectBtn = evaluateBtn;
+             self.selectbtn = evaluateBtn;
         }
             break;
-        default:
-        {
+        default:{
             //全选
-            selectBtn = allBtn;
+             self.selectbtn = allBtn;
         }
             break;
     }
-    [selectBtn setTitleColor:S_COGreenText forState:UIControlStateNormal];
+
     [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.mas_equalTo(0);
-        make.centerX.mas_equalTo(selectBtn.mas_centerX);
+        make.centerX.mas_equalTo(self.selectbtn.mas_centerX);
         make.width.mas_equalTo(Scale750(80));
         make.height.mas_equalTo(2);
     }];
@@ -213,44 +209,44 @@ static NSString *cellID = @"OrderViewCellID";
         make.top.mas_equalTo(self->chooseView.mas_bottom);
         make.left.right.bottom.mas_equalTo(0);
     }];
-    /*
-     * 接口请求
-     */
-    [self getOrderListWithState:stateStr];
+  
 }
-
-#pragma mark - 选择Btn点击
-- (void)chooseBtnClicked:(UIButton *)btn {
-    /*
-     * 改变Btn颜色
-     */
-    for (UIButton *oldBtn in chooseView.subviews) {
-        if ([oldBtn isKindOfClass:[UIButton class]]) {
-            [oldBtn setTitleColor:RGBColor(51, 51, 51) forState:UIControlStateNormal];
-        }
-    }
-    [btn setTitleColor:S_COGreenText forState:UIControlStateNormal];
-    
+#pragma mark - 选择set点击
+-(void)setSelectbtn:(UIButton *)selectbtn{
+    [_selectbtn setTitleColor:RGBColor(51, 51, 51) forState:UIControlStateNormal];
+    _selectbtn = selectbtn;
+    [_selectbtn setTitleColor:S_COGreenText forState:UIControlStateNormal];
     /*
      * 改变划线位置
      */
     [lineView mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.bottom.mas_equalTo(0);
-        make.centerX.mas_equalTo(btn.mas_centerX);
+        make.centerX.mas_equalTo(_selectbtn.mas_centerX);
         make.width.mas_equalTo(Scale750(80));
         make.height.mas_equalTo(2);
     }];
 }
+#pragma mark - 选择Btn点击
+- (void)chooseBtnClicked:(UIButton *)btn {
+    self.selectbtn = btn;
+
+    /*
+     * 接口请求
+     */
+    [self getOrderListWithState];
+}
 
 #pragma mark - 订单状态接口请求
-- (void)getOrderListWithState:(NSString *)state {
+- (void)getOrderListWithState{
+    NSString *state = [NSString stringWithFormat:@"%d",self.selectbtn.tag-11];
     [self.view ug_loading];
     [[NetWorkRequest new] getOrderStateListWithState:state pageSize:@"30" pageNum:@"1" endBlock:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
         [self.view ug_hiddenLoading];
         if (error) {
             [self.view ug_msg:error.domain];
         }else{
-            
+            dataArr = dataDict;
+            [tableView reloadData];
         }
     }];
 }
@@ -261,14 +257,18 @@ static NSString *cellID = @"OrderViewCellID";
     OrderViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (cell == nil) {
         cell = [[OrderViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+        cell.backgroundColor = S_COBackground;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
-    cell.backgroundColor = S_COBackground;
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    NSDictionary *celldata = [dataArr objectAtIndex:indexPath.row];
+    cell.timeLab.text = [celldata objectForKey:@"createTime"];
+    cell.orderNumLab.text = [celldata objectForKey:@"id"];
+    cell.stateLab.text = [celldata objectForKey:@"status"];
     return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return dataArr.count;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -276,7 +276,9 @@ static NSString *cellID = @"OrderViewCellID";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSDictionary *celldata = [dataArr objectAtIndex:indexPath.row];
     OrderDetailsController *detailsCtl = [[OrderDetailsController alloc] init];
+    detailsCtl.orderid = celldata[@"id"];
     [self.navigationController pushViewController:detailsCtl animated:YES];
 }
 

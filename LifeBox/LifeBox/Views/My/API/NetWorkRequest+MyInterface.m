@@ -61,4 +61,23 @@
           @"typeid":type
       } head:nil endblock:endblock];
 }
+
+#pragma mark -  根据确认信息生成支付订单
+/// POST order/generatePayOrder
+-(void)generatePayOrder:(NSString *)confirmid
+      couponId:(NSString *)couponId
+     addressId:(NSString *)addressId
+       payType:(NSString *)payType
+useIntegration:(NSString *)useIntegration
+               endBlock:(void(^)(NSDictionary *result, NSError *error))endblock{
+    NSString *url = [NSString stringWithFormat:@"%@/order/generatePayOrder", BASEURL];
+       [self post:url param:@{
+           @"confirmid":confirmid,
+           @"couponId":couponId,
+           @"memberReceiveAddressId":addressId,
+           @"payType":payType,
+           @"useIntegration":useIntegration
+       } head:nil endblock:endblock];
+    
+}
 @end

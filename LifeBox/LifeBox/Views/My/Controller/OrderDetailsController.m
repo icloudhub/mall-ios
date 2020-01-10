@@ -369,7 +369,13 @@ static NSString *priceCellID = @"DetailsPriceCellID";
             UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"支付方式" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
             for (NSDictionary *dic in result) {
                 [alertController addAction:[UIAlertAction actionWithTitle:dic[@"name"] style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                    
+                    [[NetWorkRequest new]generatePayOrder:_orderid couponId:@"" addressId:_confirmOrderData.defualaddress.addressId payType:dic[@"id"] useIntegration:@"" endBlock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
+                        if (error) {
+                            [self.view ug_msg:error.domain];
+                        }else{
+                            [self.view ug_msg:[NSString stringWithFormat:@"%@",result]];
+                        }
+                    }];
                     
                 }]];
             }
