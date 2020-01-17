@@ -40,14 +40,14 @@
     [self get:url param:params head:nil endblock:endblock];
 }
 
-#pragma mark - 根据确认单编号返回确认订单信息
-/// POST /order/getConfirmOrderInfo
+#pragma mark - 根据订单号返回订单信息
+/// POST /order/orderinfo
 /// @param confirmid 确认订单id
 /// @param endblock 数据回调
-- (void)getConfirmOrderInfo:(NSString *)confirmid endBlock:(void(^)(NSDictionary *result, NSError *error))endblock{
-    NSString *url = [NSString stringWithFormat:@"%@/order/getConfirmOrderInfo", BASEURL];
+- (void)getOrderinfo:(NSString *)confirmid endBlock:(void(^)(NSDictionary *result, NSError *error))endblock{
+    NSString *url = [NSString stringWithFormat:@"%@/order/orderinfo", BASEURL];
     [self get:url param:@{
-        @"confirmid":confirmid
+        @"orderId":confirmid
     } head:nil endblock:endblock];
     
 }

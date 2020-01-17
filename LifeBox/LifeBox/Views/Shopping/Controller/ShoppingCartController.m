@@ -13,7 +13,9 @@
 #import "GoodsDefViewController.h"
 #import "NoDataView.h"
 #import "CarBottomView.h"
-#import "ConfimOrderVC.h"
+#import "OrderDetailsController.h"
+
+
 
 @interface ShoppingCartController ()<UITableViewDelegate, UITableViewDataSource, CellNumBtnDelegate> {
     ///数据展示
@@ -174,7 +176,7 @@ static NSString *cellID = @"ShoppingCarCellID";
         if (error) {
             [self.view ug_msg:error.domain];
         }else{
-            self.carItemlist = [NSMutableArray yy_modelArrayWithClass:[CardItem class] json:dataDict];
+            self.carItemlist = [NSMutableArray modelArrayWithClass:[CardItem class] json:dataDict];
             if (self.carItemlist.count == 0) {
                 weakSelf.noView = [[NoDataView alloc] init];
                 weakSelf.noView.imgName = @"ic_gouwuchekong";
@@ -208,8 +210,8 @@ static NSString *cellID = @"ShoppingCarCellID";
         if (error) {
             [self.view ug_msg:error.domain];
         }else{
-            ConfimOrderVC *vc = [ConfimOrderVC new];
-            vc.confimid = [dataDict[@"id"] integerValue];
+            OrderDetailsController *vc = [OrderDetailsController new];
+            vc.orderid = dataDict;
             [self.navigationController pushViewController:vc animated:YES];
         }
     }];

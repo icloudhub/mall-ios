@@ -261,9 +261,9 @@ static NSString *cellID = @"OrderViewCellID";
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     NSDictionary *celldata = [dataArr objectAtIndex:indexPath.row];
-    cell.timeLab.text = [celldata objectForKey:@"createTime"];
-    cell.orderNumLab.text = [celldata objectForKey:@"id"];
-    cell.stateLab.text = [celldata objectForKey:@"status"];
+    cell.timeLab.text = [celldata stringValueForKey:@"modifyTime" default:@"modifyTime"];
+    cell.orderNumLab.text = [celldata stringValueForKey:@"id" default:@"id"];
+    cell.stateLab.text = [celldata stringValueForKey:@"status" default:@"status"];
     return cell;
 }
 

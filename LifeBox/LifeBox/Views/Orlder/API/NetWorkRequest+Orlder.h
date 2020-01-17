@@ -12,20 +12,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NetWorkRequest (Orlder)
 /**
- * POST /order/getConfirmOrderInfo
- * 根据确认单编号返回确认订单信息
- */
--(void)getConfirmOrderInfo:(NSInteger)confirmid block:(NREndBlock)endblock;
 
-/**
- * POST /order/generatePayOrder
- * 根据确认信息生成支付订单
+
+*/
+
+#pragma mark - 根据订单号，支付方式生成支付信息
+/** POST /order/payInfo
+orderId (integer, optional): 订单id ,
+payType (integer, optional): 支付方式
  */
--(void)generatePayOrder:(NSInteger)confirmid
-                  couponId:(NSInteger)couponId
-                  memberReceiveAddressId:(NSInteger)memberReceiveAddressId
-             useIntegration:(NSInteger)useIntegration
-                     block:(NREndBlock)endblock;
+- (void)payInfo:(NSString *)orderId payType:(NSString *)payType endBlock:(void(^)(NSDictionary *result, NSError *error))endblock;
+
+- (void)updateOrderAddress:(NSString *)orderId addressId:(NSString *)addressId endBlock:(void(^)(NSDictionary *result, NSError *error))endblock;
+
 @end
 
 NS_ASSUME_NONNULL_END

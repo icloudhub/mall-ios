@@ -9,7 +9,7 @@
 #import "AddressManagementController.h"
 #import "AddressManageCell.h"
 #import "AddressEditController.h"
-#import "AddressData.h"
+
 
 @interface AddressManagementController ()<UITableViewDelegate, UITableViewDataSource> {
     ///数据展示UITableView
@@ -108,6 +108,12 @@ static NSString *cellID = @"AddressManageCellID";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return Scale750(190);
 }
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (_didselectAddress) {
+        AddressData *selectData =  [self.addreddArr objectAtIndex:indexPath.row];
+        _didselectAddress(selectData);
+    }
+}
 
 #pragma mark - 获取地址列表接口
 - (void)getAddressListHttp {
@@ -117,7 +123,7 @@ static NSString *cellID = @"AddressManageCellID";
         if (error) {
             [self.view ug_msg:error.domain];
         }else{
-            self.addreddArr = [NSArray yy_modelArrayWithClass:[AddressData class] json:result];
+            self.addreddArr = [NSArray modelArrayWithClass:[AddressData class] json:result];
             [self->tableView reloadData];
         }
     }];

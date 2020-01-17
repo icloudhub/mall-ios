@@ -41,11 +41,11 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param endblock 数据回调
 - (void)queryAddressInfoParams:(NSDictionary *)params endBlock:(void(^)(NSDictionary *result, NSError *error))endblock;
 
-#pragma mark - 根据确认单编号返回确认订单信息
-/// POST /order/getConfirmOrderInfo
+#pragma mark - 根据订单号返回订单信息
+/// POST /order/orderinfo
 /// @param confirmid 确认订单id
 /// @param endblock 数据回调
-- (void)getConfirmOrderInfo:(NSString *)confirmid endBlock:(void(^)(NSDictionary *result, NSError *error))endblock;
+- (void)getOrderinfo:(NSString *)confirmid endBlock:(void(^)(NSDictionary *result, NSError *error))endblock;
 
 #pragma mark -  根据配置类型获取配置参(获取支持的支付方式)
 /// GET /cfg/getvalue

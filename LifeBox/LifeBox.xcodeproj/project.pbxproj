@@ -268,17 +268,15 @@
 		84B2E0732307C8AF00BC9197 /* GoodsDefViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2E0722307C8AF00BC9197 /* GoodsDefViewController.m */; };
 		84B2E0772307C97300BC9197 /* NetWorkRequest+Goods.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2E0762307C97300BC9197 /* NetWorkRequest+Goods.m */; };
 		84B2E07B231260CC00BC9197 /* ProductModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2E07A231260CC00BC9197 /* ProductModel.m */; };
-		84B954CF2323726500A7E8D2 /* ConfimOrderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B954CE2323726500A7E8D2 /* ConfimOrderVC.m */; };
 		84B954D42323731F00A7E8D2 /* NetWorkRequest+Orlder.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B954D32323731F00A7E8D2 /* NetWorkRequest+Orlder.m */; };
 		84B954D82324AD1200A7E8D2 /* ConfirAddressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B954D72324AD1200A7E8D2 /* ConfirAddressView.m */; };
 		84B954DB2324B0C800A7E8D2 /* ConfimBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B954DA2324B0C800A7E8D2 /* ConfimBottomView.m */; };
-		84B954E22324E3BE00A7E8D2 /* ConfirmInfoData.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B954E12324E3BE00A7E8D2 /* ConfirmInfoData.m */; };
+		84B954E22324E3BE00A7E8D2 /* OrderDefData.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B954E12324E3BE00A7E8D2 /* OrderDefData.m */; };
 		84BA6F942376505F0047796E /* GoodsBuyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BA6F932376505F0047796E /* GoodsBuyView.m */; };
 		84C29209235DEF5B00034213 /* NetWorkRequest+Business.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C29207235DEF5B00034213 /* NetWorkRequest+Business.m */; };
 		84F3400E23B4BA4100BAE696 /* NetWorkRequest+MyInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F3400C23B4BA4100BAE696 /* NetWorkRequest+MyInterface.m */; };
 		84F3401323B4BA5C00BAE696 /* AddressData.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F3400F23B4BA5C00BAE696 /* AddressData.m */; };
 		84F3401423B4BA5C00BAE696 /* AreaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F3401123B4BA5C00BAE696 /* AreaData.m */; };
-		84F3401B23BB215400BAE696 /* ConfirmOrderData.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F3401A23BB215400BAE696 /* ConfirmOrderData.m */; };
 		A2245433E31B0B126C5C0D61 /* Pods_LifeBoxTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42783EC83E66FDB25449EC1A /* Pods_LifeBoxTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -693,16 +691,14 @@
 		84B2E0762307C97300BC9197 /* NetWorkRequest+Goods.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NetWorkRequest+Goods.m"; sourceTree = "<group>"; };
 		84B2E079231260CC00BC9197 /* ProductModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProductModel.h; sourceTree = "<group>"; };
 		84B2E07A231260CC00BC9197 /* ProductModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProductModel.m; sourceTree = "<group>"; };
-		84B954CD2323726500A7E8D2 /* ConfimOrderVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfimOrderVC.h; sourceTree = "<group>"; };
-		84B954CE2323726500A7E8D2 /* ConfimOrderVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfimOrderVC.m; sourceTree = "<group>"; };
 		84B954D22323731F00A7E8D2 /* NetWorkRequest+Orlder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NetWorkRequest+Orlder.h"; sourceTree = "<group>"; };
 		84B954D32323731F00A7E8D2 /* NetWorkRequest+Orlder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NetWorkRequest+Orlder.m"; sourceTree = "<group>"; };
 		84B954D62324AD1200A7E8D2 /* ConfirAddressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfirAddressView.h; sourceTree = "<group>"; };
 		84B954D72324AD1200A7E8D2 /* ConfirAddressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfirAddressView.m; sourceTree = "<group>"; };
 		84B954D92324B0C800A7E8D2 /* ConfimBottomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfimBottomView.h; sourceTree = "<group>"; };
 		84B954DA2324B0C800A7E8D2 /* ConfimBottomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfimBottomView.m; sourceTree = "<group>"; };
-		84B954E02324E3BE00A7E8D2 /* ConfirmInfoData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfirmInfoData.h; sourceTree = "<group>"; };
-		84B954E12324E3BE00A7E8D2 /* ConfirmInfoData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfirmInfoData.m; sourceTree = "<group>"; };
+		84B954E02324E3BE00A7E8D2 /* OrderDefData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderDefData.h; sourceTree = "<group>"; };
+		84B954E12324E3BE00A7E8D2 /* OrderDefData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderDefData.m; sourceTree = "<group>"; };
 		84BA6F922376505F0047796E /* GoodsBuyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsBuyView.h; sourceTree = "<group>"; };
 		84BA6F932376505F0047796E /* GoodsBuyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsBuyView.m; sourceTree = "<group>"; };
 		84C29207235DEF5B00034213 /* NetWorkRequest+Business.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NetWorkRequest+Business.m"; path = "LifeBox/Comment/RequestManagement/NetWorkRequest+Business.m"; sourceTree = SOURCE_ROOT; };
@@ -713,8 +709,6 @@
 		84F3401023B4BA5C00BAE696 /* AddressData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressData.h; sourceTree = "<group>"; };
 		84F3401123B4BA5C00BAE696 /* AreaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaData.m; sourceTree = "<group>"; };
 		84F3401223B4BA5C00BAE696 /* AreaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaData.h; sourceTree = "<group>"; };
-		84F3401923BB215400BAE696 /* ConfirmOrderData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfirmOrderData.h; sourceTree = "<group>"; };
-		84F3401A23BB215400BAE696 /* ConfirmOrderData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfirmOrderData.m; sourceTree = "<group>"; };
 		8B45816D0134074CDFF8F87E /* Pods-LifeBoxUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeBoxUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LifeBoxUITests/Pods-LifeBoxUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CF018FD20FA4FDD9D71E8F8B /* Pods-LifeBoxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeBoxTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LifeBoxTests/Pods-LifeBoxTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -946,10 +940,6 @@
 				05145131231EB21B00547E42 /* CollectionController.m */,
 				05145136231EB7D900547E42 /* InvitationController.h */,
 				05145137231EB7D900547E42 /* InvitationController.m */,
-				0515B42B2321506800026D37 /* MyOrderController.h */,
-				0515B42C2321506800026D37 /* MyOrderController.m */,
-				059F2C8E2322BCA40045BA65 /* OrderDetailsController.h */,
-				059F2C8F2322BCA40045BA65 /* OrderDetailsController.m */,
 				059F2CBA2323F5120045BA65 /* SetViewController.h */,
 				059F2CBB2323F5120045BA65 /* SetViewController.m */,
 				059F2CCF2324070B0045BA65 /* FeedbackController.h */,
@@ -981,8 +971,6 @@
 			children = (
 				84F3401023B4BA5C00BAE696 /* AddressData.h */,
 				84F3400F23B4BA5C00BAE696 /* AddressData.m */,
-				84F3401923BB215400BAE696 /* ConfirmOrderData.h */,
-				84F3401A23BB215400BAE696 /* ConfirmOrderData.m */,
 				84F3401223B4BA5C00BAE696 /* AreaData.h */,
 				84F3401123B4BA5C00BAE696 /* AreaData.m */,
 				050E0491230DC3E500DA5BFD /* PersonIconData.h */,
@@ -1694,8 +1682,10 @@
 		84B954D0232372F000A7E8D2 /* VC */ = {
 			isa = PBXGroup;
 			children = (
-				84B954CD2323726500A7E8D2 /* ConfimOrderVC.h */,
-				84B954CE2323726500A7E8D2 /* ConfimOrderVC.m */,
+				0515B42B2321506800026D37 /* MyOrderController.h */,
+				0515B42C2321506800026D37 /* MyOrderController.m */,
+				059F2C8E2322BCA40045BA65 /* OrderDetailsController.h */,
+				059F2C8F2322BCA40045BA65 /* OrderDetailsController.m */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -1723,8 +1713,8 @@
 		84B954DC2324E2F000A7E8D2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				84B954E02324E3BE00A7E8D2 /* ConfirmInfoData.h */,
-				84B954E12324E3BE00A7E8D2 /* ConfirmInfoData.m */,
+				84B954E02324E3BE00A7E8D2 /* OrderDefData.h */,
+				84B954E12324E3BE00A7E8D2 /* OrderDefData.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1750,6 +1740,7 @@
 				053A751922F484BA0023A156 /* Frameworks */,
 				053A751A22F484BA0023A156 /* Resources */,
 				19DE9FA58A0E34769F3AC814 /* [CP] Embed Pods Frameworks */,
+				77DDC02B0D7C9E64AF8EFC0A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2068,6 +2059,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		77DDC02B0D7C9E64AF8EFC0A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LifeBox/Pods-LifeBox-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LifeBox/Pods-LifeBox-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LifeBox/Pods-LifeBox-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		EDED7AB558687C048DFD064D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2140,7 +2148,6 @@
 				84B2E05E2307067E00BC9197 /* UIImage+UG.m in Sources */,
 				05AC5C27235603E9000584CB /* OrderTopCell.m in Sources */,
 				84501F14239F7E5C00225D9F /* UGTextField.m in Sources */,
-				84B954CF2323726500A7E8D2 /* ConfimOrderVC.m in Sources */,
 				05145135231EB6A600547E42 /* CollectionCell.m in Sources */,
 				8478A2752326391D005681CF /* HomeProductdata.m in Sources */,
 				84B2E0632307067E00BC9197 /* UITextField+UG.m in Sources */,
@@ -2185,8 +2192,7 @@
 				055C0CB3233DAC5400302E7A /* GoodsSpeSheet.m in Sources */,
 				8461E1BA2301562800764748 /* UIView+Alert.m in Sources */,
 				84B2E0772307C97300BC9197 /* NetWorkRequest+Goods.m in Sources */,
-				84F3401B23BB215400BAE696 /* ConfirmOrderData.m in Sources */,
-				84B954E22324E3BE00A7E8D2 /* ConfirmInfoData.m in Sources */,
+				84B954E22324E3BE00A7E8D2 /* OrderDefData.m in Sources */,
 				84B2E05C2307067E00BC9197 /* UIControl+UG.m in Sources */,
 				0531E9FA2338645F00775D79 /* PersonInfoController.m in Sources */,
 				8461E19723013A6B00764748 /* UIApplication+LOG.m in Sources */,
@@ -2397,7 +2403,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LG55CZHSNP;
+				DEVELOPMENT_TEAM = C3NDDQ4G8T;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/LifeBox/LifeBoxHeader.pch";
 				INFOPLIST_FILE = LifeBox/Info.plist;
@@ -2418,7 +2424,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LG55CZHSNP;
+				DEVELOPMENT_TEAM = C3NDDQ4G8T;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/LifeBox/LifeBoxHeader.pch";
 				INFOPLIST_FILE = LifeBox/Info.plist;

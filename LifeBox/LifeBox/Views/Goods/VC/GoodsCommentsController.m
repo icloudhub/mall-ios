@@ -75,7 +75,7 @@ static NSString *cellID = @"CommentsCellID";
         if (error) {
             [self.view ug_msg:error.domain];
         }else{
-            weakSelf.dataList = [NSArray yy_modelArrayWithClass:[ProductCommentModel class] json:dataDict];
+            weakSelf.dataList = [NSArray modelArrayWithClass:[ProductCommentModel class] json:dataDict];
             [self->tableView reloadData];
         }
     }];

@@ -290,7 +290,7 @@ static NSString *homeGoodsCellID = @"HomeGoodsCellID";
         if (error) {
             [self.view ug_msg:error.domain];
         }else{
-            self.homedata = [HomeData yy_modelWithJSON:result];
+            self.homedata = [HomeData modelWithJSON:result];
             [self reloadUI];
         }
     }];
@@ -302,7 +302,7 @@ static NSString *homeGoodsCellID = @"HomeGoodsCellID";
         if (error) {
             [self.view ug_msg:error.domain];
         }else{
-            self.likeproducts = [NSArray yy_modelArrayWithClass:[HomeProductdata class] json:result];
+            self.likeproducts = [NSArray modelArrayWithClass:[HomeProductdata class] json:result];
             [self->tableView reloadData];
         }
     }];
@@ -314,7 +314,7 @@ static NSString *homeGoodsCellID = @"HomeGoodsCellID";
         if (error) {
             [self.view ug_msg:error.domain];
         }else{
-            SubjectData *data = [SubjectData yy_modelWithJSON:result];
+            SubjectData *data = [SubjectData modelWithJSON:result];
             WebViewController *vc = [WebViewController new];
             vc.htmlstr = data.content;
             vc.title = data.title;

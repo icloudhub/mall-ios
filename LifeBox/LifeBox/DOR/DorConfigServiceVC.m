@@ -196,7 +196,7 @@
     data.searchPort =  [Global_Variable shared].searchPort;
 
     if (datastr.length>5) {
-        [self.serviceList addObjectsFromArray:[NSArray yy_modelArrayWithClass:[ServiecData class] json:datastr]];
+        [self.serviceList addObjectsFromArray:[NSArray modelArrayWithClass:[ServiecData class] json:datastr]];
         for (ServiecData *tdata in _serviceList) {
             if ([tdata.url isEqualToString:data.url] && [tdata.port isEqualToString:data.port] && [tdata.searchPort isEqualToString:data.searchPort]) {
                 [self setSelectdata:tdata];
@@ -282,7 +282,7 @@
             if (!data.isselect) {
                 [weakSelf.serviceList removeObject:data];
                 [weakSelf.blocktableview.tableview reloadData];
-                [[NSUserDefaults standardUserDefaults]setObject:[weakSelf.serviceList yy_modelToJSONString] forKey:@"DorConfigServiceVC.ipdata"];
+                [[NSUserDefaults standardUserDefaults]setObject:[weakSelf.serviceList modelToJSONString] forKey:@"DorConfigServiceVC.ipdata"];
                 [[NSUserDefaults standardUserDefaults] synchronize];
             }else{
                 [weakSelf.view ug_msg:@"被选中的选项不能删除"];
@@ -332,7 +332,7 @@
             }
             [weakSelf.serviecAddview removeFromSuperview];
             [weakSelf.blocktableview.tableview reloadData];
-            [[NSUserDefaults standardUserDefaults]setObject:[weakSelf.serviceList yy_modelToJSONString] forKey:@"DorConfigServiceVC.ipdata"];
+            [[NSUserDefaults standardUserDefaults]setObject:[weakSelf.serviceList modelToJSONString] forKey:@"DorConfigServiceVC.ipdata"];
             [[NSUserDefaults standardUserDefaults] synchronize];
         }];
     }
@@ -372,7 +372,7 @@
         if (!data.isselect) {
             [weakSelf.serviceList removeObject:data];
             [weakSelf.blocktableview.tableview reloadData];
-            [[NSUserDefaults standardUserDefaults]setObject:[weakSelf.serviceList yy_modelToJSONString] forKey:@"DorConfigServiceVC.ipdata"];
+            [[NSUserDefaults standardUserDefaults]setObject:[weakSelf.serviceList modelToJSONString] forKey:@"DorConfigServiceVC.ipdata"];
             [[NSUserDefaults standardUserDefaults] synchronize];
         }else{
             [weakSelf.view ug_msg:@"被选中的选项不能删除"];

@@ -244,7 +244,7 @@ static NSString *cellID = @"AddressChooseCellID";
             [self ug_msg:error.domain];
         }else{
             if ([self->isChoose isEqualToString:@"1"]) {
-                self->provinceList = (NSMutableArray *)[NSMutableArray yy_modelArrayWithClass:[AreaData class] json:result];
+                self->provinceList = (NSMutableArray *)[NSMutableArray modelArrayWithClass:[AreaData class] json:result];
                 if (self.provinceData.name != 0) {
                     for (AreaData *data in self->provinceList) {
                         if ([data.name isEqualToString:self.provinceData.name]) {
@@ -255,7 +255,7 @@ static NSString *cellID = @"AddressChooseCellID";
                 }
             }
             else if ([self->isChoose isEqualToString:@"2"]) {
-                self->cityList = (NSMutableArray *)[NSMutableArray yy_modelArrayWithClass:[AreaData class] json:result];
+                self->cityList = (NSMutableArray *)[NSMutableArray modelArrayWithClass:[AreaData class] json:result];
                 if (self.cityData.name != 0) {
                     for (AreaData *data in self->cityList) {
                         if ([data.name isEqualToString:self.cityData.name]) {
@@ -265,7 +265,7 @@ static NSString *cellID = @"AddressChooseCellID";
                     }
                 }
             }else{
-                self->areaList = (NSMutableArray *)[NSMutableArray yy_modelArrayWithClass:[AreaData class] json:result];
+                self->areaList = (NSMutableArray *)[NSMutableArray modelArrayWithClass:[AreaData class] json:result];
                 if (self.areaData.name != 0) {
                     for (AreaData *data in self->areaList) {
                         if ([data.name isEqualToString:self.areaData.name]) {

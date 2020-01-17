@@ -10,7 +10,6 @@
 #import <WebKit/WebKit.h>
 #import "ProductModel.h"
 #import "NetWorkRequest+Shoping.h"
-#import "ConfimOrderVC.h"
 #import <SDCycleScrollView/SDCycleScrollView.h>
 #import "GoodsCommentsController.h"
 #import "GoodsSpeSheet.h"
@@ -473,10 +472,10 @@
         if (error) {
             [self.view ug_msg:error.domain];
         }else{
-            ProductModel *temdata = [ProductModel yy_modelWithJSON:dataDict];
+            ProductModel *temdata = [ProductModel modelWithJSON:dataDict];
             [self reloadViewUIWith:temdata];
             
-            self.productdata =  [ProductModel yy_modelWithJSON:dataDict];
+            self.productdata =  [ProductModel modelWithJSON:dataDict];
             self.selectsku = _productdata.skuList.firstObject;
             if (weakSelf.productdata.detailMobileHtml.length>0 ) {
                 [self->_defWebview loadHTMLString:weakSelf.productdata.detailMobileHtml baseURL:nil];
@@ -610,12 +609,9 @@
          if (error) {
              [self.view ug_msg:error.domain];
          }else{
-//             ConfimOrderVC *vc = [ConfimOrderVC new];
-//             vc.confimid = [dataDict[@"id"] integerValue];
-//             [self.navigationController pushViewController:vc animated:YES];
-            OrderDetailsController *detailsController = [OrderDetailsController new];
-             detailsController.orderid = [dataDict objectForKey:@"id"];
-            [self.navigationController pushViewController:detailsController animated:NO];
+             OrderDetailsController *vc = [OrderDetailsController new];
+             vc.orderid = dataDict;
+             [self.navigationController pushViewController:vc animated:YES];
          }
      }];
 

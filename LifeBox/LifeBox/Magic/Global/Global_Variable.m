@@ -54,8 +54,8 @@ static Global_Variable *sharedInstance = nil;
 #pragma mark - 获取服务IP地址
 - (NSString *)serviceIP{
     if (!_serviceIP) {
-        _serviceIP = @"http://120.77.202.156";  //测试环境
-//        _serviceIP = @"http://10.10.11.106";  //测试环境
+//        _serviceIP = @"http://120.77.202.156";  //测试环境
+        _serviceIP = @"http://10.10.11.106";  //测试环境
     }
     return _serviceIP;
 }

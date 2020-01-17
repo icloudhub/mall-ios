@@ -10,7 +10,10 @@
 #import "DetailsGoodsCell.h"
 #import "DetailsPriceCell.h"
 #import "DetailsInfoCell.h"
-#import "ConfirmOrderData.h"
+#import "OrderDefData.h"
+#import "NetWorkRequest+Orlder.h"
+#import "AddressManagementController.h"
+#import <AlipaySDK/AlipaySDK.h>
 
 @interface OrderDetailsController ()<UITableViewDelegate, UITableViewDataSource> {
     ///顶部View
@@ -50,7 +53,7 @@
 @property (strong, nonatomic) UIButton *rightBtn;
 
 ///右边Btn
-@property (strong, nonatomic) ConfirmOrderData *confirmOrderData;
+@property (strong, nonatomic) OrderDefData *orderData;
 
 @end
 
@@ -93,12 +96,15 @@ static NSString *priceCellID = @"DetailsPriceCellID";
     }];
 }
 -(void)reloadUI{
-    _needPayLab.text = [NSString stringWithFormat:@"需付款: ¥%.2f",_confirmOrderData.calcAmountData.totalAmount];
-    AddressData *addressData = _confirmOrderData.defualaddress;
-    
-    _addressLab.text = [NSString stringWithFormat:@"地址: %@ %@ %@ %@",addressData.province,addressData.city,addressData.region,addressData.detailAddress];
-    _nameLab.text = addressData.name;
-    _phoneLab.text = addressData.phoneNumber;
+    _needPayLab.text = [NSString stringWithFormat:@"需付款: ¥%0.2f",_orderData.totalAmount ];
+   
+
+    _addressLab.text = [NSString stringWithFormat:@"地址: %@ %@ %@ %@",_orderData.receiverProvince,
+                        _orderData.receiverCity,
+                        _orderData.receiverRegion,
+                        _orderData.receiverDetailAddress];
+    _nameLab.text = _orderData.receiverName;
+    _phoneLab.text = _orderData.receiverPhone;
     [tableView reloadData];
   
 }
@@ -249,6 +255,7 @@ static NSString *priceCellID = @"DetailsPriceCellID";
     [topView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.bottom.mas_equalTo(addressView.mas_bottom).mas_offset(Scale750(20));
     }];
+    
 }
 
 #pragma mark - 创建底部View
@@ -311,9 +318,10 @@ static NSString *priceCellID = @"DetailsPriceCellID";
             cell.backgroundColor = S_COBackground;
                  cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
-        ProductItemlist *product = [_confirmOrderData.productItemlist objectAtIndex:indexPath.row];
-        HomeProductdata *data = product.product;
-        [cell.goodsImg sd_setImageWithURL:UG_URL(data.pic)];
+        NSDictionary *product = [_orderData.orderItemList objectAtIndex:indexPath.row];
+        
+        [cell.goodsImg sd_setImageWithURL:UG_URL([product stringValueForKey:@"productPic" default:@""])];
+                                                 
      
         return cell;
     }
@@ -321,9 +329,11 @@ static NSString *priceCellID = @"DetailsPriceCellID";
         DetailsInfoCell *infoCell = [tableView dequeueReusableCellWithIdentifier:infoCellID];
         if (infoCell == nil) {
             infoCell = [[DetailsInfoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:infoCellID];
+            infoCell.backgroundColor = S_COBackground;
+            infoCell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
-        infoCell.backgroundColor = S_COBackground;
-        infoCell.selectionStyle = UITableViewCellSelectionStyleNone;
+        infoCell.orderTime.text = _orderData.createTime;
+        infoCell.orderId.text = _orderData.orderSn;
         return infoCell;
     }else {
         DetailsPriceCell *priceCell = [tableView dequeueReusableCellWithIdentifier:priceCellID];
@@ -339,7 +349,8 @@ static NSString *priceCellID = @"DetailsPriceCellID";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section==0) {
-        return _confirmOrderData.productItemlist.count;
+        return 1;
+        return _orderData.orderItemList.count;
     }else{
         return 1;
     }
@@ -351,17 +362,18 @@ static NSString *priceCellID = @"DetailsPriceCellID";
 
 #pragma mark http
 -(void)getConfirmOrderInfo{
-    [[NetWorkRequest new] getConfirmOrderInfo:_orderid endBlock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
+    [[NetWorkRequest new] getOrderinfo:_orderid endBlock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
         if (error) {
             [self.view ug_msg:error.domain];
         }else{
-            self.confirmOrderData = [ConfirmOrderData yy_modelWithJSON:result];
+            self.orderData = [OrderDefData modelWithJSON:result];
             [self reloadUI];
         }
     }];
 }
 // 获取支付方式
 -(void)getPaytype{
+   
     [[NetWorkRequest new] cfgGetvalueByType:@"1002" endBlock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
         if (error) {
             [self.view ug_msg:error.domain];
@@ -369,11 +381,18 @@ static NSString *priceCellID = @"DetailsPriceCellID";
             UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"支付方式" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
             for (NSDictionary *dic in result) {
                 [alertController addAction:[UIAlertAction actionWithTitle:dic[@"name"] style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                    [[NetWorkRequest new]generatePayOrder:_orderid couponId:@"" addressId:_confirmOrderData.defualaddress.addressId payType:dic[@"id"] useIntegration:@"" endBlock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
+                   
+                        
+                    [[NetWorkRequest new]payInfo:_orderid payType:dic[@"value"] endBlock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
+                        
                         if (error) {
                             [self.view ug_msg:error.domain];
                         }else{
+                            
                             [self.view ug_msg:[NSString stringWithFormat:@"%@",result]];
+                            [[AlipaySDK defaultService] payOrder:result fromScheme:@"LifeBoxAliPay" callback:^(NSDictionary *resultDic) {
+                                NSLog(@"reslut = %@",resultDic);
+                            }];
                         }
                     }];
                     
@@ -382,7 +401,22 @@ static NSString *priceCellID = @"DetailsPriceCellID";
             //添加取消选项
                [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
                    
-                   [alertController dismissViewControllerAnimated:YES completion:nil];
+                   [alertController dismissViewControllerAnimated:YES completion:^{
+                       AddressManagementController *vc = [AddressManagementController new];
+                       [self.navigationController pushViewController:vc animated:YES];
+                       vc.didselectAddress = ^(AddressData * _Nonnull selectData) {
+                           [[NetWorkRequest new] updateOrderAddress:_orderid addressId:selectData.addressId endBlock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
+                           
+                               if (error) {
+                                   [self.view ug_msg:error.domain];
+                               }else{
+                                   [self.view ug_msg:[NSString stringWithFormat:@"%@",result]];
+                                   [self getConfirmOrderInfo];
+                               }
+                           }];
+                       };
+                   }];
+                   
                    
                }]];
              [self presentViewController:alertController animated:YES completion:nil];

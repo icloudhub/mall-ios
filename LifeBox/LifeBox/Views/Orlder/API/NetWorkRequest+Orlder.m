@@ -9,34 +9,21 @@
 #import "NetWorkRequest+Orlder.h"
 
 @implementation NetWorkRequest (Orlder)
-/**
- POST /order/getConfirmOrderInfo
- 根据确认单编号返回确认订单信息
- */
--(void)getConfirmOrderInfo:(NSInteger)confirmid block:(NREndBlock)endblock{
-    NSString *url = [NSString stringWithFormat:@"%@/order/getConfirmOrderInfo",BASEURL];
+- (void)payInfo:(NSString *)orderId payType:(NSString *)payType endBlock:(void(^)(NSDictionary *result, NSError *error))endblock{
+    
+    NSString *url = [NSString stringWithFormat:@"%@/order/payInfo", BASEURL];
     [self post:url param:@{
-                           @"confirmid":[NSString stringWithFormat:@"%zd",confirmid]
-                           } head:nil endblock:endblock];
+        @"orderId":orderId,
+        @"payType":payType
+    } head:nil endblock:endblock];
 }
 
-/**
- * POST /order/generatePayOrder
- * 根据确认信息生成支付订单
- */
--(void)generatePayOrder:(NSInteger)confirmid
-                  couponId:(NSInteger)couponId
-    memberReceiveAddressId:(NSInteger)memberReceiveAddressId
-            useIntegration:(NSInteger)useIntegration
-                     block:(NREndBlock)endblock{
-    NSString *url = [NSString stringWithFormat:@"%@/order/generatePayOrder",BASEURL];
-    NSMutableDictionary *parmdic = [[NSMutableDictionary alloc]initWithDictionary:@{
-                                                                                    @"confirmId":[NSString stringWithFormat:@"%zd",confirmid],           @"addressId":[NSString stringWithFormat:@"%zd",memberReceiveAddressId],
-                                                                                    @"useIntegration":[NSString stringWithFormat:@"%zd",useIntegration]
-                                                                                    }];
-//    if (couponId>0) {
-        [parmdic setObject:[NSString stringWithFormat:@"%zd",couponId] forKey:@"couponId"];
-//    }
-    [self post:url param:parmdic head:nil endblock:endblock];
+- (void)updateOrderAddress:(NSString *)orderId addressId:(NSString *)addressId endBlock:(void(^)(NSDictionary *result, NSError *error))endblock{
+    
+   NSString *url = [NSString stringWithFormat:@"%@/order/updateOrderAddress", BASEURL];
+    [self post:url param:@{
+        @"orderId":orderId,
+        @"addressId":addressId
+    } head:nil endblock:endblock];
 }
 @end
