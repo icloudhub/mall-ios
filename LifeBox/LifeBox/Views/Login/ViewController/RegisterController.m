@@ -216,6 +216,7 @@
     _invitaTF.font = [UIFont systemFontOfSize:Scale750(30)];
     _invitaTF.placeholder = @"邀请码(选填)";
     _invitaTF.delegate = self;
+    _invitaTF.text = @"9OKWQA";
     [self.view addSubview:_invitaTF];
     [_invitaTF mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.mas_equalTo(line4.mas_top);
@@ -292,6 +293,7 @@
         if (error) {
             [self.view ug_msg:error.domain];
         }else{
+            [UIView ug_debugmsg:dataDict];
             [AppDelegate addObjectIndateDic:self->keyStr];
             [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationDoit) name:APPTIMEINFORMATION object:nil];
         }

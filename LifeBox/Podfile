@@ -26,6 +26,10 @@ target 'LifeBox' do
    #适配
    pod 'Masonry'
    
+   #上下拉刷新
+   pod 'MJRefresh'
+   
+   
    #模型转换
 #   pod 'YYModel'
    pod 'YYKit'

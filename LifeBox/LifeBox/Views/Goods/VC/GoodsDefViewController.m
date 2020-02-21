@@ -47,6 +47,9 @@
 ///可滚动区域
 @property(strong, nonatomic) UIScrollView *scrollView;
 
+/// 选中规格
+@property(strong, nonatomic) UILabel *speLab;
+
 @property(strong, nonatomic) ProductModel *productdata;
 @property(strong, nonatomic) ProductSKUModel *selectsku;
 
@@ -79,6 +82,27 @@
     [super viewLayoutMarginsDidChange];
     CGFloat scrollViewH = _goodsView.frame.origin.y + _goodsView.frame.size.height + Scale750(30);
     [_scrollView setContentSize:CGSizeMake(Screen_width, scrollViewH)];
+}
+-(void)viewWillLayoutSubviews{
+    [super viewWillLayoutSubviews];
+    [_speLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(Scale750(20));
+        make.centerY.mas_equalTo(self.speLab.superview);
+        make.width.height.mas_greaterThanOrEqualTo(0);
+    }];
+}
+
+#pragma mark -GET
+/*
+* 规格Lab
+*/
+-(UILabel *)speLab{
+    if (!_speLab) {
+        _speLab = [[UILabel alloc] init];
+        _speLab.font = [UIFont systemFontOfSize:Scale750(30)];
+        _speLab.textColor = RGBColor(51, 51, 51);
+    }
+    return _speLab;
 }
 
 #pragma mark - 顶部导航和底部功能栏View
@@ -356,21 +380,11 @@
     }];
     [speView bk_addEventHandler:^(id sender) {
         self.speSheet = [[GoodsSpeSheet alloc] init];
+        self.speSheet.product = _productdata;
         [self.speSheet showView];
     } forControlEvents:UIControlEventTouchUpInside];
-    /*
-     * 规格Lab
-     */
-    UILabel *speLab = [[UILabel alloc] init];
-    speLab.font = [UIFont systemFontOfSize:Scale750(30)];
-    speLab.textColor = RGBColor(51, 51, 51);
-    speLab.text = @"已选择: 400g/盒";
-    [speView addSubview:speLab];
-    [speLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(Scale750(20));
-        make.centerY.mas_equalTo(speView);
-        make.width.height.mas_greaterThanOrEqualTo(0);
-    }];
+    
+    [speView addSubview:self.speLab];
     /*
      * 进入图片
      */
@@ -462,6 +476,8 @@
     }];
 }
 
+
+
 #pragma mark - 接口请求
 // 获取商品详情
 -(void)getHttpLoadData {
@@ -473,18 +489,15 @@
             [self.view ug_msg:error.domain];
         }else{
             ProductModel *temdata = [ProductModel modelWithJSON:dataDict];
-            [self reloadViewUIWith:temdata];
+            
             
             self.productdata =  [ProductModel modelWithJSON:dataDict];
-            self.selectsku = _productdata.skuList.firstObject;
-            if (weakSelf.productdata.detailMobileHtml.length>0 ) {
-                [self->_defWebview loadHTMLString:weakSelf.productdata.detailMobileHtml baseURL:nil];
-            }else{
-                [self->_defWebview loadHTMLString:weakSelf.productdata.detailHtml baseURL:nil];
+            for (ProductSKUModel *skuitem in self.productdata.skuList) {
+                if ([skuitem.skuid isEqualToString:self.productdata.defualSku]) {
+                    self.selectsku = skuitem;
+                }
             }
-            
-            [weakSelf.bannerView setImageURLStringsGroup:[weakSelf.productdata.albumPics componentsSeparatedByString:@","]];
-            weakSelf.defWebview.backgroundColor = UIColor.ug_random;
+            [self reloadViewUIWith:temdata];
         }
     }];
 }
@@ -505,6 +518,16 @@
     NSString *tempStr = [NSString stringWithFormat:@"%@/%@", numStr, allStr];
     _numLab.attributedText = [tempStr strChangFlagWithStr:numStr Color:[UIColor whiteColor] Font:Scale750(36)];
     [_bannerView setImageURLStringsGroup:bannerCount];
+    
+    // 规格
+    NSMutableArray *attriarr = [NSMutableArray new];
+    for (NSDictionary *dic in self.selectsku.attributes) {
+        [attriarr addObject:dic[@"value"]];
+    }
+    self.speLab.text = [NSString stringWithFormat:@"已选择: %@",[attriarr componentsJoinedByString:@","]];
+    // 价格
+    self.goodsPrice.text = [NSString stringWithFormat:@"¥ %0.2f",_selectsku.price];
+
     //商品详情数据
     self->_defWebview.backgroundColor = UIColor.ug_random;
     if (data.detailMobileHtml.length>0 ) {

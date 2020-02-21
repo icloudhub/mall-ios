@@ -65,6 +65,30 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param endblock 请求回调
 -(void)getOrderDetailsWithID:(NSString *)orderId endBlock:(NREndBlock)endblock;
 
+#pragma mark - 根据父id获取品牌列表
+/// @param parentID 分类父id
+/// @param endblock 请求回调
+
+-(void)categoryWithID:(NSString *)parentID endBlock:(NREndBlock)endblock;
+
+#pragma mark - 综合搜索、筛选、排序
+/**
+ keyword 关键字
+ brandId 品牌id
+ productCategoryId 分类id
+ pageNum 页码
+ pageSize 分页大小
+ sort 排序 排序字段:0->按相关度；1->按新品；2->按销量；3->价格从低到高；4->价格从高到低
+ */
+
+-(void)productsearch:(NSString *)keyword
+             brandId:(NSString *)brandId
+   productCategoryId:(NSString *)productCategoryId
+                sort:(NSString *)sort
+            pageSize:(NSString *)pageSize
+             pageNum:(NSString *)pageNum
+            endBlock:(NREndBlock)endblock;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -12,7 +12,14 @@
 @implementation UIView (Alert)
 
 
-
++ (void)ug_debugmsg:(NSString*)msg
+{
+#if DEBUG
+    NSString *str = [NSString stringWithFormat:@"%@",msg];
+    UIWindow *awindow = [UIApplication sharedApplication].keyWindow;
+    [awindow ug_msg:str];
+#endif
+}
 + (void)ug_msg:(NSString*)msg
 {
     UIWindow *awindow = [UIApplication sharedApplication].keyWindow;

@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIView (Alert)
 
++ (void)ug_debugmsg:(NSString*)msg;
 /**
  * 小提示 在window上弹出
  */

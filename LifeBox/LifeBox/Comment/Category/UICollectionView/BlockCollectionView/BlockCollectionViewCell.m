@@ -15,35 +15,38 @@
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
-
+        
         
         self.imageView = [UIImageView new];
         _imageView.backgroundColor = [UIColor clearColor];
         [self.contentView addSubview:_imageView];
         _imageView.contentMode = UIViewContentModeScaleAspectFill;
         _imageView.clipsToBounds = YES;
+
+        
         
         self.titleLab = [UILabel new];
-        _titleLab.font = [UIFont systemFontOfSize:12];
-        [self addSubview:_titleLab];
-
+        [self.contentView addSubview:_titleLab];
+        [_titleLab setFont:FONT_SYS14];
+        _titleLab.textAlignment = NSTextAlignmentCenter;
+        _titleLab.numberOfLines = 0;
         
-
     }
     return self;
 }
 
-- (void)layoutSubviews
-{
+- (void)layoutSubviews{
     [super layoutSubviews];
+    
     [_imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(self.contentView);
-    }];
-    [_titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(self.contentView);
+        
+        make.left.right.top.bottom.mas_equalTo(self.contentView);
     }];
     
-
+    [_titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.left.right.top.bottom.mas_equalTo(self.contentView);
+    }];
 }
 
 

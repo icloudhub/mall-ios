@@ -7,10 +7,24 @@
 //
 
 #import "BaseSheet.h"
-
+#import "BlockCollectionView.h"
+#import "ProductModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GoodsSpeSheet : BaseSheet
+
+@property(strong, nonatomic) BlockCollectionView *collectionView;
+
+@property(strong, nonatomic) ProductModel *product;
+
+///选中规格
+@property(strong, nonatomic) NSMutableDictionary *selectSpeDic;
+
+///选中sku
+@property(strong, nonatomic) ProductSKUModel *selectsku;
+
+/// 加入购物车按钮
+@property(strong, nonatomic) UIButton *addShop;
 
 @end
 
