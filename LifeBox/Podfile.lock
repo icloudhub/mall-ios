@@ -71,6 +71,7 @@ PODS:
   - IQKeyboardManager (6.4.0)
   - Masonry (1.1.0)
   - MBProgressHUD (1.1.0)
+  - MJRefresh (3.3.1)
   - PNChart (0.8.9):
     - UICountingLabel (~> 1.2.0)
   - Reachability (3.2)
@@ -101,6 +102,7 @@ DEPENDENCIES:
   - IQKeyboardManager
   - Masonry
   - MBProgressHUD (~> 1.1.0)
+  - MJRefresh
   - Reachability
   - SDCycleScrollView
   - SDWebImage
@@ -121,13 +123,13 @@ SPEC REPOS:
     - IQKeyboardManager
     - Masonry
     - MBProgressHUD
+    - MJRefresh
     - PNChart
     - Reachability
     - SDCycleScrollView
     - SDWebImage
     - UICountingLabel
     - YYDebugDatabase
-  trunk:
     - YYKit
 
 SPEC CHECKSUMS:
@@ -144,6 +146,7 @@ SPEC CHECKSUMS:
   IQKeyboardManager: fcef267266379c003181fc3592f6bdb8bf4db839
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
+  MJRefresh: eeda70fbf0ad277f3178cef1cd0c3532591d6237
   PNChart: 84774d225c2126ded6c93d4dbe6ae98c3a73c2d2
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SDCycleScrollView: b3c9a5ed840c771c4938978174c7c9d9feefeb96
@@ -152,6 +155,6 @@ SPEC CHECKSUMS:
   YYDebugDatabase: f67e8bc0913ac3dfff19cded6e115d1854690a3f
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 93171bd93a080efb2605625b76e9d91d4f581c14
+PODFILE CHECKSUM: fef1857b5eceb6d01169930d0e2bd19045198b14
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.8.0.beta.1

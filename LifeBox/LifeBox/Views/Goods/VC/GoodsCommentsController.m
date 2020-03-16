@@ -1,7 +1,7 @@
 //
 //  GoodsCommentsController.m
 //  LifeBox
-//
+//  商品评价
 //  Created by Lucky on 2019/9/26.
 //  Copyright © 2019 Lucky. All rights reserved.
 //

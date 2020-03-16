@@ -31,7 +31,7 @@
                                };
     NSMutableDictionary *muparam = [[NSMutableDictionary alloc]initWithDictionary:param];
     if(reccode.length != 0){
-        [muparam setObject:reccode forKey:reccode];
+        [muparam setObject:reccode forKey:@"reccode"];
     }
     [self post:url param:muparam head:nil endblock:endblock];
 }

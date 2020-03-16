@@ -14,8 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) UIImageView *imageView;
 
-@property (nonatomic, strong) UILabel *titleLab;
+@property (nonatomic, strong) UILabel *titleLab; //标题
 
+@property (nonatomic, strong) UIView *layview;
 
 @end
 

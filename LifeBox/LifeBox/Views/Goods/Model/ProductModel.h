@@ -21,10 +21,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(assign, nonatomic) CGFloat promotionPrice;// 单品促销价格 ,
 @property(assign, nonatomic) NSInteger sale;//销量
 @property(strong, nonatomic) NSString *skuCode; //sku编码
-@property(strong, nonatomic) NSString *sp1; //销售属性1 ,
-@property(strong, nonatomic) NSString *sp2; //销售属性2 ,
-@property(strong, nonatomic) NSString *sp3; //销售属性3 ,
 @property(assign, nonatomic) NSInteger stock;//库存
+@property(strong, nonatomic) NSArray *attributes;//规格属性
+@property(strong, nonatomic) NSString *pic;//展示图
+
 
 
 @end
@@ -32,9 +32,9 @@ NS_ASSUME_NONNULL_BEGIN
 // 规格
 @interface ProductSpecModel : NSObject
 @property(strong, nonatomic) NSString *id;
-@property(strong, nonatomic) NSString *productAttributeId;
-@property(strong, nonatomic) NSString *productId;
-@property(strong, nonatomic) NSString *value;
+@property(strong, nonatomic) NSString *name;
+@property(strong, nonatomic) NSArray *valueList;
+
 
 @end
 
@@ -72,9 +72,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(strong, nonatomic) NSString *productid;
 @property(strong, nonatomic) NSString *albumPics;//画册图片用逗号分割
 @property(strong, nonatomic) NSString *pic;//图片
+@property(strong, nonatomic) NSString *defualSku;//默认选中SKU
 @property(strong, nonatomic) NSArray<ProductSKUModel*> *skuList;//sku list
-@property(strong, nonatomic) NSArray<ProductSpecModel*> *specList;//规格 list
+@property(strong, nonatomic) NSArray<ProductSpecModel*> *attributeList;//规格 list
 @property(strong, nonatomic) NSArray<ProductCommentModel*> *commentList;//评论 list
+
 
 @end
 

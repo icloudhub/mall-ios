@@ -26,6 +26,8 @@
     
      [[DoraemonManager shareInstance] addPluginWithTitle:@"app配置" icon:@"doraemon_ui" desc:@"商品详情" pluginName:@"DorConfigController" atModule:@"功能测试"];
     
+    [[DoraemonManager shareInstance] addPluginWithTitle:@"商品分类" icon:@"doraemon_ui" desc:@"商品分类" pluginName:@"DorGoodsClassesVC" atModule:@"功能测试"];
+    
     [[DoraemonManager shareInstance] addPluginWithTitle:@"弹框" icon:@"doraemon_ui" desc:@"弹框" pluginName:@"DorAlert" atModule:@"功能测试"];
     
 
@@ -138,6 +140,18 @@
 }
 
 @end
+
+#import "GoodsClassesVC.h"
+@implementation DorGoodsClassesVC
+
+- (void)pluginDidLoad{
+   GoodsClassesVC *vc = [[GoodsClassesVC alloc] init];
+    [DoraemonUtil openPlugin:vc];
+}
+
+@end
+
+
 
 
 

@@ -52,7 +52,7 @@
 + (NSDictionary *)modelCustomPropertyMapper {
 
     return @{@"productid":@"id",
-             @"specList":@"productAttributeValueList"
+             @"attributeList":@"attributeList"
     };
 
 }
@@ -60,7 +60,7 @@
 + (NSDictionary *)modelContainerPropertyGenericClass {
     return @{
             @"skuList":[ProductSKUModel class],
-            @"specList":[ProductSpecModel class],
+            @"attributeList":[ProductSpecModel class],
             @"commentList":[ProductCommentModel class],
             };
 }

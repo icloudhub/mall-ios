@@ -210,6 +210,8 @@
 		842D2B562320AD7A00C50605 /* NSString+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 842D2B552320AD7A00C50605 /* NSString+JSON.m */; };
 		842D2B592320B0BD00C50605 /* ConfigData.m in Sources */ = {isa = PBXBuildFile; fileRef = 842D2B582320B0BD00C50605 /* ConfigData.m */; };
 		842D2B5C2320B16B00C50605 /* NetWorkRequest+COM.m in Sources */ = {isa = PBXBuildFile; fileRef = 842D2B5B2320B16B00C50605 /* NetWorkRequest+COM.m */; };
+		8437F2D223F5278400CC0418 /* GoodsClassesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8437F2D123F5278400CC0418 /* GoodsClassesVC.m */; };
+		8437F2D523F53C9C00CC0418 /* CategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8437F2D423F53C9C00CC0418 /* CategoryModel.m */; };
 		84501F14239F7E5C00225D9F /* UGTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 84501F13239F7E5C00225D9F /* UGTextField.m */; };
 		8461E19723013A6B00764748 /* UIApplication+LOG.m in Sources */ = {isa = PBXBuildFile; fileRef = 8461E15A23013A6B00764748 /* UIApplication+LOG.m */; };
 		8461E19823013A6B00764748 /* LifeBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8461E15C23013A6B00764748 /* LifeBoxViewController.m */; };
@@ -274,6 +276,7 @@
 		84B954E22324E3BE00A7E8D2 /* OrderDefData.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B954E12324E3BE00A7E8D2 /* OrderDefData.m */; };
 		84BA6F942376505F0047796E /* GoodsBuyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BA6F932376505F0047796E /* GoodsBuyView.m */; };
 		84C29209235DEF5B00034213 /* NetWorkRequest+Business.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C29207235DEF5B00034213 /* NetWorkRequest+Business.m */; };
+		84DAE0CC23FBDEC4004FD675 /* SpeSheetHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DAE0CB23FBDEC4004FD675 /* SpeSheetHeadView.m */; };
 		84F3400E23B4BA4100BAE696 /* NetWorkRequest+MyInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F3400C23B4BA4100BAE696 /* NetWorkRequest+MyInterface.m */; };
 		84F3401323B4BA5C00BAE696 /* AddressData.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F3400F23B4BA5C00BAE696 /* AddressData.m */; };
 		84F3401423B4BA5C00BAE696 /* AreaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F3401123B4BA5C00BAE696 /* AreaData.m */; };
@@ -585,6 +588,10 @@
 		842D2B582320B0BD00C50605 /* ConfigData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfigData.m; sourceTree = "<group>"; };
 		842D2B5A2320B16B00C50605 /* NetWorkRequest+COM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NetWorkRequest+COM.h"; sourceTree = "<group>"; };
 		842D2B5B2320B16B00C50605 /* NetWorkRequest+COM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NetWorkRequest+COM.m"; sourceTree = "<group>"; };
+		8437F2D023F5278400CC0418 /* GoodsClassesVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsClassesVC.h; sourceTree = "<group>"; };
+		8437F2D123F5278400CC0418 /* GoodsClassesVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsClassesVC.m; sourceTree = "<group>"; };
+		8437F2D323F53C9C00CC0418 /* CategoryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryModel.h; sourceTree = "<group>"; };
+		8437F2D423F53C9C00CC0418 /* CategoryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryModel.m; sourceTree = "<group>"; };
 		84501F12239F7E5C00225D9F /* UGTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UGTextField.h; sourceTree = "<group>"; };
 		84501F13239F7E5C00225D9F /* UGTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UGTextField.m; sourceTree = "<group>"; };
 		8461E15423013A6B00764748 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -703,6 +710,8 @@
 		84BA6F932376505F0047796E /* GoodsBuyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsBuyView.m; sourceTree = "<group>"; };
 		84C29207235DEF5B00034213 /* NetWorkRequest+Business.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NetWorkRequest+Business.m"; path = "LifeBox/Comment/RequestManagement/NetWorkRequest+Business.m"; sourceTree = SOURCE_ROOT; };
 		84C29208235DEF5B00034213 /* NetWorkRequest+Business.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NetWorkRequest+Business.h"; path = "LifeBox/Comment/RequestManagement/NetWorkRequest+Business.h"; sourceTree = SOURCE_ROOT; };
+		84DAE0CA23FBDEC4004FD675 /* SpeSheetHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpeSheetHeadView.h; sourceTree = "<group>"; };
+		84DAE0CB23FBDEC4004FD675 /* SpeSheetHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpeSheetHeadView.m; sourceTree = "<group>"; };
 		84F3400C23B4BA4100BAE696 /* NetWorkRequest+MyInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NetWorkRequest+MyInterface.m"; sourceTree = "<group>"; };
 		84F3400D23B4BA4100BAE696 /* NetWorkRequest+MyInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NetWorkRequest+MyInterface.h"; sourceTree = "<group>"; };
 		84F3400F23B4BA5C00BAE696 /* AddressData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressData.m; sourceTree = "<group>"; };
@@ -1621,6 +1630,8 @@
 				84B2E0722307C8AF00BC9197 /* GoodsDefViewController.m */,
 				0531EA33233C9AC200775D79 /* GoodsCommentsController.h */,
 				0531EA34233C9AC200775D79 /* GoodsCommentsController.m */,
+				8437F2D023F5278400CC0418 /* GoodsClassesVC.h */,
+				8437F2D123F5278400CC0418 /* GoodsClassesVC.m */,
 				056E4A4D2354B06400C07936 /* SureOrderController.h */,
 				056E4A4E2354B06400C07936 /* SureOrderController.m */,
 			);
@@ -1641,6 +1652,8 @@
 			children = (
 				84B2E079231260CC00BC9197 /* ProductModel.h */,
 				84B2E07A231260CC00BC9197 /* ProductModel.m */,
+				8437F2D323F53C9C00CC0418 /* CategoryModel.h */,
+				8437F2D423F53C9C00CC0418 /* CategoryModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1664,6 +1677,8 @@
 				84BA6F932376505F0047796E /* GoodsBuyView.m */,
 				05A34D0B237E81E6007BD139 /* CheckButton.h */,
 				05A34D0C237E81E6007BD139 /* CheckButton.m */,
+				84DAE0CA23FBDEC4004FD675 /* SpeSheetHeadView.h */,
+				84DAE0CB23FBDEC4004FD675 /* SpeSheetHeadView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2114,6 +2129,7 @@
 				84C29209235DEF5B00034213 /* NetWorkRequest+Business.m in Sources */,
 				0537918623158AE500DF4DA0 /* HomeGoodsCell.m in Sources */,
 				05C46970237B9EC200D21EA1 /* NSMutableString+TagReplace.m in Sources */,
+				8437F2D223F5278400CC0418 /* GoodsClassesVC.m in Sources */,
 				0531EA12233A080700775D79 /* ChangeWeChatController.m in Sources */,
 				84B954D42323731F00A7E8D2 /* NetWorkRequest+Orlder.m in Sources */,
 				84B2E0622307067E00BC9197 /* NSObject+BlockDelayedPerforming.m in Sources */,
@@ -2179,6 +2195,7 @@
 				05A34D0D237E81E6007BD139 /* CheckButton.m in Sources */,
 				059F2C902322BCA40045BA65 /* OrderDetailsController.m in Sources */,
 				05BBBB7F230F99D500C01FC3 /* ProfitViewController.m in Sources */,
+				84DAE0CC23FBDEC4004FD675 /* SpeSheetHeadView.m in Sources */,
 				84B2E02D2302FFB300BC9197 /* NetWorkRequest+Login.m in Sources */,
 				84B2E07B231260CC00BC9197 /* ProductModel.m in Sources */,
 				84B2E05F2307067E00BC9197 /* UILabel+UG.m in Sources */,
@@ -2189,6 +2206,7 @@
 				059F2CB62323B8DC0045BA65 /* DetailsInfoCell.m in Sources */,
 				059F2CD12324070B0045BA65 /* FeedbackController.m in Sources */,
 				8461E1B123013A6B00764748 /* AppDelegate.m in Sources */,
+				8437F2D523F53C9C00CC0418 /* CategoryModel.m in Sources */,
 				055C0CB3233DAC5400302E7A /* GoodsSpeSheet.m in Sources */,
 				8461E1BA2301562800764748 /* UIView+Alert.m in Sources */,
 				84B2E0772307C97300BC9197 /* NetWorkRequest+Goods.m in Sources */,

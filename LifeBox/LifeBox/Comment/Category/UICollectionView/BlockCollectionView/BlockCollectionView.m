@@ -17,58 +17,45 @@
 
 @implementation BlockCollectionView
 
-#pragma mark -- Init
-- (instancetype)initWithFrame:(CGRect)frame
-{
-    if (self = [super initWithFrame:frame]) {
-        
-        [self initialization];
+-(instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout{
+    if (!layout) {
+        layout = self.flowLayout;
+    }
+    if (self ==[super initWithFrame:frame collectionViewLayout:layout]) {
+            self.backgroundColor = UIColor.clearColor;
+            self.delegate = self;
+            self.dataSource = self;
+            self.scrollsToTop = NO;
+            self.pagingEnabled = YES;
+            self.showsHorizontalScrollIndicator = NO;
+            self.showsVerticalScrollIndicator = NO;
+            [self registerClass:[BlockCollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
     }
     return self;
 }
-
-- (instancetype)initWithCoder:(NSCoder *)aDecoder
-{
-    if (self = [super initWithCoder:aDecoder]) {
-        
-        [self initialization];
+-(BlockCollectionViewFlowLayout *)flowLayout{
+    if (!_flowLayout) {
+        _flowLayout = [[BlockCollectionViewFlowLayout alloc] init];
+        _flowLayout.minimumLineSpacing = 0.f;
+        _flowLayout.minimumInteritemSpacing = 0.f;
+        _flowLayout.headerReferenceSize = CGSizeZero;
+        _flowLayout.footerReferenceSize = CGSizeZero;
+        _flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
     }
-    return self;
+    return _flowLayout;
 }
 
-- (void)initialization
-{
-
-    _flowLayout = [[BlockCollectionViewFlowLayout alloc] init];
-    _flowLayout.minimumLineSpacing = 0.f;
-    _flowLayout.minimumInteritemSpacing = 0.f;
-    _flowLayout.headerReferenceSize = CGSizeZero;
-    _flowLayout.footerReferenceSize = CGSizeZero;
-    _flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
-    
-    _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:_flowLayout];
-    _collectionView.backgroundColor = UIColor.clearColor;
-    _collectionView.delegate = self;
-    _collectionView.dataSource = self;
-    _collectionView.scrollsToTop = NO;
-    _collectionView.showsHorizontalScrollIndicator = NO;
-    _collectionView.showsVerticalScrollIndicator = NO;
-    [_collectionView registerClass:[BlockCollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
-    [self addSubview:_collectionView];
-}
-
-
-- (CGPoint)contentOffset
-{
-    switch (_flowLayout.scrollDirection) {
-        case UICollectionViewScrollDirectionVertical:
-            return CGPointMake(0.f, MAX(0.f, _collectionView.contentOffset.y - (_flowLayout.itemSize.height + _flowLayout.minimumLineSpacing) * 2));
-        default:
-            return CGPointMake(MAX(0.f, (_collectionView.contentOffset.x - (_flowLayout.itemSize.width + _flowLayout.minimumLineSpacing) * 2)), 0.f);
-    }
-}
 
 #pragma mark -- UICollectionView DataSource
+
+- (NSInteger) numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    NSInteger secontcount=0;
+       
+       if (self.ug_numberOfSectionsInCollectionView != nil) {
+           secontcount = self.ug_numberOfSectionsInCollectionView(collectionView);
+       }
+       return secontcount;
+}
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     NSInteger secontcount=0;
@@ -98,6 +85,7 @@
     }
 }
 
+
 #pragma mark -- UICollectionView Delegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -106,21 +94,32 @@
     }
 }
 
-- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
-{
-    if (!_isSetcenten) {
-        return;
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
+
+    if (self.ug_viewForSupplementaryElementOfKind) {
+        return self.ug_viewForSupplementaryElementOfKind(collectionView, kind, indexPath);
     }
-    NSInteger index = [self currentIndex];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:index inSection:0];
-    [_collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:[self scrollPosition]  animated:NO];
-   
+    return nil;
+
+}
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
+
+    if (self.ug_referenceSizeForHeaderInSection) {
+        return self.ug_referenceSizeForHeaderInSection(collectionView, collectionViewLayout, section);
+    }
+    return CGSizeZero;
 }
 
--(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
 {
-    
-    return UIEdgeInsetsMake(10, 10, 10, 10);//分别为上、左、下、右
+//    if (!_isSetcenten) {
+//        return;
+//    }
+//    NSArray *cellarr = [_collectionView indexPathsForVisibleItems];
+//    if (cellarr.count>0) {
+//        NSIndexPath *indexPath = [cellarr objectAtIndex:(cellarr.count/2)+(cellarr.count%2)-1];
+//        [_collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:[self scrollPosition]  animated:YES];
+//    }
 }
 
 #pragma mark -- UIScrollViewDelegate Delegate
@@ -129,25 +128,13 @@
     if (!_isSetcenten) {
         return;
     }
-    NSInteger index = [self currentIndex];
-    UICollectionViewScrollPosition position = [self scrollPosition];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:index inSection:0];
-    [_collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:position animated:YES];
+    NSArray *cellarr = [self indexPathsForVisibleItems];
+    if (cellarr.count>0) {
+        NSIndexPath *indexPath = [cellarr objectAtIndex:(cellarr.count/2)+(cellarr.count%2)-1];
+        [self scrollToItemAtIndexPath:indexPath atScrollPosition:[self scrollPosition]  animated:YES];
+    }
 }
 
--(NSInteger)currentIndex
-{
-    NSInteger index = 0;
-    switch (_flowLayout.scrollDirection) {
-        case UICollectionViewScrollDirectionVertical:
-            index = (_collectionView.contentOffset.y + (_flowLayout.itemSize.height + _flowLayout.minimumLineSpacing) / 2) / (_flowLayout.itemSize.height + _flowLayout.minimumLineSpacing);
-            break;
-        default:
-            index = (_collectionView.contentOffset.x + (_flowLayout.itemSize.width + _flowLayout.minimumLineSpacing) / 2) / (_flowLayout.itemSize.width + _flowLayout.minimumLineSpacing);
-            break;
-    }
-    return MAX(0, index);
-}
 //重新定位到中间
 - (UICollectionViewScrollPosition)scrollPosition
 {
@@ -161,8 +148,5 @@
 
 -(void)layoutSubviews{
     [super layoutSubviews];
-    [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.top.bottom.mas_equalTo(self);
-    }];
 }
 @end
