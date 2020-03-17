@@ -1,0 +1,163 @@
+PODS:
+  - AFNetworking (3.2.1):
+    - AFNetworking/NSURLSession (= 3.2.1)
+    - AFNetworking/Reachability (= 3.2.1)
+    - AFNetworking/Security (= 3.2.1)
+    - AFNetworking/Serialization (= 3.2.1)
+    - AFNetworking/UIKit (= 3.2.1)
+  - AFNetworking/NSURLSession (3.2.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.2.1)
+  - AFNetworking/Security (3.2.1)
+  - AFNetworking/Serialization (3.2.1)
+  - AFNetworking/UIKit (3.2.1):
+    - AFNetworking/NSURLSession
+  - AlipaySDK-iOS (15.6.8)
+  - BlocksKit (2.2.5):
+    - BlocksKit/All (= 2.2.5)
+  - BlocksKit/All (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+    - BlocksKit/MessageUI
+    - BlocksKit/UIKit
+  - BlocksKit/Core (2.2.5)
+  - BlocksKit/DynamicDelegate (2.2.5)
+  - BlocksKit/MessageUI (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+  - BlocksKit/UIKit (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+  - BSBacktraceLogger (0.0.1)
+  - CocoaLumberjack (3.6.0):
+    - CocoaLumberjack/Core (= 3.6.0)
+  - CocoaLumberjack/Core (3.6.0)
+  - DoraemonKit/Core (2.0.0):
+    - BSBacktraceLogger
+    - fishhook
+  - DoraemonKit/WithDatabase (2.0.0):
+    - BSBacktraceLogger
+    - DoraemonKit/Core
+    - fishhook
+    - YYDebugDatabase
+  - DoraemonKit/WithGPS (2.0.0):
+    - BSBacktraceLogger
+    - DoraemonKit/Core
+    - fishhook
+  - DoraemonKit/WithLoad (2.0.0):
+    - BSBacktraceLogger
+    - DoraemonKit/Core
+    - fishhook
+  - DoraemonKit/WithLogger (2.0.0):
+    - BSBacktraceLogger
+    - CocoaLumberjack
+    - DoraemonKit/Core
+    - fishhook
+  - DZNEmptyDataSet (1.8.1)
+  - fishhook (0.2)
+  - FMDB (2.7.5):
+    - FMDB/standard (= 2.7.5)
+  - FMDB/standard (2.7.5)
+  - GCDWebServer (3.5.3):
+    - GCDWebServer/Core (= 3.5.3)
+  - GCDWebServer/Core (3.5.3)
+  - IQKeyboardManager (6.5.4)
+  - Masonry (1.1.0)
+  - MBProgressHUD (1.1.0)
+  - OCBarrage (1.0.5)
+  - Reachability (3.2)
+  - RTRootNavigationController (0.7.2):
+    - RTRootNavigationController/Core (= 0.7.2)
+  - RTRootNavigationController/Core (0.7.2)
+  - SDCycleScrollView (1.80):
+    - SDWebImage (>= 5.0.0)
+  - SDWebImage (5.4.1):
+    - SDWebImage/Core (= 5.4.1)
+  - SDWebImage/Core (5.4.1)
+  - TABAnimated (2.2.5):
+    - TABAnimated/Core (= 2.2.5)
+    - TABAnimated/Reveal (= 2.2.5)
+  - TABAnimated/Core (2.2.5)
+  - TABAnimated/Reveal (2.2.5):
+    - TABAnimated/Core
+  - YYDebugDatabase (2.0.7):
+    - FMDB
+    - GCDWebServer
+  - YYKit (1.0.9):
+    - YYKit/no-arc (= 1.0.9)
+  - YYKit/no-arc (1.0.9)
+
+DEPENDENCIES:
+  - AFNetworking
+  - AlipaySDK-iOS
+  - BlocksKit
+  - CocoaLumberjack
+  - DoraemonKit/Core
+  - DoraemonKit/WithDatabase
+  - DoraemonKit/WithGPS
+  - DoraemonKit/WithLoad
+  - DoraemonKit/WithLogger
+  - DZNEmptyDataSet
+  - IQKeyboardManager
+  - Masonry
+  - MBProgressHUD (~> 1.1.0)
+  - OCBarrage
+  - Reachability
+  - RTRootNavigationController
+  - SDCycleScrollView
+  - SDWebImage
+  - TABAnimated
+  - YYKit
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - AFNetworking
+    - AlipaySDK-iOS
+    - BlocksKit
+    - BSBacktraceLogger
+    - CocoaLumberjack
+    - DoraemonKit
+    - DZNEmptyDataSet
+    - fishhook
+    - FMDB
+    - GCDWebServer
+    - IQKeyboardManager
+    - Masonry
+    - MBProgressHUD
+    - OCBarrage
+    - Reachability
+    - RTRootNavigationController
+    - SDCycleScrollView
+    - SDWebImage
+    - TABAnimated
+    - YYDebugDatabase
+    - YYKit
+
+SPEC CHECKSUMS:
+  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  AlipaySDK-iOS: 703a55774a37f412410ab04af96c011b91ec58cb
+  BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
+  BSBacktraceLogger: 06b983ee93a9f87d957960e9c73d660d5966b447
+  CocoaLumberjack: 78b0c238666f4f58db069738ec176f4519557516
+  DoraemonKit: 9e923599e28d0b61f1c6de4aef2c2d669b30abb7
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  fishhook: ea19933abfe8f2f52c55fd8b6e2718467d3ebc89
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  GCDWebServer: c0ab22c73e1b84f358d1e2f74bf6afd1c60829f2
+  IQKeyboardManager: 72b359cd7e777e3a984cedbe05f8da45320cbb63
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
+  OCBarrage: 5ee1a922afacb2c04739621ccda71872185e2e59
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+  RTRootNavigationController: 8344c2352d6d40fa370d0366efae2c84a945213f
+  SDCycleScrollView: b3c9a5ed840c771c4938978174c7c9d9feefeb96
+  SDWebImage: 29c340dbdcef342bb13125553f4e19ce056b07a7
+  TABAnimated: 578e519350a12ac08ec2ee2c0a2d2120ac13e137
+  YYDebugDatabase: c8be8bd85222cc2ced76e93ca06618bab87224d7
+  YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
+
+PODFILE CHECKSUM: 22b3f27164e012ef498aa74cc1ac0f748e6df362
+
+COCOAPODS: 1.8.4
