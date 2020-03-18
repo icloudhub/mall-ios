@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		61AC2216B56ED830ECF324E5 /* Pods_BusinseeLifeBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB2D70FC001408ED48247CB /* Pods_BusinseeLifeBox.framework */; };
+		8444A847242268C1007A0B25 /* ShopManageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8444A846242268C1007A0B25 /* ShopManageCell.swift */; };
 		84618D922421E05E005BD7BD /* HomeViewCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84618D6C2421E05E005BD7BD /* HomeViewCollectionCell.m */; };
 		84618D932421E05E005BD7BD /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84618D6E2421E05E005BD7BD /* HomeViewController.m */; };
 		84618D942421E05E005BD7BD /* DanmuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84618D752421E05E005BD7BD /* DanmuViewController.m */; };
@@ -110,6 +111,7 @@
 
 /* Begin PBXFileReference section */
 		63A9055BD0B2CC5FA6304F54 /* Pods-BusinseeLifeBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BusinseeLifeBox.debug.xcconfig"; path = "Target Support Files/Pods-BusinseeLifeBox/Pods-BusinseeLifeBox.debug.xcconfig"; sourceTree = "<group>"; };
+		8444A846242268C1007A0B25 /* ShopManageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopManageCell.swift; sourceTree = "<group>"; };
 		84618D6B2421E05E005BD7BD /* HomeViewCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewCollectionCell.h; sourceTree = "<group>"; };
 		84618D6C2421E05E005BD7BD /* HomeViewCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewCollectionCell.m; sourceTree = "<group>"; };
 		84618D6E2421E05E005BD7BD /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
@@ -319,6 +321,14 @@
 				AEB2D70FC001408ED48247CB /* Pods_BusinseeLifeBox.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8444A84524226867007A0B25 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8444A846242268C1007A0B25 /* ShopManageCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		84618D682421E05E005BD7BD /* Views */ = {
@@ -1093,6 +1103,7 @@
 		84A3EE9024222877003D2AFD /* Shop */ = {
 			isa = PBXGroup;
 			children = (
+				8444A84524226867007A0B25 /* View */,
 				84A3EE9124222883003D2AFD /* ViewController */,
 			);
 			path = Shop;
@@ -1321,6 +1332,7 @@
 				84618E662421E0EC005BD7BD /* UILabel+UG.m in Sources */,
 				84618E942421E0EC005BD7BD /* SafeAreaInsets.m in Sources */,
 				84FBC888241F7E87006926E3 /* AppDelegate.m in Sources */,
+				8444A847242268C1007A0B25 /* ShopManageCell.swift in Sources */,
 				84618E962421E0EC005BD7BD /* DorAnimationTestVC.m in Sources */,
 				84618EAD2421E0EC005BD7BD /* UGKeyValueView.m in Sources */,
 				84618E7C2421E0EC005BD7BD /* TabbarCollectionCenCell.m in Sources */,

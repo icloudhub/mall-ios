@@ -18,10 +18,10 @@ public let kSHeight : CGFloat = UIScreen.main.bounds.size.height
 public let KSAFE_Bottom : CGFloat = SafeAreaInsets.getSafeBottom()
 public let KSAFE_Top : CGFloat = SafeAreaInsets.getSafeTop()
 
-//间距
-public let  KPAND_DEF : CGFloat = 15 //默认间距
-public let  KPAND_MID : CGFloat = 10 //小间距
-public let  KPAND_MIN : CGFloat = 5 //小间距
+////间距
+//public let  KPAND_DEF : CGFloat = 15 //默认间距
+//public let  KPAND_MID : CGFloat = 10 //小间距
+//public let  KPAND_MIN : CGFloat = 5 //小间距
 
 
 /// App 名称
