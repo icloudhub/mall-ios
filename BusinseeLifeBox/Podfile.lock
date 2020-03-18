@@ -31,6 +31,9 @@ PODS:
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
   - BSBacktraceLogger (0.0.1)
+  - Charts (3.4.0):
+    - Charts/Core (= 3.4.0)
+  - Charts/Core (3.4.0)
   - CocoaLumberjack (3.6.0):
     - CocoaLumberjack/Core (= 3.6.0)
   - CocoaLumberjack/Core (3.6.0)
@@ -60,6 +63,7 @@ PODS:
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
+  - "FontAwesome+iOS (0.0.1)"
   - GCDWebServer (3.5.3):
     - GCDWebServer/Core (= 3.5.3)
   - GCDWebServer/Core (3.5.3)
@@ -93,6 +97,7 @@ DEPENDENCIES:
   - AFNetworking
   - AlipaySDK-iOS
   - BlocksKit
+  - Charts
   - CocoaLumberjack
   - DoraemonKit/Core
   - DoraemonKit/WithDatabase
@@ -100,6 +105,7 @@ DEPENDENCIES:
   - DoraemonKit/WithLoad
   - DoraemonKit/WithLogger
   - DZNEmptyDataSet
+  - "FontAwesome+iOS (from `https://github.com/alexdrone/ios-fontawesome`)"
   - IQKeyboardManager
   - Masonry
   - MBProgressHUD (~> 1.1.0)
@@ -117,6 +123,7 @@ SPEC REPOS:
     - AlipaySDK-iOS
     - BlocksKit
     - BSBacktraceLogger
+    - Charts
     - CocoaLumberjack
     - DoraemonKit
     - DZNEmptyDataSet
@@ -135,16 +142,27 @@ SPEC REPOS:
     - YYDebugDatabase
     - YYKit
 
+EXTERNAL SOURCES:
+  "FontAwesome+iOS":
+    :git: https://github.com/alexdrone/ios-fontawesome
+
+CHECKOUT OPTIONS:
+  "FontAwesome+iOS":
+    :commit: 3ef4db504ffde636c1f8a5320f1e5b6183f6102c
+    :git: https://github.com/alexdrone/ios-fontawesome
+
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   AlipaySDK-iOS: 703a55774a37f412410ab04af96c011b91ec58cb
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
   BSBacktraceLogger: 06b983ee93a9f87d957960e9c73d660d5966b447
+  Charts: 74c9f256eaf0460c0c416522d1cf8c634ea6b286
   CocoaLumberjack: 78b0c238666f4f58db069738ec176f4519557516
   DoraemonKit: 9e923599e28d0b61f1c6de4aef2c2d669b30abb7
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   fishhook: ea19933abfe8f2f52c55fd8b6e2718467d3ebc89
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  "FontAwesome+iOS": c6d3bbd2856b9633028d316d56133d45fb6a6cb0
   GCDWebServer: c0ab22c73e1b84f358d1e2f74bf6afd1c60829f2
   IQKeyboardManager: 72b359cd7e777e3a984cedbe05f8da45320cbb63
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
@@ -158,6 +176,6 @@ SPEC CHECKSUMS:
   YYDebugDatabase: c8be8bd85222cc2ced76e93ca06618bab87224d7
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 22b3f27164e012ef498aa74cc1ac0f748e6df362
+PODFILE CHECKSUM: 5957f9311af52e35ecb27007d1cb7bf5b3ab2fcd
 
 COCOAPODS: 1.8.4

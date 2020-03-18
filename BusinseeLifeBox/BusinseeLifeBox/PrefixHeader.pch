@@ -22,5 +22,7 @@
 #import "NetWorkRequest.h"
 #import "UserInfo.h"
 #import "RTRootNavigationController.h"
-
+#import <FontAwesome_iOS/UIImage+FontAwesome.h>
+#import <FontAwesome_iOS/NSString+FontAwesome.h>
+#import "BusinseeLifeBox-Swift.h"
 #endif /* PrefixHeader_pch */
