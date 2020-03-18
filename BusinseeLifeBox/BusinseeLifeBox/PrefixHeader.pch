@@ -1,0 +1,28 @@
+//
+//  PrefixHeader.pch
+//  UGOCMagicbox
+//
+//  Created by admin on 2019/6/26.
+//  Copyright © 2019 UG. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "Magic.h"
+#import "Masonry.h"
+#import "Category.h"
+#import "AppDelegate+CocoaLumberjack.h"
+#import <BlocksKit/BlocksKit.h>
+#import <BlocksKit/BlocksKit+UIKit.h>
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "Config.h"
+#import "Components.h"
+#import <YYKit/YYKit.h>
+#import "NetWorkRequest.h"
+#import "UserInfo.h"
+#import "RTRootNavigationController.h"
+#import <FontAwesome_iOS/UIImage+FontAwesome.h>
+#import <FontAwesome_iOS/NSString+FontAwesome.h>
+#import "BusinseeLifeBox-Swift.h"
+#endif /* PrefixHeader_pch */
