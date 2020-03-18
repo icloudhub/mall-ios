@@ -67,6 +67,11 @@ NS_ASSUME_NONNULL_BEGIN
                 payType:(NSString *)payType
          useIntegration:(NSString *)useIntegration
                endBlock:(void(^)(NSDictionary *result, NSError *error))endblock;
+
+/**
+ 获取已邀请会员列表
+ */
+-(void)inviteListendBlock:(void(^)(NSDictionary *result, NSError *error))endblock;
 @end
 
 NS_ASSUME_NONNULL_END

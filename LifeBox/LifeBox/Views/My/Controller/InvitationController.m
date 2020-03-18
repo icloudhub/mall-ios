@@ -9,9 +9,12 @@
 #import "InvitationController.h"
 #import "InvitationCell.h"
 
+#import "NetWorkRequest+MyInterface.h"
+
 @interface InvitationController () <UITableViewDelegate, UITableViewDataSource> {
     ///数据展示tableView
     UITableView *tableView;
+    NSArray *dataArr;
 }
 
 @end
@@ -25,6 +28,7 @@ static NSString *cellID = @"InvitationCellID";
     [super viewDidLoad];
     [self setWhiteNaviWithTitle:@"邀请有礼"];
     [self createUI];
+    [self getinviteList];
 }
 
 #pragma mark - 创建UI
@@ -94,13 +98,16 @@ static NSString *cellID = @"InvitationCellID";
     InvitationCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (cell == nil) {
         cell = [[InvitationCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    NSDictionary *dic = [dataArr objectAtIndex:indexPath.row];
+    cell.nameLab.text = [dic stringValueForKey:@"username" default:@"--" ];
+    
     return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 6;
+    return dataArr.count;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -109,6 +116,17 @@ static NSString *cellID = @"InvitationCellID";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return Scale750(90);
+}
+
+-(void)getinviteList{
+    [[NetWorkRequest new] inviteListendBlock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
+        if (error) {
+            [self.view ug_msg:error.domain];
+        }else{
+            dataArr = result;
+            [tableView reloadData];
+        }
+    }];
 }
 
 @end

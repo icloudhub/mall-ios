@@ -80,4 +80,12 @@ useIntegration:(NSString *)useIntegration
        } head:nil endblock:endblock];
     
 }
+
+/**
+ 获取已邀请会员列表
+ */
+-(void)inviteListendBlock:(void(^)(NSDictionary *result, NSError *error))endblock{
+    NSString *url = [NSString stringWithFormat:@"%@/sso/inviteList", BASEURL];
+    [self get:url param:@{} head:nil endblock:endblock];
+}
 @end
