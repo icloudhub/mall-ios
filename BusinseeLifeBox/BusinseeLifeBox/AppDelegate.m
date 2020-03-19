@@ -34,18 +34,18 @@
     [[UIApplication sharedApplication]configTABAnimated];
     
     [self configRTRootNavigationController];
-//    [[UIApplication sharedApplication] configTabBar];
+    [[UIApplication sharedApplication] configTabBar];
     
-    if([UserInfo share].islogin){
-        //配置tabbar
-         [[UIApplication sharedApplication] configTabBar];
-    }else{
-        Class cls = NSClassFromString(@"LoginViewController");
-        UIViewController *viewcontroller =  [cls new];
-        RTRootNavigationController *nav = [[RTRootNavigationController alloc] initWithRootViewController:viewcontroller];
-        self.window.rootViewController = nav;
-        [self.window makeKeyAndVisible];
-    }
+//    if([UserInfo share].islogin){
+//        //配置tabbar
+//         [[UIApplication sharedApplication] configTabBar];
+//    }else{
+//        Class cls = NSClassFromString(@"LoginViewController");
+//        UIViewController *viewcontroller =  [cls new];
+//        RTRootNavigationController *nav = [[RTRootNavigationController alloc] initWithRootViewController:viewcontroller];
+//        self.window.rootViewController = nav;
+//        [self.window makeKeyAndVisible];
+//    }
  
     //配置网易云信
 //    [self configNIMSDK];

@@ -10,6 +10,7 @@ target 'BusinseeLifeBox' do
    # RTRootNavigationController
    pod "RTRootNavigationController"
    pod 'OCBarrage'
+#   pod 'FontAwesome.swift'
    pod 'FontAwesome+iOS', :git => 'https://github.com/alexdrone/ios-fontawesome' #fontawesome字体
    pod 'Charts'
    #网络请求
@@ -40,6 +41,7 @@ target 'BusinseeLifeBox' do
    #空数据界面
    pod 'DZNEmptyDataSet'
    pod 'TABAnimated'
+   pod 'TZImagePickerController'
    
    #日志
    pod 'CocoaLumberjack'

@@ -1,20 +1,19 @@
 //
-//  ShopManageCell.swift
+//  ShopToolCell.swift
 //  BusinseeLifeBox
 //
-//  Created by admin on 2020/3/18.
+//  Created by admin on 2020/3/19.
 //  Copyright © 2020 admin. All rights reserved.
 //
 
 import UIKit
 
-class ShopManageCell: UITableViewCell {
-    
-    // 头像
+class ShopToolCell: UITableViewCell {
+
+   // 头像
     open lazy var headImageView :UIImageView = {
         () -> UIImageView in
         let headImageView = UIImageView()
-        headImageView.backgroundColor = COLOR_EE;
         return headImageView
     }()
     //标题
@@ -74,7 +73,7 @@ class ShopManageCell: UITableViewCell {
         headImageView.mas_makeConstraints { (make) in
             make?.left.mas_equalTo()(KPAND_DEF)
             make?.centerY.equalTo()
-            make?.size.mas_equalTo()(CGSize.init(width: 60, height: 60))
+            make?.size.mas_equalTo()(CGSize.init(width: 32, height: 32))
         }
         arrowImageView.mas_makeConstraints { (make) in
             make?.right.mas_equalTo()(-KPAND_DEF)
@@ -82,12 +81,8 @@ class ShopManageCell: UITableViewCell {
         }
         titleLab.mas_makeConstraints { (make) in
             make?.left.equalTo()(headImageView.mas_right)?.setOffset(CGFloat(KPAND_MIN))
-            make?.bottom.equalTo()(headImageView.mas_centerY)?.setOffset(CGFloat(-KPAND_MIN))
+            make?.centerY.equalTo()
         }
-        defLab.mas_makeConstraints { (make) in
-            make?.left.equalTo()(headImageView.mas_right)?.setOffset(CGFloat(KPAND_MIN))
-            make?.top.equalTo()(headImageView.mas_centerY)?.setOffset(CGFloat(KPAND_MIN))
-        } 
     }
-    
 }
+    

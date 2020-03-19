@@ -86,6 +86,7 @@ PODS:
   - TABAnimated/Core (2.2.5)
   - TABAnimated/Reveal (2.2.5):
     - TABAnimated/Core
+  - TZImagePickerController (3.3.1)
   - YYDebugDatabase (2.0.7):
     - FMDB
     - GCDWebServer
@@ -115,6 +116,7 @@ DEPENDENCIES:
   - SDCycleScrollView
   - SDWebImage
   - TABAnimated
+  - TZImagePickerController
   - YYKit
 
 SPEC REPOS:
@@ -139,6 +141,7 @@ SPEC REPOS:
     - SDCycleScrollView
     - SDWebImage
     - TABAnimated
+    - TZImagePickerController
     - YYDebugDatabase
     - YYKit
 
@@ -173,9 +176,10 @@ SPEC CHECKSUMS:
   SDCycleScrollView: b3c9a5ed840c771c4938978174c7c9d9feefeb96
   SDWebImage: 29c340dbdcef342bb13125553f4e19ce056b07a7
   TABAnimated: 578e519350a12ac08ec2ee2c0a2d2120ac13e137
+  TZImagePickerController: 99f03b64145a8c92c55b9b1b931410967d9be4cb
   YYDebugDatabase: c8be8bd85222cc2ced76e93ca06618bab87224d7
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 5957f9311af52e35ecb27007d1cb7bf5b3ab2fcd
+PODFILE CHECKSUM: 993f1d50d3e323e6c0af47ff9b9b949dde6ec8da
 
-COCOAPODS: 1.8.0.beta.1
+COCOAPODS: 1.8.4

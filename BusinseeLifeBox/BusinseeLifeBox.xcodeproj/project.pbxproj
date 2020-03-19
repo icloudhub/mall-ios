@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		61AC2216B56ED830ECF324E5 /* Pods_BusinseeLifeBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB2D70FC001408ED48247CB /* Pods_BusinseeLifeBox.framework */; };
+		841EE69224233CC7004F7770 /* ShopToolCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841EE69124233CC7004F7770 /* ShopToolCell.swift */; };
+		841EE69624234AC0004F7770 /* ProductAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841EE69524234AC0004F7770 /* ProductAddViewController.swift */; };
+		841EE6992423531A004F7770 /* ProductAddSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841EE6982423531A004F7770 /* ProductAddSelectCell.swift */; };
+		841EE69F242355EA004F7770 /* ProductCellModen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841EE69E242355EA004F7770 /* ProductCellModen.swift */; };
+		841EE6A124235F1C004F7770 /* ProductAddInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841EE6A024235F1C004F7770 /* ProductAddInputCell.swift */; };
+		841EE6A324236289004F7770 /* ProductAddImagesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841EE6A224236289004F7770 /* ProductAddImagesCell.swift */; };
 		8444A847242268C1007A0B25 /* ShopManageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8444A846242268C1007A0B25 /* ShopManageCell.swift */; };
 		84618D922421E05E005BD7BD /* HomeViewCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84618D6C2421E05E005BD7BD /* HomeViewCollectionCell.m */; };
 		84618D932421E05E005BD7BD /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84618D6E2421E05E005BD7BD /* HomeViewController.m */; };
@@ -111,6 +117,12 @@
 
 /* Begin PBXFileReference section */
 		63A9055BD0B2CC5FA6304F54 /* Pods-BusinseeLifeBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BusinseeLifeBox.debug.xcconfig"; path = "Target Support Files/Pods-BusinseeLifeBox/Pods-BusinseeLifeBox.debug.xcconfig"; sourceTree = "<group>"; };
+		841EE69124233CC7004F7770 /* ShopToolCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopToolCell.swift; sourceTree = "<group>"; };
+		841EE69524234AC0004F7770 /* ProductAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAddViewController.swift; sourceTree = "<group>"; };
+		841EE6982423531A004F7770 /* ProductAddSelectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAddSelectCell.swift; sourceTree = "<group>"; };
+		841EE69E242355EA004F7770 /* ProductCellModen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellModen.swift; sourceTree = "<group>"; };
+		841EE6A024235F1C004F7770 /* ProductAddInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAddInputCell.swift; sourceTree = "<group>"; };
+		841EE6A224236289004F7770 /* ProductAddImagesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAddImagesCell.swift; sourceTree = "<group>"; };
 		8444A846242268C1007A0B25 /* ShopManageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopManageCell.swift; sourceTree = "<group>"; };
 		84618D6B2421E05E005BD7BD /* HomeViewCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewCollectionCell.h; sourceTree = "<group>"; };
 		84618D6C2421E05E005BD7BD /* HomeViewCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewCollectionCell.m; sourceTree = "<group>"; };
@@ -323,10 +335,47 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		841EE69324234A5B004F7770 /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				841EE69A24235570004F7770 /* Moden */,
+				841EE6972423520D004F7770 /* View */,
+				841EE69424234A7C004F7770 /* ViewController */,
+			);
+			path = Product;
+			sourceTree = "<group>";
+		};
+		841EE69424234A7C004F7770 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				841EE69524234AC0004F7770 /* ProductAddViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		841EE6972423520D004F7770 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				841EE6982423531A004F7770 /* ProductAddSelectCell.swift */,
+				841EE6A024235F1C004F7770 /* ProductAddInputCell.swift */,
+				841EE6A224236289004F7770 /* ProductAddImagesCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		841EE69A24235570004F7770 /* Moden */ = {
+			isa = PBXGroup;
+			children = (
+				841EE69E242355EA004F7770 /* ProductCellModen.swift */,
+			);
+			path = Moden;
+			sourceTree = "<group>";
+		};
 		8444A84524226867007A0B25 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				8444A846242268C1007A0B25 /* ShopManageCell.swift */,
+				841EE69124233CC7004F7770 /* ShopToolCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -334,6 +383,7 @@
 		84618D682421E05E005BD7BD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				841EE69324234A5B004F7770 /* Product */,
 				84A3EE9024222877003D2AFD /* Shop */,
 				84618D692421E05E005BD7BD /* Home */,
 				84618D702421E05E005BD7BD /* Seting */,
@@ -1337,10 +1387,13 @@
 				84618EAD2421E0EC005BD7BD /* UGKeyValueView.m in Sources */,
 				84618E7C2421E0EC005BD7BD /* TabbarCollectionCenCell.m in Sources */,
 				84618EA62421E0EC005BD7BD /* UGRemarkView.m in Sources */,
+				841EE6992423531A004F7770 /* ProductAddSelectCell.swift in Sources */,
+				841EE6A324236289004F7770 /* ProductAddImagesCell.swift in Sources */,
 				84618E6F2421E0EC005BD7BD /* NSString+Encode.m in Sources */,
 				84618E672421E0EC005BD7BD /* UIButton+UG.m in Sources */,
 				84618D922421E05E005BD7BD /* HomeViewCollectionCell.m in Sources */,
 				84618D982421E05E005BD7BD /* DamuSendView.m in Sources */,
+				841EE6A124235F1C004F7770 /* ProductAddInputCell.swift in Sources */,
 				84618EA22421E0EC005BD7BD /* UGDrawingView.m in Sources */,
 				84618D972421E05E005BD7BD /* DanmuManDescriptor.m in Sources */,
 				84618EA92421E0EC005BD7BD /* UGSpeekView.m in Sources */,
@@ -1369,10 +1422,13 @@
 				84618E972421E0EC005BD7BD /* UGAlignmentButtonVC.m in Sources */,
 				84A3EE8D242223E0003D2AFD /* Color.swift in Sources */,
 				84618E752421E0EC005BD7BD /* NSDate+UG.m in Sources */,
+				841EE69F242355EA004F7770 /* ProductCellModen.swift in Sources */,
+				841EE69624234AC0004F7770 /* ProductAddViewController.swift in Sources */,
 				84618E6A2421E0EC005BD7BD /* UIView+UG.m in Sources */,
 				84618D9B2421E05E005BD7BD /* RegistViewController.m in Sources */,
 				84618D952421E05E005BD7BD /* DanMushowView.m in Sources */,
 				84618E922421E0EC005BD7BD /* AppDelegate+Welcom.m in Sources */,
+				841EE69224233CC7004F7770 /* ShopToolCell.swift in Sources */,
 				84618EAA2421E0EC005BD7BD /* UGPersentView.m in Sources */,
 				84618EAE2421E0EC005BD7BD /* UGZoneTableCell.m in Sources */,
 				84618E7D2421E0EC005BD7BD /* BlockCollectionViewTestVC.m in Sources */,
@@ -1521,6 +1577,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C3NDDQ4G8T;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/BusinseeLifeBox/PrefixHeader.pch";
 				INFOPLIST_FILE = BusinseeLifeBox/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1543,6 +1600,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C3NDDQ4G8T;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/BusinseeLifeBox/PrefixHeader.pch";
 				INFOPLIST_FILE = BusinseeLifeBox/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

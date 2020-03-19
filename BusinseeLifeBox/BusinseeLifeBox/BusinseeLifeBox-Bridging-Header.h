@@ -15,5 +15,8 @@
 #import "NetWorkRequest.h"
 #import "UserInfo.h"
 #import "RTRootNavigationController.h"
-#import <FontAwesome_iOS/UIImage+FontAwesome.h>
 #import "SafeAreaInsets.h"
+#import <FontAwesome_iOS/UIImage+FontAwesome.h>
+#import <FontAwesome_iOS/NSString+FontAwesome.h>
+
+

@@ -36,7 +36,7 @@
              @"title":@"店铺管理",
          },
          @{
-             @"key":@"",
+             @"key":@"BusinseeLifeBox.ProductAddViewController",
              @"icon":@"fa-github",
              @"title":@"商品管理",
          },@{

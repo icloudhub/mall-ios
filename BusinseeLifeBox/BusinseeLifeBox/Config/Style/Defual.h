@@ -28,9 +28,9 @@
 #define KSheight   [[UIScreen mainScreen] bounds].size.height
 #define KSwidth    [[UIScreen mainScreen] bounds].size.width
 //间距
-#define KPAND_DEF 15 //默认间距
-#define KPAND_MID 10 //小间距
-#define KPAND_MIN 5 //小间距
+#define KPAND_DEF 15.0 //默认间距
+#define KPAND_MID 10.0 //小间距
+#define KPAND_MIN 5.0 //小间距
 
 /*
  * 安全边界

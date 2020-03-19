@@ -20,6 +20,8 @@
     vc1.title = @"首页";
     RTRootNavigationController *nav1 = [[RTRootNavigationController alloc] initWithRootViewController:vc1];
     [nav1.tabBarItem setImage:[UIImage imageWithIcon:@"fa-home" backgroundColor:[UIColor clearColor] iconColor:COLOR_DEF andSize:CGSizeMake(20, 20)]];
+  
+   
     
     
     // 视图控制器的分栏按钮

@@ -1,22 +1,15 @@
 //
-//  ShopManageCell.swift
+//  ProductAddSelectCell.swift
 //  BusinseeLifeBox
 //
-//  Created by admin on 2020/3/18.
+//  Created by admin on 2020/3/19.
 //  Copyright © 2020 admin. All rights reserved.
 //
 
 import UIKit
 
-class ShopManageCell: UITableViewCell {
-    
-    // 头像
-    open lazy var headImageView :UIImageView = {
-        () -> UIImageView in
-        let headImageView = UIImageView()
-        headImageView.backgroundColor = COLOR_EE;
-        return headImageView
-    }()
+class ProductAddSelectCell: UITableViewCell {
+
     //标题
     open lazy var titleLab : UILabel = {
         ()->UILabel in
@@ -27,12 +20,12 @@ class ShopManageCell: UITableViewCell {
     }()
     
     //描述
-    open lazy var defLab : UILabel = {
+    open lazy var valueLab : UILabel = {
         ()->UILabel in
-        let defLab = UILabel()
-        defLab.font = FONT_SYS12
-        defLab.textColor = COLOR_33
-        return defLab
+        let valueLab = UILabel()
+        valueLab.font = FONT_SYS12
+        valueLab.textColor = COLOR_33
+        return valueLab
     }()
     
     // 右箭头
@@ -42,6 +35,7 @@ class ShopManageCell: UITableViewCell {
         arrowImageView.image = .init(icon: "fa-angle-right", backgroundColor: .clear, iconColor: COLOR_33, fontSize: 14)
         return arrowImageView
     }()
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -58,10 +52,10 @@ class ShopManageCell: UITableViewCell {
     
     
     func configUI() {
-        addSubview(headImageView)
-        addSubview(arrowImageView)
+   
         addSubview(titleLab)
-        addSubview(defLab)
+        addSubview(arrowImageView)
+        addSubview(valueLab)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -71,23 +65,19 @@ class ShopManageCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        headImageView.mas_makeConstraints { (make) in
-            make?.left.mas_equalTo()(KPAND_DEF)
-            make?.centerY.equalTo()
-            make?.size.mas_equalTo()(CGSize.init(width: 60, height: 60))
-        }
+     
         arrowImageView.mas_makeConstraints { (make) in
             make?.right.mas_equalTo()(-KPAND_DEF)
             make?.centerY.mas_equalTo()
         }
         titleLab.mas_makeConstraints { (make) in
-            make?.left.equalTo()(headImageView.mas_right)?.setOffset(CGFloat(KPAND_MIN))
-            make?.bottom.equalTo()(headImageView.mas_centerY)?.setOffset(CGFloat(-KPAND_MIN))
+            make?.left.equalTo()(CGFloat(KPAND_DEF))
+            make?.centerY.equalTo()
         }
-        defLab.mas_makeConstraints { (make) in
-            make?.left.equalTo()(headImageView.mas_right)?.setOffset(CGFloat(KPAND_MIN))
-            make?.top.equalTo()(headImageView.mas_centerY)?.setOffset(CGFloat(KPAND_MIN))
-        } 
+        valueLab.mas_makeConstraints { (make) in
+            make?.right.equalTo()(arrowImageView.mas_left)?.setOffset(CGFloat(-KPAND_MIN))
+            make?.centerY.equalTo()
+        }
     }
-    
+
 }
