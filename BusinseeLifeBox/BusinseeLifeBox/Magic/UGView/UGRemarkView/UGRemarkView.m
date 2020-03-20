@@ -49,10 +49,12 @@
         
     }];
     [_textView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.mas_equalTo(self).mas_offset(-KPAND_MIN);
+        make.top.mas_equalTo(self.titlaLabel.mas_bottom).mas_offset(KPAND_MIN);
         make.left.mas_equalTo(self);
         make.right.mas_equalTo(self);
-        make.top.mas_equalTo(self.titlaLabel.mas_bottom).mas_offset(KPAND_MIN);
+        make.bottom.mas_equalTo(self).mas_offset(-KPAND_MIN);
+      
+        
     }];
 }
 

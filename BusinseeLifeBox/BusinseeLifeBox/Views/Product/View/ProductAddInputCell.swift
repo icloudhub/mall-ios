@@ -27,25 +27,23 @@ class ProductAddInputCell: UITableViewCell {
     }
     
     func configUI() {
-        addSubview(textField)
+        contentView.addSubview(textField)
     }
     
     //标题
-    open lazy var textField : UITextField = {
-        ()->UITextField in
-        let textField = UITextField()
-        textField.font = FONT_SYS14
+    open lazy var textField :UGRemarkView = {
+        ()->UGRemarkView in
+        let textField = UGRemarkView()
+        textField.textView.font = FONT_SYS14
         return textField
     }()
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
-        
         textField.mas_makeConstraints { (make) in
             make?.left.mas_equalTo()(KPAND_DEF)
             make?.right.mas_equalTo()(-KPAND_DEF)
-            make?.height.mas_equalTo()(32)
+            make?.height.mas_equalTo()(60)
             make?.centerY.mas_equalTo()
         }
         

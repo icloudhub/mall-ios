@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		61AC2216B56ED830ECF324E5 /* Pods_BusinseeLifeBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB2D70FC001408ED48247CB /* Pods_BusinseeLifeBox.framework */; };
+		842DAAE62424C09600EDBD1E /* ProductAddActiveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842DAAE52424C09600EDBD1E /* ProductAddActiveCell.swift */; };
 		848BB8D7242483030044E1C2 /* UGCategory.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 848BB7D1242483030044E1C2 /* UGCategory.podspec */; };
 		848BB8D8242483030044E1C2 /* UIImage+UG.m in Sources */ = {isa = PBXBuildFile; fileRef = 848BB7D5242483030044E1C2 /* UIImage+UG.m */; };
 		848BB8D9242483030044E1C2 /* UILabel+UG.m in Sources */ = {isa = PBXBuildFile; fileRef = 848BB7D8242483030044E1C2 /* UILabel+UG.m */; };
@@ -114,10 +115,12 @@
 		848BB93F242483030044E1C2 /* DorAnimationTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 848BB8D1242483030044E1C2 /* DorAnimationTestVC.m */; };
 		848BB940242483030044E1C2 /* UGAlignmentButtonVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 848BB8D4242483030044E1C2 /* UGAlignmentButtonVC.m */; };
 		848BB941242483030044E1C2 /* DorRoutes.m in Sources */ = {isa = PBXBuildFile; fileRef = 848BB8D5242483030044E1C2 /* DorRoutes.m */; };
+		848BB9432424B60C0044E1C2 /* ProductActiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848BB9422424B60C0044E1C2 /* ProductActiveView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		63A9055BD0B2CC5FA6304F54 /* Pods-BusinseeLifeBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BusinseeLifeBox.debug.xcconfig"; path = "Target Support Files/Pods-BusinseeLifeBox/Pods-BusinseeLifeBox.debug.xcconfig"; sourceTree = "<group>"; };
+		842DAAE52424C09600EDBD1E /* ProductAddActiveCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAddActiveCell.swift; sourceTree = "<group>"; };
 		848BB7CF242483030044E1C2 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		848BB7D1242483030044E1C2 /* UGCategory.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UGCategory.podspec; sourceTree = "<group>"; };
 		848BB7D4242483030044E1C2 /* UIImage+UG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+UG.h"; sourceTree = "<group>"; };
@@ -304,6 +307,7 @@
 		848BB8D4242483030044E1C2 /* UGAlignmentButtonVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UGAlignmentButtonVC.m; sourceTree = "<group>"; };
 		848BB8D5242483030044E1C2 /* DorRoutes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DorRoutes.m; sourceTree = "<group>"; };
 		848BB8D6242483030044E1C2 /* AppDelegate+DoraemonKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+DoraemonKit.h"; sourceTree = "<group>"; };
+		848BB9422424B60C0044E1C2 /* ProductActiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductActiveView.swift; sourceTree = "<group>"; };
 		84FBC883241F7E87006926E3 /* BusinseeLifeBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BusinseeLifeBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEB2D70FC001408ED48247CB /* Pods_BusinseeLifeBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BusinseeLifeBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBB034973F63C02F08A99D3D /* Pods-BusinseeLifeBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BusinseeLifeBox.release.xcconfig"; path = "Target Support Files/Pods-BusinseeLifeBox/Pods-BusinseeLifeBox.release.xcconfig"; sourceTree = "<group>"; };
@@ -1046,6 +1050,8 @@
 				848BB8B3242483030044E1C2 /* ProductAddInputCell.swift */,
 				848BB8B4242483030044E1C2 /* ProductAddImagesCell.swift */,
 				848BB8B5242483030044E1C2 /* ProductAddSelectCell.swift */,
+				842DAAE52424C09600EDBD1E /* ProductAddActiveCell.swift */,
+				848BB9422424B60C0044E1C2 /* ProductActiveView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1328,6 +1334,7 @@
 				848BB90D242483030044E1C2 /* BlockCollectionViewTestVC.m in Sources */,
 				848BB8F0242483030044E1C2 /* UGDrawingView.m in Sources */,
 				848BB933242483030044E1C2 /* ProductAddInputCell.swift in Sources */,
+				848BB9432424B60C0044E1C2 /* ProductActiveView.swift in Sources */,
 				848BB8EB242483030044E1C2 /* AppDelegate+TavBar.m in Sources */,
 				848BB931242483030044E1C2 /* ShopManageViewController.swift in Sources */,
 				848BB8DE242483030044E1C2 /* UIView+Alert.m in Sources */,
@@ -1345,6 +1352,7 @@
 				848BB901242483030044E1C2 /* Color.swift in Sources */,
 				848BB8EE242483030044E1C2 /* UIViewController+Routes.m in Sources */,
 				848BB934242483030044E1C2 /* ProductAddImagesCell.swift in Sources */,
+				842DAAE62424C09600EDBD1E /* ProductAddActiveCell.swift in Sources */,
 				848BB92E242483030044E1C2 /* DamuSendView.m in Sources */,
 				848BB926242483030044E1C2 /* AppDelegate.m in Sources */,
 				848BB927242483030044E1C2 /* HomeViewCollectionCell.m in Sources */,

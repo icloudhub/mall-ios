@@ -18,6 +18,7 @@
 #import "SafeAreaInsets.h"
 #import "ImagesEditView.h"
 #import "BlockCollectionView.h"
+#import "UGRemarkView.h"
 
 #import <FontAwesome_iOS/UIImage+FontAwesome.h>
 #import <FontAwesome_iOS/NSString+FontAwesome.h>

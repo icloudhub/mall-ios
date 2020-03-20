@@ -21,12 +21,22 @@
         self.imageView = [UIImageView new];
         _imageView.backgroundColor = [UIColor clearColor];
         [self.contentView addSubview:_imageView];
-        _imageView.contentMode = UIViewContentModeScaleAspectFill;
+        _imageView.contentMode = UIViewContentModeScaleAspectFit;
         _imageView.clipsToBounds = YES;
         [_imageView ug_radius:3];
+        
+        [self addSubview:self.deleteBtn];
   
     }
     return self;
+}
+
+-(UIButton *)deleteBtn{
+    if (!_deleteBtn) {
+        _deleteBtn = [UIButton new];
+        [_deleteBtn setImage:[UIImage imageWithIcon:@"fa-times-circle" backgroundColor:UIColor.clearColor iconColor:COLOR_DEF andSize:CGSizeMake(20, 20)] forState:UIControlStateNormal];
+    }
+    return _deleteBtn;
 }
 
 - (void)layoutSubviews{
@@ -34,6 +44,13 @@
  
     [_imageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.mas_equalTo(self);
+        make.size.mas_lessThanOrEqualTo(self);
+    }];
+    
+    [_deleteBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.mas_equalTo(self).mas_offset(KPAND_MIN);
+        make.top.mas_equalTo(self).mas_offset(-KPAND_MIN);
+        make.size.mas_equalTo(CGSizeMake(32, 32));
     }];
     
     
