@@ -12,6 +12,7 @@ import TZImagePickerController
 class ProductAddViewController: SupleViewController,UITableViewDataSource,UITableViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
     var dataList = [Any]()
+    var imageList = [Any]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +31,7 @@ class ProductAddViewController: SupleViewController,UITableViewDataSource,UITabl
         tableview.backgroundColor = COLOR_EE;
         tableview.dataSource = self
         tableview.delegate = self
+ 
         //        tableview.separatorStyle = .none
         return tableview
     }()
@@ -95,6 +97,11 @@ extension ProductAddViewController{
             var cell:ProductAddImagesCell? = tableView.dequeueReusableCell(withIdentifier: cellid) as? ProductAddImagesCell
             if cell==nil {
                 cell = ProductAddImagesCell(style: .subtitle, reuseIdentifier: cellid)
+                cell?.imagesEditView.ug_didSelectItemAtIndexPath = {(collectionView,  indexPath) in
+                    if(indexPath.row>=self.imageList.count){
+                        self.goCamera()
+                    }
+                }
             }
             
             return cell!
@@ -116,7 +123,7 @@ extension ProductAddViewController{
         case 1:
             return 44
         case 2:
-            return 80
+            return ProductAddImagesCell.getcellHeight(count: 8)
         default:
             return 44
         }
@@ -139,7 +146,7 @@ extension ProductAddViewController{
         return UIView.init()
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        goCamera()
+        
     }
 }
 //
@@ -154,11 +161,6 @@ extension ProductAddViewController{
 
 extension ProductAddViewController{
     //打开相机
-    
-
-   
-
-
 
     func goCamera(){
         
