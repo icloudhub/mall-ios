@@ -25,6 +25,9 @@ NS_ASSUME_NONNULL_BEGIN
 ///http搜索请求端口
 @property (strong, nonatomic) NSString *searchPort;
 
+///http搜索请求端口
+@property (strong, nonatomic) NSString *webPort;
+
 @property (readonly) NSString *userid;//用户id
 
 @property (readonly) NSString *nickname;//用户id

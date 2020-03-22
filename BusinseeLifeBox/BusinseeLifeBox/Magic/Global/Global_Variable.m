@@ -55,7 +55,7 @@ static Global_Variable *sharedInstance = nil;
 - (NSString *)serviceIP{
     if (!_serviceIP) {
 //        _serviceIP = @"http://120.77.202.156";  //测试环境
-        _serviceIP = @"http://127.0.0.1";  //测试环境
+        _serviceIP = @"http://192.168.50.174";  //测试环境
     }
     return _serviceIP;
 }
@@ -75,6 +75,12 @@ static Global_Variable *sharedInstance = nil;
         _searchPort = @"15673";  //测试环境
     }
     return _searchPort;
+}
+-(NSString *)webPort{
+    if (!_searchPort) {
+          _searchPort = @"15676";  //测试环境
+      }
+      return _searchPort;
 }
 
 #pragma mark - 获取用户ID

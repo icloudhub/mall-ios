@@ -53,6 +53,7 @@
              @"key":@"BusinseeLifeBox.WKwebViewController",
              @"icon":@"fa-github",
              @"title":@"数据管理",
+             @"param":@{@"url":[NSString stringWithFormat:@"%@:%@/client",Global_Variable.shared.serviceIP,Global_Variable.shared.webPort]}
          },
          @{
              @"key":@"",
@@ -199,7 +200,7 @@
                          case 2:
                              {
                                  NSDictionary *dic = [weakSelf.todoArray objectAtIndex:indexPath.row];
-                                 [self routepush:dic[@"key"] param:NULL];
+                                 [self routepush:dic[@"key"] param:dic[@"param"]];
                              }
                              break;
                          case 3:
