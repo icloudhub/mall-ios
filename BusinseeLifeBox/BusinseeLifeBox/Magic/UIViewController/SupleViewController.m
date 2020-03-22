@@ -17,8 +17,10 @@
 -(void)loadView{
     
     [super loadView];
-    [self setHidesBottomBarWhenPushed:YES];
-    
+    if (self.navigationController.viewControllers.count>0) {
+        [self setHidesBottomBarWhenPushed:YES];
+    }
+
 }
 
 - (void)viewDidLoad {

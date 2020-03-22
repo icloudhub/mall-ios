@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		61AC2216B56ED830ECF324E5 /* Pods_BusinseeLifeBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB2D70FC001408ED48247CB /* Pods_BusinseeLifeBox.framework */; };
 		842DAAE62424C09600EDBD1E /* ProductAddActiveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842DAAE52424C09600EDBD1E /* ProductAddActiveCell.swift */; };
+		8444A8492425FC1D007A0B25 /* ApplyShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8444A8482425FC1D007A0B25 /* ApplyShopViewController.swift */; };
+		8444A84F24260B3F007A0B25 /* NetWorkRequest+shop.m in Sources */ = {isa = PBXBuildFile; fileRef = 8444A84E24260B3F007A0B25 /* NetWorkRequest+shop.m */; };
+		8444A85224260BC0007A0B25 /* ShopDefModen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8444A85124260BC0007A0B25 /* ShopDefModen.swift */; };
+		8444A857242743EB007A0B25 /* WKwebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8444A856242743EB007A0B25 /* WKwebViewController.swift */; };
 		848BB8D7242483030044E1C2 /* UGCategory.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 848BB7D1242483030044E1C2 /* UGCategory.podspec */; };
 		848BB8D8242483030044E1C2 /* UIImage+UG.m in Sources */ = {isa = PBXBuildFile; fileRef = 848BB7D5242483030044E1C2 /* UIImage+UG.m */; };
 		848BB8D9242483030044E1C2 /* UILabel+UG.m in Sources */ = {isa = PBXBuildFile; fileRef = 848BB7D8242483030044E1C2 /* UILabel+UG.m */; };
@@ -121,6 +125,11 @@
 /* Begin PBXFileReference section */
 		63A9055BD0B2CC5FA6304F54 /* Pods-BusinseeLifeBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BusinseeLifeBox.debug.xcconfig"; path = "Target Support Files/Pods-BusinseeLifeBox/Pods-BusinseeLifeBox.debug.xcconfig"; sourceTree = "<group>"; };
 		842DAAE52424C09600EDBD1E /* ProductAddActiveCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAddActiveCell.swift; sourceTree = "<group>"; };
+		8444A8482425FC1D007A0B25 /* ApplyShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyShopViewController.swift; sourceTree = "<group>"; };
+		8444A84D24260B3F007A0B25 /* NetWorkRequest+shop.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NetWorkRequest+shop.h"; sourceTree = "<group>"; };
+		8444A84E24260B3F007A0B25 /* NetWorkRequest+shop.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NetWorkRequest+shop.m"; sourceTree = "<group>"; };
+		8444A85124260BC0007A0B25 /* ShopDefModen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDefModen.swift; sourceTree = "<group>"; };
+		8444A856242743EB007A0B25 /* WKwebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKwebViewController.swift; sourceTree = "<group>"; };
 		848BB7CF242483030044E1C2 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		848BB7D1242483030044E1C2 /* UGCategory.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UGCategory.podspec; sourceTree = "<group>"; };
 		848BB7D4242483030044E1C2 /* UIImage+UG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+UG.h"; sourceTree = "<group>"; };
@@ -340,6 +349,31 @@
 				AEB2D70FC001408ED48247CB /* Pods_BusinseeLifeBox.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8444A84A24260B0A007A0B25 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				8444A84D24260B3F007A0B25 /* NetWorkRequest+shop.h */,
+				8444A84E24260B3F007A0B25 /* NetWorkRequest+shop.m */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		8444A85024260B94007A0B25 /* Moden */ = {
+			isa = PBXGroup;
+			children = (
+				8444A85124260BC0007A0B25 /* ShopDefModen.swift */,
+			);
+			path = Moden;
+			sourceTree = "<group>";
+		};
+		8444A85324274380007A0B25 /* WKWebView */ = {
+			isa = PBXGroup;
+			children = (
+				8444A856242743EB007A0B25 /* WKwebViewController.swift */,
+			);
+			path = WKWebView;
 			sourceTree = "<group>";
 		};
 		848BB7CE242483030044E1C2 /* BusinseeLifeBox */ = {
@@ -913,6 +947,7 @@
 		848BB891242483030044E1C2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8444A85324274380007A0B25 /* WKWebView */,
 				848BB892242483030044E1C2 /* Home */,
 				848BB899242483030044E1C2 /* Seting */,
 				848BB89C242483030044E1C2 /* DanMu */,
@@ -1003,6 +1038,8 @@
 		848BB8A9242483030044E1C2 /* Shop */ = {
 			isa = PBXGroup;
 			children = (
+				8444A85024260B94007A0B25 /* Moden */,
+				8444A84A24260B0A007A0B25 /* API */,
 				848BB8AA242483030044E1C2 /* View */,
 				848BB8AD242483030044E1C2 /* ViewController */,
 			);
@@ -1022,6 +1059,7 @@
 			isa = PBXGroup;
 			children = (
 				848BB8AE242483030044E1C2 /* ShopManageViewController.swift */,
+				8444A8482425FC1D007A0B25 /* ApplyShopViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1332,9 +1370,11 @@
 				848BB8E1242483030044E1C2 /* UGImageView.m in Sources */,
 				848BB8D9242483030044E1C2 /* UILabel+UG.m in Sources */,
 				848BB90D242483030044E1C2 /* BlockCollectionViewTestVC.m in Sources */,
+				8444A85224260BC0007A0B25 /* ShopDefModen.swift in Sources */,
 				848BB8F0242483030044E1C2 /* UGDrawingView.m in Sources */,
 				848BB933242483030044E1C2 /* ProductAddInputCell.swift in Sources */,
 				848BB9432424B60C0044E1C2 /* ProductActiveView.swift in Sources */,
+				8444A857242743EB007A0B25 /* WKwebViewController.swift in Sources */,
 				848BB8EB242483030044E1C2 /* AppDelegate+TavBar.m in Sources */,
 				848BB931242483030044E1C2 /* ShopManageViewController.swift in Sources */,
 				848BB8DE242483030044E1C2 /* UIView+Alert.m in Sources */,
@@ -1393,11 +1433,13 @@
 				848BB8DD242483030044E1C2 /* UIView+UG.m in Sources */,
 				848BB8DB242483030044E1C2 /* UIColor+UG.m in Sources */,
 				848BB92A242483030044E1C2 /* DanmuViewController.m in Sources */,
+				8444A8492425FC1D007A0B25 /* ApplyShopViewController.swift in Sources */,
 				848BB936242483030044E1C2 /* ProductAddViewController.swift in Sources */,
 				848BB908242483030044E1C2 /* BlockTableviewTestVC.m in Sources */,
 				848BB8FF242483030044E1C2 /* Defual.swift in Sources */,
 				848BB8E5242483030044E1C2 /* UITextField+UG.m in Sources */,
 				848BB8E7242483030044E1C2 /* UIApplication+TABAnimated.m in Sources */,
+				8444A84F24260B3F007A0B25 /* NetWorkRequest+shop.m in Sources */,
 				848BB938242483030044E1C2 /* NetWorkRequest+Login.m in Sources */,
 				848BB8E2242483030044E1C2 /* NSString+Encode.m in Sources */,
 				848BB8FE242483030044E1C2 /* DoraemonSuperPlay.m in Sources */,

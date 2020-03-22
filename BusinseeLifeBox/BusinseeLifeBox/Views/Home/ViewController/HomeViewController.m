@@ -50,7 +50,7 @@
              @"title":@"库存管理",
          },
          @{
-             @"key":@"",
+             @"key":@"BusinseeLifeBox.WKwebViewController",
              @"icon":@"fa-github",
              @"title":@"数据管理",
          },
@@ -62,8 +62,6 @@
      ] modelCopy];
 }
 -(void)configUI{
-    [self.navigationController setNavigationBarHidden:YES];
-   
     [self.view addSubview:self.collectionView];
 
 }

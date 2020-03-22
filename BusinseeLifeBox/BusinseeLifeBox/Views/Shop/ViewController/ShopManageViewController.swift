@@ -9,12 +9,13 @@
 import UIKit
 
 class ShopManageViewController: SupleViewController ,UITableViewDataSource,UITableViewDelegate {
-    
-    
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
+        if UserInfo.share().shopid.count<=0 {
+          alertOpenShopActive()
+        }
     }
     
     func configUI() -> Void {
@@ -127,4 +128,23 @@ extension ShopManageViewController{
     }
     
     
+}
+
+
+// 开店提示
+extension ShopManageViewController {
+    func alertOpenShopActive() {
+        let alertController = UIAlertController(title: "提示", message: "你还没有开通店铺",preferredStyle: .alert)
+        let commitAction = UIAlertAction(title: "去开店", style: .default){ (action:UIAlertAction)in
+            self.navigationController!.pushViewController(ApplyShopViewController(), animated: true)
+            
+        }
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel){ (action:UIAlertAction)in
+            
+        }
+        alertController.addAction(commitAction)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+  
 }
