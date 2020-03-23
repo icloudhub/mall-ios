@@ -34,9 +34,9 @@ PODS:
   - Charts (3.4.0):
     - Charts/Core (= 3.4.0)
   - Charts/Core (3.4.0)
-  - CocoaLumberjack (3.6.0):
-    - CocoaLumberjack/Core (= 3.6.0)
-  - CocoaLumberjack/Core (3.6.0)
+  - CocoaLumberjack (3.6.1):
+    - CocoaLumberjack/Core (= 3.6.1)
+  - CocoaLumberjack/Core (3.6.1)
   - DoraemonKit/Core (2.0.0):
     - BSBacktraceLogger
     - fishhook
@@ -67,7 +67,7 @@ PODS:
   - GCDWebServer (3.5.3):
     - GCDWebServer/Core (= 3.5.3)
   - GCDWebServer/Core (3.5.3)
-  - IQKeyboardManager (6.5.4)
+  - IQKeyboardManager (6.5.5)
   - Masonry (1.1.0)
   - MBProgressHUD (1.1.0)
   - OCBarrage (1.0.5)
@@ -77,16 +77,16 @@ PODS:
   - RTRootNavigationController/Core (0.7.2)
   - SDCycleScrollView (1.80):
     - SDWebImage (>= 5.0.0)
-  - SDWebImage (5.4.1):
-    - SDWebImage/Core (= 5.4.1)
-  - SDWebImage/Core (5.4.1)
+  - SDWebImage (5.5.2):
+    - SDWebImage/Core (= 5.5.2)
+  - SDWebImage/Core (5.5.2)
   - TABAnimated (2.2.5):
     - TABAnimated/Core (= 2.2.5)
     - TABAnimated/Reveal (= 2.2.5)
   - TABAnimated/Core (2.2.5)
   - TABAnimated/Reveal (2.2.5):
     - TABAnimated/Core
-  - TZImagePickerController (3.3.1)
+  - TZImagePickerController (3.3.0)
   - YYDebugDatabase (2.0.7):
     - FMDB
     - GCDWebServer
@@ -160,26 +160,26 @@ SPEC CHECKSUMS:
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
   BSBacktraceLogger: 06b983ee93a9f87d957960e9c73d660d5966b447
   Charts: 74c9f256eaf0460c0c416522d1cf8c634ea6b286
-  CocoaLumberjack: 78b0c238666f4f58db069738ec176f4519557516
+  CocoaLumberjack: b17ae15142558d08bbacf69775fa10c4abbebcc9
   DoraemonKit: 9e923599e28d0b61f1c6de4aef2c2d669b30abb7
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   fishhook: ea19933abfe8f2f52c55fd8b6e2718467d3ebc89
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   "FontAwesome+iOS": c6d3bbd2856b9633028d316d56133d45fb6a6cb0
   GCDWebServer: c0ab22c73e1b84f358d1e2f74bf6afd1c60829f2
-  IQKeyboardManager: 72b359cd7e777e3a984cedbe05f8da45320cbb63
+  IQKeyboardManager: 3a8b9e603f8b0eeaf5f096a1f2b2cfcf121992ef
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   OCBarrage: 5ee1a922afacb2c04739621ccda71872185e2e59
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   RTRootNavigationController: 8344c2352d6d40fa370d0366efae2c84a945213f
   SDCycleScrollView: b3c9a5ed840c771c4938978174c7c9d9feefeb96
-  SDWebImage: 29c340dbdcef342bb13125553f4e19ce056b07a7
+  SDWebImage: 4d5c027c935438f341ed33dbac53ff9f479922ca
   TABAnimated: 578e519350a12ac08ec2ee2c0a2d2120ac13e137
-  TZImagePickerController: 99f03b64145a8c92c55b9b1b931410967d9be4cb
+  TZImagePickerController: 57e97774b6d3970abf38619645c7cc1caf257c41
   YYDebugDatabase: c8be8bd85222cc2ced76e93ca06618bab87224d7
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
 PODFILE CHECKSUM: 993f1d50d3e323e6c0af47ff9b9b949dde6ec8da
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.8.0.beta.1

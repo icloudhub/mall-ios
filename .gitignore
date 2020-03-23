@@ -122,3 +122,4 @@ playground.xcworkspace
 # End of https://www.gitignore.io/api/swift,cocoapods,objective-c
 
 LifeBox/LifeBox.xcodeproj/xcshareddata/xcschemes/LifeBox.xcscheme
+BusinseeLifeBox/Podfile.lock

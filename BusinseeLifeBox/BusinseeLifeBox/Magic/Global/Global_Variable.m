@@ -56,6 +56,7 @@ static Global_Variable *sharedInstance = nil;
     if (!_serviceIP) {
 //        _serviceIP = @"http://120.77.202.156";  //测试环境
         _serviceIP = @"http://10.10.11.145";  //测试环境
+
     }
     return _serviceIP;
 }
@@ -63,7 +64,7 @@ static Global_Variable *sharedInstance = nil;
 #pragma mark - 获取默认服务端口
 - (NSString *)defaultPort {
     if (!_defaultPort) {
-        _defaultPort = @"15675";  //测试环境
+        _defaultPort = @"15674";  //测试环境
     }
     return _defaultPort;
 }
@@ -75,6 +76,12 @@ static Global_Variable *sharedInstance = nil;
         _searchPort = @"15673";  //测试环境
     }
     return _searchPort;
+}
+-(NSString *)webPort{
+    if (!_searchPort) {
+          _searchPort = @"15676";  //测试环境
+      }
+      return _searchPort;
 }
 
 #pragma mark - 获取用户ID
@@ -101,7 +108,7 @@ static Global_Variable *sharedInstance = nil;
     if (![userinfo objectForKey:@"userinfo"]) {
         return nil;
     }
-//    return @"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0IiwiY3JlYXRlZCI6MTU3NzQ0NDAwMTQ1MSwiZXhwIjoxNTc4MDQ4ODAxfQ.3I0radYZkxpiCVcLu_TTtW-eLLgWTOG-Jp3YH_Y8p_Y45cfJ5lnvGB0skJTiSnzJyiDvYYaeyzbJ5auDvFxaRw";
+
     return [userinfo objectForKey:@"token"];
 }
 

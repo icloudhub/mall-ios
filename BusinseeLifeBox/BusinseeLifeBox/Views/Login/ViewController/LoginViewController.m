@@ -157,7 +157,7 @@
 -(void)loadDebugData{
 #ifdef DEBUG
     _passwordTF.textView.text = @"123456";
-    _usernameTF.textView.text = @"admin";
+    _usernameTF.textView.text = @"13923497592";
 #endif
 }
 @end

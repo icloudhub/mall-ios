@@ -17,8 +17,10 @@
 -(void)loadView{
     
     [super loadView];
-    [self setHidesBottomBarWhenPushed:YES];
-    
+    if (self.navigationController.viewControllers.count>0) {
+        [self setHidesBottomBarWhenPushed:YES];
+    }
+
 }
 
 - (void)viewDidLoad {
@@ -35,15 +37,15 @@
         [itemButtom.titleLabel setFont:FONT_FA20];
         [itemButtom setTitleColor:COLOR_33 forState:UIControlStateNormal];
         [itemButtom setTitle:bcaktitle forState:UIControlStateNormal];
-        [itemButtom ug_addEvents:UIControlEventTouchUpInside andBlock:^(id  _Nonnull sender) {
-           
-            [self.navigationController popViewControllerAnimated:YES];
-        }];
+        [itemButtom addTarget:self action:@selector(leftNavBarTouchUpInside:) forControlEvents:UIControlEventTouchUpInside];
         UIBarButtonItem *button = [[UIBarButtonItem alloc]
                                    initWithCustomView:itemButtom];
         [self.navigationItem setLeftBarButtonItems:@[button]];
     }
 
+}
+-(void)leftNavBarTouchUpInside:(UIButton*)sender{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 

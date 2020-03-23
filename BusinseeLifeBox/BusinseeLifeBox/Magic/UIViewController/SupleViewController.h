@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SupleViewController : UIViewController
 
+-(void)leftNavBarTouchUpInside:(UIButton*)sender;
 @end
 
 NS_ASSUME_NONNULL_END
