@@ -15,8 +15,6 @@ static UserInfo *userinfo = nil;
     if (!userinfo) {
         NSDictionary *endinfo = [[NSUserDefaults standardUserDefaults]objectForKey:@"enduserinfo"];
 
-        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"enduserinfo"];
-
         if (endinfo) {
             UserInfo *temdata = [UserInfo modelWithDictionary:endinfo];
             if (temdata.autoSave) {
@@ -33,12 +31,7 @@ static UserInfo *userinfo = nil;
     return userinfo;
 }
 
--(BOOL)islogin{
-    if (_name.length>0 && _token.length > 0) {
-        return YES;
-    }
-    return NO;
-}
+
 
 
 -(void)clear{
@@ -49,10 +42,9 @@ static UserInfo *userinfo = nil;
 
 
 -(void)applicationDidEnterBackground{
-   
-    if (self.islogin && _autoSave) {
-        NSDictionary *dic = [self modelToJSONObject];
-        [[NSUserDefaults standardUserDefaults]setObject:dic forKey:@"enduserinfo"];
-    }
+    
+    NSDictionary *dic = [self modelToJSONObject];
+    [[NSUserDefaults standardUserDefaults]setObject:dic forKey:@"enduserinfo"];
+    
 }
 @end

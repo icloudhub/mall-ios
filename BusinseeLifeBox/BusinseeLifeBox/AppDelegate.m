@@ -36,7 +36,7 @@
     [self configRTRootNavigationController];
 //    [[UIApplication sharedApplication] configTabBar];
     
-    if([UserInfo share].islogin){
+    if(Global_Variable.shared.islogin){
         //配置tabbar
          [[UIApplication sharedApplication] configTabBar];
     }else{

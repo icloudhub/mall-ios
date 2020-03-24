@@ -53,7 +53,7 @@
              @"key":@"BusinseeLifeBox.WKwebViewController",
              @"icon":@"fa-github",
              @"title":@"数据管理",
-             @"param":@{@"url":[NSString stringWithFormat:@"%@:%@/client",Global_Variable.shared.serviceIP,Global_Variable.shared.webPort]}
+             @"param":@{@"url":[NSString stringWithFormat:@"%@:%@/#/",Global_Variable.shared.serviceIP,Global_Variable.shared.webPort]}
          },
          @{
              @"key":@"",

@@ -10,8 +10,10 @@ import UIKit
 import WebKit
 
 class WKwebViewController: SupleViewController {
-
+    
+    
     @objc var url:NSString?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         confitUI()
@@ -43,16 +45,21 @@ class WKwebViewController: SupleViewController {
         if (url != nil) {
             //设置访问的url
             //根据url创建请求
-            let urlRequest = URLRequest(url: URL(string:url as! String)!)
+            let tocken = Global_Variable.shared().token
+            let str = String.init(format: "%@?loginToken=%@",url!, tocken)
+            let urlRequest = URLRequest(url: URL(string: str)!)
+            debugPrint(str)
             //加载请求
             webview.load(urlRequest)
+           
         }
-      
     }
+    
+ 
 }
 
 extension WKwebViewController{
-  
+    
     override func leftNavBarTouchUp(inside sender: UIButton) {
         if webview.canGoBack {
             webview.goBack()
@@ -101,8 +108,14 @@ extension WKwebViewController: WKNavigationDelegate
     
     // 页面开始加载时调用
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        webView.evaluateJavaScript("document.cookie = 'loginToken=zhang';", completionHandler: nil)
-     
+        let str = "document.cookie = 'loginToken=\(Global_Variable.shared().token)';"
+        webView.evaluateJavaScript(str, completionHandler: nil)
+        //调用js的addList方法
+        webView.evaluateJavaScript("addParam()", completionHandler: { (any, error) in
+            if (error != nil) {
+                print(error.debugDescription)
+            }
+        })
         debugPrint("开始加载...")
     }
     
@@ -113,7 +126,7 @@ extension WKwebViewController: WKNavigationDelegate
     
     // 页面加载完成之后调用
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!){
-         debugPrint( "页面加载完成...")
+        debugPrint( "页面加载完成...")
         /// 获取网页title
         self.title = self.webview.title
         
@@ -137,5 +150,5 @@ extension WKwebViewController: WKNavigationDelegate
         alertView.addAction(okAction)
         self.present(alertView, animated: true, completion: nil)
     }
- 
+    
 }

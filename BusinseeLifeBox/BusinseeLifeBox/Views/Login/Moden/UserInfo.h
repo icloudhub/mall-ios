@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(strong, nonatomic) NSString *shopid; // 店铺id
 
-@property(assign, readonly) BOOL islogin; //token
+
 
 @property(assign, nonatomic) BOOL autoSave; //token defual = YES
 

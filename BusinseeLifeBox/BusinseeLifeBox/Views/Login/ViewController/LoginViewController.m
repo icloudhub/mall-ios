@@ -59,7 +59,7 @@
     [_commitBtn setTitle:@"登陆" forState:UIControlStateNormal];
     [_commitBtn setBackgroundColor:COLORDANGER];
     [_commitBtn ug_radius:5];
-    if ([UserInfo share].islogin) {
+    if (Global_Variable.shared.islogin) {
         [_commitBtn setTitle:@"已登陆" forState:UIControlStateNormal];
     }
     UG_WEAKSELF
@@ -69,9 +69,10 @@
         [[NetWorkRequest share] passwordLogin:weakSelf.usernameTF.text password:weakSelf.passwordTF.text block:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
             if (error) {
                 [self.view ug_msg:error.domain];
+                
                 [[UserInfo share] clear];
             }else{
-                [UserInfo share].token = [dataDict stringValueForKey:@"token" default:NULL];
+                [[NSUserDefaults standardUserDefaults] setObject:dataDict forKey:@"LoginUserInfo"];
                 [[UIApplication sharedApplication] configTabBar];
             }
         }];

@@ -75,7 +75,7 @@ static AFHTTPSessionManager *afManager = nil;
                     endblock(dic,nil);
                 }
             }else{
-                if (code == 403) {
+                if (code == 401) {
                     [UIApplication gotoLoginCtl];
                 }
                 NSError *error = [NSError errorWithDomain:responseObject[@"message"] code:[responseObject[@"code"] integerValue] userInfo:responseObject];
@@ -133,7 +133,7 @@ static AFHTTPSessionManager *afManager = nil;
                     endblock(dic,nil);
                 }
             }else{
-                if (code == 403) {
+                if (code == 401) {
                     [UIApplication gotoLoginCtl];
                 }
                 NSError *error = [NSError errorWithDomain:responseObject[@"message"] code:[responseObject[@"code"] integerValue] userInfo:responseObject];

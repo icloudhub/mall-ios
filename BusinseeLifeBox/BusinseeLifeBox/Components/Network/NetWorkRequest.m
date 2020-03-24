@@ -41,7 +41,7 @@ static NetWorkRequest *netWorkRequest = nil;
 
 -(void)post:(NSString*)url param:(NSDictionary *)param head:(NSDictionary *)head endblock:(NREndBlock)endblock{
     
-    if ([UserInfo share].islogin) {
+    if (Global_Variable.shared.islogin) {
         [[NetWorkRequest share].afManager.requestSerializer setAuthorizationHeaderFieldWithUsername:[UserInfo share].name password:[UserInfo share].password];
     }
  
@@ -136,7 +136,7 @@ static NetWorkRequest *netWorkRequest = nil;
 }
 
 -(void)put:(NSString*)url param:(NSDictionary *)param head:(NSDictionary *)head endblock:(NREndBlock)endblock{
-    if ([UserInfo share].islogin) {
+    if (Global_Variable.shared.islogin) {
         [[NetWorkRequest share].afManager.requestSerializer setAuthorizationHeaderFieldWithUsername:[UserInfo share].name password:[UserInfo share].password];
     }else{
         NSError *error = [NSError errorWithDomain:@"用户未登陆" code:-1 userInfo:nil];
@@ -159,7 +159,7 @@ static NetWorkRequest *netWorkRequest = nil;
     
 }
 -(void)download:(NSString*)urlstr filepath:(NSString *)filepath progress:(void (^)(NSProgress *downloadProgress)) downloadProgressBlock head:(NSDictionary *)head endblock:(NREndBlock)endblock{
-    if ([UserInfo share].islogin) {
+    if (Global_Variable.shared.islogin) {
         [[NetWorkRequest share].afManager.requestSerializer setAuthorizationHeaderFieldWithUsername:[UserInfo share].name password:[UserInfo share].password];
     }else{
         NSError *error = [NSError errorWithDomain:@"用户未登陆" code:-1 userInfo:nil];

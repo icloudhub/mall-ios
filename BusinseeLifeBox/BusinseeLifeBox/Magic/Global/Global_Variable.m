@@ -109,7 +109,13 @@ static Global_Variable *sharedInstance = nil;
         return nil;
     }
 
-    return [userinfo objectForKey:@"token"];
+    return [NSString stringWithFormat:@"%@%@",[userinfo objectForKey:@"tokenHead"],[userinfo objectForKey:@"token"]] ;
 }
 
+- (BOOL)islogin{
+    if (self.userid || self.token) {
+        return YES;
+    }
+    return NO;
+}
 @end

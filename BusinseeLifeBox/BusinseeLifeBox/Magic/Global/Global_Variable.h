@@ -34,6 +34,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (readonly) NSString *token;//用户token
 
+@property(assign, readonly) BOOL islogin; //token
+
 #pragma mark - App版本
 - (NSString *)getAppVersion;
 
