@@ -51,7 +51,6 @@ class WKwebViewController: SupleViewController {
             debugPrint(str)
             //加载请求
             webview.load(urlRequest)
-           
         }
     }
     
