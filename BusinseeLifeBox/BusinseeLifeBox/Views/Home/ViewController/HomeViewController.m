@@ -63,8 +63,8 @@
      ] modelCopy];
 }
 -(void)configUI{
+    [self.navigationController setNavigationBarHidden:YES];
     [self.view addSubview:self.collectionView];
-
 }
 
 -(BlockCollectionView *)collectionView{

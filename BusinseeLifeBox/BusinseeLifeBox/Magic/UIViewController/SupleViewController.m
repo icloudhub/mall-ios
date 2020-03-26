@@ -14,14 +14,6 @@
 
 @implementation SupleViewController
 
--(void)loadView{
-    
-    [super loadView];
-    if (self.navigationController.viewControllers.count>0) {
-        [self setHidesBottomBarWhenPushed:YES];
-    }
-
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -43,6 +35,10 @@
         [self.navigationItem setLeftBarButtonItems:@[button]];
     }
 
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [super  viewWillAppear:animated];
+ 
 }
 -(void)leftNavBarTouchUpInside:(UIButton*)sender{
     [self.navigationController popViewControllerAnimated:YES];

@@ -9,7 +9,7 @@
 #import "AppDelegate+TavBar.h"
 #import "HomeViewController.h"
 #import "DanmuViewController.h"
-
+#import "SuperNavigationController.h"
 
 
 @implementation UIApplication (TavBar)
@@ -18,7 +18,7 @@
     
     HomeViewController *vc1 = [HomeViewController new];
     vc1.title = @"首页";
-    RTRootNavigationController *nav1 = [[RTRootNavigationController alloc] initWithRootViewController:vc1];
+    SuperNavigationController *nav1 = [[SuperNavigationController alloc] initWithRootViewController:vc1];
     [nav1.tabBarItem setImage:[UIImage imageWithIcon:@"fa-home" backgroundColor:[UIColor clearColor] iconColor:COLOR_DEF andSize:CGSizeMake(20, 20)]];
   
    
@@ -30,17 +30,17 @@
     
     UIViewController *vc2 = [[UIViewController alloc] init];
     vc2.title = @"消息";
-    RTRootNavigationController *nav2 = [[RTRootNavigationController alloc] initWithRootViewController:vc2];
+    SuperNavigationController *nav2 = [[SuperNavigationController alloc] initWithRootViewController:vc2];
     [nav2.tabBarItem setImage:[UIImage imageWithIcon:@"fa-heart" backgroundColor:[UIColor clearColor] iconColor:COLOR_DEF andSize:CGSizeMake(20, 20)]];
     
     UIViewController *vc3 = [[UIViewController alloc] init];
     vc3.title = @"出门单";
-    RTRootNavigationController *nav3 = [[RTRootNavigationController alloc] initWithRootViewController:vc3];
+    SuperNavigationController *nav3 = [[SuperNavigationController alloc] initWithRootViewController:vc3];
     [nav3.tabBarItem setImage:[UIImage imageWithIcon:@"fa-th-large" backgroundColor:[UIColor clearColor] iconColor:COLOR_DEF andSize:CGSizeMake(20, 20)]];
     
     SettingViewController *vc4 = [[SettingViewController alloc] init];
     vc4.title = @"设置";
-    RTRootNavigationController *nav4 = [[RTRootNavigationController alloc] initWithRootViewController:vc4];
+    SuperNavigationController *nav4 = [[SuperNavigationController alloc] initWithRootViewController:vc4];
     [nav4.tabBarItem setImage:[UIImage imageWithIcon:@"fa-cog" backgroundColor:[UIColor clearColor] iconColor:COLOR_DEF andSize:CGSizeMake(20, 20)]];
 
     

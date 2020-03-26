@@ -10,29 +10,7 @@ import UIKit
 
 class ShopManageViewController: SupleViewController ,UITableViewDataSource,UITableViewDelegate {
   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        configUI()
-        if UserInfo.share().shopid.count<=0 {
-          alertOpenShopActive()
-        }
-    }
-    
-    func configUI() -> Void {
-        self.title = "店铺管理"
-        view.addSubview(tableview)
-    }
-    
-    lazy var tableview: UITableView = {
-        () -> UITableView in
-        let tableview = UITableView()
-        tableview.backgroundColor = COLOR_EE;
-        tableview.dataSource = self
-        tableview.delegate = self
-        tableview.separatorStyle = .none
-        return tableview
-    }()
-    
+    var shopInfo:ShopDefModen?
     
     var dataList = [
         [
@@ -57,8 +35,27 @@ class ShopManageViewController: SupleViewController ,UITableViewDataSource,UITab
         ]
     ]
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        getshopinfo()
+        configUI()
+    }
     
+    func configUI() -> Void {
+        self.title = "店铺管理"
+        view.addSubview(tableview)
+    }
     
+    lazy var tableview: UITableView = {
+        () -> UITableView in
+        let tableview = UITableView()
+        tableview.backgroundColor = COLOR_EE;
+        tableview.dataSource = self
+        tableview.delegate = self
+        tableview.separatorStyle = .none
+        return tableview
+    }()
+ 
 }
 extension ShopManageViewController{
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -82,7 +79,7 @@ extension ShopManageViewController{
             if cell==nil {
                 cell = ShopManageCell(style: .subtitle, reuseIdentifier: cellid)
             }
-            cell?.titleLab.text = "黄先生的店"
+            cell?.titleLab.text = shopInfo?.name
             cell?.defLab.text = "黄先生的店的简要说明"
             return cell!
             
@@ -118,7 +115,7 @@ extension ShopManageViewController{
         return UIView.init()
     }
 }
-//
+// 布局
 extension ShopManageViewController{
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -126,8 +123,6 @@ extension ShopManageViewController{
             make?.edges.mas_equalTo()
         }
     }
-    
-    
 }
 
 
@@ -137,7 +132,6 @@ extension ShopManageViewController {
         let alertController = UIAlertController(title: "提示", message: "你还没有开通店铺",preferredStyle: .alert)
         let commitAction = UIAlertAction(title: "去开店", style: .default){ (action:UIAlertAction)in
             self.navigationController!.pushViewController(ApplyShopViewController(), animated: true)
-            
         }
         let cancelAction = UIAlertAction(title: "取消", style: .cancel){ (action:UIAlertAction)in
             
@@ -147,4 +141,19 @@ extension ShopManageViewController {
         self.present(alertController, animated: true, completion: nil)
     }
   
+}
+
+extension ShopManageViewController{
+    func getshopinfo()  {
+        NetWorkRequest.share().shopInfoblock { (_ dic, error) in
+            if (error != nil){
+                let nserror:NSError = error! as NSError
+                self.view.ug_msg(nserror.domain)
+                self.alertOpenShopActive()
+            }else{
+                self.shopInfo = ShopDefModen.model(withJSON: dic as Any)
+                self.tableview .reloadData()
+            }
+        }
+    }
 }

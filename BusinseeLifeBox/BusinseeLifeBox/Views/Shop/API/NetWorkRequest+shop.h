@@ -18,6 +18,12 @@ NS_ASSUME_NONNULL_BEGIN
  店铺申请
  */
 -(void)shopCreat:(NSDictionary *)shopinfo block:(NREndBlock)endblock;
+
+/**
+ /seller/shopInfo
+ 店铺详情
+ */
+-(void)shopInfoblock:(NREndBlock)endblock;
 @end
 
 NS_ASSUME_NONNULL_END

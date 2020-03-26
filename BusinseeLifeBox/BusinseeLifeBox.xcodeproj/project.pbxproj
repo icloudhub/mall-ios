@@ -13,6 +13,7 @@
 		8444A84F24260B3F007A0B25 /* NetWorkRequest+shop.m in Sources */ = {isa = PBXBuildFile; fileRef = 8444A84E24260B3F007A0B25 /* NetWorkRequest+shop.m */; };
 		8444A85224260BC0007A0B25 /* ShopDefModen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8444A85124260BC0007A0B25 /* ShopDefModen.swift */; };
 		8444A857242743EB007A0B25 /* WKwebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8444A856242743EB007A0B25 /* WKwebViewController.swift */; };
+		844FD459242C875000F08E80 /* SuperNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 844FD458242C875000F08E80 /* SuperNavigationController.m */; };
 		848BB8D7242483030044E1C2 /* UGCategory.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 848BB7D1242483030044E1C2 /* UGCategory.podspec */; };
 		848BB8D8242483030044E1C2 /* UIImage+UG.m in Sources */ = {isa = PBXBuildFile; fileRef = 848BB7D5242483030044E1C2 /* UIImage+UG.m */; };
 		848BB8D9242483030044E1C2 /* UILabel+UG.m in Sources */ = {isa = PBXBuildFile; fileRef = 848BB7D8242483030044E1C2 /* UILabel+UG.m */; };
@@ -130,6 +131,8 @@
 		8444A84E24260B3F007A0B25 /* NetWorkRequest+shop.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NetWorkRequest+shop.m"; sourceTree = "<group>"; };
 		8444A85124260BC0007A0B25 /* ShopDefModen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDefModen.swift; sourceTree = "<group>"; };
 		8444A856242743EB007A0B25 /* WKwebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKwebViewController.swift; sourceTree = "<group>"; };
+		844FD457242C875000F08E80 /* SuperNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SuperNavigationController.h; sourceTree = "<group>"; };
+		844FD458242C875000F08E80 /* SuperNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SuperNavigationController.m; sourceTree = "<group>"; };
 		848BB7CF242483030044E1C2 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		848BB7D1242483030044E1C2 /* UGCategory.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UGCategory.podspec; sourceTree = "<group>"; };
 		848BB7D4242483030044E1C2 /* UIImage+UG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+UG.h"; sourceTree = "<group>"; };
@@ -608,12 +611,14 @@
 		848BB80F242483030044E1C2 /* UIViewController */ = {
 			isa = PBXGroup;
 			children = (
-				848BB810242483030044E1C2 /* SupleViewController.m */,
 				848BB811242483030044E1C2 /* PersentViewController.m */,
 				848BB812242483030044E1C2 /* UIViewController+Routes.h */,
 				848BB813242483030044E1C2 /* SupleViewController.h */,
+				848BB810242483030044E1C2 /* SupleViewController.m */,
 				848BB814242483030044E1C2 /* PersentViewController.h */,
 				848BB815242483030044E1C2 /* UIViewController+Routes.m */,
+				844FD457242C875000F08E80 /* SuperNavigationController.h */,
+				844FD458242C875000F08E80 /* SuperNavigationController.m */,
 			);
 			path = UIViewController;
 			sourceTree = "<group>";
@@ -1437,6 +1442,7 @@
 				848BB936242483030044E1C2 /* ProductAddViewController.swift in Sources */,
 				848BB908242483030044E1C2 /* BlockTableviewTestVC.m in Sources */,
 				848BB8FF242483030044E1C2 /* Defual.swift in Sources */,
+				844FD459242C875000F08E80 /* SuperNavigationController.m in Sources */,
 				848BB8E5242483030044E1C2 /* UITextField+UG.m in Sources */,
 				848BB8E7242483030044E1C2 /* UIApplication+TABAnimated.m in Sources */,
 				8444A84F24260B3F007A0B25 /* NetWorkRequest+shop.m in Sources */,

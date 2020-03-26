@@ -21,5 +21,13 @@
     
     [self post:url param:shopinfo head:nil endblock:endblock];
 }
+/**
+ /seller/shopInfo
+ 店铺详情
+ */
+-(void)shopInfoblock:(NREndBlock)endblock{
+    NSString *url = [NSString stringWithFormat:@"%@/seller/shopInfo",BASEURL];
+    [self get:url param:@{} head:nil endblock:endblock];
+}
 
 @end

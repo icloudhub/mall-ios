@@ -82,3 +82,5 @@ extension ApplyShopViewController{
         }
     }
 }
+
+
