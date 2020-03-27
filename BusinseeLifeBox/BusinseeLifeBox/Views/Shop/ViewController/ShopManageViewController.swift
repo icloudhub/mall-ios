@@ -13,10 +13,12 @@ class ShopManageViewController: SupleViewController ,UITableViewDataSource,UITab
     var shopInfo:ShopDefModen?
     
     var dataList = [
+     
         [
-            "key": "",
+            "key": "BusinseeLifeBox.WKwebViewController",
             "icon": "fa-github",
-            "title": "店铺认证"
+            "title": "店铺认证",
+            "param":["url":"\(Global_Variable.shared().serviceIP):\(Global_Variable.shared().webPort)/#/shopAuthentication"]
         ],
         [
             "key": "",
@@ -92,8 +94,8 @@ extension ShopManageViewController{
                 cell = ShopToolCell(style: .subtitle, reuseIdentifier: cellid)
             }
             let dic = dataList[indexPath.row]
-            cell?.titleLab.text = dic["title"]
-            cell?.headImageView.image = .init(icon: dic["icon"], backgroundColor: .clear, iconColor: .ug_random(), fontSize: 32)
+            cell?.titleLab.text = dic["title"] as? String
+            cell?.headImageView.image = UIImage.init(icon: dic["icon"] as? String, backgroundColor: .clear, iconColor: .ug_random(), fontSize: 32)
             return cell!
         }
     }
@@ -113,6 +115,18 @@ extension ShopManageViewController{
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return UIView.init()
+        
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case 1:
+            let dic = dataList[indexPath.row]
+            self.routepush(dic["key"] as! String, param: dic["param"] as! [AnyHashable : Any])
+            break
+        default:
+         break
+        }
+        
     }
 }
 // 布局

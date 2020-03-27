@@ -36,18 +36,21 @@
              @"title":@"店铺管理",
          },
          @{
-             @"key":@"BusinseeLifeBox.ProductAddViewController",
+             @"key":@"BusinseeLifeBox.WKwebViewController",
              @"icon":@"fa-github",
              @"title":@"商品管理",
+             @"param":@{@"url":[NSString stringWithFormat:@"%@:%@/#/addProduct",Global_Variable.shared.serviceIP,Global_Variable.shared.webPort]}
+             
          },@{
              @"key":@"",
              @"icon":@"fa-github",
              @"title":@"订单管理",
          },
          @{
-             @"key":@"",
+             @"key":@"BusinseeLifeBox.WKwebViewController",
              @"icon":@"fa-github",
              @"title":@"库存管理",
+             @"param":@{@"url":[NSString stringWithFormat:@"%@:%@/#/",Global_Variable.shared.serviceIP,Global_Variable.shared.webPort]}
          },
          @{
              @"key":@"BusinseeLifeBox.WKwebViewController",
