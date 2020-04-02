@@ -8,7 +8,7 @@
 
 #import "GoodsSpeSheet.h"
 #import "SpeSheetHeadView.h"
-
+#import "NSArray+UG.h"
 @implementation GoodsSpeSheet {
     ///商品图片
     UIImageView *goodsImg;
@@ -213,14 +213,7 @@
     for (ProductSKUModel *skuitem in _product.skuList) {
         if ([skuitem.skuid isEqualToString:_product.defualSku]) {
             self.selectsku = skuitem;
-        }
-    }
-    for (NSInteger i=0; i<_product.attributeList.count; i++) {
-        ProductSpecModel *tematt = [_product.attributeList objectAtIndex:i];
-        for (NSDictionary *dic in self.selectsku.attributes) {
-            if ([tematt.valueList containsObject:dic]) {
-                [self.selectSpeDic setObject:dic[@"value"] forKey:[NSString stringWithFormat:@"%zd",i]];
-            }
+            self.selectSpeDic =[[NSMutableDictionary alloc]initWithDictionary:self.selectsku.spDic];
         }
     }
     [_collectionView reloadData];
@@ -242,9 +235,9 @@
      [goodsImg sd_setImageWithURL:UG_URL(url)];
 }
 
--(NSMutableDictionary *)selectSpeDic{
+-(NSDictionary *)selectSpeDic{
     if (!_selectSpeDic) {
-        _selectSpeDic = [NSMutableDictionary new];
+        _selectSpeDic = [[NSMutableDictionary alloc]initWithCapacity:0];
     }
     return _selectSpeDic;
 }
@@ -269,9 +262,7 @@
             NSDictionary *dic = [data.valueList objectAtIndex:indexPath.row];
             cell.titleLab.text = dic[@"value"];
             cell.backgroundColor = UIColor.whiteColor;
-            NSString *tematt = [weakSelf.selectSpeDic objectForKey:[NSString stringWithFormat:@"%zd",indexPath.section]];
-            
-            if (tematt == dic[@"value"]) {
+            if ([[weakSelf.selectSpeDic objectForKey:data.id] isEqualToString:dic[@"value"]]) {
                 cell.backgroundColor = UIColor.redColor;
             }
             
@@ -300,49 +291,23 @@
         _collectionView.ug_didSelectItemAtIndexPath = ^(UICollectionView * _Nonnull collectionView, NSIndexPath * _Nonnull indexPath) {
             ProductSpecModel *data = [weakSelf.product.attributeList objectAtIndex:indexPath.section];
             NSDictionary *dic = [data.valueList objectAtIndex:indexPath.row];
-            [weakSelf.selectSpeDic setValue:dic[@"value"] forKey:[NSString stringWithFormat:@"%zd",indexPath.section]];
-            [self updateSKU];
-            [_collectionView reloadData];
+            [weakSelf.selectSpeDic setValue:dic[@"value"] forKey:data.id];
+            NSLog(@"%@", [NSString stringWithFormat:@"%@ indexsecton:%zd indexrow:%zd",weakSelf.selectSpeDic,indexPath.section,indexPath.row]);
+            [weakSelf updateSKU];
+            [weakSelf.collectionView reloadData];
         };
     }
     return _collectionView;
 }
 
 -(void)updateSKU{
-    NSMutableArray *spearr = [[NSMutableArray alloc]initWithArray:self.selectSpeDic.allValues];
+
     
     for (ProductSKUModel *temitem in self.product.skuList) {
-        NSMutableArray *skuarr = [NSMutableArray new];
-   
-        for (NSDictionary *temdic in temitem.attributes) {
-            [skuarr addObject:temdic[@"value"]];
-        }
         
-        //对array1排序。
-        [spearr sortUsingComparator:^NSComparisonResult(id obj1, id obj2){
-            return obj1 > obj2;
-        }];
-        
-        //对array2排序。
-        [skuarr sortUsingComparator:^NSComparisonResult(id obj1, id obj2){
-            return obj1 > obj2;
-        }];
-        if (spearr.count == skuarr.count) {
-            BOOL isequla = true;
-            for (int i = 0; i < spearr.count; i++) {
-                
-                id c1 = [spearr objectAtIndex:i];
-                id newc = [skuarr objectAtIndex:i];
-                
-                if (![newc isEqualToString:c1]) {
-             
-                    isequla = false;
-                }
-            }
-            if (isequla) {
-                self.selectsku = temitem;
-                return;
-            }
+        if ([temitem.spDic isEqualToDictionary:self.selectSpeDic]) {
+            self.selectsku = temitem;
+            return;
         }
     }
     self.selectsku = nil;

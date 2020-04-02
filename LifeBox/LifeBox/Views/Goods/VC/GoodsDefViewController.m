@@ -520,11 +520,7 @@
     [_bannerView setImageURLStringsGroup:bannerCount];
     
     // 规格
-    NSMutableArray *attriarr = [NSMutableArray new];
-    for (NSDictionary *dic in self.selectsku.attributes) {
-        [attriarr addObject:dic[@"value"]];
-    }
-    self.speLab.text = [NSString stringWithFormat:@"已选择: %@",[attriarr componentsJoinedByString:@","]];
+    self.speLab.text = [NSString stringWithFormat:@"已选择: %@",self.selectsku.sp];
     // 价格
     self.goodsPrice.text = [NSString stringWithFormat:@"¥ %0.2f",_selectsku.price];
 
@@ -644,6 +640,10 @@
 -(void)addToCar {
     if(!_productdata){
         [self.view ug_msg:@"商品数据有误"];
+        return;
+    }
+    if(_selectsku.skuid == NULL){
+        [self.view ug_msg:@"还没有选择规格"];
         return;
     }
     

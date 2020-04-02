@@ -253,6 +253,7 @@
 		8478A2702326384A005681CF /* ShoppingCarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8478A2692326384A005681CF /* ShoppingCarCell.m */; };
 		8478A2712326384A005681CF /* NetWorkRequest+Shoping.m in Sources */ = {isa = PBXBuildFile; fileRef = 8478A26B2326384A005681CF /* NetWorkRequest+Shoping.m */; };
 		8478A2752326391D005681CF /* HomeProductdata.m in Sources */ = {isa = PBXBuildFile; fileRef = 8478A2742326391D005681CF /* HomeProductdata.m */; };
+		84ADD6862435F1BD0058A71C /* NSArray+UG.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ADD6852435F1BD0058A71C /* NSArray+UG.m */; };
 		84B2E02D2302FFB300BC9197 /* NetWorkRequest+Login.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2E02C2302FFB300BC9197 /* NetWorkRequest+Login.m */; };
 		84B2E032230303C200BC9197 /* Userinfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2E031230303C200BC9197 /* Userinfo.m */; };
 		84B2E0382303055900BC9197 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2E0372303055900BC9197 /* LoginViewController.m */; };
@@ -663,6 +664,8 @@
 		8478A26C2326384A005681CF /* NetWorkRequest+Shoping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NetWorkRequest+Shoping.h"; sourceTree = "<group>"; };
 		8478A2732326391D005681CF /* HomeProductdata.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeProductdata.h; sourceTree = "<group>"; };
 		8478A2742326391D005681CF /* HomeProductdata.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeProductdata.m; sourceTree = "<group>"; };
+		84ADD6842435F1BD0058A71C /* NSArray+UG.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+UG.h"; sourceTree = "<group>"; };
+		84ADD6852435F1BD0058A71C /* NSArray+UG.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+UG.m"; sourceTree = "<group>"; };
 		84B2E02B2302FFB300BC9197 /* NetWorkRequest+Login.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NetWorkRequest+Login.h"; sourceTree = "<group>"; };
 		84B2E02C2302FFB300BC9197 /* NetWorkRequest+Login.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NetWorkRequest+Login.m"; sourceTree = "<group>"; };
 		84B2E030230303C200BC9197 /* Userinfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Userinfo.h; sourceTree = "<group>"; };
@@ -1134,6 +1137,7 @@
 		8461E16B23013A6B00764748 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				84ADD6832435F1980058A71C /* NSArray */,
 				84B2E0462307067D00BC9197 /* NSDate */,
 				84B2E0552307067E00BC9197 /* NSObject */,
 				84B2E04F2307067D00BC9197 /* NSString */,
@@ -1465,6 +1469,15 @@
 				84C29207235DEF5B00034213 /* NetWorkRequest+Business.m */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		84ADD6832435F1980058A71C /* NSArray */ = {
+			isa = PBXGroup;
+			children = (
+				84ADD6842435F1BD0058A71C /* NSArray+UG.h */,
+				84ADD6852435F1BD0058A71C /* NSArray+UG.m */,
+			);
+			path = NSArray;
 			sourceTree = "<group>";
 		};
 		84B2E0292302FF4100BC9197 /* Login */ = {
@@ -2134,6 +2147,7 @@
 				84B954D42323731F00A7E8D2 /* NetWorkRequest+Orlder.m in Sources */,
 				84B2E0622307067E00BC9197 /* NSObject+BlockDelayedPerforming.m in Sources */,
 				05D0A3DC23B8E293001C00D5 /* MultipleView.m in Sources */,
+				84ADD6862435F1BD0058A71C /* NSArray+UG.m in Sources */,
 				05C4696E237B9EC200D21EA1 /* WPHotspotLabel.m in Sources */,
 				052DCA0C23795F2100C16128 /* LoginCodeView.m in Sources */,
 				05AC5C2E2356136A000584CB /* OrderInfoCell.m in Sources */,
@@ -2463,6 +2477,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C3NDDQ4G8T;
 				INFOPLIST_FILE = LifeBoxTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2482,6 +2497,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C3NDDQ4G8T;
 				INFOPLIST_FILE = LifeBoxTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

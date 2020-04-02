@@ -121,6 +121,7 @@
 		848BB940242483030044E1C2 /* UGAlignmentButtonVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 848BB8D4242483030044E1C2 /* UGAlignmentButtonVC.m */; };
 		848BB941242483030044E1C2 /* DorRoutes.m in Sources */ = {isa = PBXBuildFile; fileRef = 848BB8D5242483030044E1C2 /* DorRoutes.m */; };
 		848BB9432424B60C0044E1C2 /* ProductActiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848BB9422424B60C0044E1C2 /* ProductActiveView.swift */; };
+		84ADD67A2435977E0058A71C /* NetWorkRequest+Home.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ADD6792435977E0058A71C /* NetWorkRequest+Home.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -320,6 +321,8 @@
 		848BB8D5242483030044E1C2 /* DorRoutes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DorRoutes.m; sourceTree = "<group>"; };
 		848BB8D6242483030044E1C2 /* AppDelegate+DoraemonKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+DoraemonKit.h"; sourceTree = "<group>"; };
 		848BB9422424B60C0044E1C2 /* ProductActiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductActiveView.swift; sourceTree = "<group>"; };
+		84ADD6782435977E0058A71C /* NetWorkRequest+Home.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NetWorkRequest+Home.h"; sourceTree = "<group>"; };
+		84ADD6792435977E0058A71C /* NetWorkRequest+Home.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NetWorkRequest+Home.m"; sourceTree = "<group>"; };
 		84FBC883241F7E87006926E3 /* BusinseeLifeBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BusinseeLifeBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEB2D70FC001408ED48247CB /* Pods_BusinseeLifeBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BusinseeLifeBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBB034973F63C02F08A99D3D /* Pods-BusinseeLifeBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BusinseeLifeBox.release.xcconfig"; path = "Target Support Files/Pods-BusinseeLifeBox/Pods-BusinseeLifeBox.release.xcconfig"; sourceTree = "<group>"; };
@@ -967,6 +970,7 @@
 		848BB892242483030044E1C2 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				84ADD677243597580058A71C /* API */,
 				848BB893242483030044E1C2 /* View */,
 				848BB896242483030044E1C2 /* ViewController */,
 			);
@@ -1196,6 +1200,15 @@
 			path = DorTestVC;
 			sourceTree = "<group>";
 		};
+		84ADD677243597580058A71C /* API */ = {
+			isa = PBXGroup;
+			children = (
+				84ADD6782435977E0058A71C /* NetWorkRequest+Home.h */,
+				84ADD6792435977E0058A71C /* NetWorkRequest+Home.m */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		84FBC87A241F7E87006926E3 = {
 			isa = PBXGroup;
 			children = (
@@ -1407,6 +1420,7 @@
 				848BB8FD242483030044E1C2 /* Global_Variable.m in Sources */,
 				848BB930242483030044E1C2 /* ShopManageCell.swift in Sources */,
 				848BB8EF242483030044E1C2 /* UGDrawingVC.m in Sources */,
+				84ADD67A2435977E0058A71C /* NetWorkRequest+Home.m in Sources */,
 				848BB915242483030044E1C2 /* BlockCollectionViewCell.m in Sources */,
 				848BB8F9242483030044E1C2 /* UGAlignmentButton.m in Sources */,
 				848BB8F7242483030044E1C2 /* UGSpeekView.m in Sources */,
@@ -1598,7 +1612,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.BusinseeLifeBox;
+				PRODUCT_BUNDLE_IDENTIFIER = com.BusinseeLifeBox.life;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "BusinseeLifeBox/BusinseeLifeBox-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1621,7 +1635,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.BusinseeLifeBox;
+				PRODUCT_BUNDLE_IDENTIFIER = com.BusinseeLifeBox.life;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "BusinseeLifeBox/BusinseeLifeBox-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

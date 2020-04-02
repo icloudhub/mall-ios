@@ -84,7 +84,7 @@
 -(RemarkLabView *)visitorView{
     if (!_visitorView) {
         _visitorView = [RemarkLabView new];
-        _visitorView.titleLab.text = @"今日访客";
+        _visitorView.titleLab.text = @"今日浏览次数";
         _visitorView.valueLab.text = @"0";
     }
     return _visitorView;

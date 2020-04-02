@@ -76,6 +76,8 @@ static NetWorkRequest *netWorkRequest = nil;
                 if (endblock) {
                     endblock(dic,nil);
                 }
+            }else if (code == 401) {
+                [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"LoginUserInfo"];
             }else{
                 
                 NSError *error = [NSError errorWithDomain:responseObject[@"message"] code:[responseObject[@"code"] integerValue] userInfo:responseObject];
@@ -124,6 +126,9 @@ static NetWorkRequest *netWorkRequest = nil;
                 if (endblock) {
                     endblock(dic,nil);
                 }
+            }else if (code == 401) {
+                [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"LoginUserInfo"];
+                
             }else{
                 
                 NSError *error = [NSError errorWithDomain:responseObject[@"message"] code:[responseObject[@"code"] integerValue] userInfo:responseObject];

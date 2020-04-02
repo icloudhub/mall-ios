@@ -15,6 +15,17 @@
     return @{@"skuid":@"id"};
     
 }
+-(NSDictionary *)spDic{
+    NSMutableDictionary *dic = [NSMutableDictionary new];
+    if (_sp) {
+        NSArray *sparr = [_sp componentsSeparatedByString:@"/"];
+        for (NSString *spstr in sparr) {
+            NSArray *valuearr = [spstr componentsSeparatedByString:@":"];
+            [dic setValue:valuearr[1] forKey:valuearr[0]];
+        }
+    }
+    return dic;
+}
 @end
 
 @implementation ProductSpecModel

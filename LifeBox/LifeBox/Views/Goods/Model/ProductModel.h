@@ -22,7 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(assign, nonatomic) NSInteger sale;//销量
 @property(strong, nonatomic) NSString *skuCode; //sku编码
 @property(assign, nonatomic) NSInteger stock;//库存
-@property(strong, nonatomic) NSArray *attributes;//规格属性
+@property(strong, nonatomic) NSString *sp;//规格属性
+@property(readonly, nonatomic) NSDictionary *spDic;//规格数组
 @property(strong, nonatomic) NSString *pic;//展示图
 
 
