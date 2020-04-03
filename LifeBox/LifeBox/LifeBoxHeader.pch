@@ -33,5 +33,8 @@
 #import "NetWorkRequest+MyInterface.h"
 #import "NetWorkRequest+Goods.h"
 #import "NetWorkRequest+Login.h"
+#import <FontAwesome_iOS/UIFont+FontAwesome.h>
+#import <FontAwesome_iOS/UIImage+FontAwesome.h>
+#import <FontAwesome_iOS/NSString+FontAwesome.h>
 
 #endif /* LifeBoxHeader_pch */

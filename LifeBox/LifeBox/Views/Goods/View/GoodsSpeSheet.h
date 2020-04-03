@@ -11,6 +11,8 @@
 #import "ProductModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
+typedef void(^GoodsSpeSheetSelectskuChange)(ProductSKUModel*selectsku);
+
 @interface GoodsSpeSheet : BaseSheet
 
 @property(strong, nonatomic) BlockCollectionView *collectionView;
@@ -25,6 +27,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 加入购物车按钮
 @property(strong, nonatomic) UIButton *addShop;
+
+///选中规格
+@property(copy, nonatomic) GoodsSpeSheetSelectskuChange selectskuChange;
 
 @end
 

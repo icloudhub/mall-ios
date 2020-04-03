@@ -39,6 +39,9 @@ NS_ASSUME_NONNULL_BEGIN
 ///类型按钮3
 @property (strong, nonatomic) UIButton *otherBtn;
 
+///类型按钮3
+@property (strong, nonatomic) NSArray *orderItems;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -33,6 +33,7 @@
         _bottomView.layer.cornerRadius = Scale750(30);
         _bottomView.backgroundColor = [UIColor whiteColor];
         [self addSubview:_bottomView];
+        [self makeSubview];
         self.hidden = YES;
     }
     return self;
@@ -47,7 +48,7 @@
 }
 
 - (void)showView{
-    [self makeSubview];
+   
     UIWindow *window = [[UIApplication sharedApplication] keyWindow];
     window.backgroundColor = [UIColor clearColor];
     [window addSubview:self];

@@ -9,6 +9,7 @@
 #import "MyOrderController.h"
 #import "OrderViewCell.h"
 #import "OrderDetailsController.h"
+#import "OrderListData.h"
 
 @interface MyOrderController ()<UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate> {
     ///数据展示tableView
@@ -18,9 +19,10 @@
     ///指示线
     UIView *lineView;
     ///数据数组
-    NSArray *dataArr;
+    
 }
 @property(strong, nonatomic) UIButton *selectbtn;//背选中的btn
+@property(strong, nonatomic) NSArray *dataArr;
 @end
 
 static NSString *cellID = @"OrderViewCellID";
@@ -238,6 +240,7 @@ static NSString *cellID = @"OrderViewCellID";
 
 #pragma mark - 订单状态接口请求
 - (void)getOrderListWithState{
+    UG_WEAKSELF
     NSString *state = [NSString stringWithFormat:@"%d",self.selectbtn.tag-11];
     [self.view ug_loading];
     [[NetWorkRequest new] getOrderStateListWithState:state pageSize:@"30" pageNum:@"1" endBlock:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
@@ -245,7 +248,7 @@ static NSString *cellID = @"OrderViewCellID";
         if (error) {
             [self.view ug_msg:error.domain];
         }else{
-            dataArr = dataDict;
+            weakSelf.dataArr = [NSArray modelArrayWithClass:[OrderListData class] json:dataDict];
             [tableView reloadData];
         }
     }];
@@ -260,15 +263,16 @@ static NSString *cellID = @"OrderViewCellID";
         cell.backgroundColor = S_COBackground;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
-    NSDictionary *celldata = [dataArr objectAtIndex:indexPath.row];
-    cell.timeLab.text = [celldata stringValueForKey:@"modifyTime" default:@"modifyTime"];
-    cell.orderNumLab.text = [celldata stringValueForKey:@"id" default:@"id"];
-    cell.stateLab.text = [celldata stringValueForKey:@"status" default:@"status"];
+    OrderListData *celldata = [_dataArr objectAtIndex:indexPath.row];
+    cell.timeLab.text = [celldata.createTime stringWithFormat:@"YYYY-MM-dd HH:ss"];
+    cell.orderNumLab.text = celldata.orderSn;
+    cell.stateLab.text = celldata.status;
+    [cell setOrderItems:celldata.orderItemList];
     return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return dataArr.count;
+    return _dataArr.count;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -276,9 +280,9 @@ static NSString *cellID = @"OrderViewCellID";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSDictionary *celldata = [dataArr objectAtIndex:indexPath.row];
+    OrderListData *celldata = [_dataArr objectAtIndex:indexPath.row];
     OrderDetailsController *detailsCtl = [[OrderDetailsController alloc] init];
-    detailsCtl.orderid = celldata[@"id"];
+    detailsCtl.orderid = [NSString stringWithFormat:@"%@",celldata.id];
     [self.navigationController pushViewController:detailsCtl animated:YES];
 }
 

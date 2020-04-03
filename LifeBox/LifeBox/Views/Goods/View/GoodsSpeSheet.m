@@ -55,6 +55,7 @@
     goodsImg = [[UIImageView alloc] init];
     goodsImg.backgroundColor = [UIColor redColor];
     goodsImg.layer.cornerRadius = Scale750(8);
+    [goodsImg ug_Radius:4];
     [self.bottomView addSubview:goodsImg];
     [goodsImg mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(Scale750(30));
@@ -196,7 +197,7 @@
     _addShop.titleLabel.font = [UIFont systemFontOfSize:Scale750(30)];
     [_addShop setTitle:@"加入购物车" forState:UIControlStateNormal];
     [_addShop setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-     [_addShop setTitleColor:COLOR23 forState:UIControlStateDisabled];
+    [_addShop setTitleColor:COLOR23 forState:UIControlStateDisabled];
     [_addShop setTitle:@"备货中..." forState:UIControlStateDisabled];
     [self.bottomView addSubview:_addShop];
     [_addShop mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -210,29 +211,36 @@
 
 -(void)setProduct:(ProductModel *)product{
     _product = product;
-    for (ProductSKUModel *skuitem in _product.skuList) {
-        if ([skuitem.skuid isEqualToString:_product.defualSku]) {
-            self.selectsku = skuitem;
-            self.selectSpeDic =[[NSMutableDictionary alloc]initWithDictionary:self.selectsku.spDic];
+    if (!self.selectsku) {
+        for (ProductSKUModel *skuitem in _product.skuList) {
+            if ([skuitem.skuid isEqualToString:_product.defualSku]) {
+                self.selectsku = skuitem;
+                self.selectSpeDic =[[NSMutableDictionary alloc]initWithDictionary:self.selectsku.spDic];
+            }
         }
     }
+    
     [_collectionView reloadData];
 }
 -(void)setSelectsku:(ProductSKUModel *)selectsku{
     _selectsku = selectsku;
+    if (_selectskuChange) {
+        _selectskuChange(_selectsku);
+    }
     [self reloadUI];
 }
 -(void)reloadUI{
     if (_selectsku) {
-         [_addShop setEnabled:YES];
-         NSString *priceStr = [NSString stringWithFormat:@"¥%0.2f",_selectsku.price];
-         goodsPrice.attributedText = [priceStr strChangFlagWithStr:[NSString stringWithFormat:@"%0.2f",_selectsku.price] Color:S_CORedText Font:Scale750(35)];
-     }else{
-         [_addShop setEnabled:NO];
-         goodsPrice.text = @"无货";
-     }
-     NSString *url = _selectsku.pic?:_product.pic;
-     [goodsImg sd_setImageWithURL:UG_URL(url)];
+        [_addShop setEnabled:YES];
+        NSString *priceStr = [NSString stringWithFormat:@"¥%0.2f",_selectsku.price];
+        goodsPrice.attributedText = [priceStr strChangFlagWithStr:[NSString stringWithFormat:@"%0.2f",_selectsku.price] Color:S_CORedText Font:Scale750(35)];
+    }else{
+        [_addShop setEnabled:NO];
+        goodsPrice.text = @"无货";
+    }
+    NSString *url = _selectsku.pic?:_product.pic;
+    [goodsImg sd_setImageWithURL:UG_URL(url)];
+    goodsLab.text =_product.name;
 }
 
 -(NSDictionary *)selectSpeDic{
@@ -257,13 +265,19 @@
         };
         _collectionView.ug_cellForItemAtIndexPath = ^__kindof UICollectionViewCell * _Nonnull(UICollectionView * _Nonnull collectionView, NSIndexPath * _Nonnull indexPath) {
             BlockCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-            cell.backgroundColor = [UIColor yellowColor];
+            [cell ug_Radius:2];
+            
             ProductSpecModel *data = [weakSelf.product.attributeList objectAtIndex:indexPath.section];
             NSDictionary *dic = [data.valueList objectAtIndex:indexPath.row];
             cell.titleLab.text = dic[@"value"];
-            cell.backgroundColor = UIColor.whiteColor;
             if ([[weakSelf.selectSpeDic objectForKey:data.id] isEqualToString:dic[@"value"]]) {
-                cell.backgroundColor = UIColor.redColor;
+                cell.backgroundColor = S_COGreenBack;
+                cell.titleLab.textColor = UIColor.whiteColor;
+                [cell ug_border:S_COGreenBack white:0.5];
+            }else{
+                cell.backgroundColor = UIColor.whiteColor;
+                cell.titleLab.textColor = COLOR23;
+                [cell ug_border:COLOREE white:0.5];
             }
             
             return cell;
@@ -301,7 +315,7 @@
 }
 
 -(void)updateSKU{
-
+    
     
     for (ProductSKUModel *temitem in self.product.skuList) {
         
@@ -311,7 +325,7 @@
         }
     }
     self.selectsku = nil;
-   return;
+    return;
     
 }
 

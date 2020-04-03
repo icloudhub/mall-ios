@@ -65,6 +65,7 @@ PODS:
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
+  - "FontAwesome+iOS (0.0.1)"
   - GCDWebServer (3.5.2):
     - GCDWebServer/Core (= 3.5.2)
   - GCDWebServer/Core (3.5.2)
@@ -99,6 +100,7 @@ DEPENDENCIES:
   - DoraemonKit/WithLoad
   - DoraemonKit/WithLogger
   - DZNEmptyDataSet
+  - "FontAwesome+iOS (from `https://github.com/alexdrone/ios-fontawesome`)"
   - IQKeyboardManager
   - Masonry
   - MBProgressHUD (~> 1.1.0)
@@ -132,6 +134,15 @@ SPEC REPOS:
     - YYDebugDatabase
     - YYKit
 
+EXTERNAL SOURCES:
+  "FontAwesome+iOS":
+    :git: https://github.com/alexdrone/ios-fontawesome
+
+CHECKOUT OPTIONS:
+  "FontAwesome+iOS":
+    :commit: 3ef4db504ffde636c1f8a5320f1e5b6183f6102c
+    :git: https://github.com/alexdrone/ios-fontawesome
+
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   AlipaySDK-iOS: 703a55774a37f412410ab04af96c011b91ec58cb
@@ -142,6 +153,7 @@ SPEC CHECKSUMS:
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   fishhook: ea19933abfe8f2f52c55fd8b6e2718467d3ebc89
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  "FontAwesome+iOS": c6d3bbd2856b9633028d316d56133d45fb6a6cb0
   GCDWebServer: ead88cd14596dd4eae4f5830b8877c87c8728990
   IQKeyboardManager: fcef267266379c003181fc3592f6bdb8bf4db839
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
@@ -155,6 +167,6 @@ SPEC CHECKSUMS:
   YYDebugDatabase: f67e8bc0913ac3dfff19cded6e115d1854690a3f
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: fef1857b5eceb6d01169930d0e2bd19045198b14
+PODFILE CHECKSUM: 77bf1d58ccedb92c6068e8d4bc9c9f91de6deab9
 
 COCOAPODS: 1.8.4

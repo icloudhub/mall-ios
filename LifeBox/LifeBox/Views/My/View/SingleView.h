@@ -12,6 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SingleView : UIView
 
+///商品图片
+@property(strong, nonatomic) UIImageView *goodsImg;
+///商品名称
+@property(strong, nonatomic) UILabel *goodsName;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -26,11 +26,17 @@
 
 - (void)setDataArr:(NSArray *)dataArr {
     goodsArr = [[NSMutableArray alloc] init];
-    for (int i = 0; i < 4; i ++) {
-        UIView *view = [[UIView alloc] init];
+    NSInteger i=0;
+    for (NSString *str in dataArr) {
+        UIImageView *view = [[UIImageView alloc] init];
         view.backgroundColor = [UIColor yellowColor];
+        [view sd_setImageWithURL:UG_URL(str) placeholderImage:[UIImage imageWithIcon:@"fa-github" backgroundColor:UIColor.clearColor iconColor:COLOR23 andSize:CGSizeMake(20, 20)]];
         [self addSubview:view];
         [goodsArr addObject:view];
+        i++;
+        if (i==3) {
+            break;
+        }
     }
     /*
      * 更多
@@ -39,6 +45,7 @@
     moreImg.contentMode = UIViewContentModeScaleAspectFill;
     moreImg.image = [UIImage imageNamed:@"orderMoreImg"];
     [self addSubview:moreImg];
+    
 }
 
 #pragma mark - 创建UI
@@ -49,13 +56,16 @@
 - (void)layoutSubviews {
     CGFloat width = self.frame.size.width;
     CGFloat viewW = width - (4*Scale750(120) + 4*Scale750(20));
-    // 实现masonry水平固定间隔方法
-    [goodsArr mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedItemLength:Scale750(120) leadSpacing:Scale750(20) tailSpacing:viewW];
-    // 设置array的垂直方向的约束
-    [goodsArr mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(Scale750(15));
-        make.width.height.mas_equalTo(Scale750(120));
-    }];
+    if (goodsArr.count>0) {
+            // 实现masonry水平固定间隔方法
+        [goodsArr mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedItemLength:Scale750(120) leadSpacing:Scale750(20) tailSpacing:viewW];
+        // 设置array的垂直方向的约束
+        [goodsArr mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(Scale750(15));
+            make.width.height.mas_equalTo(Scale750(120));
+        }];
+    }
+
     [moreImg mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.mas_equalTo(self.mas_bottom).mas_offset(-Scale750(15));
         make.right.mas_equalTo(-viewW + Scale750(60));

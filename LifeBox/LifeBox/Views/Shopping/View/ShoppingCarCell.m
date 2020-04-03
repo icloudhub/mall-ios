@@ -49,7 +49,7 @@
      * 商品图片
      */
     _goodsImg = [[UIImageView alloc] init];
-    _goodsImg.backgroundColor = [UIColor blueColor];
+    [_goodsImg ug_Radius:4];
     [bottomView addSubview:_goodsImg];
     [_goodsImg mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self->_chooseBtn.mas_right).mas_offset(Scale750(30));

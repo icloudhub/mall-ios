@@ -26,9 +26,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(assign, nonatomic) CGFloat price;//sku id
 @property(assign, nonatomic) CGFloat originalPrice;
 @property(strong, nonatomic) NSString* pic;//规格值1
-@property(strong, nonatomic) NSString* sp1;//规格值1
-@property(strong, nonatomic) NSString* sp2;//规格值2
-@property(strong, nonatomic) NSString* sp3;//规格值3
+@property(strong, nonatomic) NSString *sp;//规格属性
+
+@property(readonly, nonatomic) NSDictionary *spDic;//规格数组
 @end
 
 @interface CardItem : NSObject
@@ -40,10 +40,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(strong, nonatomic) CardItemProduct *pmsProduct;
 @property(strong, nonatomic) CardItemSKU *pmsSkuStock;
 
-
 //get
 @property(strong, nonatomic) NSString* spstr;//规格
 @property(strong, nonatomic) NSString* icon; //图片
+
 @end
 
 

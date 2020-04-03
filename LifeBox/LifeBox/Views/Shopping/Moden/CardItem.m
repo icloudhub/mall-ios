@@ -12,33 +12,32 @@
 @end
 @implementation CardItemSKU
 
+
+-(NSDictionary *)spDic{
+    NSMutableDictionary *dic = [NSMutableDictionary new];
+    if (_sp) {
+        NSArray *sparr = [_sp componentsSeparatedByString:@"/"];
+        for (NSString *spstr in sparr) {
+            NSArray *valuearr = [spstr componentsSeparatedByString:@":"];
+            [dic setValue:valuearr[1] forKey:valuearr[0]];
+        }
+    }
+    return dic;
+}
+
 @end
 @implementation CardItem
 
--(NSString *)spstr{
-    NSMutableString *temstr = [NSMutableString new];
-    if (self.pmsSkuStock.sp1) {
-        [temstr appendString:self.pmsSkuStock.sp1];
-    }
-    if (self.pmsSkuStock.sp2) {
-        if (temstr.length>0) {
-             [temstr appendString:@"/"];
-        }
-        [temstr appendString:self.pmsSkuStock.sp2];
-    }
-    if (self.pmsSkuStock.sp3) {
-        if (temstr.length>0) {
-            [temstr appendString:@"/"];
-        }
-        [temstr appendString:self.pmsSkuStock.sp3];
-    }
-    return temstr;
-}
+
 -(NSString *)icon{
     if (self.pmsSkuStock.pic) {
         return self.pmsSkuStock.pic;
     }else{
         return [self.pmsProduct.pic componentsSeparatedByString:@","].firstObject;
     }
+}
+-(NSString *)spstr{
+
+    return [[self.pmsSkuStock.spDic allValues] componentsJoinedByString:@"/"];
 }
 @end

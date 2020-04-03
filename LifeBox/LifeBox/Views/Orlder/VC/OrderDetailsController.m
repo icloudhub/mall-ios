@@ -97,12 +97,16 @@ static NSString *priceCellID = @"DetailsPriceCellID";
 }
 -(void)reloadUI{
     _needPayLab.text = [NSString stringWithFormat:@"需付款: ¥%0.2f",_orderData.totalAmount ];
-   
-
-    _addressLab.text = [NSString stringWithFormat:@"地址: %@ %@ %@ %@",_orderData.receiverProvince,
-                        _orderData.receiverCity,
-                        _orderData.receiverRegion,
-                        _orderData.receiverDetailAddress];
+    
+    if (_orderData.receiverProvince) {
+        _addressLab.text = [NSString stringWithFormat:@"地址: %@ %@ %@ %@",_orderData.receiverProvince,
+        _orderData.receiverCity,
+        _orderData.receiverRegion,
+        _orderData.receiverDetailAddress];
+    }else{
+        _addressLab.text = [NSString stringWithFormat:@"地址: 选择收货地址"];
+    }
+    
     _nameLab.text = _orderData.receiverName;
     _phoneLab.text = _orderData.receiverPhone;
     [tableView reloadData];
@@ -193,6 +197,24 @@ static NSString *priceCellID = @"DetailsPriceCellID";
         make.left.mas_equalTo(Scale750(20));
         make.right.mas_equalTo(-Scale750(20));
         make.height.mas_greaterThanOrEqualTo(Scale750(130));
+    }];
+    //点击去选择收获地址
+    UG_WEAKSELF
+    [addressView bk_whenTapped:^{
+        
+        AddressManagementController *vc = [AddressManagementController new];
+        [self.navigationController pushViewController:vc animated:YES];
+        vc.didselectAddress = ^(AddressData * _Nonnull selectData) {
+            [[NetWorkRequest new] updateOrderAddress:weakSelf.orderid addressId:selectData.addressId endBlock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
+            
+                if (error) {
+                    [self.view ug_msg:error.domain];
+                }else{
+                    [self.view ug_msg:[NSString stringWithFormat:@"%@",result]];
+                    [self getConfirmOrderInfo];
+                }
+            }];
+        };
     }];
     /*
      * 地址图标
@@ -321,6 +343,12 @@ static NSString *priceCellID = @"DetailsPriceCellID";
         NSDictionary *product = [_orderData.orderItemList objectAtIndex:indexPath.row];
         
         [cell.goodsImg sd_setImageWithURL:UG_URL([product stringValueForKey:@"productPic" default:@""])];
+        cell.goodsName.text = [product stringValueForKey:@"productName" default:@""];
+        cell.goodsNum.text = [product stringValueForKey:@"productQuantity" default:@""];
+        cell.goodsPrice.text =[NSString stringWithFormat:@"¥ %.2f",[product floatValueForKey:@"productPrice" default:0.00]] ;
+
+        
+        
                                                  
      
         return cell;
@@ -332,7 +360,7 @@ static NSString *priceCellID = @"DetailsPriceCellID";
             infoCell.backgroundColor = S_COBackground;
             infoCell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
-        infoCell.orderTime.text = _orderData.createTime;
+        infoCell.orderTime.text = [_orderData.createTime stringWithFormat:@"YYYY-MM-dd HH:ss"];
         infoCell.orderId.text = _orderData.orderSn;
         return infoCell;
     }else {
@@ -340,8 +368,11 @@ static NSString *priceCellID = @"DetailsPriceCellID";
         if (priceCell == nil) {
             priceCell = [[DetailsPriceCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:priceCellID];
         }
+        
         priceCell.backgroundColor = S_COBackground;
         priceCell.selectionStyle = UITableViewCellSelectionStyleNone;
+        priceCell.totalLab.text = [NSString stringWithFormat:@"订单总金额: ¥%0.2f",_orderData.totalAmount];
+        priceCell.needPay.text = [NSString stringWithFormat:@"需付款: ¥%0.2f",_orderData.totalAmount-_orderData.discountAmount];
         return priceCell;
     }
     return nil;
@@ -349,7 +380,7 @@ static NSString *priceCellID = @"DetailsPriceCellID";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section==0) {
-        return 1;
+    
         return _orderData.orderItemList.count;
     }else{
         return 1;
@@ -402,19 +433,7 @@ static NSString *priceCellID = @"DetailsPriceCellID";
                [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
                    
                    [alertController dismissViewControllerAnimated:YES completion:^{
-                       AddressManagementController *vc = [AddressManagementController new];
-                       [self.navigationController pushViewController:vc animated:YES];
-                       vc.didselectAddress = ^(AddressData * _Nonnull selectData) {
-                           [[NetWorkRequest new] updateOrderAddress:_orderid addressId:selectData.addressId endBlock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
-                           
-                               if (error) {
-                                   [self.view ug_msg:error.domain];
-                               }else{
-                                   [self.view ug_msg:[NSString stringWithFormat:@"%@",result]];
-                                   [self getConfirmOrderInfo];
-                               }
-                           }];
-                       };
+                       
                    }];
                    
                    

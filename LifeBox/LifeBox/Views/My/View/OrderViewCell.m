@@ -238,5 +238,22 @@
     }];
 }
 
+-(void)setOrderItems:(NSArray *)orderItems{
+    NSMutableArray *images = [NSMutableArray new];
+    for (NSDictionary *dic in orderItems) {
+        [images addObject:[dic stringValueForKey:@"productPic" default:@""]];
+    }
+    if (images.count==1) {
+        NSDictionary *dic = [orderItems firstObject];
+        multipleView.hidden = YES;
+        singleView.hidden = NO;
+        singleView.goodsName.text = [dic stringValueForKey:@"productName" default:@""];
+        [singleView.goodsImg sd_setImageWithURL:UG_URL([dic stringValueForKey:@"productPic" default:@""]) placeholderImage:[UIImage imageWithIcon:@"fa-github" backgroundColor:UIColor.clearColor iconColor:COLOR23 andSize:CGSizeMake(20, 20)]];
+    }else{
+        singleView.hidden = YES;
+        multipleView.hidden = NO;
+        multipleView.dataArr = images;
+    }
+}
 
 @end

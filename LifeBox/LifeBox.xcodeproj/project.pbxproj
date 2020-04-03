@@ -276,6 +276,7 @@
 		84B954DB2324B0C800A7E8D2 /* ConfimBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B954DA2324B0C800A7E8D2 /* ConfimBottomView.m */; };
 		84B954E22324E3BE00A7E8D2 /* OrderDefData.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B954E12324E3BE00A7E8D2 /* OrderDefData.m */; };
 		84BA6F942376505F0047796E /* GoodsBuyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BA6F932376505F0047796E /* GoodsBuyView.m */; };
+		84BC7F2C243723F00044874F /* OrderListData.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BC7F2B243723F00044874F /* OrderListData.m */; };
 		84C29209235DEF5B00034213 /* NetWorkRequest+Business.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C29207235DEF5B00034213 /* NetWorkRequest+Business.m */; };
 		84DAE0CC23FBDEC4004FD675 /* SpeSheetHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DAE0CB23FBDEC4004FD675 /* SpeSheetHeadView.m */; };
 		84F3400E23B4BA4100BAE696 /* NetWorkRequest+MyInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F3400C23B4BA4100BAE696 /* NetWorkRequest+MyInterface.m */; };
@@ -711,6 +712,9 @@
 		84B954E12324E3BE00A7E8D2 /* OrderDefData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderDefData.m; sourceTree = "<group>"; };
 		84BA6F922376505F0047796E /* GoodsBuyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsBuyView.h; sourceTree = "<group>"; };
 		84BA6F932376505F0047796E /* GoodsBuyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsBuyView.m; sourceTree = "<group>"; };
+		84BC7F2A243723F00044874F /* OrderListData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderListData.h; sourceTree = "<group>"; };
+		84BC7F2B243723F00044874F /* OrderListData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderListData.m; sourceTree = "<group>"; };
+		84BC7F2D24372BA40044874F /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
 		84C29207235DEF5B00034213 /* NetWorkRequest+Business.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NetWorkRequest+Business.m"; path = "LifeBox/Comment/RequestManagement/NetWorkRequest+Business.m"; sourceTree = SOURCE_ROOT; };
 		84C29208235DEF5B00034213 /* NetWorkRequest+Business.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NetWorkRequest+Business.h"; path = "LifeBox/Comment/RequestManagement/NetWorkRequest+Business.h"; sourceTree = SOURCE_ROOT; };
 		84DAE0CA23FBDEC4004FD675 /* SpeSheetHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpeSheetHeadView.h; sourceTree = "<group>"; };
@@ -1171,6 +1175,7 @@
 		8461E17523013A6B00764748 /* ImageSource */ = {
 			isa = PBXGroup;
 			children = (
+				84BC7F2D24372BA40044874F /* FontAwesome.ttf */,
 				05D0A3E623C70EBF001C00D5 /* GuideViewOne.png */,
 				05D0A3E823C70EBF001C00D5 /* GuideViewThr.png */,
 				05D0A3E723C70EBF001C00D5 /* GuideViewTwo.png */,
@@ -1743,6 +1748,8 @@
 			children = (
 				84B954E02324E3BE00A7E8D2 /* OrderDefData.h */,
 				84B954E12324E3BE00A7E8D2 /* OrderDefData.m */,
+				84BC7F2A243723F00044874F /* OrderListData.h */,
+				84BC7F2B243723F00044874F /* OrderListData.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2144,6 +2151,7 @@
 				05C46970237B9EC200D21EA1 /* NSMutableString+TagReplace.m in Sources */,
 				8437F2D223F5278400CC0418 /* GoodsClassesVC.m in Sources */,
 				0531EA12233A080700775D79 /* ChangeWeChatController.m in Sources */,
+				84BC7F2C243723F00044874F /* OrderListData.m in Sources */,
 				84B954D42323731F00A7E8D2 /* NetWorkRequest+Orlder.m in Sources */,
 				84B2E0622307067E00BC9197 /* NSObject+BlockDelayedPerforming.m in Sources */,
 				05D0A3DC23B8E293001C00D5 /* MultipleView.m in Sources */,

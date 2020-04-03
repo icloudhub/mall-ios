@@ -105,6 +105,23 @@
     return _speLab;
 }
 
+-(GoodsSpeSheet *)speSheet{
+    if(!_speSheet){
+        _speSheet = [[GoodsSpeSheet alloc] init];
+        UG_WEAKSELF
+        [_speSheet.addShop ug_addEvents:UIControlEventTouchUpInside andBlock:^(id  _Nonnull sender) {
+            weakSelf.selectsku = weakSelf.speSheet.selectsku;
+            [self reloadViewUI];
+            [self addToCar];
+        }];
+        [_speSheet setSelectskuChange:^(ProductSKUModel * _Nonnull selectsku) {
+            weakSelf.selectsku = weakSelf.speSheet.selectsku;
+            [self reloadViewUI];
+        }];
+    }
+    return _speSheet;
+}
+
 #pragma mark - 顶部导航和底部功能栏View
 - (void)CreateTopNavViewAndBottomView {
     /*
@@ -379,7 +396,6 @@
         make.height.mas_equalTo(Scale750(90));
     }];
     [speView bk_addEventHandler:^(id sender) {
-        self.speSheet = [[GoodsSpeSheet alloc] init];
         self.speSheet.product = _productdata;
         [self.speSheet showView];
     } forControlEvents:UIControlEventTouchUpInside];
@@ -489,23 +505,21 @@
             [self.view ug_msg:error.domain];
         }else{
             ProductModel *temdata = [ProductModel modelWithJSON:dataDict];
-            
-            
             self.productdata =  [ProductModel modelWithJSON:dataDict];
             for (ProductSKUModel *skuitem in self.productdata.skuList) {
                 if ([skuitem.skuid isEqualToString:self.productdata.defualSku]) {
-                    self.selectsku = skuitem;
+                    weakSelf.selectsku = skuitem;
                 }
             }
-            [self reloadViewUIWith:temdata];
+            [self reloadViewUI];
         }
     }];
 }
 
 #pragma mark - 刷新UI
-- (void)reloadViewUIWith:(ProductModel *)data {
+- (void)reloadViewUI {
     //轮播显示及图个数问题
-    NSArray *bannerCount = [data.albumPics componentsSeparatedByString:@","];
+    NSArray *bannerCount = [self.productdata.albumPics componentsSeparatedByString:@","];
     NSString *tempCountStr = bannerCount.firstObject;
     NSString *numStr;
     if (tempCountStr.length > 0) {
@@ -520,16 +534,16 @@
     [_bannerView setImageURLStringsGroup:bannerCount];
     
     // 规格
-    self.speLab.text = [NSString stringWithFormat:@"已选择: %@",self.selectsku.sp];
+    self.speLab.text = [NSString stringWithFormat:@"已选择: %@",[[self.selectsku.spDic allValues] componentsJoinedByString:@"/"]];
     // 价格
     self.goodsPrice.text = [NSString stringWithFormat:@"¥ %0.2f",_selectsku.price];
 
     //商品详情数据
     self->_defWebview.backgroundColor = UIColor.ug_random;
-    if (data.detailMobileHtml.length>0 ) {
-        [self->_defWebview loadHTMLString:data.detailMobileHtml baseURL:nil];
+    if (self.productdata.detailMobileHtml.length>0 ) {
+        [self->_defWebview loadHTMLString:self.productdata.detailMobileHtml baseURL:nil];
     }else{
-        [self->_defWebview loadHTMLString:data.detailHtml baseURL:nil];
+        [self->_defWebview loadHTMLString:self.productdata.detailHtml baseURL:nil];
     }
 }
 
@@ -651,7 +665,7 @@
         if (error) {
             [self.view ug_msg:error.domain];
         }else{
-            [self.view ug_msg:@"添加成功"];
+            [UIView ug_msg:@"添加成功"];
         }
     }];
 }
