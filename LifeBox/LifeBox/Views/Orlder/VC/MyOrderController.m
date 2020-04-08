@@ -10,10 +10,9 @@
 #import "OrderViewCell.h"
 #import "OrderDetailsController.h"
 #import "OrderListData.h"
-
+#import "MJRefresh.h"
 @interface MyOrderController ()<UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate> {
-    ///数据展示tableView
-    UITableView *tableView;
+
     ///选择View
     UIView *chooseView;
     ///指示线
@@ -21,8 +20,11 @@
     ///数据数组
     
 }
+///数据展示tableView
+@property(strong, nonatomic) UITableView *tableView;
 @property(strong, nonatomic) UIButton *selectbtn;//背选中的btn
-@property(strong, nonatomic) NSArray *dataArr;
+@property(strong, nonatomic) NSMutableArray *dataArr;
+@property(assign, nonatomic) NSInteger pageNum;
 @end
 
 static NSString *cellID = @"OrderViewCellID";
@@ -32,6 +34,8 @@ static NSString *cellID = @"OrderViewCellID";
 #pragma mark - 视图层
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.pageNum = 1;
+    self.dataArr = [NSMutableArray new];
     [self setWhiteNaviWithTitle:@"我的订单"];
     self.view.backgroundColor = S_COBackground;
     [self createUI];
@@ -43,6 +47,8 @@ static NSString *cellID = @"OrderViewCellID";
 
 #pragma mark - 创建UI
 - (void)createUI {
+    
+     [self.view addSubview:self.tableView];
     /*
      * 顶部选择View
      */
@@ -191,30 +197,15 @@ static NSString *cellID = @"OrderViewCellID";
         make.width.mas_equalTo(Scale750(80));
         make.height.mas_equalTo(2);
     }];
-    /*
-     * 数据展示
-     */
-    tableView = [[UITableView alloc] init];
-    tableView.delegate = self;
-    tableView.dataSource = self;
-    tableView.emptyDataSetSource = self;
-    tableView.emptyDataSetDelegate = self;
-    tableView.backgroundColor = S_COBackground;
-    tableView.bounces = NO;
-    tableView.separatorStyle = UITableViewCellEditingStyleNone;
-    tableView.estimatedRowHeight = 60;
-    tableView.rowHeight = UITableViewAutomaticDimension;
-    //删除单元格分隔线的一个小技巧
-    tableView.tableFooterView = [UIView new];
-    [self.view addSubview:tableView];
-    [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self->chooseView.mas_bottom);
-        make.left.right.bottom.mas_equalTo(0);
-    }];
+  
+ 
+  
   
 }
 #pragma mark - 选择set点击
 -(void)setSelectbtn:(UIButton *)selectbtn{
+    
+  
     [_selectbtn setTitleColor:RGBColor(51, 51, 51) forState:UIControlStateNormal];
     _selectbtn = selectbtn;
     [_selectbtn setTitleColor:S_COGreenText forState:UIControlStateNormal];
@@ -228,10 +219,32 @@ static NSString *cellID = @"OrderViewCellID";
         make.height.mas_equalTo(2);
     }];
 }
+
+#pragma mark - 选择set点击
+-(UITableView *)tableView{
+    UG_WEAKSELF
+    if (!_tableView) {
+        _tableView = [UITableView new];
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        _tableView.emptyDataSetSource = self;
+        _tableView.emptyDataSetDelegate = self;
+        _tableView.backgroundColor = S_COBackground;
+        _tableView.separatorStyle = UITableViewCellEditingStyleNone;
+        _tableView.tableFooterView = [UIView new];
+        // 上拉刷新
+        _tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+            weakSelf.pageNum++;
+            [weakSelf getOrderListWithState];
+        }];
+    }
+    return _tableView;
+}
 #pragma mark - 选择Btn点击
 - (void)chooseBtnClicked:(UIButton *)btn {
     self.selectbtn = btn;
-
+    self.pageNum = 1;
+    [self.dataArr removeAllObjects];
     /*
      * 接口请求
      */
@@ -240,16 +253,23 @@ static NSString *cellID = @"OrderViewCellID";
 
 #pragma mark - 订单状态接口请求
 - (void)getOrderListWithState{
+    
     UG_WEAKSELF
-    NSString *state = [NSString stringWithFormat:@"%d",self.selectbtn.tag-11];
     [self.view ug_loading];
-    [[NetWorkRequest new] getOrderStateListWithState:state pageSize:@"30" pageNum:@"1" endBlock:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
+    NSString *state = [NSString stringWithFormat:@"%zd",(self.selectbtn.tag-11)];
+    [[NetWorkRequest new] getOrderStateListWithState:state pageSize:@"10" pageNum:[NSString stringWithFormat:@"%zd",_pageNum] endBlock:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
         [self.view ug_hiddenLoading];
         if (error) {
             [self.view ug_msg:error.domain];
         }else{
-            weakSelf.dataArr = [NSArray modelArrayWithClass:[OrderListData class] json:dataDict];
-            [tableView reloadData];
+            [weakSelf.dataArr addObjectsFromArray:[NSArray modelArrayWithClass:[OrderListData class] json:dataDict]];
+            [weakSelf.tableView reloadData];
+            if (dataDict.count==0) {
+                [self.tableView.mj_footer endRefreshingWithNoMoreData];
+            }else{
+               [self.tableView.mj_footer endRefreshing];
+            }
+            
         }
     }];
 }
@@ -257,6 +277,7 @@ static NSString *cellID = @"OrderViewCellID";
 
 #pragma mark - UITableView代理
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     OrderViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (cell == nil) {
         cell = [[OrderViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
@@ -264,12 +285,13 @@ static NSString *cellID = @"OrderViewCellID";
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     OrderListData *celldata = [_dataArr objectAtIndex:indexPath.row];
-    cell.timeLab.text = [celldata.createTime stringWithFormat:@"YYYY-MM-dd HH:ss"];
-    cell.orderNumLab.text = celldata.orderSn;
-    cell.stateLab.text = celldata.status;
-    [cell setOrderItems:celldata.orderItemList];
+    [cell reloadUI:celldata];
     return cell;
 }
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 158;
+}
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _dataArr.count;
@@ -300,5 +322,11 @@ static NSString *cellID = @"OrderViewCellID";
     return [[NSAttributedString alloc] initWithString:title attributes:attributes];
 }
 
-
+- (void)viewWillLayoutSubviews{
+    [super viewWillLayoutSubviews];
+    [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self->chooseView.mas_bottom);
+        make.left.right.bottom.mas_equalTo(0);
+    }];
+}
 @end

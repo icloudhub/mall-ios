@@ -9,5 +9,28 @@
 #import "OrderListData.h"
 
 @implementation OrderListData
-
+-(NSString *)statusStr{
+    // 订单状态：0->待付款；1->待发货；2->已发货；3->已完成；4->已关闭；5->无效订单',
+    switch ([_status intValue]) {
+        case 0:
+            return @"待付款";
+            break;
+        case 1:
+            return @"待发货";
+            break;
+        case 2:
+            return @"已发货";
+            break;
+        case 3:
+            return @"已完成";
+            break;
+        case 4:
+            return @"已关闭";
+            break;
+            
+        default:
+            return @"无效订单";
+            break;
+    }
+}
 @end

@@ -78,7 +78,8 @@ static AFHTTPSessionManager *afManager = nil;
                 if (code == 401) {
                     [UIApplication gotoLoginCtl];
                 }
-                NSError *error = [NSError errorWithDomain:responseObject[@"message"] code:[responseObject[@"code"] integerValue] userInfo:responseObject];
+                NSString *msg = [responseObject objectForKey:@"message"]? : @"请求失败" ;
+                NSError *error = [NSError errorWithDomain:msg code:[responseObject[@"code"] integerValue] userInfo:responseObject];
                 DDLogWarn(@"❗️{POST}url:%@ \nheader:%@ \nparame:%@ \nerror:%@", url, afManager.requestSerializer, param, responseObject);
                 
                 if (endblock) {

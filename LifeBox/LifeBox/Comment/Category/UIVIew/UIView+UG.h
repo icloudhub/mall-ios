@@ -22,6 +22,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 -(void)ug_border:(UIColor*)color white:(CGFloat)width;
 
+
+/**
+ * 添加阴影
+ */
+-(void)ug_shadowColor:(UIColor *)acolor width:(CGFloat)width;
 @end
 
 NS_ASSUME_NONNULL_END

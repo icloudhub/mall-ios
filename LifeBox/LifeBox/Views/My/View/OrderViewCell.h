@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "OrderListData.h"
+
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface OrderViewCell : UITableViewCell
+
+@interface OrderViewHeadView : UIView
 
 ///订单号
 @property (strong, nonatomic) UILabel *orderNumLab;
@@ -21,8 +24,21 @@ NS_ASSUME_NONNULL_BEGIN
 ///状态Lab
 @property (strong, nonatomic) UILabel *stateLab;
 
-///状态Img
+// 状态图片
 @property (strong, nonatomic) UIImageView *stateImg;
+
+@end
+
+@interface OrderViewBodyView : UIView <UICollectionViewDelegate, UICollectionViewDataSource>
+
+@property(strong, nonatomic) UICollectionView *collectionView;
+
+@property(strong, nonatomic) NSArray *dataList;
+
+@end
+
+@interface OrderViewFooterView : UIView
+
 
 ///商品合计个数
 @property (strong, nonatomic) UILabel *goodsAllNum;
@@ -39,8 +55,17 @@ NS_ASSUME_NONNULL_BEGIN
 ///类型按钮3
 @property (strong, nonatomic) UIButton *otherBtn;
 
-///类型按钮3
-@property (strong, nonatomic) NSArray *orderItems;
+
+@end
+
+@interface OrderViewCell : UITableViewCell
+
+@property (strong, nonatomic) UIView *coustomView;
+@property (strong, nonatomic) OrderViewHeadView *headView;
+@property (strong, nonatomic) OrderViewBodyView *bodyView;
+@property (strong, nonatomic) OrderViewFooterView *fotterView;
+
+-(void)reloadUI:(OrderListData*)data;
 
 @end
 

@@ -127,6 +127,7 @@
                     HomeViewCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HomeViewCollectionCell" forIndexPath:indexPath];
                     cell.visitorView.valueLab.text = [weakSelf.homeData stringValueForKey:@"readCount" default:0];
                     cell.addvisitorView.valueLab.text = [weakSelf.homeData stringValueForKey:@"followCount" default:0];
+                    cell.orderView.valueLab.text = [weakSelf.homeData stringValueForKey:@"orderCount" default:0];
                     
                     return cell;
                 }

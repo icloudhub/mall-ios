@@ -18,7 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(strong, nonatomic) NSString* memberId;
 @property(strong, nonatomic) NSString* orderSn; // 订单编号;
 @property(strong, nonatomic) NSString* status; // 订单状态：0->待付款；1->待发货；2->已发货；3->已完成；4->已关闭；5->无效订单',
-
+@property(readonly, nonatomic) NSString* statusStr;
+@property(assign, nonatomic) CGFloat totalAmount;
 @property(strong, nonatomic) NSArray* orderItemList;//订单商品列表
 @end
 
