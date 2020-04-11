@@ -642,9 +642,15 @@
          if (error) {
              [self.view ug_msg:error.domain];
          }else{
-             OrderDetailsController *vc = [OrderDetailsController new];
-             vc.orderid = dataDict;
-             [self.navigationController pushViewController:vc animated:YES];
+             NSArray *ids = (NSArray*)dataDict;
+             if (ids.count == 1) {
+                 OrderDetailsController *vc = [OrderDetailsController new];
+                 vc.orderid = ids.firstObject;
+                 [self.navigationController pushViewController:vc animated:YES];
+             }else{
+              //单个商品下单不会进
+             }
+           
          }
      }];
 

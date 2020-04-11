@@ -128,7 +128,7 @@
                     cell.visitorView.valueLab.text = [weakSelf.homeData stringValueForKey:@"readCount" default:0];
                     cell.addvisitorView.valueLab.text = [weakSelf.homeData stringValueForKey:@"followCount" default:0];
                     cell.orderView.valueLab.text = [weakSelf.homeData stringValueForKey:@"orderCount" default:0];
-                    
+                    cell.amountaView.valueLab.text =[NSString stringWithFormat:@"%0.2f",[weakSelf.homeData floatValueForKey:@"orderAmount" default:0.00]] ;
                     return cell;
                 }
                     break;

@@ -30,6 +30,7 @@ target 'BusinseeLifeBox' do
    
    #适配
    pod 'Masonry'
+   pod 'SnapKit'
    
    #模型转换
 #   pod 'YYModel'

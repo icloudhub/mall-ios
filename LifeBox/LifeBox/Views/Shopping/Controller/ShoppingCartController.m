@@ -14,7 +14,7 @@
 #import "NoDataView.h"
 #import "CarBottomView.h"
 #import "OrderDetailsController.h"
-
+#import "MyOrderController.h"
 
 
 @interface ShoppingCartController ()<UITableViewDelegate, UITableViewDataSource, CellNumBtnDelegate> {
@@ -210,9 +210,17 @@ static NSString *cellID = @"ShoppingCarCellID";
         if (error) {
             [self.view ug_msg:error.domain];
         }else{
-            OrderDetailsController *vc = [OrderDetailsController new];
-            vc.orderid = dataDict;
-            [self.navigationController pushViewController:vc animated:YES];
+            NSArray *ids = (NSArray*)dataDict;
+            if (ids.count == 1) {
+                OrderDetailsController *vc = [OrderDetailsController new];
+                vc.orderid = ids.firstObject;
+                [self.navigationController pushViewController:vc animated:YES];
+            }else{
+                MyOrderController *orderCtl = [[MyOrderController alloc] init];
+                orderCtl.hidesBottomBarWhenPushed = YES;
+                orderCtl.selectIndex = 1;
+                [self.navigationController pushViewController:orderCtl animated:YES];
+            }
         }
     }];
 }

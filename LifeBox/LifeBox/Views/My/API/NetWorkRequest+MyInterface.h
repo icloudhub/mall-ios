@@ -72,6 +72,12 @@ NS_ASSUME_NONNULL_BEGIN
  获取已邀请会员列表
  */
 -(void)inviteListendBlock:(void(^)(NSDictionary *result, NSError *error))endblock;
+
+/**
+ 支付成功回调
+ */
+-(void)paySuccessOrder:(NSString *)orderId endBlock:(void(^)(NSDictionary *result, NSError *error))endblock;
+ 
 @end
 
 NS_ASSUME_NONNULL_END

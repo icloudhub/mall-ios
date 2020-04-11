@@ -79,7 +79,7 @@ static Global_Variable *sharedInstance = nil;
 }
 -(NSString *)webPort{
     if (!_searchPort) {
-          _searchPort = @"15676";  //测试环境
+          _searchPort = @"15677";  //测试环境
       }
       return _searchPort;
 }

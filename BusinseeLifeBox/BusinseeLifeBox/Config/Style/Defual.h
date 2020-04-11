@@ -32,6 +32,12 @@
 #define KPAND_MID 10.0 //小间距
 #define KPAND_MIN 5.0 //小间距
 
+#define KRADIUS_DEF  20.0 //默认间距
+#define KRADIUS_MID  10.0 //小间距
+#define KRADIUS_MIN  4.0 //小间距
+
+
+
 /*
  * 安全边界
  */

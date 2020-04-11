@@ -382,6 +382,13 @@
 			path = WKWebView;
 			sourceTree = "<group>";
 		};
+		846399FB243EC35A00DEDEAA /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		848BB7CE242483030044E1C2 /* BusinseeLifeBox */ = {
 			isa = PBXGroup;
 			children = (
@@ -998,6 +1005,7 @@
 		848BB899242483030044E1C2 /* Seting */ = {
 			isa = PBXGroup;
 			children = (
+				846399FB243EC35A00DEDEAA /* View */,
 				848BB89A242483030044E1C2 /* Controller */,
 			);
 			path = Seting;

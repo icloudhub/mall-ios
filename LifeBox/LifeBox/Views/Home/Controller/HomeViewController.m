@@ -310,19 +310,15 @@ static NSString *homeGoodsCellID = @"HomeGoodsCellID";
 
 #pragma mark - 去专题详情
 -(void)subjectDef:(NSString*)subjectid{
-    [[[NetWorkRequest alloc] init] subject:subjectid block:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
-        if (error) {
-            [self.view ug_msg:error.domain];
-        }else{
-            SubjectData *data = [SubjectData modelWithJSON:result];
-            WebViewController *vc = [WebViewController new];
-            vc.htmlstr = data.content;
-            vc.title = data.title;
-            [vc setHidesBottomBarWhenPushed:YES];
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-    }];
-    
+  
+    WebViewController *vc = [WebViewController new];
+    NSString* tocken = Global_Variable.shared.token;
+    NSString* str = [NSString stringWithFormat:@"%@:15677/#/subject?loginToken=%@",Global_Variable.shared.serviceIP, tocken];
+    vc.url = UG_URL(str);
+    [vc setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:vc animated:YES];
+    return;
+ 
 }
 
 @end

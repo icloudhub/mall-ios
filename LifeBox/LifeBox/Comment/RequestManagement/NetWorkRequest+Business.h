@@ -20,8 +20,6 @@ NS_ASSUME_NONNULL_BEGIN
 ///为你推荐数据
 - (void)recommendProductListblock:(void(^)(NSDictionary *result, NSError *error))endblock;
 
-#pragma mark - 专题详情
--(void)subject:(NSString*)id block:(void(^)(NSDictionary *result, NSError *error))endblock;
 @end
 
 NS_ASSUME_NONNULL_END
