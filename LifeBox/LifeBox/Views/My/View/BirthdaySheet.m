@@ -85,7 +85,7 @@
         fmt.dateFormat = @"yyyy-MM-dd";
         // 格式化日期.
         NSString *dateString =  [fmt stringFromDate:datePicker.date];
-        DDLogVerbose(@"%@", dateString);
+        NSLog(@"%@", dateString);
     }
 }
 

@@ -412,9 +412,9 @@
 #pragma mark - 删除按钮点击
 - (void)deleteBtnClicked {
     [self.view endEditing:YES];
-    [self.view ug_loading];
+    [self.view ug_starloading];
     [[[NetWorkRequest alloc] init] deleteAddressWithID:[_passData.addressId integerValue] endBlock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
-        [self.view ug_hiddenLoading];
+        [self.view ug_stoploading];
         if (error) {
             [self.view ug_msg:error.domain];
         }else{
@@ -426,9 +426,9 @@
 
 #pragma mark - 新增地址接口
 - (void)addNewHttpData:(NSDictionary *)dic {
-    [self.view ug_loading];
+    [self.view ug_starloading];
     [[[NetWorkRequest alloc] init] addAddressParams:dic endBlock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
-        [self.view ug_hiddenLoading];
+        [self.view ug_stoploading];
         if (error) {
             [self.view ug_msg:error.domain];
         }else{
@@ -440,9 +440,9 @@
 
 #pragma mark - 更新地址接口
 - (void)updateHttpData:(NSDictionary *)dic {
-    [self.view ug_loading];
+    [self.view ug_starloading];
     [[[NetWorkRequest alloc] init] updateAddressWithID:[_passData.addressId integerValue] Params:dic endBlock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
-        [self.view ug_hiddenLoading];
+        [self.view ug_stoploading];
         if (error) {
             [self.view ug_msg:error.domain];
         }else{

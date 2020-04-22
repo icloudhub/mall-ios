@@ -206,7 +206,7 @@ static NSString *toolCellID = @"ToolCellID";
     orderCtl.hidesBottomBarWhenPushed = YES;
     orderCtl.selectIndex = selectIndex;
     [self.navigationController pushViewController:orderCtl animated:YES];
-    DDLogVerbose(@"\n🏷当前订单模块点击: %ld🏷", (long)selectIndex);
+    NSLog(@"\n🏷当前订单模块点击: %ld🏷", (long)selectIndex);
 }
 
 - (void)walletCellSelectWithTag:(NSInteger)selectIndex {
@@ -265,7 +265,7 @@ static NSString *toolCellID = @"ToolCellID";
         default:
             break;
     }
-    DDLogVerbose(@"\n🏷当前工具模块点击: %ld🏷", (long)selectIndex);
+    NSLog(@"\n🏷当前工具模块点击: %ld🏷", (long)selectIndex);
 }
 
 @end

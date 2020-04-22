@@ -287,13 +287,13 @@
 
 #pragma mark - 验证码接口
 - (void)getCodeHttpWith:(NSString *)phone {
-    [self.view ug_loading];
+    [self.view ug_starloading];
     [[[NetWorkRequest alloc] init] getAuthCode:phone block:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
-        [self.view ug_hiddenLoading];
+        [self.view ug_stoploading];
         if (error) {
             [self.view ug_msg:error.domain];
         }else{
-            [UIView ug_debugmsg:dataDict];
+  
             [AppDelegate addObjectIndateDic:self->keyStr];
             [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationDoit) name:APPTIMEINFORMATION object:nil];
         }
@@ -302,12 +302,12 @@
 
 #pragma mark - 注册接口
 - (void)getRegisteredHttp {
-    [self.view ug_loading];
+    [self.view ug_starloading];
     NSString *timeStr = [NSString getCurrentTimeBySecond];
     NSString *tempStr = [timeStr substringFromIndex:timeStr.length - 6];
     NSString *nameStr = [NSString stringWithFormat:@"SHB%@", tempStr];
     [[[NetWorkRequest alloc] init] registerWithTel:_phoneTF.text passwd:[_passwdTF.text encryptionSha1] authCode:_codeTF.text reccode:_invitaTF.text username:nameStr block:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
-        [self.view ug_hiddenLoading];
+        [self.view ug_stoploading];
         if (error) {
             [self.view ug_msg:error.domain];
         }else{

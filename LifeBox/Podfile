@@ -1,12 +1,13 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
 source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '10.0'
 target 'LifeBox' do
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
    use_frameworks!
-   
+   ∫
    #加载框
-   pod 'MBProgressHUD', '~> 1.1.0'
+   pod 'MBProgressHUD'
    
    #网络请求
    pod 'AFNetworking'
@@ -31,11 +32,11 @@ target 'LifeBox' do
    
    
    #模型转换
-#   pod 'YYModel'
    pod 'YYKit'
    pod 'BlocksKit'
    
    pod 'AlipaySDK-iOS'
+   pod 'SuperPlayer'
    
    #空数据界面
    pod 'DZNEmptyDataSet'
@@ -45,14 +46,17 @@ target 'LifeBox' do
    
    #字体
    pod 'FontAwesome+iOS', :git => 'https://github.com/alexdrone/ios-fontawesome' #fontawesome字体
+  
+   pod 'UGBox/all', :git => "https://gitee.com/UbunGit/UGOCMagicbox.git" #fontawesome字体
    
    #哆啦A梦测试盒
-   pod 'DoraemonKit/Core', :configurations => ['Debug']
-   pod 'DoraemonKit/WithLogger',  :configurations => ['Debug']
-   pod 'DoraemonKit/WithGPS',  :configurations => ['Debug']
-   pod 'DoraemonKit/WithLoad',  :configurations => ['Debug']
-  # pod 'DoraemonKit/WithWeex',  :configurations => ['Debug']
-   pod 'DoraemonKit/WithDatabase',  :configurations => ['Debug'] 
+   pod 'DoraemonKit/Core', :git => "https://gitee.com/yixiangboy/DoraemonKit.git", :tag => '3.0.1', :configurations => ['Debug'] #必选
+#   pod 'DoraemonKit/WithLogger', :git => "https://gitee.com/yixiangboy/DoraemonKit.git", :tag => '3.0.1', :configurations => ['Debug'] #可选
+   pod 'DoraemonKit/WithGPS', :git => "https://gitee.com/yixiangboy/DoraemonKit.git", :tag => '3.0.1', :configurations => ['Debug'] #可选
+   pod 'DoraemonKit/WithLoad', :git => "https://gitee.com/yixiangboy/DoraemonKit.git", :tag => '3.0.1', :configurations => ['Debug'] #可选
+   pod 'DoraemonKit/WithDatabase', :git => "https://gitee.com/yixiangboy/DoraemonKit.git", :tag => '3.0.1', :configurations => ['Debug'] #可选
+   pod 'DoraemonKit/WithMLeaksFinder', :git => "https://gitee.com/yixiangboy/DoraemonKit.git", :tag => '3.0.1', :configurations => ['Debug'] #可选
+   pod 'DoraemonKit/WithWeex', :git => "https://gitee.com/yixiangboy/DoraemonKit.git", :tag => '3.0.1', :configurations => ['Debug'] #可选
 
   # Pods for LifeBox
 

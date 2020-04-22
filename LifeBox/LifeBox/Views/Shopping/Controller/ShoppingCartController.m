@@ -162,11 +162,11 @@ static NSString *cellID = @"ShoppingCarCellID";
 
 #pragma mark - 数量选择代理
 - (void)addBtnClicked:(UIButton *)btn {
-    DDLogVerbose(@"第%ld行Cell上，添加Btn被点击", (long)btn.tag);
+    NSLog(@"第%ld行Cell上，添加Btn被点击", (long)btn.tag);
 }
 
 - (void)reduceBtnClicked:(UIButton *)btn {
-    DDLogVerbose(@"第%ld行Cell上，减少Btn被点击", (long)btn.tag);
+    NSLog(@"第%ld行Cell上，减少Btn被点击", (long)btn.tag);
 }
 
 #pragma mark - 接口请求

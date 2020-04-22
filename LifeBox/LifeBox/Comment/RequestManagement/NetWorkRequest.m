@@ -69,7 +69,7 @@ static AFHTTPSessionManager *afManager = nil;
              */
             NSInteger code = [responseObject[@"code"] integerValue];
             if (code == 200) {
-                DDLogVerbose(@"{POST}url:%@ \nheader:%@ \nparame:%@ \nresult:%@", url, afManager.requestSerializer, param, responseObject);
+                NSLog(@"{POST}url:%@ \nheader:%@ \nparame:%@ \nresult:%@", url, afManager.requestSerializer, param, responseObject);
                 NSDictionary *dic = responseObject[@"data"];
                 if (endblock) {
                     endblock(dic,nil);
@@ -80,7 +80,7 @@ static AFHTTPSessionManager *afManager = nil;
                 }
                 NSString *msg = [responseObject objectForKey:@"message"]? : @"请求失败" ;
                 NSError *error = [NSError errorWithDomain:msg code:[responseObject[@"code"] integerValue] userInfo:responseObject];
-                DDLogWarn(@"❗️{POST}url:%@ \nheader:%@ \nparame:%@ \nerror:%@", url, afManager.requestSerializer, param, responseObject);
+                NSLog(@"❗️{POST}url:%@ \nheader:%@ \nparame:%@ \nerror:%@", url, afManager.requestSerializer, param, responseObject);
                 
                 if (endblock) {
                     endblock(nil,error);
@@ -89,14 +89,14 @@ static AFHTTPSessionManager *afManager = nil;
 
         }else{
           
-            DDLogWarn(@"❗️{POST}url:%@ \nheader:%@ \nparame:%@ \nerror:%@", url, afManager.requestSerializer, param, @"接口未返回数据");
+            NSLog(@"❗️{POST}url:%@ \nheader:%@ \nparame:%@ \nerror:%@", url, afManager.requestSerializer, param, @"接口未返回数据");
             if (endblock) {
                 endblock(nil,[NSError errorWithDomain:@"接口未返回数据" code:-1 userInfo:nil]);
             }
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
        
-        DDLogWarn(@"❗️{POST}url:%@ \nheader:%@ \nparame:%@ \nerror:%@", url, [afManager.requestSerializer modelDescription], param, error);
+        NSLog(@"❗️{POST}url:%@ \nheader:%@ \nparame:%@ \nerror:%@", url, [afManager.requestSerializer modelDescription], param, error);
         if (endblock) {
             endblock(nil,error);
         }
@@ -128,7 +128,7 @@ static AFHTTPSessionManager *afManager = nil;
              */
             NSInteger code = [responseObject[@"code"] integerValue];
             if (code == 200) {
-                DDLogVerbose(@"{GET}url:%@ \nheader:%@ \nparame:%@ \nresult:%@", url, [Global_Variable shared].token, param, responseObject);
+                NSLog(@"{GET}url:%@ \nheader:%@ \nparame:%@ \nresult:%@", url, [Global_Variable shared].token, param, responseObject);
                 NSDictionary *dic = responseObject[@"data"];
                 if (endblock) {
                     endblock(dic,nil);
@@ -138,7 +138,7 @@ static AFHTTPSessionManager *afManager = nil;
                     [UIApplication gotoLoginCtl];
                 }
                 NSError *error = [NSError errorWithDomain:responseObject[@"message"] code:[responseObject[@"code"] integerValue] userInfo:responseObject];
-                DDLogWarn(@"❗️{GET}url:%@ \nheader:%@ \nparame:%@ \nerror:%@", url, [Global_Variable shared].token, param, responseObject);
+                NSLog(@"❗️{GET}url:%@ \nheader:%@ \nparame:%@ \nerror:%@", url, [Global_Variable shared].token, param, responseObject);
                 
                 if (endblock) {
                     endblock(nil,error);
@@ -146,7 +146,7 @@ static AFHTTPSessionManager *afManager = nil;
             }
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        DDLogWarn(@"❗️{GET}url:%@ \nheader:%@ \nparame:%@ \nerror:%@", url, [Global_Variable shared].token, param, error);
+        NSLog(@"❗️{GET}url:%@ \nheader:%@ \nparame:%@ \nerror:%@", url, [Global_Variable shared].token, param, error);
         if (endblock) {
             endblock(nil,[NSError errorWithDomain:@"加载失败" code:error.code userInfo:nil]);
         }

@@ -16,6 +16,7 @@
 #import "SubjectData.h"
 #import "GoodsDefViewController.h"
 #import "WebViewController.h"
+#import "GoodsListViewController.h"
 
 
 
@@ -43,7 +44,7 @@ static NSString *homeGoodsCellID = @"HomeGoodsCellID";
 
 #pragma mark - 视图层
 - (void)viewDidLoad {
-     self.view.backgroundColor = [UIColor whiteColor];
+//     self.view.backgroundColor = [UIColor whiteColor];
     [self createUI];
 
 }
@@ -69,7 +70,7 @@ static NSString *homeGoodsCellID = @"HomeGoodsCellID";
     tableView = [[UITableView alloc] init];
     tableView.delegate = self;
     tableView.dataSource = self;
-    tableView.backgroundColor = [UIColor whiteColor];
+    tableView.backgroundColor = [UIColor clearColor];
     tableView.separatorStyle = UITableViewCellEditingStyleNone;
     [self.view addSubview:tableView];
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -88,10 +89,8 @@ static NSString *homeGoodsCellID = @"HomeGoodsCellID";
     UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, Screen_width, Scale750(790))];
     topView.backgroundColor = S_COBackground;
     tableView.tableHeaderView = topView;
-//    [topView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.left.right.mas_equalTo(0);
-//        make.height.mas_greaterThanOrEqualTo(Scale750(730));
-//    }];
+   
+
     /*
      * 搜索View
      */
@@ -102,6 +101,7 @@ static NSString *homeGoodsCellID = @"HomeGoodsCellID";
         make.top.left.right.mas_equalTo(0);
         make.height.mas_equalTo(SAFE_Top + Scale750(88));
     }];
+
     /*
      * 分享Btn
      */
@@ -112,7 +112,7 @@ static NSString *homeGoodsCellID = @"HomeGoodsCellID";
     [shareBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo(-Scale750(30));
         make.bottom.mas_equalTo(-Scale750(20));
-        make.width.height.mas_equalTo(Scale750(50));
+        make.width.height.mas_equalTo(Scale750(44));
     }];
     [shareBtn bk_addEventHandler:^(id sender) {
         [UIApplication gotoLoginCtl];
@@ -139,19 +139,28 @@ static NSString *homeGoodsCellID = @"HomeGoodsCellID";
         make.right.mas_equalTo(shareBtn.mas_left).mas_offset(-Scale750(30));
         make.height.mas_equalTo(Scale750(70));
     }];
+    [searchBtn bk_addEventHandler:^(id sender) {
+        GoodsListViewController *goodsListViewController = [GoodsListViewController new];
+        goodsListViewController.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:goodsListViewController animated:YES];
+    } forControlEvents:UIControlEventTouchUpInside];
+
     /*
      * 轮播View创建
      */
     _scrollView = [[SDCycleScrollView alloc] init];
     _scrollView.backgroundColor = S_COBackground;
     _scrollView.bannerImageViewContentMode = UIViewContentModeScaleToFill;
-    _scrollView.autoScrollTimeInterval = 3;
+    _scrollView.autoScrollTimeInterval = 8;
     _scrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
    
+    [_scrollView ug_radius:S_Panding_MID];
+
     [topView addSubview:_scrollView];
     [_scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(searchView.mas_bottom);
-        make.left.right.mas_equalTo(0);
+        make.left.mas_equalTo(SPanding_MIN);
+        make.right.mas_equalTo(-SPanding_MIN);
         make.height.mas_equalTo(Scale750(330));
     }];
     /*
@@ -162,7 +171,8 @@ static NSString *homeGoodsCellID = @"HomeGoodsCellID";
     [topView addSubview:_notice];
     [_notice mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self->_scrollView.mas_bottom);
-        make.left.right.mas_equalTo(0);
+        make.left.mas_equalTo(SPanding_MIN);
+        make.right.mas_equalTo(-SPanding_MIN);
         make.height.mas_equalTo(Scale750(90));
     }];
     
@@ -187,10 +197,12 @@ static NSString *homeGoodsCellID = @"HomeGoodsCellID";
     [topView addSubview:collectionView];
     [collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.notice.mas_bottom).mas_offset(0);
-        make.left.right.mas_equalTo(0);
-        make.height.mas_equalTo(Scale750(180));
+        make.left.mas_equalTo(SPanding_MIN);
+        make.right.mas_equalTo(-SPanding_MIN);
+        make.bottom.mas_equalTo(topView).mas_offset(-8);
     }];
     tableView.tableHeaderView = topView;
+
 }
 
 -(void)reloadUI{
@@ -213,6 +225,7 @@ static NSString *homeGoodsCellID = @"HomeGoodsCellID";
     cell.backgroundColor = [UIColor whiteColor];
     HomeToolData *cellData = [_homedata.toolArr objectAtIndex:indexPath.row];
     [cell reloadCellUIWithData:cellData];
+    
     return cell;
 }
 
@@ -228,7 +241,7 @@ static NSString *homeGoodsCellID = @"HomeGoodsCellID";
 
 //定义每个UICollectionView的大小
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(Screen_width/4, Scale750(180));
+    return CGSizeMake((Screen_width-10)/4, Scale750(180));
 }
 
 //定义整个CollectionViewCell与整个View的间距
@@ -247,7 +260,11 @@ static NSString *homeGoodsCellID = @"HomeGoodsCellID";
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-
+    HomeToolData *cellData = [_homedata.toolArr objectAtIndex:indexPath.row];
+    GoodsListViewController *goodsListViewController = [GoodsListViewController new];
+    goodsListViewController.brandId = cellData.id;
+    goodsListViewController.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:goodsListViewController animated:YES];
 }
 
 #pragma mark - UITableView代理
@@ -285,7 +302,7 @@ static NSString *homeGoodsCellID = @"HomeGoodsCellID";
 
 #pragma mark - 首页数据接口
 - (void)homePageDataRequest {
-//    [self.view ug_loading];
+//    [self.view ug_starloading];
     [[[NetWorkRequest alloc] init] getHomeInfoendblock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
         if (error) {
             [self.view ug_msg:error.domain];

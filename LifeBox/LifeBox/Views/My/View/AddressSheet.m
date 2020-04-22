@@ -237,9 +237,9 @@ static NSString *cellID = @"AddressChooseCellID";
         }
     }
     //开始请求
-    [self ug_loading];
+    [self ug_starloading];
     [[[NetWorkRequest alloc] init] queryAddressInfoParams:dic endBlock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
-        [self ug_hiddenLoading];
+        [self ug_stoploading];
         if (error) {
             [self ug_msg:error.domain];
         }else{

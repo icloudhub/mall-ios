@@ -8,7 +8,7 @@
 
 #import "GoodsSpeSheet.h"
 #import "SpeSheetHeadView.h"
-#import "NSArray+UG.h"
+
 @implementation GoodsSpeSheet {
     ///商品图片
     UIImageView *goodsImg;
@@ -22,8 +22,6 @@
     UILabel *numLab;
     ///数量
     NSInteger num;
-    
-    
 }
 
 #pragma mark - 高度
@@ -55,7 +53,7 @@
     goodsImg = [[UIImageView alloc] init];
     goodsImg.backgroundColor = [UIColor redColor];
     goodsImg.layer.cornerRadius = Scale750(8);
-    [goodsImg ug_Radius:4];
+    [goodsImg ug_radius:4];
     [self.bottomView addSubview:goodsImg];
     [goodsImg mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(Scale750(30));
@@ -265,7 +263,7 @@
         };
         _collectionView.ug_cellForItemAtIndexPath = ^__kindof UICollectionViewCell * _Nonnull(UICollectionView * _Nonnull collectionView, NSIndexPath * _Nonnull indexPath) {
             BlockCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-            [cell ug_Radius:2];
+            [cell ug_radius:2];
             
             ProductSpecModel *data = [weakSelf.product.attributeList objectAtIndex:indexPath.section];
             NSDictionary *dic = [data.valueList objectAtIndex:indexPath.row];
@@ -273,11 +271,11 @@
             if ([[weakSelf.selectSpeDic objectForKey:data.id] isEqualToString:dic[@"value"]]) {
                 cell.backgroundColor = S_COGreenBack;
                 cell.titleLab.textColor = UIColor.whiteColor;
-                [cell ug_border:S_COGreenBack white:0.5];
+                [cell ug_borderColor:S_COGreenBack width:0.5];
             }else{
                 cell.backgroundColor = UIColor.whiteColor;
                 cell.titleLab.textColor = COLOR23;
-                [cell ug_border:COLOREE white:0.5];
+                [cell ug_borderColor:COLOREE width:0.5];
             }
             
             return cell;

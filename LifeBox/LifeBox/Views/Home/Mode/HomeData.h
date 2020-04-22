@@ -26,6 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - 首页功能Data
 @interface HomeToolData : NSObject
 
+@property (strong, nonatomic) NSString *id;
 ///首页功能图片
 @property (strong, nonatomic) NSString *logo;
 

@@ -295,7 +295,7 @@
     [self.coustomView addSubview:self.headView];
     [self.coustomView addSubview:self.bodyView];
     [self.coustomView addSubview:self.fotterView];
-    [self.coustomView ug_Radius:4];
+    [self.coustomView ug_radius:4];
 }
 
 #pragma mark - get

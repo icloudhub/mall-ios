@@ -25,7 +25,7 @@
      * 功能图片
      */
     _toolImg = [[UIImageView alloc] init];
-    [_toolImg ug_Radius:Scale750(49)];
+    [_toolImg ug_radius:Scale750(49)];
     [self addSubview:_toolImg];
     [_toolImg mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(self);
@@ -44,6 +44,7 @@
         make.centerX.mas_equalTo(self);
         make.width.height.mas_greaterThanOrEqualTo(0);
     }];
+//    [self ug_shadowColor:[UIColor ug_hexString:@"#DDDDDD"] width:1];
 }
 
 #pragma mark - 刷新UI

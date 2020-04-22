@@ -498,9 +498,9 @@
 // 获取商品详情
 -(void)getHttpLoadData {
     UG_WEAKSELF
-    [self.defWebview ug_loading];
+    [self.defWebview ug_starloading];
     [[NetWorkRequest new]productproductInfo:_productid block:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
-        [self.defWebview ug_hiddenLoading];
+        [self.defWebview ug_stoploading];
         if (error) {
             [self.view ug_msg:error.domain];
         }else{
@@ -678,10 +678,10 @@
 
 #pragma mark - 收藏接口
 - (void)addCollectionHttp {
-    [self.view ug_loading];
+    [self.view ug_starloading];
     NSString *productidStr = _productdata.productid;
     [[[NetWorkRequest alloc] init] addCollectionWithWithProductId:productidStr endBlock:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
-        [self.view ug_hiddenLoading];
+        [self.view ug_stoploading];
         if (error) {
             [self.view ug_msg:error.domain];
         }else{

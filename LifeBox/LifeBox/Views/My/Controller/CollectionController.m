@@ -56,9 +56,9 @@ static NSString *cellID = @"CollectionCellID";
 }
 #pragma mark - 接口请求
 - (void)getHttpRequest {
-    [self.view ug_loading];
+    [self.view ug_starloading];
     [[[NetWorkRequest alloc] init] getCommentlistWithMemberId:[Global_Variable shared].userid endBlock:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
-        [self.view ug_hiddenLoading];
+        [self.view ug_stoploading];
         if (error) {
             [self.view ug_msg:error.domain];
         }else{

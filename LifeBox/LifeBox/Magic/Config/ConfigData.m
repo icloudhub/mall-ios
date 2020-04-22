@@ -22,7 +22,7 @@ static ConfigData *share = nil;
 -(void)updateConfigGlobal:(void(^)(NSError *error))block{
     [[[NetWorkRequest alloc]init] getcfgvalueType:1001 block:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
         if (!error) {
-            DDLogVerbose(@"%@",result);
+            NSLog(@"%@",result);
         }
         block(error);
     }];

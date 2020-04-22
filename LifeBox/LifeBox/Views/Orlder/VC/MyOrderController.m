@@ -255,10 +255,10 @@ static NSString *cellID = @"OrderViewCellID";
 - (void)getOrderListWithState{
     
     UG_WEAKSELF
-    [self.view ug_loading];
+    [self.view ug_starloading];
     NSString *state = [NSString stringWithFormat:@"%zd",(self.selectbtn.tag-11)];
     [[NetWorkRequest new] getOrderStateListWithState:state pageSize:@"10" pageNum:[NSString stringWithFormat:@"%zd",_pageNum] endBlock:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
-        [self.view ug_hiddenLoading];
+        [self.view ug_stoploading];
         if (error) {
             [self.view ug_msg:error.domain];
         }else{

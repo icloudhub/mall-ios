@@ -324,9 +324,9 @@
 
 #pragma mark - 密码登录接口
 - (void)loginWithPasswdHttp {
-    [self.view ug_loading];
+    [self.view ug_starloading];
     [[NetWorkRequest new] passlogin:_pwView.phoneTF.text passwd:[_pwView.passwTF.text encryptionSha1] block:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
-        [self.view ug_hiddenLoading];
+        [self.view ug_stoploading];
         if (error) {
             [self.view ug_msg:error.domain];
         }else{
@@ -342,9 +342,9 @@
 
 #pragma mark - 验证码登录接口
 - (void)loginWithCodeHttp {
-    [self.view ug_loading];
+    [self.view ug_starloading];
     [[NetWorkRequest new] loginWihtCode:_codeView.codeTF.text phone:_codeView.phoneTF.text endBlock:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
-        [self.view ug_hiddenLoading];
+        [self.view ug_stoploading];
         if (error) {
             [self.view ug_msg:error.domain];
         }else{
@@ -360,9 +360,9 @@
 
 #pragma mark - 请求验证码接口
 - (void)getCodeHttpWithPhone:(NSString *)phone {
-    [self.view ug_loading];
+    [self.view ug_starloading];
     [[[NetWorkRequest alloc] init] getAuthCode:phone block:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
-        [self.view ug_hiddenLoading];
+        [self.view ug_stoploading];
         if (error) {
             [self.view ug_msg:error.domain];
         }else{

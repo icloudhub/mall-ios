@@ -17,12 +17,12 @@
 #pragma mark - 视图周期
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = S_COBackground;
     /*
      * 获取当前类名
      */
     NSString *className = NSStringFromClass([self class]);
-    DDLogVerbose(@"\n🏷当前业务类名: %@🏷", className);
+    NSLog(@"\n🏷当前业务类名: %@🏷", className);
     //添加测试按钮
 //    self.refreshBtn = [UIButton new];
 //    [_refreshBtn setTitle:@"刷新" forState:UIControlStateNormal];
@@ -48,7 +48,7 @@
 }
 
 -(void)loadData{
-    DDLogVerbose(@"父类刷新");
+    NSLog(@"父类刷新");
 }
 
 -(void)viewLayoutMarginsDidChange{

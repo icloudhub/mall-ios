@@ -68,7 +68,7 @@
 -(void)setUrl:(NSURL *)url{
 
     _url = url;
-    DDLogVerbose(@"web加载：",url);
+    NSLog(@"web加载：",url);
     NSURLRequest *request = [[NSURLRequest alloc]initWithURL:url];
     [self.webview loadRequest:request];
 }

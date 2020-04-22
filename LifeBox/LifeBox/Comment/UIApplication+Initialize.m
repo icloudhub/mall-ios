@@ -24,6 +24,7 @@
 
 #pragma mark - 去登录界面
 + (void)gotoLoginCtl {
+    
     LoginViewController *loginCtl = [[LoginViewController alloc] init];
     RTRootNavigationController *loginNav = [[RTRootNavigationController alloc] initWithRootViewController:loginCtl];
     loginNav.modalPresentationStyle = UIModalPresentationFullScreen;

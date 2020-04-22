@@ -30,59 +30,93 @@ PODS:
   - BlocksKit/UIKit (2.2.5):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
-  - BSBacktraceLogger (0.0.1)
   - CocoaLumberjack (3.5.3):
     - CocoaLumberjack/Core (= 3.5.3)
   - CocoaLumberjack/Core (3.5.3)
-  - DoraemonKit/Core (1.2.1):
-    - BSBacktraceLogger
-    - fishhook
-    - PNChart
-  - DoraemonKit/WithDatabase (1.2.1):
-    - BSBacktraceLogger
+  - DoraemonKit/Core (3.0.1)
+  - DoraemonKit/WithDatabase (3.0.1):
     - DoraemonKit/Core
-    - fishhook
-    - PNChart
     - YYDebugDatabase
-  - DoraemonKit/WithGPS (1.2.1):
-    - BSBacktraceLogger
+  - DoraemonKit/WithGPS (3.0.1):
     - DoraemonKit/Core
-    - fishhook
-    - PNChart
-  - DoraemonKit/WithLoad (1.2.1):
-    - BSBacktraceLogger
+  - DoraemonKit/WithLoad (3.0.1):
     - DoraemonKit/Core
-    - fishhook
-    - PNChart
-  - DoraemonKit/WithLogger (1.2.1):
-    - BSBacktraceLogger
-    - CocoaLumberjack
+  - DoraemonKit/WithMLeaksFinder (3.0.1):
     - DoraemonKit/Core
-    - fishhook
-    - PNChart
+  - DoraemonKit/WithWeex (3.0.1):
+    - DoraemonKit/Core
+    - WeexSDK
+    - WXDevtool
   - DZNEmptyDataSet (1.8.1)
-  - fishhook (0.2)
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
   - "FontAwesome+iOS (0.0.1)"
-  - GCDWebServer (3.5.2):
-    - GCDWebServer/Core (= 3.5.2)
-  - GCDWebServer/Core (3.5.2)
+  - GCDWebServer (3.5.4):
+    - GCDWebServer/Core (= 3.5.4)
+  - GCDWebServer/Core (3.5.4)
   - IQKeyboardManager (6.4.0)
   - Masonry (1.1.0)
   - MBProgressHUD (1.1.0)
   - MJRefresh (3.3.1)
-  - PNChart (0.8.9):
-    - UICountingLabel (~> 1.2.0)
+  - MMLayout (0.3.0)
+  - Protobuf (3.11.4)
   - Reachability (3.2)
   - SDCycleScrollView (1.80):
     - SDWebImage (>= 5.0.0)
   - SDWebImage (5.0.6):
     - SDWebImage/Core (= 5.0.6)
   - SDWebImage/Core (5.0.6)
-  - UICountingLabel (1.2.0)
-  - YYDebugDatabase (2.0.4):
+  - SocketRocket (0.5.1)
+  - SSZipArchive (2.2.2)
+  - SuperPlayer (3.2.2):
+    - AFNetworking
+    - Masonry
+    - MMLayout
+    - SDWebImage
+    - SuperPlayer/Player (= 3.2.2)
+  - SuperPlayer/Player (3.2.2):
+    - AFNetworking
+    - Masonry
+    - MMLayout
+    - SDWebImage
+    - TXLiteAVSDK_Player (= 7.1.8775)
+  - SVGAPlayer (2.5.2):
+    - SVGAPlayer/Core (= 2.5.2)
+    - SVGAPlayer/ProtoFiles (= 2.5.2)
+  - SVGAPlayer/Core (2.5.2):
+    - SSZipArchive (>= 1.8.1)
+    - SVGAPlayer/ProtoFiles
+  - SVGAPlayer/ProtoFiles (2.5.2):
+    - Protobuf (~> 3.4)
+  - TXLiteAVSDK_Player (7.1.8775)
+  - UGBox/all (1.1.1):
+    - UGBox/common
+    - UGBox/copy
+    - UGBox/defualCell
+    - UGBox/welcom
+  - UGBox/base (1.1.1):
+    - BlocksKit
+    - Masonry
+    - MBProgressHUD
+    - SDWebImage
+  - UGBox/common (1.1.1)
+  - UGBox/copy (1.1.1):
+    - UGBox/base
+    - UGBox/common
+  - UGBox/defualCell (1.1.1):
+    - UGBox/base
+    - UGBox/common
+  - UGBox/welcom (1.1.1):
+    - SDWebImage
+    - SuperPlayer
+    - SVGAPlayer
+    - UGBox/base
+  - WeexSDK (0.28.0)
+  - WXDevtool (0.24.0):
+    - SocketRocket
+    - WeexSDK
+  - YYDebugDatabase (2.0.8):
     - FMDB
     - GCDWebServer
   - YYKit (1.0.9):
@@ -94,11 +128,12 @@ DEPENDENCIES:
   - AlipaySDK-iOS
   - BlocksKit
   - CocoaLumberjack
-  - DoraemonKit/Core
-  - DoraemonKit/WithDatabase
-  - DoraemonKit/WithGPS
-  - DoraemonKit/WithLoad
-  - DoraemonKit/WithLogger
+  - DoraemonKit/Core (from `https://gitee.com/yixiangboy/DoraemonKit.git`, tag `3.0.1`)
+  - DoraemonKit/WithDatabase (from `https://gitee.com/yixiangboy/DoraemonKit.git`, tag `3.0.1`)
+  - DoraemonKit/WithGPS (from `https://gitee.com/yixiangboy/DoraemonKit.git`, tag `3.0.1`)
+  - DoraemonKit/WithLoad (from `https://gitee.com/yixiangboy/DoraemonKit.git`, tag `3.0.1`)
+  - DoraemonKit/WithMLeaksFinder (from `https://gitee.com/yixiangboy/DoraemonKit.git`, tag `3.0.1`)
+  - DoraemonKit/WithWeex (from `https://gitee.com/yixiangboy/DoraemonKit.git`, tag `3.0.1`)
   - DZNEmptyDataSet
   - "FontAwesome+iOS (from `https://github.com/alexdrone/ios-fontawesome`)"
   - IQKeyboardManager
@@ -108,6 +143,8 @@ DEPENDENCIES:
   - Reachability
   - SDCycleScrollView
   - SDWebImage
+  - SuperPlayer
+  - UGBox/all (from `https://gitee.com/UbunGit/UGOCMagicbox.git`)
   - YYKit
 
 SPEC REPOS:
@@ -115,58 +152,79 @@ SPEC REPOS:
     - AFNetworking
     - AlipaySDK-iOS
     - BlocksKit
-    - BSBacktraceLogger
     - CocoaLumberjack
-    - DoraemonKit
     - DZNEmptyDataSet
-    - fishhook
     - FMDB
     - GCDWebServer
     - IQKeyboardManager
     - Masonry
     - MBProgressHUD
     - MJRefresh
-    - PNChart
+    - MMLayout
+    - Protobuf
     - Reachability
     - SDCycleScrollView
     - SDWebImage
-    - UICountingLabel
+    - SocketRocket
+    - SSZipArchive
+    - SuperPlayer
+    - SVGAPlayer
+    - TXLiteAVSDK_Player
+    - WeexSDK
+    - WXDevtool
     - YYDebugDatabase
     - YYKit
 
 EXTERNAL SOURCES:
+  DoraemonKit:
+    :git: https://gitee.com/yixiangboy/DoraemonKit.git
+    :tag: 3.0.1
   "FontAwesome+iOS":
     :git: https://github.com/alexdrone/ios-fontawesome
+  UGBox:
+    :git: https://gitee.com/UbunGit/UGOCMagicbox.git
 
 CHECKOUT OPTIONS:
+  DoraemonKit:
+    :git: https://gitee.com/yixiangboy/DoraemonKit.git
+    :tag: 3.0.1
   "FontAwesome+iOS":
     :commit: 3ef4db504ffde636c1f8a5320f1e5b6183f6102c
     :git: https://github.com/alexdrone/ios-fontawesome
+  UGBox:
+    :commit: 952e022e05402b3332ae4bf09f8e3c54acb97e73
+    :git: https://gitee.com/UbunGit/UGOCMagicbox.git
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   AlipaySDK-iOS: 703a55774a37f412410ab04af96c011b91ec58cb
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
-  BSBacktraceLogger: 06b983ee93a9f87d957960e9c73d660d5966b447
   CocoaLumberjack: 2f44e60eb91c176d471fdba43b9e3eae6a721947
-  DoraemonKit: 2d0d3bf18a5181f750d5bfead5030403ba3fbb2e
+  DoraemonKit: 9ea3bc27cba90467eda5363ecd98d65d21d98347
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
-  fishhook: ea19933abfe8f2f52c55fd8b6e2718467d3ebc89
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   "FontAwesome+iOS": c6d3bbd2856b9633028d316d56133d45fb6a6cb0
-  GCDWebServer: ead88cd14596dd4eae4f5830b8877c87c8728990
+  GCDWebServer: 2c156a56c8226e2d5c0c3f208a3621ccffbe3ce4
   IQKeyboardManager: fcef267266379c003181fc3592f6bdb8bf4db839
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   MJRefresh: eeda70fbf0ad277f3178cef1cd0c3532591d6237
-  PNChart: 84774d225c2126ded6c93d4dbe6ae98c3a73c2d2
+  MMLayout: d559edecd69fbcb348368ba90917e047ab1c544e
+  Protobuf: 176220c526ad8bd09ab1fb40a978eac3fef665f7
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SDCycleScrollView: b3c9a5ed840c771c4938978174c7c9d9feefeb96
   SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
-  UICountingLabel: 1db4e7d023e1762171eb226d6dff47a7a84f27aa
-  YYDebugDatabase: f67e8bc0913ac3dfff19cded6e115d1854690a3f
+  SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
+  SSZipArchive: fa16b8cc4cdeceb698e5e5d9f67e9558532fbf23
+  SuperPlayer: 8572ea30d64c5cbb476177992527fec0a234271e
+  SVGAPlayer: c666a7886b72ee77d494c49aa4fd61df175dd103
+  TXLiteAVSDK_Player: 66ec5d2007064e4ff6205e5bd2b9e1cc1dc5f643
+  UGBox: b8cec86d5842e305b258e8d0f00e561193d7a9e0
+  WeexSDK: 78861d2f8b78f67e30580c15a54f5b420456db39
+  WXDevtool: 95b70c73c06fc3299d65bd53ba4b3e0b0087f3cb
+  YYDebugDatabase: 037486297a7dd40bc50e2c6df5de7b4ad24c9c17
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 77bf1d58ccedb92c6068e8d4bc9c9f91de6deab9
+PODFILE CHECKSUM: 20f15352817ac1cd92be5f33e0402df78d5b6a04
 
 COCOAPODS: 1.8.4

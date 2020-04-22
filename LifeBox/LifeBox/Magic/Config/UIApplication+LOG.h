@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <CocoaLumberjack/CocoaLumberjack.h>
-#ifdef DEBUG
-static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
-#else
-static const DDLogLevel ddLogLevel = DDLogLevelWarning;
-#endif
+//#import <CocoaLumberjack/CocoaLumberjack.h>
+
+//#ifdef DEBUG
+//static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
+//#else
+//static const DDLogLevel ddLogLevel = DDLogLevelWarning;
+//#endif
 
 NS_ASSUME_NONNULL_BEGIN
 

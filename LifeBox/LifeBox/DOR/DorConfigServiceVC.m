@@ -28,7 +28,7 @@
     
     self.inputTF = [UITextField new];
     [self addSubview:_inputTF];
-    [_inputTF ug_border:COLOREE white:1];
+    [_inputTF ug_borderColor:COLOREE width:1];
    
 }
 
@@ -63,8 +63,8 @@
     self.centview = [UIView new];
     [self addSubview:_centview];
     _centview.backgroundColor = UIColor.whiteColor;
-    [_centview ug_border:COLOREE white:1];
-    [_centview ug_Radius:S_Radius];
+    [_centview ug_borderColor:COLOREE width:1];
+    [_centview ug_radius:S_Radius_MIN];
     
     self.titleInput = [ServiecInputview new];
     [_centview addSubview:_titleInput];
@@ -85,8 +85,8 @@
     self.commitBtn = [UIButton new];
     [self addSubview:_commitBtn];
     [_commitBtn setTitle:@"添加" forState:UIControlStateNormal];
-    [_commitBtn ug_border:COLOREE white:1];
-    [_commitBtn ug_Radius:S_Radius];
+    [_commitBtn ug_borderColor:COLOREE width:1];
+    [_commitBtn ug_radius:S_Radius_MIN];
     _commitBtn.backgroundColor = S_COGreenBack;
 }
 -(void)setEditdata:(ServiecData *)editdata{

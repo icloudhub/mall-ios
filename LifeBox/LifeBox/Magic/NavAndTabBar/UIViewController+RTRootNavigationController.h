@@ -67,4 +67,6 @@ IB_DESIGNABLE
 
 - (void)leftBarButtonItemClick;
 
+-(void)setNaveItemWithView:(UIView*)view;
+
 @end

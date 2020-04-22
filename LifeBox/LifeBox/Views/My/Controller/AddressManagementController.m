@@ -117,9 +117,9 @@ static NSString *cellID = @"AddressManageCellID";
 
 #pragma mark - 获取地址列表接口
 - (void)getAddressListHttp {
-    [self.view ug_loading];
+    [self.view ug_starloading];
     [[[NetWorkRequest alloc] init] getAddressListBlock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
-        [self.view ug_hiddenLoading];
+        [self.view ug_stoploading];
         if (error) {
             [self.view ug_msg:error.domain];
         }else{

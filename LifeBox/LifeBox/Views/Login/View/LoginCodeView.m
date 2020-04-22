@@ -15,7 +15,7 @@
     self = [super init];
     if (self) {
         [self createUI];
-        self.backgroundColor = [UIColor whiteColor];
+      
     }
     return self;
 }

@@ -14,17 +14,17 @@
 
 -(void)configlog{
     
-    [DDLog addLogger:[DDOSLogger sharedInstance] withLevel:ddLogLevel]; // Uses os_log
-    DDFileLogger *fileLogger = [[DDFileLogger alloc] init]; // File Logger
-    fileLogger.rollingFrequency = 60 * 60 * 24; // 24 hour rolling
-    fileLogger.logFileManager.maximumNumberOfLogFiles = 7;
-    [DDLog addLogger:fileLogger withLevel:ddLogLevel];
-    
-    DDLogVerbose(@"日志初始化成功");
-    DDLogDebug(@"Debug");
-    DDLogInfo(@"Info");
-    DDLogWarn(@"Warn");
-    DDLogError(@"Error");
+//    [DDLog addLogger:[DDOSLogger sharedInstance] withLevel:ddLogLevel]; // Uses os_log
+//    DDFileLogger *fileLogger = [[DDFileLogger alloc] init]; // File Logger
+//    fileLogger.rollingFrequency = 60 * 60 * 24; // 24 hour rolling
+//    fileLogger.logFileManager.maximumNumberOfLogFiles = 7;
+//    [DDLog addLogger:fileLogger withLevel:ddLogLevel];
+//
+//    NSLog(@"日志初始化成功");
+//    DDLogDebug(@"Debug");
+//    DDLogInfo(@"Info");
+//    NSLog(@"Warn");
+//    DDLogError(@"Error");
     
 }
 @end
