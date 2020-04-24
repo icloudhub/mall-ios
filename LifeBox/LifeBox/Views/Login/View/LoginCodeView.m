@@ -22,6 +22,8 @@
 
 #pragma mark - 创建UI
 - (void)createUI {
+    self.backgroundColor = UIColor.whiteColor;
+    [self ug_radius:S_Radius_MIN];
     /*
      * 分割线1
      */

@@ -158,9 +158,8 @@
     titleView.placeholder = @"万物皆可搜～搜搜更健康";
     titleView.ug_maximumLimit = 20;
     [titleView ug_radius:17];
-//    [titleView ug_borderColorColor:COLOREE width:1];
-   
-    titleView.offset = 8;
+    titleView.backgroundColor = COLOREE;
+    titleView.offset = 10;
     titleView.font = FONT_SYS14;
 
     self.navigationItem.titleView = backView;

@@ -5,7 +5,7 @@ platform :ios, '10.0'
 target 'LifeBox' do
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
    use_frameworks!
-   ∫
+   
    #加载框
    pod 'MBProgressHUD'
    
@@ -26,6 +26,7 @@ target 'LifeBox' do
    
    #适配
    pod 'Masonry'
+   pod 'SnapKit'
    
    #上下拉刷新
    pod 'MJRefresh'
@@ -51,7 +52,7 @@ target 'LifeBox' do
    
    #哆啦A梦测试盒
    pod 'DoraemonKit/Core', :git => "https://gitee.com/yixiangboy/DoraemonKit.git", :tag => '3.0.1', :configurations => ['Debug'] #必选
-#   pod 'DoraemonKit/WithLogger', :git => "https://gitee.com/yixiangboy/DoraemonKit.git", :tag => '3.0.1', :configurations => ['Debug'] #可选
+   pod 'DoraemonKit/WithLogger', :git => "https://gitee.com/yixiangboy/DoraemonKit.git", :tag => '3.0.1', :configurations => ['Debug'] #可选
    pod 'DoraemonKit/WithGPS', :git => "https://gitee.com/yixiangboy/DoraemonKit.git", :tag => '3.0.1', :configurations => ['Debug'] #可选
    pod 'DoraemonKit/WithLoad', :git => "https://gitee.com/yixiangboy/DoraemonKit.git", :tag => '3.0.1', :configurations => ['Debug'] #可选
    pod 'DoraemonKit/WithDatabase', :git => "https://gitee.com/yixiangboy/DoraemonKit.git", :tag => '3.0.1', :configurations => ['Debug'] #可选

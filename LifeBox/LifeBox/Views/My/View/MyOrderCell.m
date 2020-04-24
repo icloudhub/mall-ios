@@ -100,7 +100,11 @@
     PersonIconData *fourData = [[PersonIconData alloc] init];
     fourData.imgStr = @"ic_comment";
     fourData.titleStr = @"待评价";
-    dataArr = [[NSMutableArray alloc] initWithObjects:oneData, twoData, thrData, fourData, nil];
+    
+    PersonIconData *fiveData = [[PersonIconData alloc] init];
+    fiveData.imgStr = @"ic_comment";
+    fiveData.titleStr = @"售后";
+    dataArr = [[NSMutableArray alloc] initWithObjects:oneData, twoData, thrData, fourData,fiveData, nil];
     [collectionView reloadData];
 }
 
@@ -120,12 +124,12 @@
 
 //设置CollectionView每组所包含的个数
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 4;
+    return dataArr.count;
 }
 
 //定义每个UICollectionView的大小
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake((Screen_width - Scale750(65))/4, Scale750(170));
+    return CGSizeMake((Screen_width - Scale750(65))/dataArr.count, Scale750(170));
 }
 
 //定义整个CollectionViewCell与整个View的间距

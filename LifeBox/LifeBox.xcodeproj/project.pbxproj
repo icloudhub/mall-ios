@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		050E0476230D84D800DA5BFD /* my_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 050E0475230D84D800DA5BFD /* my_background.png */; };
-		050E047A230D86D400DA5BFD /* SafeAreaInsets.m in Sources */ = {isa = PBXBuildFile; fileRef = 050E0479230D86D400DA5BFD /* SafeAreaInsets.m */; };
 		050E047D230D943900DA5BFD /* ic_setting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 050E047B230D943900DA5BFD /* ic_setting@2x.png */; };
 		050E047E230D943900DA5BFD /* ic_setting@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 050E047C230D943900DA5BFD /* ic_setting@3x.png */; };
 		050E0485230D96BC00DA5BFD /* ic_avatarHeadImg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 050E0483230D96BC00DA5BFD /* ic_avatarHeadImg@3x.png */; };
@@ -267,6 +266,10 @@
 		84BA6F942376505F0047796E /* GoodsBuyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BA6F932376505F0047796E /* GoodsBuyView.m */; };
 		84BC7F2C243723F00044874F /* OrderListData.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BC7F2B243723F00044874F /* OrderListData.m */; };
 		84C29209235DEF5B00034213 /* NetWorkRequest+Business.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C29207235DEF5B00034213 /* NetWorkRequest+Business.m */; };
+		84C627BC2452D2BD00A76AA4 /* AfterSalesListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C627B82452D2BD00A76AA4 /* AfterSalesListVC.m */; };
+		84C627BD2452D2BD00A76AA4 /* AfterSalesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C627BA2452D2BD00A76AA4 /* AfterSalesTableViewCell.m */; };
+		84C627C32452D31200A76AA4 /* AfterSalesListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C627C22452D31200A76AA4 /* AfterSalesListHeaderView.swift */; };
+		84C627C52452E5AD00A76AA4 /* Swift-PCH.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C627C42452E5AD00A76AA4 /* Swift-PCH.swift */; };
 		84DAE0CC23FBDEC4004FD675 /* SpeSheetHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DAE0CB23FBDEC4004FD675 /* SpeSheetHeadView.m */; };
 		84F3400E23B4BA4100BAE696 /* NetWorkRequest+MyInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F3400C23B4BA4100BAE696 /* NetWorkRequest+MyInterface.m */; };
 		84F3401323B4BA5C00BAE696 /* AddressData.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F3400F23B4BA5C00BAE696 /* AddressData.m */; };
@@ -293,8 +296,6 @@
 
 /* Begin PBXFileReference section */
 		050E0475230D84D800DA5BFD /* my_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = my_background.png; sourceTree = "<group>"; };
-		050E0478230D86D400DA5BFD /* SafeAreaInsets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SafeAreaInsets.h; sourceTree = "<group>"; };
-		050E0479230D86D400DA5BFD /* SafeAreaInsets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SafeAreaInsets.m; sourceTree = "<group>"; };
 		050E047B230D943900DA5BFD /* ic_setting@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_setting@2x.png"; sourceTree = "<group>"; };
 		050E047C230D943900DA5BFD /* ic_setting@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_setting@3x.png"; sourceTree = "<group>"; };
 		050E0483230D96BC00DA5BFD /* ic_avatarHeadImg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_avatarHeadImg@3x.png"; sourceTree = "<group>"; };
@@ -681,6 +682,13 @@
 		84BC7F2B243723F00044874F /* OrderListData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderListData.m; sourceTree = "<group>"; };
 		84C29207235DEF5B00034213 /* NetWorkRequest+Business.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NetWorkRequest+Business.m"; path = "LifeBox/Comment/RequestManagement/NetWorkRequest+Business.m"; sourceTree = SOURCE_ROOT; };
 		84C29208235DEF5B00034213 /* NetWorkRequest+Business.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NetWorkRequest+Business.h"; path = "LifeBox/Comment/RequestManagement/NetWorkRequest+Business.h"; sourceTree = SOURCE_ROOT; };
+		84C627B72452D2BD00A76AA4 /* AfterSalesListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AfterSalesListVC.h; sourceTree = "<group>"; };
+		84C627B82452D2BD00A76AA4 /* AfterSalesListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AfterSalesListVC.m; sourceTree = "<group>"; };
+		84C627BA2452D2BD00A76AA4 /* AfterSalesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AfterSalesTableViewCell.m; sourceTree = "<group>"; };
+		84C627BB2452D2BD00A76AA4 /* AfterSalesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AfterSalesTableViewCell.h; sourceTree = "<group>"; };
+		84C627BE2452D2CC00A76AA4 /* LifeBox-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LifeBox-Bridging-Header.h"; sourceTree = "<group>"; };
+		84C627C22452D31200A76AA4 /* AfterSalesListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterSalesListHeaderView.swift; sourceTree = "<group>"; };
+		84C627C42452E5AD00A76AA4 /* Swift-PCH.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Swift-PCH.swift"; sourceTree = "<group>"; };
 		84DAE0CA23FBDEC4004FD675 /* SpeSheetHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpeSheetHeadView.h; sourceTree = "<group>"; };
 		84DAE0CB23FBDEC4004FD675 /* SpeSheetHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpeSheetHeadView.m; sourceTree = "<group>"; };
 		84F3400C23B4BA4100BAE696 /* NetWorkRequest+MyInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NetWorkRequest+MyInterface.m"; sourceTree = "<group>"; };
@@ -721,15 +729,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		050E0477230D86AA00DA5BFD /* SafeAreaInsets */ = {
-			isa = PBXGroup;
-			children = (
-				050E0478230D86D400DA5BFD /* SafeAreaInsets.h */,
-				050E0479230D86D400DA5BFD /* SafeAreaInsets.m */,
-			);
-			path = SafeAreaInsets;
-			sourceTree = "<group>";
-		};
 		0513E22C233359060008709B /* SheetView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1017,6 +1016,8 @@
 				8461E18523013A6B00764748 /* Main.storyboard */,
 				8461E18723013A6B00764748 /* main.m */,
 				8461E19623013A6B00764748 /* Info.plist */,
+				84C627C42452E5AD00A76AA4 /* Swift-PCH.swift */,
+				84C627BE2452D2CC00A76AA4 /* LifeBox-Bridging-Header.h */,
 			);
 			path = LifeBox;
 			sourceTree = "<group>";
@@ -1028,7 +1029,6 @@
 				052DCA0D237A93BC00C16128 /* LifeTextField */,
 				0513E22C233359060008709B /* SheetView */,
 				053791AC231B94CD00DF4DA0 /* NoDataView */,
-				050E0477230D86AA00DA5BFD /* SafeAreaInsets */,
 				8461E15723013A6B00764748 /* Magic.h */,
 				8461E15823013A6B00764748 /* Config */,
 				8461E15B23013A6B00764748 /* SupleClass */,
@@ -1267,6 +1267,7 @@
 		8461E18923013A6B00764748 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				84C627B52452D2BD00A76AA4 /* AfterSales */,
 				20A2F514237162C100B2C7AF /* WebView */,
 				8478A25E2326384A005681CF /* Shopping */,
 				84B954CC23235FB400A7E8D2 /* Orlder */,
@@ -1605,6 +1606,42 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		84C627B52452D2BD00A76AA4 /* AfterSales */ = {
+			isa = PBXGroup;
+			children = (
+				84C627C12452D2EF00A76AA4 /* View */,
+				84C627B62452D2BD00A76AA4 /* Controller */,
+				84C627B92452D2BD00A76AA4 /* Cell */,
+			);
+			path = AfterSales;
+			sourceTree = "<group>";
+		};
+		84C627B62452D2BD00A76AA4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				84C627B72452D2BD00A76AA4 /* AfterSalesListVC.h */,
+				84C627B82452D2BD00A76AA4 /* AfterSalesListVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		84C627B92452D2BD00A76AA4 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				84C627BA2452D2BD00A76AA4 /* AfterSalesTableViewCell.m */,
+				84C627BB2452D2BD00A76AA4 /* AfterSalesTableViewCell.h */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		84C627C12452D2EF00A76AA4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				84C627C22452D31200A76AA4 /* AfterSalesListHeaderView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		84F3400B23B4BA4100BAE696 /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -1686,6 +1723,7 @@
 				TargetAttributes = {
 					053A751B22F484BA0023A156 = {
 						CreatedOnToolsVersion = 10.3;
+						LastSwiftMigration = 1130;
 					};
 					053A753322F484BA0023A156 = {
 						CreatedOnToolsVersion = 10.3;
@@ -2019,9 +2057,11 @@
 				052DCA13237AA3D600C16128 /* BaseTextField.m in Sources */,
 				05C46977237BE19500D21EA1 /* RegisterController.m in Sources */,
 				8461E1B523013A6B00764748 /* MyTabBarController.m in Sources */,
+				84C627BD2452D2BD00A76AA4 /* AfterSalesTableViewCell.m in Sources */,
 				05BBBB79230F98B500C01FC3 /* MyOrderCell.m in Sources */,
 				05BBBB7C230F98B500C01FC3 /* PersonalCenterCell.m in Sources */,
 				8478A2712326384A005681CF /* NetWorkRequest+Shoping.m in Sources */,
+				84C627C52452E5AD00A76AA4 /* Swift-PCH.swift in Sources */,
 				8461E19F23013A6B00764748 /* NetWorkRequest.m in Sources */,
 				058C83D0232690BF007AA863 /* AddressEditController.m in Sources */,
 				8492B1BB24440E4400DEACCF /* GoodsListViewController.m in Sources */,
@@ -2050,8 +2090,8 @@
 				8492B263244558DE00DEACCF /* BlockCollectionViewFlowLayout.m in Sources */,
 				8461E19823013A6B00764748 /* LifeBoxViewController.m in Sources */,
 				8492B265244558DE00DEACCF /* BlockCollectionViewCell.m in Sources */,
+				84C627C32452D31200A76AA4 /* AfterSalesListHeaderView.swift in Sources */,
 				05C4696F237B9EC200D21EA1 /* WPTappableLabel.m in Sources */,
-				050E047A230D86D400DA5BFD /* SafeAreaInsets.m in Sources */,
 				20D763B92373FC1500D513BC /* DorConfigServiceVC.m in Sources */,
 				8492B1C424446DE500DEACCF /* UGSuperPlayView.m in Sources */,
 				0531EA002338AAA000775D79 /* ChangeNickNameController.m in Sources */,
@@ -2074,6 +2114,7 @@
 				059F2CD12324070B0045BA65 /* FeedbackController.m in Sources */,
 				8461E1B123013A6B00764748 /* AppDelegate.m in Sources */,
 				8437F2D523F53C9C00CC0418 /* CategoryModel.m in Sources */,
+				84C627BC2452D2BD00A76AA4 /* AfterSalesListVC.m in Sources */,
 				055C0CB3233DAC5400302E7A /* GoodsSpeSheet.m in Sources */,
 				84B2E0772307C97300BC9197 /* NetWorkRequest+Goods.m in Sources */,
 				84B954E22324E3BE00A7E8D2 /* OrderDefData.m in Sources */,
@@ -2215,7 +2256,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -2269,7 +2310,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -2282,20 +2323,25 @@
 			baseConfigurationReference = 1C30ECA15C1E0199568E084A /* Pods-LifeBox.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C3NDDQ4G8T;
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/LifeBox/LifeBoxHeader.pch";
 				INFOPLIST_FILE = LifeBox/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dehome.dev;
 				PRODUCT_NAME = "生活宝";
-				TARGETED_DEVICE_FAMILY = 1;
+				SWIFT_OBJC_BRIDGING_HEADER = "LifeBox/LifeBox-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "LifeBox-Swift.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -2304,20 +2350,24 @@
 			baseConfigurationReference = 4CA0226A52EDF4D7BD639A38 /* Pods-LifeBox.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C3NDDQ4G8T;
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/LifeBox/LifeBoxHeader.pch";
 				INFOPLIST_FILE = LifeBox/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dehome.dev;
 				PRODUCT_NAME = "生活宝";
-				TARGETED_DEVICE_FAMILY = 1;
+				SWIFT_OBJC_BRIDGING_HEADER = "LifeBox/LifeBox-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "LifeBox-Swift.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -2325,6 +2375,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4AD101B6451A24A944A808A5 /* Pods-LifeBoxTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C3NDDQ4G8T;
@@ -2345,6 +2396,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CF018FD20FA4FDD9D71E8F8B /* Pods-LifeBoxTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C3NDDQ4G8T;
@@ -2365,6 +2417,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8B45816D0134074CDFF8F87E /* Pods-LifeBoxUITests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = LifeBoxUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2383,6 +2436,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 70DF15BA9A752691008E2DCA /* Pods-LifeBoxUITests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = LifeBoxUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

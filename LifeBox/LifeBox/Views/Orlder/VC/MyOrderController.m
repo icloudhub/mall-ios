@@ -20,6 +20,7 @@
     ///数据数组
     
 }
+
 ///数据展示tableView
 @property(strong, nonatomic) UITableView *tableView;
 @property(strong, nonatomic) UIButton *selectbtn;//背选中的btn
@@ -31,6 +32,10 @@ static NSString *cellID = @"OrderViewCellID";
 
 @implementation MyOrderController
 
+-(void)loadView{
+    [super loadView];
+
+}
 #pragma mark - 视图层
 - (void)viewDidLoad {
     [super viewDidLoad];

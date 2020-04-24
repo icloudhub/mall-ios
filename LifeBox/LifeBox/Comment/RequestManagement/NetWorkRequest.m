@@ -35,13 +35,15 @@ static AFHTTPSessionManager *afManager = nil;
 }
 
 -(void)post:(NSString*)url param:(NSDictionary *)param head:(NSDictionary *)head endblock:(NREndBlock)endblock{
-    
+    NSMutableDictionary *headerField = [@{} mutableCopy];
     if ([Global_Variable shared].token) {
         [afManager.requestSerializer setValue:[Global_Variable shared].token forHTTPHeaderField:@"Authorization"];
+        [headerField setObject:[Global_Variable shared].token forKey:@"Authorization"];
     }
     NSString *cookie = [[NSUserDefaults standardUserDefaults] objectForKey:@"Set-Cookie"];
     if (cookie != nil) {
         [afManager.requestSerializer setValue:cookie forHTTPHeaderField:@"Cookie"];
+       
     }
     
     [afManager.requestSerializer setValue:[self getclientAgent] forHTTPHeaderField:@"client_Agent"];
@@ -54,7 +56,8 @@ static AFHTTPSessionManager *afManager = nil;
     //网络判断
 
     //开始请求
-    [afManager POST:url parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [afManager POST:url parameters:param headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+  
         
         NSHTTPURLResponse* response = (NSHTTPURLResponse* )task.response;
         NSDictionary *allHeaderFieldsDic = response.allHeaderFields;
@@ -114,7 +117,7 @@ static AFHTTPSessionManager *afManager = nil;
         [afManager.requestSerializer setValue:cookie forHTTPHeaderField:@"Cookie"];
     }
     [afManager.requestSerializer setValue:[self getclientAgent] forHTTPHeaderField:@"client_Agent"];
-    [afManager GET:url parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [afManager GET:url parameters:param headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSHTTPURLResponse* response = (NSHTTPURLResponse* )task.response;
         NSDictionary *allHeaderFieldsDic = response.allHeaderFields;
         NSString *setCookie = allHeaderFieldsDic[@"Set-Cookie"];

@@ -123,3 +123,5 @@ playground.xcworkspace
 
 LifeBox/LifeBox.xcodeproj/xcshareddata/xcschemes/LifeBox.xcscheme
 BusinseeLifeBox/Podfile.lock
+*.xcuserstate
+*./.DS_Store

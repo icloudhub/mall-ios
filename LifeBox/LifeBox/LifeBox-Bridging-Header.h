@@ -1,13 +1,5 @@
-//
-//  LifeBoxHeader.pch
-//  LifeBox
-//
-//  Created by Lucky on 2019/8/2.
-//  Copyright © 2019 Lucky. All rights reserved.
-//
 
-#ifndef LifeBoxHeader_pch
-#define LifeBoxHeader_pch
+
 
 /*
  * 头文件引用
@@ -37,9 +29,3 @@
 #import <FontAwesome_iOS/UIImage+FontAwesome.h>
 #import <FontAwesome_iOS/NSString+FontAwesome.h>
 #import <UGBox/Base.h>
-#import "LifeBox-Swift.h"
-
-
-
-
-#endif /* LifeBoxHeader_pch */

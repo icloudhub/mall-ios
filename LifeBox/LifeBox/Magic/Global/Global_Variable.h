@@ -34,7 +34,10 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - App版本
 - (NSString *)getAppVersion;
 
-
+/**
+ 清理用户数据（注销）
+ */
+-(void)clearUserData;
 @end
 
 NS_ASSUME_NONNULL_END

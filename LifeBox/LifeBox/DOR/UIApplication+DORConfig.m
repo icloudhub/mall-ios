@@ -10,6 +10,8 @@
 #ifdef DEBUG
 #import <DoraemonKit/DoraemonManager.h>
 #import <DoraemonKit/DoraemonUtil.h>
+#import <DoraemonKit/DoraemonHomeWindow.h>
+
 
 @implementation UIApplication (DORConfig)
 
@@ -29,6 +31,12 @@
     [[DoraemonManager shareInstance] addPluginWithTitle:@"商品分类" icon:@"doraemon_ui" desc:@"商品分类" pluginName:@"DorGoodsClassesVC" atModule:@"功能测试"];
     
     [[DoraemonManager shareInstance] addPluginWithTitle:@"弹框" icon:@"doraemon_ui" desc:@"弹框" pluginName:@"DorAlert" atModule:@"功能测试"];
+    
+    [[DoraemonManager shareInstance] addPluginWithTitle:@"售后列表" icon:@"doraemon_ui" desc:@"售后列表" pluginName:@"" atModule:@"功能测试" handle:^(NSDictionary * _Nonnull itemData) {
+        Class cls = NSClassFromString(@"AfterSalesListVC");
+        UIViewController *viewcontroller =  [cls new];
+        [DoraemonHomeWindow openPlugin:viewcontroller];
+    }];
     
 
     

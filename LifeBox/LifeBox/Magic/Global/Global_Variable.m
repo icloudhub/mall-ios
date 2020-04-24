@@ -105,4 +105,12 @@ static Global_Variable *sharedInstance = nil;
     return [NSString stringWithFormat:@"Bearer%@",[userinfo objectForKey:@"token"]];
 }
 
+
+/**
+ 清理用户数据（注销）
+ */
+-(void)clearUserData{
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"LoginUserInfo"];
+}
+
 @end

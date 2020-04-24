@@ -203,7 +203,6 @@ static NSString *toolCellID = @"ToolCellID";
             break;
     }
     MyOrderController *orderCtl = [[MyOrderController alloc] init];
-    orderCtl.hidesBottomBarWhenPushed = YES;
     orderCtl.selectIndex = selectIndex;
     [self.navigationController pushViewController:orderCtl animated:YES];
     NSLog(@"\n🏷当前订单模块点击: %ld🏷", (long)selectIndex);

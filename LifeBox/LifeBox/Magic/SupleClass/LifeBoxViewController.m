@@ -13,24 +13,24 @@
 @end
 
 @implementation LifeBoxViewController
-
+-(instancetype)init{
+    if (self == [super init]) {
+        
+    }
+    return self;
+}
 #pragma mark - 视图周期
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    self.navigationController.navigationBar.translucent = NO;
     self.view.backgroundColor = S_COBackground;
     /*
      * 获取当前类名
      */
     NSString *className = NSStringFromClass([self class]);
     NSLog(@"\n🏷当前业务类名: %@🏷", className);
-    //添加测试按钮
-//    self.refreshBtn = [UIButton new];
-//    [_refreshBtn setTitle:@"刷新" forState:UIControlStateNormal];
-//    [_refreshBtn setBackgroundColor:UIColor.redColor];
-//    [self.view addSubview:_refreshBtn];
-//    [_refreshBtn ug_addEvents:UIControlEventTouchUpInside andBlock:^(id  _Nonnull sender) {
-//        [self loadData];
-//    }];
+
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];

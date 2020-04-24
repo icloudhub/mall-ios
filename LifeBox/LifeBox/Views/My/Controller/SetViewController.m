@@ -65,6 +65,9 @@ static NSString *infoCellID = @"SetInfoCellID";
     [outBtn setBackgroundColor:S_COGreenBack];
     [outBtn setTitle:@"退出登录" forState:UIControlStateNormal];
     [outBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [outBtn ug_addEvents:UIControlEventTouchUpInside andBlock:^(id  _Nonnull sender) {
+        [[Global_Variable shared] clearUserData];
+    }];
     [self.view addSubview:outBtn];
     [outBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self->tableView.mas_bottom).mas_offset(Scale750(120));

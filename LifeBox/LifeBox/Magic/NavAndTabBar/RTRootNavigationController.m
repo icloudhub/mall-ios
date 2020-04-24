@@ -641,6 +641,7 @@ __attribute((overloadable)) static inline UIViewController *RTSafeWrapViewContro
                   animated:(BOOL)animated
 {
     if (self.viewControllers.count > 0) {
+        [viewController setHidesBottomBarWhenPushed:YES];
         UIViewController *currentLast = RTSafeUnwrapViewController(self.viewControllers.lastObject);
         [super pushViewController:RTSafeWrapViewController(viewController,
                                                            viewController.rt_navigationBarClass,
@@ -648,6 +649,7 @@ __attribute((overloadable)) static inline UIViewController *RTSafeWrapViewContro
                                                            currentLast.navigationItem.backBarButtonItem,
                                                            currentLast.title)
                          animated:animated];
+        
     }
     else {
         [super pushViewController:RTSafeWrapViewController(viewController, viewController.rt_navigationBarClass)

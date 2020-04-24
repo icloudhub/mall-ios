@@ -68,9 +68,7 @@
     
     // 设置分栏元素项的颜色
     tabBar.tintColor = [UIColor ug_random];
-    
-    // 设置分栏按钮的选中指定图片
-//    tabBar.selectionIndicatorImage = [UIImage imageWithIcon:@"fa-github" backgroundColor:[UIColor clearColor] iconColor:COLOR_DEF andSize:CGSizeMake(20, 20)];
+
     tabBarCtrl.tabBar.tintColor = COLOR_DEF;
  
     [[UIApplication sharedApplication].keyWindow makeKeyAndVisible];
