@@ -36,7 +36,8 @@
 #import <FontAwesome_iOS/UIFont+FontAwesome.h>
 #import <FontAwesome_iOS/UIImage+FontAwesome.h>
 #import <FontAwesome_iOS/NSString+FontAwesome.h>
-#import <UGBox/Base.h>
+#import <UGBox/UGBox.h>
+#import <UGBox/UGBox-Swift.h>
 #import "LifeBox-Swift.h"
 
 

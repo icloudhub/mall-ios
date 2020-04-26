@@ -14,10 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface LifeBoxViewController : UIViewController
 
 #pragma mark - 属性
-/**
- * 网络请求
- */
-@property (strong, nonatomic) NetWorkRequest *request;
+
+
+-(void)leftNavBarTouchUpInside:(UIButton*)sender;
 
 @end
 

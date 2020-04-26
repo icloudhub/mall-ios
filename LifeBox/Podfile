@@ -48,8 +48,9 @@ target 'LifeBox' do
    #字体
    pod 'FontAwesome+iOS', :git => 'https://github.com/alexdrone/ios-fontawesome' #fontawesome字体
   
-   pod 'UGBox/all', :git => "https://gitee.com/UbunGit/UGOCMagicbox.git" #fontawesome字体
+   pod 'UGBox', :git => "https://gitee.com/UbunGit/UGOCMagicbox.git"
    
+  
    #哆啦A梦测试盒
    pod 'DoraemonKit/Core', :git => "https://gitee.com/yixiangboy/DoraemonKit.git", :tag => '3.0.1', :configurations => ['Debug'] #必选
    pod 'DoraemonKit/WithLogger', :git => "https://gitee.com/yixiangboy/DoraemonKit.git", :tag => '3.0.1', :configurations => ['Debug'] #可选

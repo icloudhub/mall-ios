@@ -22,7 +22,7 @@ static NSString *cellID = @"CollectionCellID";
 #pragma mark - 视图层
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setWhiteNaviWithTitle:@"收藏"];
+    [self setTitle:@"收藏"];
     self.view.backgroundColor = S_COBackground;
     [self createUI];
     [self getHttpRequest];

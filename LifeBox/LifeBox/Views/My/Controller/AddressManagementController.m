@@ -28,7 +28,7 @@ static NSString *cellID = @"AddressManageCellID";
 #pragma mark - 视图层
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setWhiteNaviWithTitle:@"收货地址"];
+    [self setTitle:@"收货地址"];
     self.view.backgroundColor = S_COBackground;
     [self createUI];
 }

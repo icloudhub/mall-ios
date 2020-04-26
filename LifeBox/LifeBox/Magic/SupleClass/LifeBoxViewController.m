@@ -25,6 +25,16 @@
 
     self.navigationController.navigationBar.translucent = NO;
     self.view.backgroundColor = S_COBackground;
+    //导航拦
+    if (self.navigationController.viewControllers.count > 1) {
+        UIButton *itemButtom = [UIButton new];
+        [itemButtom setFrame:CGRectMake(0, 0, 30, 40)];
+        [itemButtom setImage:[UIImage imageWithIcon:@"fa-angle-left" backgroundColor:UIColor.clearColor iconColor:COLOR23 andSize:CGSizeMake(25, 25)] forState:UIControlStateNormal];
+        [itemButtom addTarget:self action:@selector(leftNavBarTouchUpInside:) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *button = [[UIBarButtonItem alloc]
+                                   initWithCustomView:itemButtom];
+        [self.navigationItem setLeftBarButtonItems:@[button]];
+    }
     /*
      * 获取当前类名
      */
@@ -41,14 +51,13 @@
     [self.view endEditing:YES];
 }
 
-#pragma mark - 获取网络实例
-- (NetWorkRequest *)request {
-    _request = [[NetWorkRequest alloc] init];
-    return _request;
-}
+
 
 -(void)loadData{
     NSLog(@"父类刷新");
+}
+-(void)leftNavBarTouchUpInside:(UIButton*)sender{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)viewLayoutMarginsDidChange{

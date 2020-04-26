@@ -66,7 +66,7 @@ static NSString *priceCellID = @"DetailsPriceCellID";
 #pragma mark - 视图层
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setWhiteNaviWithTitle:@"订单详情"];
+    [self setTitle:@"订单详情"];
     self.view.backgroundColor = S_COBackground;
     [self createUI];
     [self getConfirmOrderInfo];

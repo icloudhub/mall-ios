@@ -20,7 +20,7 @@
 #pragma mark - 视图层
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setWhiteNaviWithTitle:@"优惠券"];
+    [self setTitle:@"优惠券"];
     self.view.backgroundColor = S_COBackground;
     [self createUI];
 }

@@ -170,7 +170,7 @@
     UIButton *litemButtom = [UIButton  buttonWithType:UIButtonTypeCustom];
     [litemButtom setFrame:CGRectMake(0, 0, 30, 40)];
     [litemButtom setImage:[UIImage imageWithIcon:@"fa-angle-left" backgroundColor:UIColor.clearColor iconColor:COLOR23 andSize:CGSizeMake(25, 25)] forState:UIControlStateNormal];
-    [litemButtom addTarget:self action:@selector(leftBarButtonItemClick) forControlEvents:UIControlEventTouchUpInside];
+    [litemButtom addTarget:self action:@selector(leftNavBarTouchUpInside:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *lbutton = [[UIBarButtonItem alloc]
                                initWithCustomView:litemButtom];
     [self.navigationItem setLeftBarButtonItem:lbutton];

@@ -52,9 +52,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     if (_passData == nil) {
-        [self setWhiteNaviWithTitle:@"新增收货地址"];
+        [self setTitle:@"新增收货地址"];
     }else{
-        [self setWhiteNaviWithTitle:@"编辑收货地址"];
+        [self setTitle:@"编辑收货地址"];
     }
     self.view.backgroundColor = S_COBackground;
     [self createUI];

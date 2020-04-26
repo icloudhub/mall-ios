@@ -26,7 +26,7 @@
 #pragma mark - 视图层
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setWhiteNaviWithTitle:@"修改昵称"];
+    [self setTitle:@"修改昵称"];
     self.view.backgroundColor = S_COBackground;
     [self createUI];
 }

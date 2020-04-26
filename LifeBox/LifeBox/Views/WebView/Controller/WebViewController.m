@@ -26,7 +26,7 @@
 }
 
 -(void)configUI{
-    [self setWhiteNaviWithTitle:self.title];
+    [self setTitle:self.title];
      [self.view addSubview:self.progressView];
 }
 -(WKWebView *)webview{

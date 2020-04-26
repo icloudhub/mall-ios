@@ -29,7 +29,7 @@ static NSString *oneCellID = @"SetPersonInfoCellID";
 #pragma mark - 视图层
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setWhiteNaviWithTitle:@"个人资料"];
+    [self setTitle:@"个人资料"];
     self.view.backgroundColor = S_COBackground;
     [self createUI];
 }
