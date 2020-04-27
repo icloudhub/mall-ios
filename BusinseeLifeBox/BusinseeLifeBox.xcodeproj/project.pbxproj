@@ -13,6 +13,12 @@
 		8444A84F24260B3F007A0B25 /* NetWorkRequest+shop.m in Sources */ = {isa = PBXBuildFile; fileRef = 8444A84E24260B3F007A0B25 /* NetWorkRequest+shop.m */; };
 		8444A85224260BC0007A0B25 /* ShopDefModen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8444A85124260BC0007A0B25 /* ShopDefModen.swift */; };
 		8444A857242743EB007A0B25 /* WKwebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8444A856242743EB007A0B25 /* WKwebViewController.swift */; };
+		844C89AC245719C200B0ABFE /* ProductDefVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 844C89AB245719C200B0ABFE /* ProductDefVC.m */; };
+		844C89AF24571C8200B0ABFE /* ProductItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 844C89AE24571C8200B0ABFE /* ProductItem.m */; };
+		844C89B224571D1500B0ABFE /* ProductDefBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 844C89B124571D1500B0ABFE /* ProductDefBaseCell.m */; };
+		844C89B5245721E000B0ABFE /* ProductCellData.m in Sources */ = {isa = PBXBuildFile; fileRef = 844C89B4245721E000B0ABFE /* ProductCellData.m */; };
+		844C89B8245722A200B0ABFE /* ProductDefSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 844C89B7245722A200B0ABFE /* ProductDefSelectView.m */; };
+		844C89BE245724E000B0ABFE /* ProductDefSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 844C89BD245724E000B0ABFE /* ProductDefSelectCell.m */; };
 		844FD459242C875000F08E80 /* SuperNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 844FD458242C875000F08E80 /* SuperNavigationController.m */; };
 		848BB8D7242483030044E1C2 /* UGCategory.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 848BB7D1242483030044E1C2 /* UGCategory.podspec */; };
 		848BB8D8242483030044E1C2 /* UIImage+UG.m in Sources */ = {isa = PBXBuildFile; fileRef = 848BB7D5242483030044E1C2 /* UIImage+UG.m */; };
@@ -132,6 +138,18 @@
 		8444A84E24260B3F007A0B25 /* NetWorkRequest+shop.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NetWorkRequest+shop.m"; sourceTree = "<group>"; };
 		8444A85124260BC0007A0B25 /* ShopDefModen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDefModen.swift; sourceTree = "<group>"; };
 		8444A856242743EB007A0B25 /* WKwebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKwebViewController.swift; sourceTree = "<group>"; };
+		844C89AA245719C200B0ABFE /* ProductDefVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProductDefVC.h; sourceTree = "<group>"; };
+		844C89AB245719C200B0ABFE /* ProductDefVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProductDefVC.m; sourceTree = "<group>"; };
+		844C89AD24571C8200B0ABFE /* ProductItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProductItem.h; sourceTree = "<group>"; };
+		844C89AE24571C8200B0ABFE /* ProductItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProductItem.m; sourceTree = "<group>"; };
+		844C89B024571D1500B0ABFE /* ProductDefBaseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProductDefBaseCell.h; sourceTree = "<group>"; };
+		844C89B124571D1500B0ABFE /* ProductDefBaseCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProductDefBaseCell.m; sourceTree = "<group>"; };
+		844C89B3245721E000B0ABFE /* ProductCellData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProductCellData.h; sourceTree = "<group>"; };
+		844C89B4245721E000B0ABFE /* ProductCellData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProductCellData.m; sourceTree = "<group>"; };
+		844C89B6245722A200B0ABFE /* ProductDefSelectView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProductDefSelectView.h; sourceTree = "<group>"; };
+		844C89B7245722A200B0ABFE /* ProductDefSelectView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProductDefSelectView.m; sourceTree = "<group>"; };
+		844C89BC245724E000B0ABFE /* ProductDefSelectCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProductDefSelectCell.h; sourceTree = "<group>"; };
+		844C89BD245724E000B0ABFE /* ProductDefSelectCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProductDefSelectCell.m; sourceTree = "<group>"; };
 		844FD457242C875000F08E80 /* SuperNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SuperNavigationController.h; sourceTree = "<group>"; };
 		844FD458242C875000F08E80 /* SuperNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SuperNavigationController.m; sourceTree = "<group>"; };
 		848BB7CF242483030044E1C2 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1115,6 +1133,18 @@
 			isa = PBXGroup;
 			children = (
 				848BB8B7242483030044E1C2 /* ProductAddViewController.swift */,
+				844C89AA245719C200B0ABFE /* ProductDefVC.h */,
+				844C89AB245719C200B0ABFE /* ProductDefVC.m */,
+				844C89B3245721E000B0ABFE /* ProductCellData.h */,
+				844C89B4245721E000B0ABFE /* ProductCellData.m */,
+				844C89AD24571C8200B0ABFE /* ProductItem.h */,
+				844C89AE24571C8200B0ABFE /* ProductItem.m */,
+				844C89B024571D1500B0ABFE /* ProductDefBaseCell.h */,
+				844C89B124571D1500B0ABFE /* ProductDefBaseCell.m */,
+				844C89B6245722A200B0ABFE /* ProductDefSelectView.h */,
+				844C89B7245722A200B0ABFE /* ProductDefSelectView.m */,
+				844C89BC245724E000B0ABFE /* ProductDefSelectCell.h */,
+				844C89BD245724E000B0ABFE /* ProductDefSelectCell.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1390,6 +1420,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				848BB93C242483030044E1C2 /* UGZoneViewController.m in Sources */,
+				844C89BE245724E000B0ABFE /* ProductDefSelectCell.m in Sources */,
+				844C89B8245722A200B0ABFE /* ProductDefSelectView.m in Sources */,
 				848BB929242483030044E1C2 /* SettingViewController.swift in Sources */,
 				848BB905242483030044E1C2 /* DORTestBarcollectionViewVC.m in Sources */,
 				848BB935242483030044E1C2 /* ProductAddSelectCell.swift in Sources */,
@@ -1432,7 +1464,9 @@
 				848BB915242483030044E1C2 /* BlockCollectionViewCell.m in Sources */,
 				848BB8F9242483030044E1C2 /* UGAlignmentButton.m in Sources */,
 				848BB8F7242483030044E1C2 /* UGSpeekView.m in Sources */,
+				844C89B224571D1500B0ABFE /* ProductDefBaseCell.m in Sources */,
 				848BB8E4242483030044E1C2 /* NSObject+UG.m in Sources */,
+				844C89AC245719C200B0ABFE /* ProductDefVC.m in Sources */,
 				848BB932242483030044E1C2 /* ProductCellModen.swift in Sources */,
 				848BB8DC242483030044E1C2 /* UIView+WY_Extension.m in Sources */,
 				848BB8FA242483030044E1C2 /* UGWaverView.m in Sources */,
@@ -1450,6 +1484,7 @@
 				848BB93B242483030044E1C2 /* UGZoneData.m in Sources */,
 				848BB8D8242483030044E1C2 /* UIImage+UG.m in Sources */,
 				848BB906242483030044E1C2 /* BarcollectionView.m in Sources */,
+				844C89B5245721E000B0ABFE /* ProductCellData.m in Sources */,
 				848BB916242483030044E1C2 /* DMViewController.m in Sources */,
 				848BB920242483030044E1C2 /* WelcomViewController.m in Sources */,
 				848BB92F242483030044E1C2 /* ShopToolCell.swift in Sources */,
@@ -1460,6 +1495,7 @@
 				848BB8DD242483030044E1C2 /* UIView+UG.m in Sources */,
 				848BB8DB242483030044E1C2 /* UIColor+UG.m in Sources */,
 				848BB92A242483030044E1C2 /* DanmuViewController.m in Sources */,
+				844C89AF24571C8200B0ABFE /* ProductItem.m in Sources */,
 				8444A8492425FC1D007A0B25 /* ApplyShopViewController.swift in Sources */,
 				848BB936242483030044E1C2 /* ProductAddViewController.swift in Sources */,
 				848BB908242483030044E1C2 /* BlockTableviewTestVC.m in Sources */,

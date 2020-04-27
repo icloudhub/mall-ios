@@ -60,7 +60,7 @@ class ProductAddImagesCell: UITableViewCell,UICollectionViewDelegate,UICollectio
     class func getcellHeight(count: NSInteger) -> CGFloat {
         let tcount = count+1
         let line = tcount/3 + ((tcount%3==0) ? 0 : 1);
-        let conwight = kSWidth-18;
+        let conwight = KWidth-18;
         let lineheight = (conwight-14)/3;
         let cellheight = CGFloat(line) * lineheight
         return  cellheight + (8 * (CGFloat(line)-1)) + 16.0
@@ -93,7 +93,7 @@ extension ProductAddImagesCell{
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let conwight = kSWidth-18;
+        let conwight = KWidth-18;
         return CGSize.init(width: (conwight-14)/3, height: (conwight-14)/3)
     }
     

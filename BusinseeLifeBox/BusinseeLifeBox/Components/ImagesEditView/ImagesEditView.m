@@ -107,7 +107,7 @@
         };
         
         _collectionView.ug_sizeForItemAtIndexPath = ^CGSize(UICollectionView * _Nonnull collectionView, UICollectionViewLayout * _Nonnull layout, NSIndexPath * _Nonnull indexPath) {
-            CGFloat conwight = KSwidth-18;
+            CGFloat conwight = KWidth-18;
             
             return CGSizeMake((conwight-14)/3, (conwight-14)/3);
             
@@ -118,7 +118,7 @@
         };
         
         _collectionView.ug_referenceSizeForHeaderInSection = ^CGSize(UICollectionView * _Nonnull collectionView, UICollectionViewLayout * _Nonnull collectionViewLayout, NSInteger section) {
-            return CGSizeMake(KSwidth, 5);
+            return CGSizeMake(KWidth, 5);
         };
         
         _collectionView.ug_didSelectItemAtIndexPath = ^(UICollectionView * _Nonnull collectionView, NSIndexPath * _Nonnull indexPath) {

@@ -91,7 +91,7 @@
                     UGWave *wave = [[UGWave alloc] initWithStyle:random()%2
                                                        direction:random()%255
                                                        amplitude:10.0f
-                                                           width:KSwidth/2
+                                                           width:KWidth/2
                                                        lineWidth:2.0f
                                                          offsetX:10.0f
                                                            stepX:8.0
@@ -117,7 +117,7 @@
                 break;
             case 1:{
                 
-                UGWaverView *waveView = [[UGWaverView alloc] initWithFrame:CGRectMake(0.0f, 45.0f, KSwidth, 55.0f)];
+                UGWaverView *waveView = [[UGWaverView alloc] initWithFrame:CGRectMake(0.0f, 45.0f, KWidth, 55.0f)];
                 
                 [waveView setCenter:weakSelf.view.center];
                 [weakSelf.view addSubview:waveView];
@@ -126,7 +126,7 @@
                     UGWave *wave = [[UGWave alloc] initWithStyle:random()%2
                                                        direction:random()%255
                                                        amplitude:10.0f
-                                                           width:KSwidth/2
+                                                           width:KWidth/2
                                                        lineWidth:2.0f
                                                          offsetX:10.0f
                                                            stepX:8.0

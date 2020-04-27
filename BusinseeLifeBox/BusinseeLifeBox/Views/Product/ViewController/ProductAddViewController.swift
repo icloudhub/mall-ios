@@ -211,6 +211,8 @@ extension ProductAddViewController{
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
+        case 1:
+            handleSetProductDef()
         case 4:
             handleChooseactivity()
         default: break
@@ -269,7 +271,7 @@ extension ProductAddViewController{
         photoPicker.pickerDelegate  = self
         photoPicker.delegate = self
         
-        photoPicker.cropRect = CGRect.init(x: 0, y: (kSHeight-200)/2, width: kSWidth, height: 200)
+        photoPicker.cropRect = CGRect.init(x: 0, y: (KHeight-200)/2, width: KWidth, height: 200)
         self.present(photoPicker, animated: true, completion: nil)
     }
     
@@ -294,6 +296,10 @@ extension ProductAddViewController{
 }
 // 活动选择
 extension ProductAddViewController{
+    //设置商品详情
+    func handleSetProductDef() {
+        self.routepush("ProductDefVC", param: [:])
+    }
     func handleChooseactivity() {
         let actionSheet = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
         

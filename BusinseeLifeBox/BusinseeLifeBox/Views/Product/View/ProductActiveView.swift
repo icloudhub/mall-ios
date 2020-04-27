@@ -12,7 +12,7 @@ class ProductActiveTimeView: UIView {
 
     lazy var datePicker: UIDatePicker = {
         
-        let datePicker = UIDatePicker(frame: CGRect(x: 0, y: kSHeight-120, width: kSWidth, height: 280))
+        let datePicker = UIDatePicker(frame: CGRect(x: 0, y: KHeight-120, width: KWidth, height: 280))
         datePicker.locale = Locale.init(identifier: "zh_CN")
         datePicker.datePickerMode = UIDatePicker.Mode.dateAndTime
         datePicker.minimumDate = Date()

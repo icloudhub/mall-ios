@@ -10,9 +10,39 @@ import UIKit
 
 typealias didSelectItemBlock = (_ collectionView: UICollectionView, _ indexPath: IndexPath) -> ()
 
+class AfterSalesListHeaderCell: UICollectionViewCell {
+    
+    open lazy var titleLab :UILabel = {
+        () -> UILabel in
+        let titleLab = UILabel()
+        
+        return titleLab;
+    }()
+    
+    open lazy var botimageView :UIImageView = {
+        () -> UIImageView in
+        let botimageView = UIImageView()
+        
+        return botimageView;
+    }()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        addSubview(titleLab)
+        addSubview(botimageView)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+}
+
 class AfterSalesListHeaderView: UIView,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
     @objc var selectItemBlock : didSelectItemBlock?
+    var selectItem:NSDictionary?
     var _items:NSArray?
     @objc var items:NSArray{
         set{
@@ -29,7 +59,7 @@ class AfterSalesListHeaderView: UIView,UICollectionViewDelegate,UICollectionView
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = .white
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.register(AfterSalesListHeaderCell.self, forCellWithReuseIdentifier: "AfterSalesListHeaderCell")
         collectionView.ug_radius(5)
         collectionView.backgroundColor = UIColor.yellow
         return collectionView;
@@ -76,10 +106,11 @@ extension AfterSalesListHeaderView{
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell :UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        let cell :AfterSalesListHeaderCell = collectionView.dequeueReusableCell(withReuseIdentifier: "AfterSalesListHeaderCell", for: indexPath) as! AfterSalesListHeaderCell
         cell.backgroundColor = UIColor.ug_random()
         cell.ug_radius(5)
-//        cell.titleLab.text = "\(indexPath.row)"
+        let celldic:NSDictionary = items.object(at: indexPath.row) as! NSDictionary
+        cell.titleLab.text = celldic.stringValue(forKey: "title", default: "")
         return cell;
     }
     

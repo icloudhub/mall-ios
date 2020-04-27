@@ -25,8 +25,8 @@
 /*
  * 屏幕大小
  */
-#define KSheight   [[UIScreen mainScreen] bounds].size.height
-#define KSwidth    [[UIScreen mainScreen] bounds].size.width
+#define KHeight   [[UIScreen mainScreen] bounds].size.height
+#define KWidth    [[UIScreen mainScreen] bounds].size.width
 //间距
 #define KPAND_DEF 15.0 //默认间距
 #define KPAND_MID 10.0 //小间距
@@ -49,10 +49,10 @@
  * 控件尺寸换算（设计图标注尺寸*(屏幕尺寸宽度/设计图尺寸图片宽度)）
  */
 #define KAutoAcaleExtent(x,Actual,criterion) (x*(Actual/criterion))
-#define KAutoAcale(x) (x*(KSwidth/320.0))
-#define KAutoAcale640(x) (x*(KSwidth/640.0))
-#define KAutoAcale720(x) (x*(KSwidth/720.0))
-#define KAutoAcale750(x) (x*(KSwidth/750.0))
+#define KAutoAcale(x) (x*(KWidth/320.0))
+#define KAutoAcale640(x) (x*(KWidth/640.0))
+#define KAutoAcale720(x) (x*(KWidth/720.0))
+#define KAutoAcale750(x) (x*(KWidth/750.0))
 
 #pragma mark - 同步安全线程
 /*

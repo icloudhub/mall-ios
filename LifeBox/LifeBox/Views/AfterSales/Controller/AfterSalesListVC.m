@@ -29,6 +29,7 @@
     [self.view addSubview:self.tableView];
     [self.view addSubview:self.headerView];
 }
+
 -(NSMutableArray *)datalist{
     if (!_datalist) {
         _datalist = [@[@"0",@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9"] mutableCopy];
@@ -38,7 +39,12 @@
 -(AfterSalesListHeaderView *)headerView{
     if (!_headerView) {
         _headerView = [AfterSalesListHeaderView new];
-        _headerView.items = @[@"1",@"1",@"1",@"1"];
+        _headerView.items = @[
+            @{@"title": @"售后申请"},
+            @{@"title": @"处理中"},
+            @{@"title": @"售后评价"},
+            @{@"title": @"申请记录"}
+        ];
         [_headerView setSelectItemBlock:^(UICollectionView * collectionView, NSIndexPath * indexPath) {
             [self.view ug_msg:@"000"];
         }];

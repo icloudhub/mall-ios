@@ -9,8 +9,8 @@
 import Foundation
 
 
-public let kSWidth  : CGFloat = UIScreen.main.bounds.size.width
-public let kSHeight : CGFloat = UIScreen.main.bounds.size.height
+public let KWidth  : CGFloat = UIScreen.main.bounds.size.width
+public let KHeight : CGFloat = UIScreen.main.bounds.size.height
 
 /*
  * 安全边界
@@ -31,7 +31,7 @@ public let kAppCurVersion :String? = (Bundle.main.infoDictionary!["CFBundleShort
 
 /// 375设计图按比例计算值
 func KAutoAcale (value :CGFloat) -> CGFloat{
-    return (value*kSWidth)/375
+    return (value*KWidth)/375
 }
 
 
