@@ -27,7 +27,7 @@
 #pragma mark - 视图层
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setWhiteNaviWithTitle:@"更改手机号"];
+    [self setTitle:@"更改手机号"];
     self.view.backgroundColor = S_COBackground;
     keyStr = @"ChangePhoneControllerKey";
     [self createUI];

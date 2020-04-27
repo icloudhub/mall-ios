@@ -31,9 +31,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     if ([_typeStr isEqualToString:@"0"]) {
-        [self setWhiteNaviWithTitle:@"设置密码"];
+        [self setTitle:@"设置密码"];
     }else{
-        [self setWhiteNaviWithTitle:@"修改密码"];
+        [self setTitle:@"修改密码"];
     }
     self.view.backgroundColor = S_COBackground;
     [self createUI];

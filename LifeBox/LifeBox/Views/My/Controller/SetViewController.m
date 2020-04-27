@@ -32,7 +32,7 @@ static NSString *infoCellID = @"SetInfoCellID";
 #pragma mark - 视图层
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setWhiteNaviWithTitle:@"设置"];
+    [self setTitle:@"设置"];
     self.view.backgroundColor = S_COBackground;
     [self createUI];
 }

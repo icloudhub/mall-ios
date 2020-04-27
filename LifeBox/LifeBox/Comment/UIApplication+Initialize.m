@@ -18,7 +18,7 @@
     if(!awindow){
         awindow = [[[UIApplication sharedApplication] windows] objectAtIndex:0];
     }
-    RTRootNavigationController *mainVC = [[RTRootNavigationController alloc] initWithRootViewController:[[MyTabBarController alloc] init]];
+    SuperNavigationController *mainVC = [[SuperNavigationController alloc] initWithRootViewController:[[MyTabBarController alloc] init]];
     awindow.rootViewController = mainVC;
 }
 

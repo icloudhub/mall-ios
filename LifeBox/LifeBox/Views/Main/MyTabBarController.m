@@ -42,7 +42,7 @@
      * 首页
      */
     HomeViewController *homeCtl = [[HomeViewController alloc] init];
-    RTRootNavigationController *rtNav0 = [[RTRootNavigationController alloc] initWithRootViewController:homeCtl];
+    SuperNavigationController *rtNav0 = [[SuperNavigationController alloc] initWithRootViewController:homeCtl];
     rtNav0.tabBarItem.title = @"首页";
     [rtNav0.tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor], NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
     [rtNav0.tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:RGBColor(211, 47, 47), NSForegroundColorAttributeName, nil] forState:UIControlStateSelected];
@@ -56,7 +56,7 @@
      * 购物车
      */
     ShoppingCartController *shoppingCtl = [[ShoppingCartController alloc] init];
-    RTRootNavigationController *rtNav1 = [[RTRootNavigationController alloc] initWithRootViewController:shoppingCtl];
+    SuperNavigationController *rtNav1 = [[SuperNavigationController alloc] initWithRootViewController:shoppingCtl];
     rtNav1.tabBarItem.title = @"购物车";
     [rtNav1.tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor], NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
     [rtNav1.tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:RGBColor(211, 47, 47), NSForegroundColorAttributeName, nil] forState:UIControlStateSelected];
@@ -70,7 +70,7 @@
      * 个人中心
      */
     MyViewController *myCtl = [[MyViewController alloc] init];
-    RTRootNavigationController *rtNav2 = [[RTRootNavigationController alloc] initWithRootViewController:myCtl];
+    SuperNavigationController *rtNav2 = [[SuperNavigationController alloc] initWithRootViewController:myCtl];
     rtNav2.tabBarItem.title = @"我的";
     [rtNav2.tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor], NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
     [rtNav2.tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:RGBColor(211, 47, 47), NSForegroundColorAttributeName, nil] forState:UIControlStateSelected];

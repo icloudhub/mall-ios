@@ -26,7 +26,7 @@
 #pragma mark - 视图层
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setWhiteNaviWithTitle:@"问题反馈"];
+    [self setTitle:@"问题反馈"];
     self.view.backgroundColor = S_COBackground;
     [self createUI];
 }

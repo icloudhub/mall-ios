@@ -23,7 +23,7 @@ static NSString *cellID = @"CommentsCellID";
 #pragma mark - 视图层
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setWhiteNaviWithTitle:@"商品评价(66)"];
+    [self setTitle:@"商品评价(66)"];
     self.view.backgroundColor = S_COBackground;
     [self createUI];
     [self requestHttp];

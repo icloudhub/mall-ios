@@ -14,7 +14,8 @@
 @property(strong, nonatomic) UITableView *tableView;
 
 @property (nonatomic, strong) NSMutableArray * datalist;
-@property (nonatomic, strong) AfterSalesListHeaderView* headerView;
+@property (nonatomic, strong) PageCollectionView* headerView;
+@property(strong, nonatomic) UICollectionViewFlowLayout *flowLayout;
 @end
 
 @implementation AfterSalesListVC
@@ -36,20 +37,41 @@
     }
     return _datalist;
 }
--(AfterSalesListHeaderView *)headerView{
+-(PageCollectionView *)headerView{
     if (!_headerView) {
-        _headerView = [AfterSalesListHeaderView new];
-        _headerView.items = @[
-            @{@"title": @"售后申请"},
-            @{@"title": @"处理中"},
-            @{@"title": @"售后评价"},
-            @{@"title": @"申请记录"}
-        ];
-        [_headerView setSelectItemBlock:^(UICollectionView * collectionView, NSIndexPath * indexPath) {
-            [self.view ug_msg:@"000"];
-        }];
+//<<<<<<< HEAD
+//        _headerView = [AfterSalesListHeaderView new];
+//        _headerView.items = @[
+//            @{@"title": @"售后申请"},
+//            @{@"title": @"处理中"},
+//            @{@"title": @"售后评价"},
+//            @{@"title": @"申请记录"}
+//        ];
+//        [_headerView setSelectItemBlock:^(UICollectionView * collectionView, NSIndexPath * indexPath) {
+//            [self.view ug_msg:@"000"];
+//        }];
+//=======
+        _headerView = [[PageCollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:self.flowLayout];
+       
+        [_headerView setItems:@[
+            @{@"title":@"申请售后" },
+            @{@"title":@"处理中" },
+            @{@"title":@"待评价" }
+        ]];
+//>>>>>>> fbe08ac60498ea670308e9c6f8003c21c7827be4
     }
     return _headerView;
+}
+-(UICollectionViewFlowLayout *)flowLayout{
+    if (!_flowLayout) {
+        
+        _flowLayout = [UICollectionViewFlowLayout new];
+        _flowLayout.minimumLineSpacing = 0.0;
+        _flowLayout.minimumInteritemSpacing = 0.0;
+        _flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+        _flowLayout.itemSize = CGSizeMake(KWidth/3, 44);
+    }
+    return _flowLayout;
 }
 
 -(UITableView *)tableView{

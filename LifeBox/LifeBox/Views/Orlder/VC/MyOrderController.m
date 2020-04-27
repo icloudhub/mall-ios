@@ -41,7 +41,7 @@ static NSString *cellID = @"OrderViewCellID";
     [super viewDidLoad];
     self.pageNum = 1;
     self.dataArr = [NSMutableArray new];
-    [self setWhiteNaviWithTitle:@"我的订单"];
+    [self setTitle:@"我的订单"];
     self.view.backgroundColor = S_COBackground;
     [self createUI];
     /*

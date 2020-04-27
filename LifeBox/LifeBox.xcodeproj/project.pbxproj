@@ -212,8 +212,6 @@
 		8437F2D523F53C9C00CC0418 /* CategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8437F2D423F53C9C00CC0418 /* CategoryModel.m */; };
 		8461E19723013A6B00764748 /* UIApplication+LOG.m in Sources */ = {isa = PBXBuildFile; fileRef = 8461E15A23013A6B00764748 /* UIApplication+LOG.m */; };
 		8461E19823013A6B00764748 /* LifeBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8461E15C23013A6B00764748 /* LifeBoxViewController.m */; };
-		8461E19923013A6B00764748 /* UIViewController+RTRootNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8461E15F23013A6B00764748 /* UIViewController+RTRootNavigationController.m */; };
-		8461E19A23013A6B00764748 /* RTRootNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8461E16223013A6B00764748 /* RTRootNavigationController.m */; };
 		8461E19B23013A6B00764748 /* Global_Variable.m in Sources */ = {isa = PBXBuildFile; fileRef = 8461E16623013A6B00764748 /* Global_Variable.m */; };
 		8461E19C23013A6B00764748 /* UIApplication+DORConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 8461E16923013A6B00764748 /* UIApplication+DORConfig.m */; };
 		8461E19F23013A6B00764748 /* NetWorkRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8461E17123013A6B00764748 /* NetWorkRequest.m */; };
@@ -589,10 +587,6 @@
 		8461E15A23013A6B00764748 /* UIApplication+LOG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+LOG.m"; sourceTree = "<group>"; };
 		8461E15C23013A6B00764748 /* LifeBoxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LifeBoxViewController.m; sourceTree = "<group>"; };
 		8461E15D23013A6B00764748 /* LifeBoxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LifeBoxViewController.h; sourceTree = "<group>"; };
-		8461E15F23013A6B00764748 /* UIViewController+RTRootNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+RTRootNavigationController.m"; sourceTree = "<group>"; };
-		8461E16023013A6B00764748 /* RTRootNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTRootNavigationController.h; sourceTree = "<group>"; };
-		8461E16123013A6B00764748 /* UIViewController+RTRootNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+RTRootNavigationController.h"; sourceTree = "<group>"; };
-		8461E16223013A6B00764748 /* RTRootNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTRootNavigationController.m; sourceTree = "<group>"; };
 		8461E16423013A6B00764748 /* GlobalDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalDefine.h; sourceTree = "<group>"; };
 		8461E16523013A6B00764748 /* Global_Variable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global_Variable.h; sourceTree = "<group>"; };
 		8461E16623013A6B00764748 /* Global_Variable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Global_Variable.m; sourceTree = "<group>"; };
@@ -1032,7 +1026,6 @@
 				8461E15723013A6B00764748 /* Magic.h */,
 				8461E15823013A6B00764748 /* Config */,
 				8461E15B23013A6B00764748 /* SupleClass */,
-				8461E15E23013A6B00764748 /* NavAndTabBar */,
 				8461E16323013A6B00764748 /* Global */,
 			);
 			path = Magic;
@@ -1057,17 +1050,6 @@
 				8461E15D23013A6B00764748 /* LifeBoxViewController.h */,
 			);
 			path = SupleClass;
-			sourceTree = "<group>";
-		};
-		8461E15E23013A6B00764748 /* NavAndTabBar */ = {
-			isa = PBXGroup;
-			children = (
-				8461E15F23013A6B00764748 /* UIViewController+RTRootNavigationController.m */,
-				8461E16023013A6B00764748 /* RTRootNavigationController.h */,
-				8461E16123013A6B00764748 /* UIViewController+RTRootNavigationController.h */,
-				8461E16223013A6B00764748 /* RTRootNavigationController.m */,
-			);
-			path = NavAndTabBar;
 			sourceTree = "<group>";
 		};
 		8461E16323013A6B00764748 /* Global */ = {
@@ -2033,7 +2015,6 @@
 				05AC5C31235619C3000584CB /* OrderPriceCell.m in Sources */,
 				8478A26F2326384A005681CF /* CarBottomView.m in Sources */,
 				0531EA032338BB2B00775D79 /* SetPasswordController.m in Sources */,
-				8461E19923013A6B00764748 /* UIViewController+RTRootNavigationController.m in Sources */,
 				05BBBB7B230F98B500C01FC3 /* MyToolCell.m in Sources */,
 				84C29209235DEF5B00034213 /* NetWorkRequest+Business.m in Sources */,
 				0537918623158AE500DF4DA0 /* HomeGoodsCell.m in Sources */,
@@ -2051,7 +2032,6 @@
 				0531EA092339FA7600775D79 /* AppDelegate+KeyValue.m in Sources */,
 				059F2CCA2323FB260045BA65 /* SetInfoCell.m in Sources */,
 				0531EA062339B0B400775D79 /* ChangePhoneController.m in Sources */,
-				8461E19A23013A6B00764748 /* RTRootNavigationController.m in Sources */,
 				84BA6F942376505F0047796E /* GoodsBuyView.m in Sources */,
 				8461E19C23013A6B00764748 /* UIApplication+DORConfig.m in Sources */,
 				052DCA13237AA3D600C16128 /* BaseTextField.m in Sources */,

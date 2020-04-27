@@ -26,7 +26,7 @@ static NSString *cellID = @"InvitationCellID";
 #pragma mark - 视图层
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setWhiteNaviWithTitle:@"邀请有礼"];
+    [self setTitle:@"邀请有礼"];
     [self createUI];
     [self getinviteList];
 }

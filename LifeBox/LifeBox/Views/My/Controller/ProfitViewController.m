@@ -24,7 +24,7 @@ static NSString *profitViewCellID = @"ProfitViewCellID";
 #pragma mark - 视图层
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setWhiteNaviWithTitle:@"奖励收益"];
+    [self setTitle:@"奖励收益"];
     self.view.backgroundColor = S_COBackground;
     [self createUI];
 }
