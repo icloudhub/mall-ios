@@ -154,32 +154,30 @@ static UGPersentView *perview = nil;
     [window ug_stoploading];
 }
 
-static MBProgressHUD *loadinghud = nil;
+
 -(void)ug_starloading{
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            obj.alpha = 0.0;
-        }];
-        loadinghud = [MBProgressHUD showHUDAddedTo:self animated:YES];
+       
+        MBProgressHUD *loadinghud = [MBProgressHUD showHUDAddedTo:self animated:YES];
         loadinghud.mode = MBProgressHUDModeIndeterminate;
     });
     
 }
 
+
 -(void)ug_loadingProgress:(NSString*)string{
     dispatch_async(dispatch_get_main_queue(), ^{
+        MBProgressHUD *loadinghud = [MBProgressHUD HUDForView:self];
         loadinghud.label.text = string;
     });
 }
 -(void)ug_stoploading{
     
     dispatch_async(dispatch_get_main_queue(), ^{
+        MBProgressHUD *loadinghud = [MBProgressHUD HUDForView:self];
         loadinghud.label.text = nil;
         [loadinghud hideAnimated:YES];
-        [self.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            obj.alpha = 1.0;
-        }];
     });
 }
 

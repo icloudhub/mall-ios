@@ -36,7 +36,7 @@
 
 -(void)configUI{
     self.title = @"编辑商品详情";
-    self.view.backgroundColor = UIColor.whiteColor;
+    self.view.backgroundColor = [UIColor ug_hexString:@"#eeeeee"];
     [self.view addSubview:self.collectionView];
 }
 
@@ -62,6 +62,8 @@
 -(UICollectionViewFlowLayout *)flowLayout{
     if (!_flowLayout) {
         _flowLayout = [UICollectionViewFlowLayout new];
+        _flowLayout.minimumInteritemSpacing = 1;
+        _flowLayout.minimumLineSpacing = 1;
     }
     return _flowLayout;
 }
@@ -91,17 +93,28 @@
 #pragma mark UICollectionViewDataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     
-    return 1;
+    return 2;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    switch (section) {
+        case 0:
+            return self.datalist.count;
+            break;
+        case 1:
+            return 1;
+        break;
+            
+        default:
+            break;
+    }
+    return 0;
     
-    return self.datalist.count+1;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     //添加
-    if (indexPath.row ==_datalist.count) {
+    if (indexPath.section ==1) {
         ProductDefAddCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ProductDefAddCell" forIndexPath:indexPath];
         cell.backgroundColor = UIColor.ug_random;
         [cell ug_radius:4];
@@ -111,33 +124,41 @@
         cell.backgroundColor = UIColor.ug_random;
         [cell ug_radius:4];
         ProductCellData *data = [_datalist objectAtIndex:indexPath.row];
-        cell.typeLab.text = data.type;
+  
+        [cell reload:data];
+        UG_WEAKSELF
+        [cell setCellHeightChangeBlock:^(ProductCellData * _Nonnull data) {
+            [weakSelf.collectionView reloadItemsAtIndexPaths:@[indexPath]];
+        }];
         //添加长按手势
         UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(moveCollectionViewCell:)];
         [cell addGestureRecognizer:longPress];
         return cell;
     }
-
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    
-    return CGSizeMake(KWidth, 80);
-    
+    if (indexPath.section ==1) {
+        return CGSizeMake(KWidth,  80);
+    }else{
+        ProductCellData *data = [_datalist objectAtIndex:indexPath.row];
+        return CGSizeMake(KWidth, data.fullHeigt>=80 ? data.fullHeigt: 80);
+    }
 }
 -(void)collectionView:(UICollectionView *)collectionView moveItemAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
-    if (destinationIndexPath.row<_datalist.count) {
+    if (destinationIndexPath.section==0) {
         NSString *selectModel = self.datalist[sourceIndexPath.row];
         [_datalist removeObject:selectModel];
-        [_datalist insertObject:selectModel atIndex:destinationIndexPath.row];
+        
     }else{
-         [_collectionView reloadData];
+        [self bk_performBlock:^(id obj) {
+            [collectionView reloadData];
+        } afterDelay:0.35];
     }
-    
-
 }
+
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row ==_datalist.count) {
+    if (indexPath.section ==1) {
         [self.defSelectView setFrame:CGRectMake(0, KHeight, KWidth, KHeight/3)];
         [self.view addSubview:self.defSelectView];
         [UIView animateWithDuration:0.35 animations:^{
@@ -160,6 +181,7 @@
             break;
         }
         case UIGestureRecognizerStateChanged: {
+           
             //移动cell
             [self.collectionView updateInteractiveMovementTargetPosition:[gesture locationInView:self.collectionView]];
             break;
@@ -180,8 +202,8 @@
 -(void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
     [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(self.view);
-        make.right.mas_equalTo(self.view);
+        make.left.mas_equalTo(self.view).mas_offset(KPAND_DEF);
+        make.right.mas_equalTo(self.view).mas_offset(-KPAND_DEF);;
         make.top.mas_equalTo(self.view);
         make.bottom.mas_equalTo(self.view);
     }];
