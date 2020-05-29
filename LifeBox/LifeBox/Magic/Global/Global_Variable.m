@@ -92,7 +92,7 @@ static Global_Variable *sharedInstance = nil;
     if (![userinfo objectForKey:@"userinfo"]) {
         return nil;
     }
-    return [[userinfo objectForKey:@"userinfo"] objectForKey:@"username"];
+    return [[userinfo objectForKey:@"userinfo"] objectForKey:@"nickname"];
 }
 
 #pragma mark - 获取用户token
@@ -105,6 +105,22 @@ static Global_Variable *sharedInstance = nil;
     return [NSString stringWithFormat:@"Bearer%@",[userinfo objectForKey:@"token"]];
 }
 
+/**
+ 刷新用户数据
+ */
+-(void)updateUserInfo:(void(^)(NSDictionary *result, NSError *error))endblock{
+    NSString *url = [NSString stringWithFormat:@"%@/sso/myInfo", BASEURL];
+    [[NetWorkRequest new] get:url param:@{} head:nil endblock:^(NSDictionary * _Nullable dataDict, NSError * _Nullable error) {
+        if(!error){
+            NSMutableDictionary *userinfo =[[NSMutableDictionary alloc]initWithDictionary:[[NSUserDefaults standardUserDefaults] objectForKey:@"LoginUserInfo"]];
+            
+            [userinfo setValue:dataDict forKey:@"userinfo"];
+            [[NSUserDefaults standardUserDefaults] setValue:userinfo forKey:@"LoginUserInfo"];
+        }
+        endblock(dataDict,error);
+    }];
+    
+}
 
 /**
  清理用户数据（注销）

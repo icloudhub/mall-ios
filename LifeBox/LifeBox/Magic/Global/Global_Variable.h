@@ -35,6 +35,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString *)getAppVersion;
 
 /**
+ 刷新用户数据
+ */
+-(void)updateUserInfo:(void(^)(NSDictionary *result, NSError *error))endblock;
+
+
+/**
  清理用户数据（注销）
  */
 -(void)clearUserData;

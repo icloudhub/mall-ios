@@ -77,6 +77,11 @@ NS_ASSUME_NONNULL_BEGIN
  支付成功回调
  */
 -(void)paySuccessOrder:(NSString *)orderId endBlock:(void(^)(NSDictionary *result, NSError *error))endblock;
+
+/**
+ 修改会员信息
+ */
+-(void)updateUserInfo:(NSDictionary *)userinfo endBlock:(void(^)(NSDictionary *result, NSError *error))endblock;
  
 @end
 

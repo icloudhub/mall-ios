@@ -133,4 +133,35 @@ useIntegration:(NSString *)useIntegration
         @"discount_amount" :@"88.88",
     } head:nil endblock:endblock];
 }
+
+/**
+ 修改会员信息
+ @ApiModelProperty(value = "用户名")
+ private String username;
+
+ @ApiModelProperty(value = "昵称")
+ private String nickname;
+
+ @ApiModelProperty(value = "头像")
+ private String icon;
+
+ @ApiModelProperty(value = "性别：0->未知；1->男；2->女")
+ private Integer gender;
+
+ @ApiModelProperty(value = "生日")
+ private Date birthday;
+
+ @ApiModelProperty(value = "所做城市")
+ private String city;
+
+ @ApiModelProperty(value = "职业")
+ private String job;
+
+ @ApiModelProperty(value = "个性签名")
+ private String personalizedSignature;
+ */
+-(void)updateUserInfo:(NSDictionary *)userinfo endBlock:(void(^)(NSDictionary *result, NSError *error))endblock{
+    NSString *url = [NSString stringWithFormat:@"%@/sso/updateUserInfo", BASEURL];
+    [self post:url param:userinfo head:nil endblock:endblock];
+}
 @end
