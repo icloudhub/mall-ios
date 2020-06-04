@@ -24,6 +24,9 @@ NS_ASSUME_NONNULL_BEGIN
 ///商品价格
 @property (strong, nonatomic) UILabel *goodsPrice;
 
+///商品规格
+@property (strong, nonatomic) UILabel *goodsAttLab;
+
 @end
 
 NS_ASSUME_NONNULL_END

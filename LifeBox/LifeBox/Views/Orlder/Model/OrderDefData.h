@@ -60,7 +60,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(assign, nonatomic) CGFloat totalAmount;// (number, optional): 订单总金额 ,
 @property(strong, nonatomic) NSString* useIntegration;// (integer, optional): 下单时使用的积分
 @property(strong, nonatomic) NSArray * orderItemList;//商品列表
+@property(assign, nonatomic) NSInteger deliveryType;//'物流类型：0->物流配送；1->买家上门自提；2->买家自提点自提；3->骑手派送',
 
+@property(readonly, nonatomic) NSString *deliveryTypeStr;
 
 @end
 

@@ -333,7 +333,7 @@
     
     _headView.timeLab.text = [data.createTime stringWithFormat:@"YYYY-MM-dd HH:ss"];
     _headView.orderNumLab.text = data.orderSn;
-    _headView.stateLab.text = data.statusStr;
+    _headView.stateLab.text = [NSString stringWithFormat:@"%@(%@)",data.statusStr,data.deliveryTypeStr] ;
     
     [_bodyView setDataList:data.orderItemList];
     _fotterView.goodsAllNum.text = [NSString stringWithFormat:@"共%zd件商品",data.orderItemList.count];

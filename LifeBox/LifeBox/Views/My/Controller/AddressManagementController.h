@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface AddressManagementController : LifeBoxViewController
+
  @property(copy, nonatomic) void (^didselectAddress)(AddressData* selectData);
 @end
 

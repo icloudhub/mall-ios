@@ -87,6 +87,14 @@
         make.left.mas_equalTo(self->_goodsName);
         make.width.height.mas_greaterThanOrEqualTo(0);
     }];
+    
+    [self addSubview:self.goodsAttLab];
+    [_goodsAttLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.mas_equalTo(self->_goodsPrice.mas_bottom);
+        make.right.mas_equalTo(-SPanding_MID);
+        make.width.height.mas_greaterThanOrEqualTo(0);
+    }];
+    
     /*
      * 适配
      */
@@ -94,6 +102,16 @@
         make.top.left.right.mas_equalTo(0);
         make.bottom.mas_equalTo(bottomView.mas_bottom).mas_offset(Scale750(20));
     }];
+
+}
+
+-(UILabel *)goodsAttLab{
+    if (!_goodsAttLab) {
+        _goodsAttLab = [UILabel new];
+        _goodsAttLab.font = FONT_SYS12;
+        _goodsAttLab.textColor = COLOR23;
+    }
+    return _goodsAttLab;
 }
 
 @end

@@ -12,10 +12,10 @@
 
 
 @interface AddressManagementController ()<UITableViewDelegate, UITableViewDataSource> {
-    ///数据展示UITableView
+    /// 数据展示UITableView
     UITableView *tableView;
 }
-
+@property(strong, nonatomic) AddressManageFooter *footerView;
 ///地址数组
 @property (strong, nonatomic) NSArray *addreddArr;
 
@@ -60,6 +60,14 @@ static NSString *cellID = @"AddressManageCellID";
     tableView.separatorStyle = UITableViewCellEditingStyleNone;
     tableView.tableFooterView = [UIView new];
     [self.view addSubview:tableView];
+    
+    [self.view addSubview:self.footerView];
+}
+-(AddressManageFooter *)footerView{
+    if (!_footerView) {
+        _footerView =[AddressManageFooter new];
+    }
+    return _footerView;
 }
 
 #pragma mark - 适配
@@ -67,6 +75,12 @@ static NSString *cellID = @"AddressManageCellID";
     [super viewLayoutMarginsDidChange];
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.bottom.mas_equalTo(0);
+    }];
+    [_footerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(self.view);
+        make.right.mas_equalTo(self.view);
+        make.bottom.mas_equalTo(self.view);
+        make.height.mas_equalTo(44+SAFE_Bottom);
     }];
 }
 

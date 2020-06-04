@@ -96,7 +96,7 @@ static NSString *priceCellID = @"DetailsPriceCellID";
     }];
 }
 -(void)reloadUI{
-    _needPayLab.text = [NSString stringWithFormat:@"需付款: ¥%0.2f",_orderData.totalAmount ];
+    
     
     if (_orderData.receiverProvince) {
         _addressLab.text = [NSString stringWithFormat:@"地址: %@ %@ %@ %@",_orderData.receiverProvince,
@@ -109,6 +109,49 @@ static NSString *priceCellID = @"DetailsPriceCellID";
     
     _nameLab.text = _orderData.receiverName;
     _phoneLab.text = _orderData.receiverPhone;
+    
+//     status;// (integer, optional): 订单状态：0->待付款；1->待发货；2->已发货；3->已完成；4->已关闭；5->无效订单 ,
+//     deliveryType '物流类型：0->物流配送；1->买家上门自提；2->买家自提点自提；3->骑手派送',
+    if ([_orderData.status integerValue] == 0) {
+        [_rightBtn setTitle:@"去支付" forState:UIControlStateNormal];
+        _stateLab.text = @"等待付款";
+        _needPayLab.text = [NSString stringWithFormat:@"需付款: ¥%0.2f",_orderData.totalAmount ];
+        _remainingLab.text = @"剩余: 23小时59分钟";
+    }else if ([_orderData.status integerValue] == 2) {
+        _stateLab.text =[NSString stringWithFormat:@"待收货（%@）",_orderData.deliveryTypeStr] ;
+        if (_orderData.deliveryType == 0) {
+            [_rightBtn setTitle:@"确认收货" forState:UIControlStateNormal];
+        }else if(_orderData.deliveryType == 1){
+            [_rightBtn setTitle:@"出示提货码" forState:UIControlStateNormal];
+        }else if(_orderData.deliveryType == 2){
+            [_rightBtn setTitle:@"出示取货吗" forState:UIControlStateNormal];
+        }else if(_orderData.deliveryType == 1){
+            [_rightBtn setHidden:YES];
+        }
+        _needPayLab.hidden = YES;
+        _remainingLab.hidden = YES;
+    }else if ([_orderData.status integerValue] == 1){
+        _stateLab.text = @"待发货";
+        [_rightBtn setHidden:YES];
+         _needPayLab.hidden = YES;
+        _remainingLab.hidden = YES;
+    
+    }else if ([_orderData.status integerValue] == 3){
+        _stateLab.text = @"已完成";
+        [_rightBtn setHidden:YES];
+         _needPayLab.hidden = YES;
+        _remainingLab.hidden = YES;
+    }else if ([_orderData.status integerValue] == 4){
+        _stateLab.text = @"已关闭";
+        [_rightBtn setHidden:YES];
+         _needPayLab.hidden = YES;
+        _remainingLab.hidden = YES;
+    }else if ([_orderData.status integerValue] == 5){
+        _stateLab.text = @"已失效";
+        [_rightBtn setHidden:YES];
+         _needPayLab.hidden = YES;
+        _remainingLab.hidden = YES;
+    }
     [tableView reloadData];
     
 }
@@ -201,7 +244,9 @@ static NSString *priceCellID = @"DetailsPriceCellID";
     //点击去选择收获地址
     UG_WEAKSELF
     [addressView bk_whenTapped:^{
-        
+        if ([weakSelf.orderData.status integerValue] != 0) {
+            return;
+        }
         AddressManagementController *vc = [AddressManagementController new];
         [self.navigationController pushViewController:vc animated:YES];
         vc.didselectAddress = ^(AddressData * _Nonnull selectData) {
@@ -280,6 +325,7 @@ static NSString *priceCellID = @"DetailsPriceCellID";
     
 }
 
+
 #pragma mark - 创建底部View
 - (void)creatBottomView {
     /*
@@ -344,13 +390,10 @@ static NSString *priceCellID = @"DetailsPriceCellID";
         
         [cell.goodsImg sd_setImageWithURL:UG_URL([product stringValueForKey:@"productPic" default:@""])];
         cell.goodsName.text = [product stringValueForKey:@"productName" default:@""];
-        cell.goodsNum.text = [product stringValueForKey:@"productQuantity" default:@""];
+        cell.goodsNum.text =[NSString stringWithFormat:@"数量：%@",[product stringValueForKey:@"productQuantity" default:@""]] ;
         cell.goodsPrice.text =[NSString stringWithFormat:@"¥ %.2f",[product floatValueForKey:@"productPrice" default:0.00]] ;
-        
-        
-        
-        
-        
+        cell.goodsAttLab.text = [product stringValueForKey:@"productAttr" default:@""];
+    
         return cell;
     }
     else if (indexPath.section == 1) {
@@ -372,7 +415,7 @@ static NSString *priceCellID = @"DetailsPriceCellID";
         priceCell.backgroundColor = S_COBackground;
         priceCell.selectionStyle = UITableViewCellSelectionStyleNone;
         priceCell.totalLab.text = [NSString stringWithFormat:@"订单总金额: ¥%0.2f",_orderData.totalAmount];
-        priceCell.needPay.text = [NSString stringWithFormat:@"需付款: ¥%0.2f",_orderData.totalAmount-_orderData.discountAmount];
+        priceCell.needPay.text = [NSString stringWithFormat:@"付款金额: ¥%0.2f",_orderData.totalAmount-_orderData.discountAmount];
         return priceCell;
     }
     return nil;
@@ -449,7 +492,7 @@ static NSString *priceCellID = @"DetailsPriceCellID";
 -(void)debugPayScress:(NSString*)payid{
     UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"支付" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
-    [alertController addAction:[UIAlertAction actionWithTitle:@"确认支付" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [alertController addAction:[UIAlertAction actionWithTitle:@"确认支付（debug）" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [alertController dismissViewControllerAnimated:YES completion:^{
             [[NetWorkRequest new] paySuccessOrder:payid endBlock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
                 if (error) {
@@ -458,6 +501,7 @@ static NSString *priceCellID = @"DetailsPriceCellID";
                     
                     [self.view ug_msg:@"支付成功"];
                 }
+                [self getConfirmOrderInfo];
             }];
         }];
     }]];

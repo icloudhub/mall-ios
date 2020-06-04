@@ -206,6 +206,7 @@
 		20D763B92373FC1500D513BC /* DorConfigServiceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D763B82373FC1500D513BC /* DorConfigServiceVC.m */; };
 		44817E12D5A0B5C6851BE813 /* Pods_LifeBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71F3AEA030591677BD69ABCD /* Pods_LifeBox.framework */; };
 		759CA6986FF80A3AF593086D /* Pods_LifeBoxUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 820141ED82991FFDD6D1CFDB /* Pods_LifeBoxUITests.framework */; };
+		841345692488FE1E00A0DE4D /* AddressManageFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841345682488FE1E00A0DE4D /* AddressManageFooter.swift */; };
 		842D2B592320B0BD00C50605 /* ConfigData.m in Sources */ = {isa = PBXBuildFile; fileRef = 842D2B582320B0BD00C50605 /* ConfigData.m */; };
 		842D2B5C2320B16B00C50605 /* NetWorkRequest+COM.m in Sources */ = {isa = PBXBuildFile; fileRef = 842D2B5B2320B16B00C50605 /* NetWorkRequest+COM.m */; };
 		8437F2D223F5278400CC0418 /* GoodsClassesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8437F2D123F5278400CC0418 /* GoodsClassesVC.m */; };
@@ -572,6 +573,7 @@
 		70DF15BA9A752691008E2DCA /* Pods-LifeBoxUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeBoxUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LifeBoxUITests/Pods-LifeBoxUITests.release.xcconfig"; sourceTree = "<group>"; };
 		71F3AEA030591677BD69ABCD /* Pods_LifeBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LifeBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		820141ED82991FFDD6D1CFDB /* Pods_LifeBoxUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LifeBoxUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		841345682488FE1E00A0DE4D /* AddressManageFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressManageFooter.swift; sourceTree = "<group>"; };
 		842D2B572320B0BD00C50605 /* ConfigData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfigData.h; sourceTree = "<group>"; };
 		842D2B582320B0BD00C50605 /* ConfigData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfigData.m; sourceTree = "<group>"; };
 		842D2B5A2320B16B00C50605 /* NetWorkRequest+COM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NetWorkRequest+COM.h"; sourceTree = "<group>"; };
@@ -879,6 +881,7 @@
 				05D0A3D823B8E278001C00D5 /* SingleView.m */,
 				05D0A3DA23B8E293001C00D5 /* MultipleView.h */,
 				05D0A3DB23B8E293001C00D5 /* MultipleView.m */,
+				841345682488FE1E00A0DE4D /* AddressManageFooter.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2029,6 +2032,7 @@
 				8492B26F244558DE00DEACCF /* UIApplication+Initialize.m in Sources */,
 				05AC5C2E2356136A000584CB /* OrderInfoCell.m in Sources */,
 				05C46974237BAB7500D21EA1 /* LoginPwView.m in Sources */,
+				841345692488FE1E00A0DE4D /* AddressManageFooter.swift in Sources */,
 				0531EA092339FA7600775D79 /* AppDelegate+KeyValue.m in Sources */,
 				059F2CCA2323FB260045BA65 /* SetInfoCell.m in Sources */,
 				0531EA062339B0B400775D79 /* ChangePhoneController.m in Sources */,
