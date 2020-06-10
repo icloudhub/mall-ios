@@ -124,7 +124,7 @@ static NSString *priceCellID = @"DetailsPriceCellID";
         }else if(_orderData.deliveryType == 1){
             [_rightBtn setTitle:@"出示提货码" forState:UIControlStateNormal];
         }else if(_orderData.deliveryType == 2){
-            [_rightBtn setTitle:@"出示取货吗" forState:UIControlStateNormal];
+            [_rightBtn setTitle:@"出示取货码" forState:UIControlStateNormal];
         }else if(_orderData.deliveryType == 1){
             [_rightBtn setHidden:YES];
         }
@@ -248,14 +248,17 @@ static NSString *priceCellID = @"DetailsPriceCellID";
             return;
         }
         AddressManagementController *vc = [AddressManagementController new];
+        vc.orderDefData = weakSelf.orderData;
         [self.navigationController pushViewController:vc animated:YES];
-        vc.didselectAddress = ^(AddressData * _Nonnull selectData) {
-            [[NetWorkRequest new] updateOrderAddress:weakSelf.orderid addressId:selectData.addressId endBlock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
-                
+        vc.didselectAddress = ^(AddressData * _Nonnull selectData, NSString * _Nonnull deliveryType) {
+            [self.navigationController popToViewController:self animated:YES];
+            [self.view ug_starloading];
+            [[NetWorkRequest new] updateOrderAddress:weakSelf.orderid deliveryType:deliveryType receiverName:selectData.name receiverPhone:selectData.phoneNumber receiverProvince:selectData.province  receiverCity:selectData.city receiverRegion:selectData.region receiverDetailAddress:selectData.detailAddress endBlock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
+              
+                [self.view ug_stoploading];
                 if (error) {
                     [self.view ug_msg:error.domain];
                 }else{
-                    [self.view ug_msg:[NSString stringWithFormat:@"%@",result]];
                     [self getConfirmOrderInfo];
                 }
             }];
@@ -348,7 +351,7 @@ static NSString *priceCellID = @"DetailsPriceCellID";
     [_rightBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_rightBtn setTitle:@"去支付" forState:UIControlStateNormal];
     [_rightBtn ug_addEvents:UIControlEventTouchUpInside andBlock:^(id  _Nonnull sender) {
-        [self getPaytype];
+        [self getPaytype:sender];
     }];
     [bottomView addSubview:_rightBtn];
     [_rightBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -415,7 +418,7 @@ static NSString *priceCellID = @"DetailsPriceCellID";
         priceCell.backgroundColor = S_COBackground;
         priceCell.selectionStyle = UITableViewCellSelectionStyleNone;
         priceCell.totalLab.text = [NSString stringWithFormat:@"订单总金额: ¥%0.2f",_orderData.totalAmount];
-        priceCell.needPay.text = [NSString stringWithFormat:@"付款金额: ¥%0.2f",_orderData.totalAmount-_orderData.discountAmount];
+        priceCell.needPay.text = [NSString stringWithFormat:@"付款金额: ¥%0.2f",_orderData.payAmount];
         return priceCell;
     }
     return nil;
@@ -446,47 +449,62 @@ static NSString *priceCellID = @"DetailsPriceCellID";
     }];
 }
 // 获取支付方式
--(void)getPaytype{
-    
-    [[NetWorkRequest new] cfgGetvalueByType:@"1002" endBlock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
-        if (error) {
-            [self.view ug_msg:error.domain];
-        }else{
-            UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"支付方式" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-            for (NSDictionary *dic in result) {
-                [alertController addAction:[UIAlertAction actionWithTitle:dic[@"name"] style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                    UG_WEAKSELF
-                    
-                    [[NetWorkRequest new] payInfo:weakSelf.orderid payType:dic[@"value"] endBlock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
-                        
-                        if (error) {
-                            [self.view ug_msg:error.domain];
-                        }else{
-                            
-                            NSLog(@"reslut = %@",result);
-//                            [[AlipaySDK defaultService] payOrder: [result stringValueForKey:@"payStr" default:@""] fromScheme:@"LifeBoxAliPay" callback:^(NSDictionary *resultDic) {
-//                                NSLog(@"reslut = %@",resultDic);
-//                            }];
-#ifdef DEBUG
-                            [self debugPayScress:[result stringValueForKey:@"payOrder" default:@""]];
-#endif
-                        }
-                    }];
-                    
-                }]];
-            }
-            //添加取消选项
-            [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-                
-                [alertController dismissViewControllerAnimated:YES completion:^{
-                    
+-(void)getPaytype:(UIButton *)btn{
+    UG_WEAKSELF
+    if ([btn.titleLabel.text isEqualToString:@"出示取货码"] || [btn.titleLabel.text isEqualToString:@"出示提货码"]) {
+        [[NetWorkRequest new]receiptCode:_orderid endBlock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
+            if (error) {
+                [self.view ug_msg:error.domain];
+            }else{
+                UIImageView *codeImageview = [UIImageView new];
+                [codeImageview setImage:[UIImage createQRCodeWithData:[result stringValueForKey:@"codestr" default:@""] logoImage:nil imageSize:KAutoAcale(250)]];
+                [self.view ug_alertview:codeImageview complete:^(BOOL finished) {
+                    [weakSelf getConfirmOrderInfo];
                 }];
-                
-                
-            }]];
-            [self presentViewController:alertController animated:YES completion:nil];
-        }
-    }];
+            }
+        }];
+    }else{
+        [[NetWorkRequest new] cfgGetvalueByType:@"1002" endBlock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
+                if (error) {
+                    [self.view ug_msg:error.domain];
+                }else{
+                    UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"支付方式" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+                    for (NSDictionary *dic in result) {
+                        [alertController addAction:[UIAlertAction actionWithTitle:dic[@"name"] style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                            UG_WEAKSELF
+                            
+                            [[NetWorkRequest new] payInfo:weakSelf.orderid payType:dic[@"value"] endBlock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
+                                
+                                if (error) {
+                                    [self.view ug_msg:error.domain];
+                                }else{
+                                    
+                                    NSLog(@"reslut = %@",result);
+        //                            [[AlipaySDK defaultService] payOrder: [result stringValueForKey:@"payStr" default:@""] fromScheme:@"LifeBoxAliPay" callback:^(NSDictionary *resultDic) {
+        //                                NSLog(@"reslut = %@",resultDic);
+        //                            }];
+        #ifdef DEBUG
+                                    [self debugPayScress:[result stringValueForKey:@"payOrder" default:@""]];
+        #endif
+                                }
+                            }];
+                            
+                        }]];
+                    }
+                    //添加取消选项
+                    [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                        
+                        [alertController dismissViewControllerAnimated:YES completion:^{
+                            
+                        }];
+                        
+                        
+                    }]];
+                    [self presentViewController:alertController animated:YES completion:nil];
+                }
+            }];
+    }
+    
 }
 
 -(void)debugPayScress:(NSString*)payid{

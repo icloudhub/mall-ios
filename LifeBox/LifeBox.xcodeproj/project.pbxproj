@@ -47,7 +47,6 @@
 		052DCA082379587800C16128 /* ic_closeImage@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 052DCA062379587800C16128 /* ic_closeImage@3x.png */; };
 		052DCA092379587800C16128 /* ic_closeImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 052DCA072379587800C16128 /* ic_closeImage@2x.png */; };
 		052DCA0C23795F2100C16128 /* LoginCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 052DCA0B23795F2100C16128 /* LoginCodeView.m */; };
-		052DCA13237AA3D600C16128 /* BaseTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 052DCA12237AA3D600C16128 /* BaseTextField.m */; };
 		0531E9F32337B1C100775D79 /* AddressChooseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0531E9F22337B1C100775D79 /* AddressChooseCell.m */; };
 		0531E9F62337B29F00775D79 /* ic_selected_address@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0531E9F42337B29F00775D79 /* ic_selected_address@3x.png */; };
 		0531E9F72337B29F00775D79 /* ic_selected_address@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0531E9F52337B29F00775D79 /* ic_selected_address@2x.png */; };
@@ -237,6 +236,9 @@
 		8461E1B423013A6B00764748 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8461E19223013A6B00764748 /* MyViewController.m */; };
 		8461E1B523013A6B00764748 /* MyTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8461E19423013A6B00764748 /* MyTabBarController.m */; };
 		8461E1CE230159DB00764748 /* DorViewAlertVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8461E1CD230159DB00764748 /* DorViewAlertVC.m */; };
+		8475C6FA248F91A6009B9255 /* OrderViewBodyViewCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8475C6F9248F91A6009B9255 /* OrderViewBodyViewCollectionCell.swift */; };
+		8475C6FD24908CFD009B9255 /* ShopInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8475C6FC24908CFD009B9255 /* ShopInfo.m */; };
+		8475C7002490ECA2009B9255 /* SelectStationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8475C6FF2490ECA2009B9255 /* SelectStationVC.m */; };
 		8478A26D2326384A005681CF /* CardItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8478A2612326384A005681CF /* CardItem.m */; };
 		8478A26E2326384A005681CF /* ShoppingCartController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8478A2642326384A005681CF /* ShoppingCartController.m */; };
 		8478A26F2326384A005681CF /* CarBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8478A2682326384A005681CF /* CarBottomView.m */; };
@@ -247,9 +249,6 @@
 		8492B1BE2444179700DEACCF /* GoodsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8492B1BD2444179700DEACCF /* GoodsCollectionViewCell.m */; };
 		8492B1C02444350B00DEACCF /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8492B1BF2444350B00DEACCF /* FontAwesome.ttf */; };
 		8492B1C424446DE500DEACCF /* UGSuperPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8492B1C324446DE500DEACCF /* UGSuperPlayView.m */; };
-		8492B263244558DE00DEACCF /* BlockCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 8492B23E244558DE00DEACCF /* BlockCollectionViewFlowLayout.m */; };
-		8492B264244558DE00DEACCF /* BlockCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8492B23F244558DE00DEACCF /* BlockCollectionView.m */; };
-		8492B265244558DE00DEACCF /* BlockCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8492B240244558DE00DEACCF /* BlockCollectionViewCell.m */; };
 		8492B268244558DE00DEACCF /* BlockTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8492B248244558DE00DEACCF /* BlockTableView.m */; };
 		8492B26F244558DE00DEACCF /* UIApplication+Initialize.m in Sources */ = {isa = PBXBuildFile; fileRef = 8492B25B244558DE00DEACCF /* UIApplication+Initialize.m */; };
 		84B2E02D2302FFB300BC9197 /* NetWorkRequest+Login.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2E02C2302FFB300BC9197 /* NetWorkRequest+Login.m */; };
@@ -343,8 +342,6 @@
 		052DCA072379587800C16128 /* ic_closeImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_closeImage@2x.png"; sourceTree = "<group>"; };
 		052DCA0A23795F2100C16128 /* LoginCodeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginCodeView.h; sourceTree = "<group>"; };
 		052DCA0B23795F2100C16128 /* LoginCodeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginCodeView.m; sourceTree = "<group>"; };
-		052DCA11237AA3D600C16128 /* BaseTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTextField.h; sourceTree = "<group>"; };
-		052DCA12237AA3D600C16128 /* BaseTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTextField.m; sourceTree = "<group>"; };
 		0531E9F12337B1C100775D79 /* AddressChooseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddressChooseCell.h; sourceTree = "<group>"; };
 		0531E9F22337B1C100775D79 /* AddressChooseCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddressChooseCell.m; sourceTree = "<group>"; };
 		0531E9F42337B29F00775D79 /* ic_selected_address@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_selected_address@3x.png"; sourceTree = "<group>"; };
@@ -622,6 +619,11 @@
 		8461E19623013A6B00764748 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8461E1CC230159DA00764748 /* DorViewAlertVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DorViewAlertVC.h; sourceTree = "<group>"; };
 		8461E1CD230159DB00764748 /* DorViewAlertVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DorViewAlertVC.m; sourceTree = "<group>"; };
+		8475C6F9248F91A6009B9255 /* OrderViewBodyViewCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewBodyViewCollectionCell.swift; sourceTree = "<group>"; };
+		8475C6FB24908CFD009B9255 /* ShopInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShopInfo.h; sourceTree = "<group>"; };
+		8475C6FC24908CFD009B9255 /* ShopInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShopInfo.m; sourceTree = "<group>"; };
+		8475C6FE2490ECA1009B9255 /* SelectStationVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectStationVC.h; sourceTree = "<group>"; };
+		8475C6FF2490ECA2009B9255 /* SelectStationVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectStationVC.m; sourceTree = "<group>"; };
 		8478A2602326384A005681CF /* CardItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardItem.h; sourceTree = "<group>"; };
 		8478A2612326384A005681CF /* CardItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardItem.m; sourceTree = "<group>"; };
 		8478A2632326384A005681CF /* ShoppingCartController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingCartController.h; sourceTree = "<group>"; };
@@ -642,12 +644,6 @@
 		8492B1C224446DE500DEACCF /* UGSuperPlayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UGSuperPlayView.h; sourceTree = "<group>"; };
 		8492B1C324446DE500DEACCF /* UGSuperPlayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UGSuperPlayView.m; sourceTree = "<group>"; };
 		8492B235244558DE00DEACCF /* UIApplication+Initialize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+Initialize.h"; sourceTree = "<group>"; };
-		8492B23B244558DE00DEACCF /* BlockCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockCollectionViewFlowLayout.h; sourceTree = "<group>"; };
-		8492B23C244558DE00DEACCF /* BlockCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockCollectionView.h; sourceTree = "<group>"; };
-		8492B23D244558DE00DEACCF /* BlockCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockCollectionViewCell.h; sourceTree = "<group>"; };
-		8492B23E244558DE00DEACCF /* BlockCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockCollectionViewFlowLayout.m; sourceTree = "<group>"; };
-		8492B23F244558DE00DEACCF /* BlockCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockCollectionView.m; sourceTree = "<group>"; };
-		8492B240244558DE00DEACCF /* BlockCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockCollectionViewCell.m; sourceTree = "<group>"; };
 		8492B248244558DE00DEACCF /* BlockTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockTableView.m; sourceTree = "<group>"; };
 		8492B249244558DE00DEACCF /* BlockTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockTableView.h; sourceTree = "<group>"; };
 		8492B25B244558DE00DEACCF /* UIApplication+Initialize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+Initialize.m"; sourceTree = "<group>"; };
@@ -737,8 +733,6 @@
 		052DCA0D237A93BC00C16128 /* LifeTextField */ = {
 			isa = PBXGroup;
 			children = (
-				052DCA11237AA3D600C16128 /* BaseTextField.h */,
-				052DCA12237AA3D600C16128 /* BaseTextField.m */,
 			);
 			path = LifeTextField;
 			sourceTree = "<group>";
@@ -857,6 +851,7 @@
 				056217F8231FF0A0007E27AF /* InvitationCell.m */,
 				05C954532322567A00517381 /* OrderViewCell.h */,
 				05C954542322567A00517381 /* OrderViewCell.m */,
+				8475C6F9248F91A6009B9255 /* OrderViewBodyViewCollectionCell.swift */,
 				059F2CB12323B7F90045BA65 /* DetailsGoodsCell.h */,
 				059F2CB22323B7F90045BA65 /* DetailsGoodsCell.m */,
 				059F2CB42323B8DC0045BA65 /* DetailsInfoCell.h */,
@@ -1314,6 +1309,8 @@
 			children = (
 				8478A2602326384A005681CF /* CardItem.h */,
 				8478A2612326384A005681CF /* CardItem.m */,
+				8475C6FB24908CFD009B9255 /* ShopInfo.h */,
+				8475C6FC24908CFD009B9255 /* ShopInfo.m */,
 			);
 			path = Moden;
 			sourceTree = "<group>";
@@ -1385,12 +1382,6 @@
 		8492B23A244558DE00DEACCF /* BlockCollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				8492B23B244558DE00DEACCF /* BlockCollectionViewFlowLayout.h */,
-				8492B23C244558DE00DEACCF /* BlockCollectionView.h */,
-				8492B23D244558DE00DEACCF /* BlockCollectionViewCell.h */,
-				8492B23E244558DE00DEACCF /* BlockCollectionViewFlowLayout.m */,
-				8492B23F244558DE00DEACCF /* BlockCollectionView.m */,
-				8492B240244558DE00DEACCF /* BlockCollectionViewCell.m */,
 			);
 			path = BlockCollectionView;
 			sourceTree = "<group>";
@@ -1556,6 +1547,8 @@
 				0515B42C2321506800026D37 /* MyOrderController.m */,
 				059F2C8E2322BCA40045BA65 /* OrderDetailsController.h */,
 				059F2C8F2322BCA40045BA65 /* OrderDetailsController.m */,
+				8475C6FE2490ECA1009B9255 /* SelectStationVC.h */,
+				8475C6FF2490ECA2009B9255 /* SelectStationVC.m */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -2038,7 +2031,6 @@
 				0531EA062339B0B400775D79 /* ChangePhoneController.m in Sources */,
 				84BA6F942376505F0047796E /* GoodsBuyView.m in Sources */,
 				8461E19C23013A6B00764748 /* UIApplication+DORConfig.m in Sources */,
-				052DCA13237AA3D600C16128 /* BaseTextField.m in Sources */,
 				05C46977237BE19500D21EA1 /* RegisterController.m in Sources */,
 				8461E1B523013A6B00764748 /* MyTabBarController.m in Sources */,
 				84C627BD2452D2BD00A76AA4 /* AfterSalesTableViewCell.m in Sources */,
@@ -2063,6 +2055,7 @@
 				8478A26E2326384A005681CF /* ShoppingCartController.m in Sources */,
 				05D0A3E523C709B9001C00D5 /* GuidePageController.m in Sources */,
 				0513E22F233359320008709B /* BaseSheet.m in Sources */,
+				8475C6FD24908CFD009B9255 /* ShopInfo.m in Sources */,
 				05C4696D237B9EC200D21EA1 /* NSString+WPAttributedMarkup.m in Sources */,
 				84B2E0382303055900BC9197 /* LoginViewController.m in Sources */,
 				842D2B592320B0BD00C50605 /* ConfigData.m in Sources */,
@@ -2071,9 +2064,7 @@
 				0514512B231EAD0D00547E42 /* CouponsController.m in Sources */,
 				0531EA38233C9CBB00775D79 /* CommentsCell.m in Sources */,
 				059F2CB32323B7F90045BA65 /* DetailsGoodsCell.m in Sources */,
-				8492B263244558DE00DEACCF /* BlockCollectionViewFlowLayout.m in Sources */,
 				8461E19823013A6B00764748 /* LifeBoxViewController.m in Sources */,
-				8492B265244558DE00DEACCF /* BlockCollectionViewCell.m in Sources */,
 				84C627C32452D31200A76AA4 /* AfterSalesListHeaderView.swift in Sources */,
 				05C4696F237B9EC200D21EA1 /* WPTappableLabel.m in Sources */,
 				20D763B92373FC1500D513BC /* DorConfigServiceVC.m in Sources */,
@@ -2118,10 +2109,12 @@
 				8461E1B023013A6B00764748 /* main.m in Sources */,
 				84F3400E23B4BA4100BAE696 /* NetWorkRequest+MyInterface.m in Sources */,
 				8461E1CE230159DB00764748 /* DorViewAlertVC.m in Sources */,
+				8475C7002490ECA2009B9255 /* SelectStationVC.m in Sources */,
 				0531EA18233A138D00775D79 /* GenderSheet.m in Sources */,
 				84B954DB2324B0C800A7E8D2 /* ConfimBottomView.m in Sources */,
 				8478A2702326384A005681CF /* ShoppingCarCell.m in Sources */,
 				8461E19B23013A6B00764748 /* Global_Variable.m in Sources */,
+				8475C6FA248F91A6009B9255 /* OrderViewBodyViewCollectionCell.swift in Sources */,
 				05BBBB7A230F98B500C01FC3 /* MyWalletCell.m in Sources */,
 				050E0493230DC3E500DA5BFD /* PersonIconData.m in Sources */,
 				059F2CBC2323F5120045BA65 /* SetViewController.m in Sources */,
@@ -2129,7 +2122,6 @@
 				059435BF237073B5003CFBE9 /* HomeData.m in Sources */,
 				05D0A3D923B8E278001C00D5 /* SingleView.m in Sources */,
 				059F2CB92323B8FD0045BA65 /* DetailsPriceCell.m in Sources */,
-				8492B264244558DE00DEACCF /* BlockCollectionView.m in Sources */,
 				0531EA0F233A07EB00775D79 /* ChangeNameController.m in Sources */,
 				8461E1B223013A6B00764748 /* HomeViewController.m in Sources */,
 				84B2E0732307C8AF00BC9197 /* GoodsDefViewController.m in Sources */,

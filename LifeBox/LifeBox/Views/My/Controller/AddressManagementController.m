@@ -9,8 +9,8 @@
 #import "AddressManagementController.h"
 #import "AddressManageCell.h"
 #import "AddressEditController.h"
-
-
+#import "NetWorkRequest+Orlder.h"
+#import "SelectStationVC.h"
 @interface AddressManagementController ()<UITableViewDelegate, UITableViewDataSource> {
     /// 数据展示UITableView
     UITableView *tableView;
@@ -60,12 +60,47 @@ static NSString *cellID = @"AddressManageCellID";
     tableView.separatorStyle = UITableViewCellEditingStyleNone;
     tableView.tableFooterView = [UIView new];
     [self.view addSubview:tableView];
+    if (_orderDefData) {
+        [self.view addSubview:self.footerView];
+    }
     
-    [self.view addSubview:self.footerView];
 }
 -(AddressManageFooter *)footerView{
     if (!_footerView) {
         _footerView =[AddressManageFooter new];
+        UG_WEAKSELF
+        [_footerView.pickupSelfBtn ug_addEvents:UIControlEventTouchUpInside andBlock:^(id  _Nonnull sender) {
+            PickupSelfView *pickupSelfView = [PickupSelfView new];
+            pickupSelfView.nameTF.text = Global_Variable.shared.nickname;
+            pickupSelfView.phoneTF.text = Global_Variable.shared.phone;
+            pickupSelfView.addressLab.text = [NSString stringWithFormat:@"%@ %@ %@ \n%@",weakSelf. orderDefData.shopinfo.province,weakSelf.orderDefData.shopinfo.city,weakSelf.orderDefData.shopinfo.district,weakSelf.orderDefData.shopinfo.address];
+            [self.view ug_alertview:pickupSelfView];
+            [pickupSelfView.commitBtn ug_addEvents:UIControlEventTouchUpInside andBlock:^(id  _Nonnull sender) {
+                if (weakSelf.didselectAddress) {
+                    AddressData *selectData =  [AddressData new];
+                    selectData.name = pickupSelfView.nameTF.text;
+                    selectData.phoneNumber = pickupSelfView.phoneTF.text;
+                    selectData.province = weakSelf.orderDefData.shopinfo.province;
+                    selectData.city = weakSelf.orderDefData.shopinfo.city;
+                    selectData.region = weakSelf.orderDefData.shopinfo.address;
+                    selectData.detailAddress = weakSelf.orderDefData.shopinfo.address;
+                    weakSelf.didselectAddress(selectData, @"1");
+                }
+            }];
+        }];
+        [_footerView.pickupStationBtn ug_addEvents:UIControlEventTouchUpInside andBlock:^(id  _Nonnull sender) {
+            [[NetWorkRequest new] listbyShopId:weakSelf.orderDefData.shopinfo.id endBlock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
+                if (error) {
+                    [self.view ug_msg:error.domain];
+                }else{
+                    SelectStationVC* vc = [SelectStationVC new];
+                    vc.dalaList = (NSArray*)result;
+                    [self.navigationController presentViewController:vc animated:YES completion:^{
+                        ;
+                    }];
+                }
+            }];
+        }];
     }
     return _footerView;
 }
@@ -125,7 +160,7 @@ static NSString *cellID = @"AddressManageCellID";
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (_didselectAddress) {
         AddressData *selectData =  [self.addreddArr objectAtIndex:indexPath.row];
-        _didselectAddress(selectData);
+        _didselectAddress(selectData, @"0");
     }
 }
 

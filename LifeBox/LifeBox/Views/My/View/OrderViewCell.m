@@ -142,7 +142,8 @@
         _collectionView.showsHorizontalScrollIndicator = NO;
         _collectionView.showsVerticalScrollIndicator = NO;
         _collectionView.backgroundColor = [UIColor whiteColor];
-        [_collectionView registerClass:[BlockCollectionViewCell class] forCellWithReuseIdentifier:@"BlockCollectionViewCell"];
+        [_collectionView registerClass:[OrderViewBodyViewCollectionCell class] forCellWithReuseIdentifier:@"OrderViewBodyViewCollectionCell"];
+        _collectionView.userInteractionEnabled = NO;
     }
     return _collectionView;
 }
@@ -151,17 +152,15 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     NSDictionary *dic = [_dataList objectAtIndex:indexPath.row];
     if (_dataList.count==1) {
-        BlockCollectionViewCell *cell = (BlockCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"BlockCollectionViewCell" forIndexPath:indexPath];
-        cell.backgroundColor = [UIColor yellowColor];
+        OrderViewBodyViewCollectionCell *cell = (OrderViewBodyViewCollectionCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"OrderViewBodyViewCollectionCell" forIndexPath:indexPath];
+
         [cell.imageView sd_setImageWithURL: UG_URL([dic stringValueForKey:@"productPic" default:@""])];
         return cell;
     }else{
-        BlockCollectionViewCell *cell = (BlockCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"BlockCollectionViewCell" forIndexPath:indexPath];
-        cell.backgroundColor = [UIColor yellowColor];
+        OrderViewBodyViewCollectionCell *cell = (OrderViewBodyViewCollectionCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"OrderViewBodyViewCollectionCell" forIndexPath:indexPath];
+ 
         [cell.imageView sd_setImageWithURL: UG_URL([dic stringValueForKey:@"productPic" default:@""])];
-        if (indexPath.row == 4) {
-            cell.backgroundColor = [UIColor redColor];
-        }
+       
         return cell;
     }
     
@@ -337,7 +336,7 @@
     
     [_bodyView setDataList:data.orderItemList];
     _fotterView.goodsAllNum.text = [NSString stringWithFormat:@"共%zd件商品",data.orderItemList.count];
-    _fotterView.allPrice.text =[NSString stringWithFormat:@"应付款: ¥%.2f",data.totalAmount];
+    _fotterView.allPrice.text =[NSString stringWithFormat:@"金额: ¥%.2f",data.totalAmount];
     NSMutableArray *images = [NSMutableArray new];
     for (NSDictionary *dic in data.orderItemList) {
         [images addObject:[dic stringValueForKey:@"productPic" default:@""]];

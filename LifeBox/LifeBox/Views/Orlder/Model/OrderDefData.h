@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "ShopInfo.h"
 NS_ASSUME_NONNULL_BEGIN
 
 /**
@@ -42,7 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(strong, nonatomic) NSString* note;// (string, optional): 订单备注 ,
 @property(strong, nonatomic) NSString* orderSn;// (string, optional): 订单编号 ,
 @property(strong, nonatomic) NSString* orderType;// (integer, optional): 订单类型：0->正常订单；1->秒杀订单 ,
-@property(strong, nonatomic) NSString* payAmount;// (number, optional): 应付金额（实际支付金额） ,
+@property(assign, nonatomic) CGFloat  payAmount;// (number, optional): 应付金额（实际支付金额） ,
 @property(strong, nonatomic) NSString* payType;// (integer, optional): 支付方式：0->未支付；1->支付宝；2->微信 ,
 @property(strong, nonatomic) NSString* paymentTime;// (string, optional): 支付时间 ,
 @property(strong, nonatomic) NSString* promotionAmount;// (number, optional): 促销优化金额（促销价、满减、阶梯价） ,
@@ -59,10 +59,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(strong, nonatomic) NSString*  status;// (integer, optional): 订单状态：0->待付款；1->待发货；2->已发货；3->已完成；4->已关闭；5->无效订单 ,
 @property(assign, nonatomic) CGFloat totalAmount;// (number, optional): 订单总金额 ,
 @property(strong, nonatomic) NSString* useIntegration;// (integer, optional): 下单时使用的积分
-@property(strong, nonatomic) NSArray * orderItemList;//商品列表
+@property(strong, nonatomic) NSArray * orderItemList;//商品列
+@property(strong, nonatomic) ShopInfo * shopinfo;
 @property(assign, nonatomic) NSInteger deliveryType;//'物流类型：0->物流配送；1->买家上门自提；2->买家自提点自提；3->骑手派送',
 
 @property(readonly, nonatomic) NSString *deliveryTypeStr;
+
 
 @end
 

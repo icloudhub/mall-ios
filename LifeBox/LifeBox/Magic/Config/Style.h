@@ -124,6 +124,7 @@ dispatch_async(dispatch_get_main_queue(), block);\
 #define S_CORedText RGBColor(232, 62, 49)
 ///绿色背景
 #define S_COGreenBack RGBColor(111, 190, 139)
+
 ///绿色字体
 #define S_COGreenText RGBColor(111, 190, 139)
 ///绿色不可点击背景

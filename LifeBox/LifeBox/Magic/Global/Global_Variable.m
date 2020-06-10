@@ -94,14 +94,21 @@ static Global_Variable *sharedInstance = nil;
     }
     return [[userinfo objectForKey:@"userinfo"] objectForKey:@"nickname"];
 }
+-(NSString *)phone{
+    NSDictionary *userinfo = [[NSUserDefaults standardUserDefaults]objectForKey:@"LoginUserInfo"];
+      if (![userinfo objectForKey:@"userinfo"]) {
+          return nil;
+      }
+      return [[userinfo objectForKey:@"userinfo"] objectForKey:@"phone"];
+}
 
 #pragma mark - 获取用户token
 -(NSString *)token {
+    
     NSDictionary *userinfo = [[NSUserDefaults standardUserDefaults] objectForKey:@"LoginUserInfo"];
     if (![userinfo objectForKey:@"userinfo"]) {
         return nil;
     }
-//    return @"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0IiwiY3JlYXRlZCI6MTU3NzQ0NDAwMTQ1MSwiZXhwIjoxNTc4MDQ4ODAxfQ.3I0radYZkxpiCVcLu_TTtW-eLLgWTOG-Jp3YH_Y8p_Y45cfJ5lnvGB0skJTiSnzJyiDvYYaeyzbJ5auDvFxaRw";
     return [NSString stringWithFormat:@"Bearer%@",[userinfo objectForKey:@"token"]];
 }
 

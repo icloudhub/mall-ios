@@ -29,6 +29,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (readonly) NSString *nickname;//用户id
 
+@property (readonly) NSString *phone;//用户id
+
 @property (readonly) NSString *token;//用户token
 
 #pragma mark - App版本
