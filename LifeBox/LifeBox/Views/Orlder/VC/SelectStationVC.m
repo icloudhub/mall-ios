@@ -7,6 +7,7 @@
 //
 
 #import "SelectStationVC.h"
+#import "NetWorkRequest+Orlder.h"
 
 @interface SelectStationVC ()<UITableViewDelegate,UITableViewDataSource>
 @property(strong, nonatomic) UITableView *tableView;
@@ -17,6 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configUI];
+    [self loadData];
 }
 
 -(void)configUI{
@@ -33,6 +35,17 @@
     [self.navigationItem setRightBarButtonItem:button];
     
 }
+-(void)loadData{
+    UG_WEAKSELF
+    [[NetWorkRequest new] listbyShopId:weakSelf.shopId endBlock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
+        if (error) {
+            [self.view ug_msg:error.domain];
+        }else{
+            weakSelf.dalaList = [NSArray modelArrayWithClass:[StationData class] json:result];
+            [weakSelf.tableView reloadData];
+        }
+    }];
+}
 -(UITableView *)tableView{
     
     if (!_tableView) {
@@ -46,16 +59,22 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.dalaList.count;
 }
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 80;
+}
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString* indentifier = @"cell";
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:indentifier];
     if (!cell) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:indentifier];
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:indentifier];
+        cell.detailTextLabel.numberOfLines = 0;
 
     }
-    cell.textLabel.text =[NSString stringWithFormat:@"%@",[_dalaList objectAtIndex:indexPath.row]] ;
+    StationData *celldata =  [_dalaList objectAtIndex:indexPath.row];
+    cell.textLabel.text =[NSString stringWithFormat:@"%@ %@",celldata.name,celldata.phoneNumber] ;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@ %@\n%@",celldata.province,celldata.city,celldata.region,celldata.detailAddress] ;
     return cell;
 }
 

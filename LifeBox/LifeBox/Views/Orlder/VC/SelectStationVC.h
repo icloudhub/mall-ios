@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "StationData.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SelectStationVC : UIViewController
 
+@property(strong, nonatomic) NSString *shopId;
 @property(strong, nonatomic) NSArray *dalaList;
 
 @end

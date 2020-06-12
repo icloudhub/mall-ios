@@ -239,6 +239,7 @@
 		8475C6FA248F91A6009B9255 /* OrderViewBodyViewCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8475C6F9248F91A6009B9255 /* OrderViewBodyViewCollectionCell.swift */; };
 		8475C6FD24908CFD009B9255 /* ShopInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8475C6FC24908CFD009B9255 /* ShopInfo.m */; };
 		8475C7002490ECA2009B9255 /* SelectStationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8475C6FF2490ECA2009B9255 /* SelectStationVC.m */; };
+		8475C7032491C5D5009B9255 /* StationData.m in Sources */ = {isa = PBXBuildFile; fileRef = 8475C7022491C5D5009B9255 /* StationData.m */; };
 		8478A26D2326384A005681CF /* CardItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8478A2612326384A005681CF /* CardItem.m */; };
 		8478A26E2326384A005681CF /* ShoppingCartController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8478A2642326384A005681CF /* ShoppingCartController.m */; };
 		8478A26F2326384A005681CF /* CarBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8478A2682326384A005681CF /* CarBottomView.m */; };
@@ -624,6 +625,8 @@
 		8475C6FC24908CFD009B9255 /* ShopInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShopInfo.m; sourceTree = "<group>"; };
 		8475C6FE2490ECA1009B9255 /* SelectStationVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectStationVC.h; sourceTree = "<group>"; };
 		8475C6FF2490ECA2009B9255 /* SelectStationVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectStationVC.m; sourceTree = "<group>"; };
+		8475C7012491C5D5009B9255 /* StationData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StationData.h; sourceTree = "<group>"; };
+		8475C7022491C5D5009B9255 /* StationData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StationData.m; sourceTree = "<group>"; };
 		8478A2602326384A005681CF /* CardItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardItem.h; sourceTree = "<group>"; };
 		8478A2612326384A005681CF /* CardItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardItem.m; sourceTree = "<group>"; };
 		8478A2632326384A005681CF /* ShoppingCartController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingCartController.h; sourceTree = "<group>"; };
@@ -1580,6 +1583,8 @@
 				84B954E12324E3BE00A7E8D2 /* OrderDefData.m */,
 				84BC7F2A243723F00044874F /* OrderListData.h */,
 				84BC7F2B243723F00044874F /* OrderListData.m */,
+				8475C7012491C5D5009B9255 /* StationData.h */,
+				8475C7022491C5D5009B9255 /* StationData.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2013,6 +2018,7 @@
 				0531EA032338BB2B00775D79 /* SetPasswordController.m in Sources */,
 				05BBBB7B230F98B500C01FC3 /* MyToolCell.m in Sources */,
 				84C29209235DEF5B00034213 /* NetWorkRequest+Business.m in Sources */,
+				8475C7032491C5D5009B9255 /* StationData.m in Sources */,
 				0537918623158AE500DF4DA0 /* HomeGoodsCell.m in Sources */,
 				05C46970237B9EC200D21EA1 /* NSMutableString+TagReplace.m in Sources */,
 				8437F2D223F5278400CC0418 /* GoodsClassesVC.m in Sources */,

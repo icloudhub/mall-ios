@@ -89,17 +89,14 @@ static NSString *cellID = @"AddressManageCellID";
             }];
         }];
         [_footerView.pickupStationBtn ug_addEvents:UIControlEventTouchUpInside andBlock:^(id  _Nonnull sender) {
-            [[NetWorkRequest new] listbyShopId:weakSelf.orderDefData.shopinfo.id endBlock:^(NSDictionary * _Nonnull result, NSError * _Nonnull error) {
-                if (error) {
-                    [self.view ug_msg:error.domain];
-                }else{
-                    SelectStationVC* vc = [SelectStationVC new];
-                    vc.dalaList = (NSArray*)result;
-                    [self.navigationController presentViewController:vc animated:YES completion:^{
-                        ;
-                    }];
-                }
+            
+            SelectStationVC* vc = [SelectStationVC new];
+            vc.shopId = weakSelf.orderDefData.shopinfo.id;
+            [self.navigationController presentViewController:vc animated:YES completion:^{
+                ;
             }];
+            
+            
         }];
     }
     return _footerView;
