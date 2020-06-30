@@ -95,8 +95,28 @@ static NSString *cellID = @"AddressManageCellID";
             [self.navigationController presentViewController:vc animated:YES completion:^{
                 ;
             }];
-            
-            
+            vc.selectStationVCBlock = ^(StationData * _Nonnull stationData) {
+                [vc dismissViewControllerAnimated:YES completion:^{
+                    PickupSelfView *pickupSelfView = [PickupSelfView new];
+                    pickupSelfView.nameTF.text = Global_Variable.shared.nickname;
+                    pickupSelfView.phoneTF.text = Global_Variable.shared.phone;
+                    pickupSelfView.addressLab.text = [NSString stringWithFormat:@"%@ %@ %@ \n%@",stationData.province ,stationData.city,stationData.region,stationData.detailAddress];
+                    [self.view ug_alertview:pickupSelfView];
+                    [pickupSelfView.commitBtn ug_addEvents:UIControlEventTouchUpInside andBlock:^(id  _Nonnull sender) {
+                        if (weakSelf.didselectAddress) {
+                            AddressData *selectData =  [AddressData new];
+                            selectData.name = pickupSelfView.nameTF.text;
+                            selectData.phoneNumber = pickupSelfView.phoneTF.text;
+                            selectData.province = stationData.province;
+                            selectData.city = stationData.city;
+                            selectData.region = stationData.region;
+                            selectData.detailAddress = stationData.detailAddress;
+                            weakSelf.didselectAddress(selectData, @"2");
+                        }
+                    }];
+                }];
+                
+            };
         }];
     }
     return _footerView;

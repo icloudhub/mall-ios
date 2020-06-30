@@ -37,9 +37,13 @@
         UIViewController *viewcontroller =  [cls new];
         [DoraemonHomeWindow openPlugin:viewcontroller];
     }];
-    
+    [[DoraemonManager shareInstance] addPluginWithTitle:@"商家" icon:@"doraemon_ui" desc:@"商家" pluginName:@"" atModule:@"商家" handle:^(NSDictionary * _Nonnull itemData) {
+        Class cls = NSClassFromString(@"UGBox.WKwebViewController");
+        UIViewController *viewcontroller =  [cls new];
+        [viewcontroller setValue:[NSString stringWithFormat:@"%@:15676",[[Global_Variable shared] serviceIP]] forKey:@"url"];
+        [DoraemonHomeWindow openPlugin:viewcontroller];
+    }];
 
-    
     //接口测试
     [[DoraemonManager shareInstance] addPluginWithTitle:@"接口配置" icon:@"doraemon_ui" desc:@"接口配置" pluginName:@"DorConfigServiceproVC" atModule:@"接口测试"];
     [[DoraemonManager shareInstance] addPluginWithTitle:@"接口测试" icon:@"doraemon_ui" desc:@"接口测试" pluginName:@"DorSwagger" atModule:@"接口测试"];

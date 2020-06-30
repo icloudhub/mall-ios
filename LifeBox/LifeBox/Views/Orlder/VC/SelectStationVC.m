@@ -83,6 +83,12 @@
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
     return YES;
 }
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (_selectStationVCBlock) {
+        StationData *celldata =  [_dalaList objectAtIndex:indexPath.row];
+        _selectStationVCBlock(celldata);
+    }
+}
 
 -(void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
